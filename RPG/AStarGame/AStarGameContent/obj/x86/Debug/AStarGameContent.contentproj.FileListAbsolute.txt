@@ -1,0 +1,2 @@
+c:\users\element\documents\visual studio 2010\Projects\AStarGame\AStarGame\AStarGameContent\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\element\Documents\SCHOOL\CS134\Homework2\AStarGame\AStarGame\AStarGameContent\obj\x86\Debug\ResolveAssemblyReference.cache

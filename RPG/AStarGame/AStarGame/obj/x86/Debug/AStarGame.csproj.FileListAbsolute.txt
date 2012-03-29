@@ -1,0 +1,22 @@
+c:\users\element\documents\visual studio 2010\Projects\AStarGame\AStarGame\AStarGame\bin\x86\Debug\AStarGame.exe
+c:\users\element\documents\visual studio 2010\Projects\AStarGame\AStarGame\AStarGame\bin\x86\Debug\AStarGame.pdb
+c:\users\element\documents\visual studio 2010\Projects\AStarGame\AStarGame\AStarGame\obj\x86\Debug\ResolveAssemblyReference.cache
+c:\users\element\documents\visual studio 2010\Projects\AStarGame\AStarGame\AStarGame\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+c:\users\element\documents\visual studio 2010\Projects\AStarGame\AStarGame\AStarGame\obj\x86\Debug\AStarGame.exe
+c:\users\element\documents\visual studio 2010\Projects\AStarGame\AStarGame\AStarGame\obj\x86\Debug\AStarGame.pdb
+C:\Users\element\Documents\SCHOOL\CS134\Homework2\AStarGame\AStarGame\AStarGame\bin\x86\Debug\AStarGame.exe
+C:\Users\element\Documents\SCHOOL\CS134\Homework2\AStarGame\AStarGame\AStarGame\bin\x86\Debug\AStarGame.pdb
+C:\Users\element\Documents\SCHOOL\CS134\Homework2\AStarGame\AStarGame\AStarGame\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\element\Documents\SCHOOL\CS134\Homework2\AStarGame\AStarGame\AStarGame\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Users\element\Documents\SCHOOL\CS134\Homework2\AStarGame\AStarGame\AStarGame\obj\x86\Debug\AStarGame.exe
+C:\Users\element\Documents\SCHOOL\CS134\Homework2\AStarGame\AStarGame\AStarGame\obj\x86\Debug\AStarGame.pdb
+C:\Users\element\Documents\SCHOOL\CS134\Homework2\AStarGame\AStarGame\AStarGame\bin\x86\Debug\Content\Grass.xnb
+C:\Users\element\Documents\SCHOOL\CS134\Homework2\AStarGame\AStarGame\AStarGame\bin\x86\Debug\Content\LavaRocks.xnb
+C:\Users\element\Documents\SCHOOL\CS134\Homework2\AStarGame\AStarGame\AStarGame\bin\x86\Debug\Content\Monster.xnb
+C:\Users\element\Documents\SCHOOL\CS134\Homework2\AStarGame\AStarGame\AStarGame\bin\x86\Debug\Content\Player.xnb
+C:\Users\element\Documents\SCHOOL\CS134\Homework2\AStarGame\AStarGame\AStarGame\bin\x86\Debug\Content\Swamp.xnb
+C:\Users\element\Documents\SCHOOL\CS134\Homework2\AStarGame\AStarGame\AStarGame\bin\x86\Debug\Content\Trees.xnb
+C:\Users\element\Documents\SCHOOL\CS134\Homework2\AStarGame\AStarGame\AStarGame\bin\x86\Debug\Content\Wall.xnb
+C:\Users\element\Documents\SCHOOL\CS134\Homework2\AStarGame\AStarGame\AStarGame\bin\x86\Debug\Content\Water.xnb
+C:\Users\element\Documents\SCHOOL\CS134\Homework2\AStarGame\AStarGame\AStarGame\bin\x86\Debug\Content\gameFont.xnb
+C:\Users\element\Documents\SCHOOL\CS134\Homework2\AStarGame\AStarGame\AStarGame\bin\x86\Debug\Content\AStarWayPoint.xnb
