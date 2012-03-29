@@ -108,6 +108,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class1.cs" />
+    <Compile Include="Class2.cs" />
     <Compile Include="GameState.cs" />
     <Compile Include="TileType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
