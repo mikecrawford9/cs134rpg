@@ -78,7 +78,7 @@ namespace AStarGame
         {
             for (int i = 0; i < 2; i++)
                 for (int j = 0; j < 4; j++)
-                    tools[i][j].Draw(spriteBatch);
+                    tools[i][j].Draw(spriteBatch, tools[i][j].sq);
 
             spriteBatch.Draw(pixel, astarbutton, Color.LightGray);
             spriteBatch.Draw(pixel, playbutton, Color.Green);

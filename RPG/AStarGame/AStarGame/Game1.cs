@@ -25,7 +25,11 @@ namespace AStarGame
     public class Game1 : Microsoft.Xna.Framework.Game
     {
         const int MONSTER_MOVE_DELAY = 1000;
-        const int PLAYER_MOVE_DELAY = 750;
+        const int PLAYER_MOVE_DELAY = 100;
+
+        const int NUM_X_TILES = 512;
+        const int NUM_Y_TILES = 512;
+
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
         SpriteFont font;
@@ -104,7 +108,8 @@ namespace AStarGame
             tools[1][2] = new Tool(TileType.WALL, Content.Load<Texture2D>("Wall"), true, 0);
             tools[1][3] = new Tool(TileType.MONSTER, Content.Load<Texture2D>("Monster"), false, 0);
 
-            map = new TileMap(10, 10, 16, whitepixel, tools[0][0]);
+            //map = new TileMap(10, 10, 17, 512, 512, whitepixel, tools[0][0]);
+            map = new TileMap(10, 10, 17, NUM_X_TILES, NUM_Y_TILES, whitepixel, tools);
             toolmap = new ToolMap(578, 100, whitepixel, tools, font);
             // TODO: use this.Content to load your game content here
         }
@@ -135,12 +140,13 @@ namespace AStarGame
             {
                 case GameState.EDIT:
                     edited = true;
+                    catchInput(gameTime, false);
                     map.resetPlayers();
                     map.refreshTiles();
                     map.Update(toolmap.getSelected());
                     astartile = null;
                     break;
-                case GameState.ASTAR:
+                /*case GameState.ASTAR:
                     //start a*star code here...
                     map.unhighlight();
                     if (edited)
@@ -153,6 +159,7 @@ namespace AStarGame
                     }
                     map.refreshTiles();
                     break;
+                */
                 case GameState.RUNNING:
                     //start game here...
                     map.unhighlight();
@@ -167,7 +174,7 @@ namespace AStarGame
             base.Update(gameTime);
         }
 
-        private Tile createAStarHighlight(Tile best)
+        /*private Tile createAStarHighlight(Tile best)
         {
             Tile start = addToAStarHighlight(best, null);
             Tile cur = best;
@@ -182,9 +189,9 @@ namespace AStarGame
                 cur = next;
             }
             return curhl;
-        }
+        }*/
 
-        private Tile addToAStarHighlight(Tile toadd, Tile prev)
+        /*private Tile addToAStarHighlight(Tile toadd, Tile prev)
         {
             int x = toadd.getX();
             int y = toadd.getY();
@@ -198,6 +205,33 @@ namespace AStarGame
             Tile newadd = new Tile(mapx, mapy, x, y, len, astarwaypoint, Color.White);
             newadd.setPrevious(prev);
             return newadd;
+        }*/
+
+        public void catchInput(GameTime gameTime, bool noclip)
+        {
+            int currenttime = (int)gameTime.TotalGameTime.TotalMilliseconds;
+            if (currenttime - lastplayermove > PLAYER_MOVE_DELAY)
+            {
+                KeyboardState kb = Keyboard.GetState();
+                if (kb.IsKeyDown(Keys.Up))
+                {
+                    map.shiftUp(1, noclip);
+                }
+                else if (kb.IsKeyDown(Keys.Down))
+                {
+                    map.shiftDown(1, noclip);
+                }
+                else if (kb.IsKeyDown(Keys.Left))
+                {
+                    map.shiftLeft(1, noclip);
+                }
+                else if (kb.IsKeyDown(Keys.Right))
+                {
+                    map.shiftRight(1, noclip);
+                }
+
+                lastplayermove = currenttime;
+            }
         }
 
         private Tile processAStar()
@@ -397,7 +431,7 @@ namespace AStarGame
             return ret;
         }
 
-        private Tile addToBestPath(List<Tile> bestpath, Tile toadd, Tile prev)
+        /*private Tile addToBestPath(List<Tile> bestpath, Tile toadd, Tile prev)
         {
             int x = toadd.getX();
             int y = toadd.getY();
@@ -412,7 +446,7 @@ namespace AStarGame
             newadd.setPrevious(prev);
             bestpath.Add(newadd);
             return newadd;
-        }
+        }*/
 
         protected void drawErrors(SpriteBatch spriteBatch)
         {
@@ -447,8 +481,8 @@ namespace AStarGame
             map.Draw(spriteBatch);
             toolmap.Draw(spriteBatch, state);
 
-            if(state == GameState.ASTAR)
-                drawAStarTiles(spriteBatch);
+            //if(state == GameState.ASTAR)
+           //     drawAStarTiles(spriteBatch);
 
             drawErrors(spriteBatch);
             spriteBatch.End();
@@ -456,7 +490,7 @@ namespace AStarGame
             base.Draw(gameTime);
         }
 
-        private void drawAStarTiles(SpriteBatch spriteBatch)
+        /*private void drawAStarTiles(SpriteBatch spriteBatch)
         {
             if (astartile != null)
             {
@@ -467,6 +501,6 @@ namespace AStarGame
                     cur = cur.getPrevious();
                 }
             }
-        }
+        }*/
     }
 }

@@ -15,7 +15,7 @@ namespace AStarGame
     class Tile: IComparable<Tile>, IEquatable<Tile>
     {
         Texture2D pixel;
-        Rectangle sq;
+        public Rectangle sq;
         Color curcolor;
         TileType type;
         int arrx;
@@ -60,7 +60,7 @@ namespace AStarGame
             this.tool = tool;
         }
 
-        public void Draw(SpriteBatch spriteBatch)
+        public void Draw(SpriteBatch spriteBatch, Rectangle sq)
         {
             spriteBatch.Draw(pixel, sq, curcolor);
         }

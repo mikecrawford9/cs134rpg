@@ -15,14 +15,24 @@ namespace AStarGame
 {
     class TileMap
     {
-        public const int MAP_HEIGHT = 512;
-        public const int MAP_WIDTH = 512;
+        public const int VIEW_HEIGHT = 512;
+        public const int VIEW_WIDTH = 512;
 
         private int x;
         private int y;
         private int size;
         private int pixelsperside;
+        private int totalmapsize;
+        private int xtiles;
+        private int ytiles;
+
+        int curxtilemin;
+        int curytilemin;
+
+        int center;
+
         Tile[][] map;
+        Rectangle[][] displaytiles;
 
         Tile highlighted;
 
@@ -35,21 +45,44 @@ namespace AStarGame
         int monsterx;
         int monstery;
 
-        public TileMap(int x, int y, int size, Texture2D pixel, Tool initial)
+        public TileMap(int x, int y, int size, int xtiles, int ytiles, Texture2D pixel, Tool[][] tools)
         {
             this.size = size;
-            double tss = MAP_HEIGHT / size;
+            this.xtiles = xtiles;
+            this.ytiles = ytiles;
+            double tss = VIEW_HEIGHT / size;
             int tilesidesize = (int)Math.Floor(tss);
+            totalmapsize = tilesidesize * size;
+            curxtilemin = 0;
+            curytilemin = 0;
+
+            int curtoolx = tools.Length-1;
+            int curtooly = tools[0].Length-1;
+
             pixelsperside = tilesidesize;
-
-            map = new Tile[size][];
-
+            center = (int)Math.Ceiling(size / 2.0);
+            displaytiles = new Rectangle[size][];
             for (int i = 0; i < size; i++)
             {
-                map[i] = new Tile[size];
+                displaytiles[i] = new Rectangle[size];
                 for (int j = 0; j < size; j++)
                 {
-                    map[i][j] = new Tile(i, j, (x + i * tilesidesize), (y + j * tilesidesize), tilesidesize, initial);
+                    displaytiles[i][j] = new Rectangle(x + i*tilesidesize, y + j*tilesidesize, pixelsperside, pixelsperside);
+                }
+            }
+
+            Random randval = new Random();
+
+            map = new Tile[xtiles][];
+
+            for (int i = 0; i < xtiles; i++)
+            {
+                map[i] = new Tile[ytiles];
+                for (int j = 0; j < ytiles; j++)
+                {
+                    int currandx = randval.Next(0, 2);
+                    int currandy = randval.Next(0, 3);
+                    map[i][j] = new Tile(i, j, (x + i * tilesidesize), (y + j * tilesidesize), tilesidesize, tools[currandx][currandy]);
                 }
             }
 
@@ -57,15 +90,18 @@ namespace AStarGame
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            for (int i = 0; i < size; i++)
-                for (int j = 0; j < size; j++)
-                    map[i][j].Draw(spriteBatch);
+            int i, ia, j, ja;
+            for (ia = 0, i = curxtilemin; i < (size + curxtilemin) && i < xtiles && ia < size; i++, ia++)
+                for (ja = 0, j = curytilemin; j < (size + curytilemin) && j < ytiles && ja < size; j++, ja++)
+                    map[i][j].Draw(spriteBatch, displaytiles[ia][ja]);
+
+
 
             if (playertile != null)
-                playertile.Draw(spriteBatch);
+                playertile.Draw(spriteBatch, displaytiles[center-1][center-1]);
 
-            if (monstertile != null)
-                monstertile.Draw(spriteBatch);
+            //if (monstertile != null)
+            //    monstertile.Draw(spriteBatch);
         }
 
         public void Update(Tile selectedTool)
@@ -75,8 +111,8 @@ namespace AStarGame
             int mousey = mouseState.Y;
 
             //if mouse is within the map, do mouse over...
-            if ((mousex > 10 && mousex < MAP_WIDTH + 10) &&
-                (mousey > 10 && mousey < MAP_HEIGHT + 10))
+            if ((mousex > 10 && mousex < totalmapsize + 10) &&
+                (mousey > 10 && mousey < totalmapsize + 10))
             {
                 double tempx = (mousex - 10) / pixelsperside;
                 int tilex = (int)Math.Floor(tempx);
@@ -99,8 +135,8 @@ namespace AStarGame
                                 playerx = tilex;
                                 playery = tiley;
 
-                                playertile.setX(cur.getX());
-                                playertile.setY(cur.getY());
+                                //playertile.setX(cur.getX());
+                                //playertile.setY(cur.getY());
                                 playertile.setMapX(tilex);
                                 playertile.setMapY(tiley);
                             }
@@ -118,8 +154,8 @@ namespace AStarGame
                                 monsterx = tilex;
                                 monstery = tiley;
 
-                                monstertile.setX(cur.getX());
-                                monstertile.setY(cur.getY());
+                                //monstertile.setX(cur.getX());
+                                //monstertile.setY(cur.getY());
                                 monstertile.setMapX(tilex);
                                 monstertile.setMapY(tiley);
                             }
@@ -127,7 +163,7 @@ namespace AStarGame
                     }
                     else
                     {
-                        map[tilex][tiley].applyTool(selectedTool);
+                        map[curxtilemin + tilex][curytilemin + tiley].applyTool(selectedTool);
                     }
 
                 }
@@ -135,10 +171,40 @@ namespace AStarGame
                         highlighted.unhighlight();
 
                     
-                    highlighted = map[tilex][tiley];
+                    highlighted = map[curxtilemin + tilex][curytilemin + tiley];
                     highlighted.highlight();
             }
 
+        }
+
+        public void shiftDown(int numtiles, bool noclip)
+        {
+            int newcurytilemin = curytilemin + numtiles;
+            if (newcurytilemin < (ytiles-size))
+            {
+                curytilemin = newcurytilemin;
+            }
+        }
+
+        public void shiftUp(int numtiles, bool noclip)
+        {
+            int newcurytilemin = curytilemin - numtiles;
+            if (newcurytilemin >= 0)
+                curytilemin = newcurytilemin;
+        }
+
+        public void shiftLeft(int numtiles, bool noclip)
+        {
+            int newcurxtilemin = curxtilemin - numtiles;
+            if (newcurxtilemin >= 0)
+                curxtilemin = newcurxtilemin;
+        }
+
+        public void shiftRight(int numtiles, bool noclip)
+        {
+            int newcurxtilemin = curxtilemin + numtiles;
+            if (newcurxtilemin < (xtiles-size))
+                curxtilemin = newcurxtilemin;
         }
 
         public Tile getTileAt(int x, int y)
@@ -172,8 +238,8 @@ namespace AStarGame
             {
                 monstertile.setMapX(newloc.getMapX());
                 monstertile.setMapY(newloc.getMapY());
-                monstertile.setX(newloc.getX());
-                monstertile.setY(newloc.getY());
+                //monstertile.setX(newloc.getX());
+                //monstertile.setY(newloc.getY());
             }
             else
                 Console.WriteLine("Monster is null!!");
@@ -185,8 +251,8 @@ namespace AStarGame
             {
                 playertile.setMapX(newloc.getMapX());
                 playertile.setMapY(newloc.getMapY());
-                playertile.setX(newloc.getX());
-                playertile.setY(newloc.getY());
+                //playertile.setX(newloc.getX());
+                //playertile.setY(newloc.getY());
             }
             else
                 Console.WriteLine("Player is null!!");
@@ -213,16 +279,16 @@ namespace AStarGame
             Tile p = map[playerx][playery];
             if (playertile != null)
             {
-                playertile.setX(p.getX());
-                playertile.setY(p.getY());
+                //playertile.setX(p.getX());
+                //playertile.setY(p.getY());
                 playertile.setMapX(playerx);
                 playertile.setMapY(playery);
             }
             Tile m = map[monsterx][monstery];
             if (monstertile != null)
             {
-                monstertile.setX(m.getX());
-                monstertile.setY(m.getY());
+                //monstertile.setX(m.getX());
+                //monstertile.setY(m.getY());
                 monstertile.setMapX(monsterx);
                 monstertile.setMapY(monstery);
             }

@@ -7,7 +7,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\element\Documents\SCHOOL\CS134\Homework2\AStarGame\AStarGame\AStarGame\bin\x86\Debug\Content\Grass.xnb</Output>
+      <Output>C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Grass.xnb</Output>
       <Time>2012-03-04T16:14:34.1051548-08:00</Time>
     </Item>
     <Item>
@@ -16,7 +16,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\element\Documents\SCHOOL\CS134\Homework2\AStarGame\AStarGame\AStarGame\bin\x86\Debug\Content\LavaRocks.xnb</Output>
+      <Output>C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\LavaRocks.xnb</Output>
       <Time>2012-03-04T16:16:43.75057-08:00</Time>
     </Item>
     <Item>
@@ -25,7 +25,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\element\Documents\SCHOOL\CS134\Homework2\AStarGame\AStarGame\AStarGame\bin\x86\Debug\Content\Monster.xnb</Output>
+      <Output>C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Monster.xnb</Output>
       <Time>2012-03-04T16:06:23.1100714-08:00</Time>
     </Item>
     <Item>
@@ -34,7 +34,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\element\Documents\SCHOOL\CS134\Homework2\AStarGame\AStarGame\AStarGame\bin\x86\Debug\Content\Player.xnb</Output>
+      <Output>C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Player.xnb</Output>
       <Time>2012-03-04T16:08:56.1058223-08:00</Time>
     </Item>
     <Item>
@@ -43,7 +43,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\element\Documents\SCHOOL\CS134\Homework2\AStarGame\AStarGame\AStarGame\bin\x86\Debug\Content\Swamp.xnb</Output>
+      <Output>C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Swamp.xnb</Output>
       <Time>2012-03-04T16:18:12.8656671-08:00</Time>
     </Item>
     <Item>
@@ -52,7 +52,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\element\Documents\SCHOOL\CS134\Homework2\AStarGame\AStarGame\AStarGame\bin\x86\Debug\Content\Trees.xnb</Output>
+      <Output>C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Trees.xnb</Output>
       <Time>2012-03-04T16:17:17.3114896-08:00</Time>
     </Item>
     <Item>
@@ -61,7 +61,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\element\Documents\SCHOOL\CS134\Homework2\AStarGame\AStarGame\AStarGame\bin\x86\Debug\Content\Wall.xnb</Output>
+      <Output>C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Wall.xnb</Output>
       <Time>2012-03-04T16:23:01.4871753-08:00</Time>
     </Item>
     <Item>
@@ -70,17 +70,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\element\Documents\SCHOOL\CS134\Homework2\AStarGame\AStarGame\AStarGame\bin\x86\Debug\Content\Water.xnb</Output>
+      <Output>C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Water.xnb</Output>
       <Time>2012-03-04T16:15:43.4851231-08:00</Time>
-    </Item>
-    <Item>
-      <Source>gameFont.spritefont</Source>
-      <Name>gameFont</Name>
-      <Importer>FontDescriptionImporter</Importer>
-      <Processor>FontDescriptionProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\element\Documents\SCHOOL\CS134\Homework2\AStarGame\AStarGame\AStarGame\bin\x86\Debug\Content\gameFont.xnb</Output>
-      <Time>2011-04-01T10:42:38-07:00</Time>
     </Item>
     <Item>
       <Source>AStarWayPoint.png</Source>
@@ -88,8 +79,17 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\element\Documents\SCHOOL\CS134\Homework2\AStarGame\AStarGame\AStarGame\bin\x86\Debug\Content\AStarWayPoint.xnb</Output>
+      <Output>C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\AStarWayPoint.xnb</Output>
       <Time>2012-03-04T19:12:34.9090618-08:00</Time>
+    </Item>
+    <Item>
+      <Source>gameFont.spritefont</Source>
+      <Name>gameFont</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\gameFont.xnb</Output>
+      <Time>2011-04-01T10:42:38-07:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
@@ -97,10 +97,10 @@
       <TargetProfile>HiDef</TargetProfile>
       <BuildConfiguration>Debug</BuildConfiguration>
       <CompressContent>false</CompressContent>
-      <RootDirectory>C:\Users\element\Documents\SCHOOL\CS134\Homework2\AStarGame\AStarGame\AStarGameContent\</RootDirectory>
-      <LoggerRootDirectory>C:\Users\element\Documents\SCHOOL\CS134\Homework2\AStarGame\AStarGame\AStarGame\</LoggerRootDirectory>
-      <IntermediateDirectory>C:\Users\element\Documents\SCHOOL\CS134\Homework2\AStarGame\AStarGame\AStarGameContent\obj\x86\Debug\</IntermediateDirectory>
-      <OutputDirectory>C:\Users\element\Documents\SCHOOL\CS134\Homework2\AStarGame\AStarGame\AStarGame\bin\x86\Debug\Content\</OutputDirectory>
+      <RootDirectory>C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGameContent\</RootDirectory>
+      <LoggerRootDirectory>C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\</LoggerRootDirectory>
+      <IntermediateDirectory>C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGameContent\obj\x86\Debug\</IntermediateDirectory>
+      <OutputDirectory>C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\</OutputDirectory>
     </Settings>
     <Assemblies>
       <Assembly>

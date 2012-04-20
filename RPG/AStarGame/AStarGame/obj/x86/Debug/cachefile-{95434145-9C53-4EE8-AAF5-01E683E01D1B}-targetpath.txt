@@ -6,5 +6,5 @@ Content\Swamp.xnb
 Content\Trees.xnb
 Content\Wall.xnb
 Content\Water.xnb
-Content\gameFont.xnb
 Content\AStarWayPoint.xnb
+Content\gameFont.xnb
