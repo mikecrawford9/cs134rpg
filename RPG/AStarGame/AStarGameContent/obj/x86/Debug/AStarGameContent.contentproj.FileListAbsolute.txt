@@ -1,3 +1,4 @@
 c:\users\element\documents\visual studio 2010\Projects\AStarGame\AStarGame\AStarGameContent\obj\x86\Debug\ResolveAssemblyReference.cache
 C:\Users\element\Documents\SCHOOL\CS134\Homework2\AStarGame\AStarGame\AStarGameContent\obj\x86\Debug\ResolveAssemblyReference.cache
 C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGameContent\obj\x86\Debug\ResolveAssemblyReference.cache
+F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\CS 134 RPG\cs134rpg\cs134rpg\cs134rpg\cs134rpg\RPG\AStarGame\AStarGameContent\obj\x86\Debug\ResolveAssemblyReference.cache
