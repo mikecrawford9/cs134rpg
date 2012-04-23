@@ -121,6 +121,7 @@
     <Content Include="Game.ico" />
     <Content Include="GameThumbnail.png" />
     <Content Include="Sprite Resources.txt" />
+    <Content Include="Requirements.txt" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\AStarGameContent\AStarGameContent.contentproj">
