@@ -12,27 +12,35 @@ using System.Linq;
 using System.Text;
 using System.Reflection;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Audio;
+using Microsoft.Xna.Framework.GamerServices;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using Microsoft.Xna.Framework.Media;
 
 namespace AStarGame
 {
-    public enum TileType { MONSTER = 1, PLAYER, GRASS, TREES, WALL, WATER, SWAMP, ROCKS};
+    public enum TileType { MONSTER = 1, PLAYER, GRASS, TREES, WALL, WATER, SWAMP, ROCKS, MOUNTAIN};
 
     class WorldTileAttribute : Attribute
     {
-        internal WorldTileAttribute(TileType type, Texture2D texture, bool isObstacle, byte cost)
+        
+        internal WorldTileAttribute(TileType type, String texturePath, bool isObstacle, byte cost)
         {
             this.tileType = type;
             this.texture = texture;
             this.isObstacle = isObstacle;
             this.cost = cost;
+            this.info = "WorldTile [TileType: \"" + type + "\", Texture Path: \""
+                + texturePath + "\", Is Obstacle: \"" +isObstacle + "\", Terrain Cost: \"" + cost + "\"]";
         }
         public TileType tileType { get; private set; }
-        public Texture2D texture { get; private set; }
+        public String texture { get; private set; }
         public bool isObstacle { get; private set; }
         public byte cost { get; private set; }
+        public String info { get; private set; }
     }
+
 
     public static class WorldTiles
     {
@@ -51,7 +59,7 @@ namespace AStarGame
         {
             return GetAttribute(t).tileType;
         }
-        public static Texture2D GetTexture(this WorldTile t)
+        public static String GetTexture(this WorldTile t)
         {
             return GetAttribute(t).texture;
         }
@@ -63,10 +71,24 @@ namespace AStarGame
         {
             return GetAttribute(t).cost;
         }
+        
+        public static String GetInformation(this WorldTile t)
+        {
+            return GetAttribute(t).info;
+        }
     }
 
     public enum WorldTile
     {
+        [WorldTileAttribute(TileType.GRASS, "Tiles/Grass", false, 1)] GRASS,
+        [WorldTileAttribute(TileType.TREES, "Tiles/Trees", false, 2)] TREES,
+        [WorldTileAttribute(TileType.SWAMP, "Tiles/Swamp", false, 4)] SWAMP,
+        [WorldTileAttribute(TileType.MOUNTAIN, "Tiles/MountainRange", false, 0)] MOUNTAIN,
+        [WorldTileAttribute(TileType.PLAYER, "Tiles/Player", false, 0)] PLAYER,
+        [WorldTileAttribute(TileType.WATER, "Tiles/Water", false, 6)] WATER,
+        [WorldTileAttribute(TileType.ROCKS, "Tiles/LavaRocks", false, 8)] ROCKS,
+        [WorldTileAttribute(TileType.WALL, "Tiles/Wall", false, 0)] WALL,
+        [WorldTileAttribute(TileType.MONSTER, "Tiles/Monster", false, 0)] MONSTER,
 
     }
 }

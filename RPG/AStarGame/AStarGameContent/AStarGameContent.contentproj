@@ -42,50 +42,50 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Grass.png">
+    <Compile Include="Tiles\Grass.png">
       <Name>Grass</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="LavaRocks.png">
+    <Compile Include="Tiles\LavaRocks.png">
       <Name>LavaRocks</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Monster.png">
+    <Compile Include="Tiles\Monster.png">
       <Name>Monster</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Player.png">
+    <Compile Include="Tiles\Player.png">
       <Name>Player</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Swamp.png">
+    <Compile Include="Tiles\Swamp.png">
       <Name>Swamp</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="Trees.png">
+    <Compile Include="Tiles\Trees.png">
       <Name>Trees</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="Wall.png">
+    <Compile Include="Tiles\Wall.png">
       <Name>Wall</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="Water.png">
+    <Compile Include="Tiles\Water.png">
       <Name>Water</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
@@ -101,6 +101,87 @@
   <ItemGroup>
     <Compile Include="AStarWayPoint.png">
       <Name>AStarWayPoint</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Tiles\Mountain to Grass Demo.png">
+      <Name>Mountain to Grass Demo</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Tiles\Pixel_Mountain_by_Captincroc.png">
+      <Name>Pixel_Mountain_by_Captincroc</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Tiles\Pixel_Mountain_by_Captincroc_32.png">
+      <Name>Pixel_Mountain_by_Captincroc_32</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Tiles\SwampToGrassBottom.png">
+      <Name>SwampToGrassBottom</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Tiles\SwampToGrassBottomLeft.png">
+      <Name>SwampToGrassBottomLeft</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Tiles\SwampToGrassLeft.png">
+      <Name>SwampToGrassLeft</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Tiles\SwampToGrassRight.png">
+      <Name>SwampToGrassRight</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Tiles\SwampToGrassTop.png">
+      <Name>SwampToGrassTop</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Tiles\SwampToGrassTopLeft.png">
+      <Name>SwampToGrassTopLeft</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Tiles\TransitionTilesDemo.png">
+      <Name>TransitionTilesDemo</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Tiles\Mountain Range.png">
+      <Name>Mountain Range</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Tiles\images.jpg">
+      <Name>images</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Tiles\Mountain Range Bottom.png">
+      <Name>Mountain Range Bottom</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Tiles\Mountain Range Left.png">
+      <Name>Mountain Range Left</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Tiles\Mountain to Grass Demo 2.png">
+      <Name>Mountain to Grass Demo 2</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>

@@ -9,21 +9,27 @@ Assignment: Project 2
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
-using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.GamerServices;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 
+
 namespace AStarGame
 {
+
+
+
     /// <summary>
     /// This is the main type for your game
     /// </summary>
     public class Game1 : Microsoft.Xna.Framework.Game
     {
+        [DllImport("user32.dll", CharSet = CharSet.Auto)]
+        public static extern uint MessageBox(IntPtr hWnd, String text, String caption, uint type);
         const int MONSTER_MOVE_DELAY = 1000;
         const int PLAYER_MOVE_DELAY = 100;
 
@@ -99,14 +105,22 @@ namespace AStarGame
             tools[0] = new Tool[4];
             tools[1] = new Tool[4];
 
-            tools[0][0] = new Tool(TileType.GRASS, Content.Load<Texture2D>("Grass"), false, 1);
-            tools[0][1] = new Tool(TileType.TREES, Content.Load<Texture2D>("Trees"), false, 2);
-            tools[0][2] = new Tool(TileType.SWAMP, Content.Load<Texture2D>("Swamp"), false, 4);
-            tools[0][3] = new Tool(TileType.PLAYER, Content.Load<Texture2D>("Player"), false, 0);
-            tools[1][0] = new Tool(TileType.WATER, Content.Load<Texture2D>("Water"), false, 6);
-            tools[1][1] = new Tool(TileType.ROCKS, Content.Load<Texture2D>("LavaRocks"), false, 8);
-            tools[1][2] = new Tool(TileType.WALL, Content.Load<Texture2D>("Wall"), true, 0);
-            tools[1][3] = new Tool(TileType.MONSTER, Content.Load<Texture2D>("Monster"), false, 0);
+            tools[0][0] = new Tool(TileType.GRASS, Content.Load<Texture2D>("Tiles/Grass"), false, 1);
+            tools[0][1] = new Tool(TileType.TREES, Content.Load<Texture2D>("Tiles/Trees"), false, 2);
+            tools[0][2] = new Tool(TileType.SWAMP, Content.Load<Texture2D>("Tiles/Swamp"), false, 4);
+            tools[0][3] = new Tool(TileType.PLAYER, Content.Load<Texture2D>("Tiles/Player"), false, 0);
+            tools[1][0] = new Tool(TileType.WATER, Content.Load<Texture2D>("Tiles/Water"), false, 6);
+            tools[1][1] = new Tool(TileType.ROCKS, Content.Load<Texture2D>("Tiles/LavaRocks"), false, 8);
+            tools[1][2] = new Tool(TileType.WALL, Content.Load<Texture2D>("Tiles/Wall"), true, 0);
+            tools[1][3] = new Tool(TileType.MONSTER, Content.Load<Texture2D>("Tiles/Monster"), false, 0);
+            
+            //Testing Enumerator access
+            /* 
+            foreach (WorldTile t in Enum.GetValues(typeof(WorldTile)))
+            {
+                MessageBox(new IntPtr(0), t.GetInformation() , t.ToString(), 0);
+            }
+             */
 
             //map = new TileMap(10, 10, 17, 512, 512, whitepixel, tools[0][0]);
             map = new TileMap(10, 10, 17, NUM_X_TILES, NUM_Y_TILES, whitepixel, tools);
