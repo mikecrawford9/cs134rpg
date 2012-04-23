@@ -10,6 +10,8 @@ using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using System.IO;
+using System.Xml;
 
 namespace AStarGame
 {
@@ -71,7 +73,7 @@ namespace AStarGame
                 }
             }
 
-            Random randval = new Random();
+            //Random randval = new Random();
 
             map = new Tile[xtiles][];
 
@@ -80,9 +82,9 @@ namespace AStarGame
                 map[i] = new Tile[ytiles];
                 for (int j = 0; j < ytiles; j++)
                 {
-                    int currandx = randval.Next(0, 2);
-                    int currandy = randval.Next(0, 3);
-                    map[i][j] = new Tile(i, j, (x + i * tilesidesize), (y + j * tilesidesize), tilesidesize, tools[currandx][currandy]);
+                    //int currandx = randval.Next(0, 2);
+                    //int currandy = randval.Next(0, 3);
+                    map[i][j] = new Tile(i, j, (x + i * tilesidesize), (y + j * tilesidesize), tilesidesize, tools[0][0]);
                 }
             }
 
@@ -102,6 +104,80 @@ namespace AStarGame
 
             //if (monstertile != null)
             //    monstertile.Draw(spriteBatch);
+        }
+
+        public bool SaveMap(StreamWriter file)
+        {
+            bool success = false;
+            file.WriteLine("<?xml version=\"1.0\" encoding=\"UTF-8\" ?>");
+            file.WriteLine("<MAP x=\"" + map.Length + "\" y=\"" + map[0].Length + "\">");
+            file.WriteLine("<TILES>");
+            for(int i = 0; i < map.Length; i++)
+                for (int j = 0; j < map[i].Length; j++)
+                {
+                    file.WriteLine("<TILE x=\"" + i + "\" y=\"" + j + "\" type=\"" + map[i][j].getType() + "\" />");
+                }
+            file.WriteLine("</TILES>");
+            file.WriteLine("</MAP>");
+            success = true;
+
+            return success;
+        }
+
+        public bool LoadMap(StreamReader file, ToolMap toolmap)
+        {
+            bool success = false;
+            bool initmap = false;
+            bool gotxandy = false;
+            int x = 0;
+            int y = 0;
+            using (XmlReader reader = XmlReader.Create(file))
+            {
+                while (reader.Read() && !gotxandy)
+                {
+                    switch (reader.NodeType)
+                    {
+                        case XmlNodeType.Element:
+                            if (reader.Name == "MAP")
+                            {
+                                x = Convert.ToInt32(reader["x"]);
+                                y = Convert.ToInt32(reader["y"]);
+                                gotxandy = true;
+                            }
+                            break;
+                    }
+                }
+            }
+            
+            map = new Tile[x][];
+            for(int i = 0; i < x; i++)
+                map[i] = new Tile[y];
+            
+            file.BaseStream.Position = 0;
+            using (XmlReader reader = XmlReader.Create(file))
+            {
+                while (reader.Read())
+                {
+                    switch (reader.NodeType)
+                    {
+                        case XmlNodeType.Element:
+                            if (reader.Name == "TILE")
+                            {
+                                int tilex = Convert.ToInt32(reader["x"]);
+                                int tiley = Convert.ToInt32(reader["y"]);
+
+                                String type = reader["type"];
+                                Tool tiletool = toolmap.getTool(type);
+                                map[tilex][tiley] = new Tile(tilex, tiley, tilex, tiley, 0, tiletool);
+                            }
+                            break;
+                    }
+                }
+            }
+
+            success = true;
+
+            return success;
         }
 
         public void Update(Tile selectedTool)

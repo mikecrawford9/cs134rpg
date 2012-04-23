@@ -20,14 +20,6 @@ C:\Users\element\Documents\SCHOOL\CS134\Homework2\AStarGame\AStarGame\AStarGame\
 C:\Users\element\Documents\SCHOOL\CS134\Homework2\AStarGame\AStarGame\AStarGame\bin\x86\Debug\Content\Water.xnb
 C:\Users\element\Documents\SCHOOL\CS134\Homework2\AStarGame\AStarGame\AStarGame\bin\x86\Debug\Content\gameFont.xnb
 C:\Users\element\Documents\SCHOOL\CS134\Homework2\AStarGame\AStarGame\AStarGame\bin\x86\Debug\Content\AStarWayPoint.xnb
-C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Grass.xnb
-C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\LavaRocks.xnb
-C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Monster.xnb
-C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Player.xnb
-C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Swamp.xnb
-C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Trees.xnb
-C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Wall.xnb
-C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Water.xnb
 C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\AStarWayPoint.xnb
 C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\gameFont.xnb
 C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\RPG.exe
@@ -52,3 +44,26 @@ F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\CS 134 RPG\cs134rp
 F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\CS 134 RPG\cs134rpg\cs134rpg\cs134rpg\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\Trees.xnb
 F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\CS 134 RPG\cs134rpg\cs134rpg\cs134rpg\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\Wall.xnb
 F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\CS 134 RPG\cs134rpg\cs134rpg\cs134rpg\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\Water.xnb
+C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\Grass.xnb
+C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\LavaRocks.xnb
+C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\Monster.xnb
+C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\Player.xnb
+C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\Swamp.xnb
+C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\Trees.xnb
+C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\Wall.xnb
+C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\Water.xnb
+C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\Mountain to Grass Demo.xnb
+C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\Pixel_Mountain_by_Captincroc.xnb
+C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\Pixel_Mountain_by_Captincroc_32.xnb
+C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\SwampToGrassBottom.xnb
+C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\SwampToGrassBottomLeft.xnb
+C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\SwampToGrassLeft.xnb
+C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\SwampToGrassRight.xnb
+C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\SwampToGrassTop.xnb
+C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\SwampToGrassTopLeft.xnb
+C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\TransitionTilesDemo.xnb
+C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\Mountain Range.xnb
+C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\images.xnb
+C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\Mountain Range Bottom.xnb
+C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\Mountain Range Left.xnb
+C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\Mountain to Grass Demo 2.xnb

@@ -16,13 +16,11 @@ using Microsoft.Xna.Framework.GamerServices;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
+using System.IO;
 
 
 namespace AStarGame
 {
-
-
-
     /// <summary>
     /// This is the main type for your game
     /// </summary>
@@ -33,8 +31,8 @@ namespace AStarGame
         const int MONSTER_MOVE_DELAY = 1000;
         const int PLAYER_MOVE_DELAY = 100;
 
-        const int NUM_X_TILES = 512;
-        const int NUM_Y_TILES = 512;
+        const int NUM_X_TILES = 64;
+        const int NUM_Y_TILES = 64;
 
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
@@ -53,6 +51,9 @@ namespace AStarGame
 
         int lastmonstermove;
         int lastplayermove;
+
+        bool mapsaved = false;
+        bool maploaded = false;
 
         GameState state;
 
@@ -154,6 +155,7 @@ namespace AStarGame
             {
                 case GameState.EDIT:
                     edited = true;
+                    mapsaved = maploaded = false;
                     catchInput(gameTime, false);
                     map.resetPlayers();
                     map.refreshTiles();
@@ -179,7 +181,24 @@ namespace AStarGame
                     map.unhighlight();
                     playGame(gameTime);
                     break;
-
+                case GameState.SAVEMAP:
+                    if (!mapsaved)
+                    {
+                        edited = false;
+                        SaveMap();
+                        mapsaved = true;
+                        state = GameState.EDIT;
+                    }
+                    break;
+                case GameState.LOADMAP:
+                    if(!maploaded)
+                    {
+                        edited = true;
+                        LoadMap();
+                        maploaded = true;
+                        state = GameState.EDIT;
+                    }
+                    break;
 
                 default:
                     break;
@@ -220,6 +239,24 @@ namespace AStarGame
             newadd.setPrevious(prev);
             return newadd;
         }*/
+
+        public void SaveMap()
+        {
+            String output = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetEntryAssembly().Location) + "/map1.xml"; 
+            using (System.IO.StreamWriter file = new System.IO.StreamWriter(@output))
+            {
+                map.SaveMap(file);
+            }
+        }
+
+        public void LoadMap()
+        {
+            String output = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetEntryAssembly().Location) + "/map1.xml";
+            using (System.IO.StreamReader file = new System.IO.StreamReader(@output))
+            {
+                map.LoadMap(file, toolmap);
+            }
+        }
 
         public void catchInput(GameTime gameTime, bool noclip)
         {

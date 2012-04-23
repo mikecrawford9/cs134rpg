@@ -2,31 +2,13 @@
 <XnaContent xmlns:Pipeline="Microsoft.Xna.Framework.Content.Pipeline">
   <Asset Type="Pipeline:BuildItemCollection">
     <Item>
-      <Source>AStarWayPoint.png</Source>
-      <Name>AStarWayPoint</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\CS 134 RPG\cs134rpg\cs134rpg\cs134rpg\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\AStarWayPoint.xnb</Output>
-      <Time>2012-04-22T11:01:30.6410967-07:00</Time>
-    </Item>
-    <Item>
-      <Source>gameFont.spritefont</Source>
-      <Name>gameFont</Name>
-      <Importer>FontDescriptionImporter</Importer>
-      <Processor>FontDescriptionProcessor</Processor>
-      <Options>None</Options>
-      <Output>F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\CS 134 RPG\cs134rpg\cs134rpg\cs134rpg\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\gameFont.xnb</Output>
-      <Time>2012-04-22T11:01:30.6450969-07:00</Time>
-    </Item>
-    <Item>
       <Source>Tiles\Grass.png</Source>
       <Name>Tiles\Grass</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\CS 134 RPG\cs134rpg\cs134rpg\cs134rpg\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\Grass.xnb</Output>
-      <Time>2012-04-22T11:01:30.6410967-07:00</Time>
+      <Output>C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\Grass.xnb</Output>
+      <Time>2012-04-22T21:45:18.6659149-07:00</Time>
     </Item>
     <Item>
       <Source>Tiles\LavaRocks.png</Source>
@@ -34,8 +16,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\CS 134 RPG\cs134rpg\cs134rpg\cs134rpg\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\LavaRocks.xnb</Output>
-      <Time>2012-04-22T11:01:30.6420967-07:00</Time>
+      <Output>C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\LavaRocks.xnb</Output>
+      <Time>2012-04-22T21:45:18.6639148-07:00</Time>
     </Item>
     <Item>
       <Source>Tiles\Monster.png</Source>
@@ -43,8 +25,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\CS 134 RPG\cs134rpg\cs134rpg\cs134rpg\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\Monster.xnb</Output>
-      <Time>2012-04-22T11:01:30.6420967-07:00</Time>
+      <Output>C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\Monster.xnb</Output>
+      <Time>2012-04-22T21:45:18.6619147-07:00</Time>
     </Item>
     <Item>
       <Source>Tiles\Player.png</Source>
@@ -52,8 +34,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\CS 134 RPG\cs134rpg\cs134rpg\cs134rpg\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\Player.xnb</Output>
-      <Time>2012-04-22T11:01:30.6430968-07:00</Time>
+      <Output>C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\Player.xnb</Output>
+      <Time>2012-04-22T21:45:18.6599146-07:00</Time>
     </Item>
     <Item>
       <Source>Tiles\Swamp.png</Source>
@@ -61,8 +43,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\CS 134 RPG\cs134rpg\cs134rpg\cs134rpg\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\Swamp.xnb</Output>
-      <Time>2012-04-22T11:01:30.6440968-07:00</Time>
+      <Output>C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\Swamp.xnb</Output>
+      <Time>2012-04-22T21:45:18.6579145-07:00</Time>
     </Item>
     <Item>
       <Source>Tiles\Trees.png</Source>
@@ -70,8 +52,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\CS 134 RPG\cs134rpg\cs134rpg\cs134rpg\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\Trees.xnb</Output>
-      <Time>2012-04-22T11:01:30.6440968-07:00</Time>
+      <Output>C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\Trees.xnb</Output>
+      <Time>2012-04-22T21:45:18.6559144-07:00</Time>
     </Item>
     <Item>
       <Source>Tiles\Wall.png</Source>
@@ -79,8 +61,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\CS 134 RPG\cs134rpg\cs134rpg\cs134rpg\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\Wall.xnb</Output>
-      <Time>2012-04-22T11:01:30.6440968-07:00</Time>
+      <Output>C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\Wall.xnb</Output>
+      <Time>2012-04-22T21:45:18.6539142-07:00</Time>
     </Item>
     <Item>
       <Source>Tiles\Water.png</Source>
@@ -88,8 +70,161 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\CS 134 RPG\cs134rpg\cs134rpg\cs134rpg\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\Water.xnb</Output>
-      <Time>2012-04-22T11:01:30.6450969-07:00</Time>
+      <Output>C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\Water.xnb</Output>
+      <Time>2012-04-22T21:45:18.6519141-07:00</Time>
+    </Item>
+    <Item>
+      <Source>AStarWayPoint.png</Source>
+      <Name>AStarWayPoint</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\AStarWayPoint.xnb</Output>
+      <Time>2012-03-04T19:12:34.9090618-08:00</Time>
+    </Item>
+    <Item>
+      <Source>Tiles\Mountain to Grass Demo.png</Source>
+      <Name>Tiles\Mountain to Grass Demo</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\Mountain to Grass Demo.xnb</Output>
+      <Time>2012-04-22T21:45:18.5139062-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Tiles\Pixel_Mountain_by_Captincroc.png</Source>
+      <Name>Tiles\Pixel_Mountain_by_Captincroc</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\Pixel_Mountain_by_Captincroc.xnb</Output>
+      <Time>2012-04-22T21:45:18.5149063-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Tiles\Pixel_Mountain_by_Captincroc_32.png</Source>
+      <Name>Tiles\Pixel_Mountain_by_Captincroc_32</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\Pixel_Mountain_by_Captincroc_32.xnb</Output>
+      <Time>2012-04-22T21:45:18.5159063-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Tiles\SwampToGrassBottom.png</Source>
+      <Name>Tiles\SwampToGrassBottom</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\SwampToGrassBottom.xnb</Output>
+      <Time>2012-04-22T21:45:18.5229067-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Tiles\SwampToGrassBottomLeft.png</Source>
+      <Name>Tiles\SwampToGrassBottomLeft</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\SwampToGrassBottomLeft.xnb</Output>
+      <Time>2012-04-22T21:45:18.5239068-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Tiles\SwampToGrassLeft.png</Source>
+      <Name>Tiles\SwampToGrassLeft</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\SwampToGrassLeft.xnb</Output>
+      <Time>2012-04-22T21:45:18.5259069-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Tiles\SwampToGrassRight.png</Source>
+      <Name>Tiles\SwampToGrassRight</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\SwampToGrassRight.xnb</Output>
+      <Time>2012-04-22T21:45:18.526907-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Tiles\SwampToGrassTop.png</Source>
+      <Name>Tiles\SwampToGrassTop</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\SwampToGrassTop.xnb</Output>
+      <Time>2012-04-22T21:45:18.527907-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Tiles\SwampToGrassTopLeft.png</Source>
+      <Name>Tiles\SwampToGrassTopLeft</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\SwampToGrassTopLeft.xnb</Output>
+      <Time>2012-04-22T21:45:18.5299071-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Tiles\TransitionTilesDemo.png</Source>
+      <Name>Tiles\TransitionTilesDemo</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\TransitionTilesDemo.xnb</Output>
+      <Time>2012-04-22T21:45:18.5309072-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Tiles\Mountain Range.png</Source>
+      <Name>Tiles\Mountain Range</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\Mountain Range.xnb</Output>
+      <Time>2012-04-22T21:45:18.5079059-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Tiles\images.jpg</Source>
+      <Name>Tiles\images</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\images.xnb</Output>
+      <Time>2012-04-22T21:45:18.5519084-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Tiles\Mountain Range Bottom.png</Source>
+      <Name>Tiles\Mountain Range Bottom</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\Mountain Range Bottom.xnb</Output>
+      <Time>2012-04-22T21:45:18.5019055-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Tiles\Mountain Range Left.png</Source>
+      <Name>Tiles\Mountain Range Left</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\Mountain Range Left.xnb</Output>
+      <Time>2012-04-22T21:45:18.5039057-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Tiles\Mountain to Grass Demo 2.png</Source>
+      <Name>Tiles\Mountain to Grass Demo 2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\Mountain to Grass Demo 2.xnb</Output>
+      <Time>2012-04-22T21:45:18.5129062-07:00</Time>
+    </Item>
+    <Item>
+      <Source>gameFont.spritefont</Source>
+      <Name>gameFont</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\gameFont.xnb</Output>
+      <Time>2011-04-01T10:42:38-07:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
@@ -97,39 +232,39 @@
       <TargetProfile>HiDef</TargetProfile>
       <BuildConfiguration>Debug</BuildConfiguration>
       <CompressContent>false</CompressContent>
-      <RootDirectory>F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\CS 134 RPG\cs134rpg\cs134rpg\cs134rpg\cs134rpg\RPG\AStarGame\AStarGameContent\</RootDirectory>
-      <LoggerRootDirectory>F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\CS 134 RPG\cs134rpg\cs134rpg\cs134rpg\cs134rpg\RPG\AStarGame\AStarGame\</LoggerRootDirectory>
-      <IntermediateDirectory>F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\CS 134 RPG\cs134rpg\cs134rpg\cs134rpg\cs134rpg\RPG\AStarGame\AStarGameContent\obj\x86\Debug\</IntermediateDirectory>
-      <OutputDirectory>F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\CS 134 RPG\cs134rpg\cs134rpg\cs134rpg\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\</OutputDirectory>
+      <RootDirectory>C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGameContent\</RootDirectory>
+      <LoggerRootDirectory>C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\</LoggerRootDirectory>
+      <IntermediateDirectory>C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGameContent\obj\x86\Debug\</IntermediateDirectory>
+      <OutputDirectory>C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\</OutputDirectory>
     </Settings>
     <Assemblies>
       <Assembly>
-        <Key>F:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.XImporter.dll</Key>
-        <Value>2010-08-23T12:41:18-07:00</Value>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.XImporter.dll</Key>
+        <Value>2010-08-23T13:41:18-07:00</Value>
       </Assembly>
       <Assembly>
-        <Key>F:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.VideoImporters.dll</Key>
-        <Value>2010-08-23T12:41:18-07:00</Value>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.VideoImporters.dll</Key>
+        <Value>2010-08-23T13:41:18-07:00</Value>
       </Assembly>
       <Assembly>
-        <Key>F:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.TextureImporter.dll</Key>
-        <Value>2010-08-23T12:41:18-07:00</Value>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.TextureImporter.dll</Key>
+        <Value>2010-08-23T13:41:18-07:00</Value>
       </Assembly>
       <Assembly>
-        <Key>F:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.FBXImporter.dll</Key>
-        <Value>2010-08-23T12:41:18-07:00</Value>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.FBXImporter.dll</Key>
+        <Value>2010-08-23T13:41:18-07:00</Value>
       </Assembly>
       <Assembly>
-        <Key>F:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.EffectImporter.dll</Key>
-        <Value>2010-08-23T12:41:18-07:00</Value>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.EffectImporter.dll</Key>
+        <Value>2010-08-23T13:41:18-07:00</Value>
       </Assembly>
       <Assembly>
-        <Key>F:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.AudioImporters.dll</Key>
-        <Value>2010-08-23T12:41:18-07:00</Value>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.AudioImporters.dll</Key>
+        <Value>2010-08-23T13:41:18-07:00</Value>
       </Assembly>
       <Assembly>
-        <Key>F:\Windows\Microsoft.Net\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\v4.0_4.0.0.0__842cf8be1de50553\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
-        <Value>2012-04-19T22:38:52.5093431-07:00</Value>
+        <Key>C:\Windows\Microsoft.Net\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\v4.0_4.0.0.0__842cf8be1de50553\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
+        <Value>2012-02-02T09:16:34.0098826-08:00</Value>
       </Assembly>
     </Assemblies>
   </Asset>

@@ -13,6 +13,6 @@ using System.Text;
 
 namespace AStarGame
 {
-    public enum GameState { EDIT = 1, ASTAR, RUNNING, GAMEOVER };
+    public enum GameState { EDIT = 1, ASTAR, RUNNING, GAMEOVER, SAVEMAP, LOADMAP};
 }
 

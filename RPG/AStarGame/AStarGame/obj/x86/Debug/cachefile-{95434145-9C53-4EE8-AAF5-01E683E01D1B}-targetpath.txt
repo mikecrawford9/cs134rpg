@@ -1,5 +1,3 @@
-Content\AStarWayPoint.xnb
-Content\gameFont.xnb
 Content\Tiles\Grass.xnb
 Content\Tiles\LavaRocks.xnb
 Content\Tiles\Monster.xnb
@@ -8,3 +6,20 @@ Content\Tiles\Swamp.xnb
 Content\Tiles\Trees.xnb
 Content\Tiles\Wall.xnb
 Content\Tiles\Water.xnb
+Content\AStarWayPoint.xnb
+Content\Tiles\Mountain to Grass Demo.xnb
+Content\Tiles\Pixel_Mountain_by_Captincroc.xnb
+Content\Tiles\Pixel_Mountain_by_Captincroc_32.xnb
+Content\Tiles\SwampToGrassBottom.xnb
+Content\Tiles\SwampToGrassBottomLeft.xnb
+Content\Tiles\SwampToGrassLeft.xnb
+Content\Tiles\SwampToGrassRight.xnb
+Content\Tiles\SwampToGrassTop.xnb
+Content\Tiles\SwampToGrassTopLeft.xnb
+Content\Tiles\TransitionTilesDemo.xnb
+Content\Tiles\Mountain Range.xnb
+Content\Tiles\images.xnb
+Content\Tiles\Mountain Range Bottom.xnb
+Content\Tiles\Mountain Range Left.xnb
+Content\Tiles\Mountain to Grass Demo 2.xnb
+Content\gameFont.xnb
