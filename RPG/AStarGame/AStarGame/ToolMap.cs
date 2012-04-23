@@ -10,12 +10,14 @@ using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using System.Collections.Generic;
 
 namespace AStarGame
 {
     class ToolMap
     {
         Tile[][] tools;
+        Dictionary<TileType, Tool> toolmap;
         Tile selected;
         Texture2D pixel;
         SpriteFont font;
@@ -32,6 +34,8 @@ namespace AStarGame
 
         Rectangle astarbutton;
         Rectangle playbutton;
+        Rectangle savebutton;
+        Rectangle loadbutton;
 
         public ToolMap(int x, int y, Texture2D pixel, Tool[][] tooltextures, SpriteFont font)
         {
@@ -52,6 +56,12 @@ namespace AStarGame
             xcolwidth = (xmax - xmin) / 2;
             yrowheight = (ymax - ymin) / 4;
 
+            toolmap = new Dictionary<TileType, Tool>();
+            for (int i = 0; i < tooltextures.Length; i++)
+                for (int j = 0; j < tooltextures[i].Length; j++)
+                    toolmap.Add(tooltextures[i][j].getType(), tooltextures[i][j]);
+
+
             tools = new Tile[2][];
             for(int j = 0; j < col.Length; j++)
             {
@@ -71,7 +81,8 @@ namespace AStarGame
 
             astarbutton = new Rectangle(xmin, ymax + 40, 122, 30);
             playbutton = new Rectangle(xmin, ymax + 90, 122, 30);
-            
+            savebutton = new Rectangle(xmin, ymax + 140, 122, 30);
+            loadbutton = new Rectangle(xmin, ymax + 190, 122, 30);
         }
 
         public void Draw(SpriteBatch spriteBatch, GameState current)
@@ -82,8 +93,12 @@ namespace AStarGame
 
             spriteBatch.Draw(pixel, astarbutton, Color.LightGray);
             spriteBatch.Draw(pixel, playbutton, Color.Green);
+            spriteBatch.Draw(pixel, savebutton, Color.Blue);
+            spriteBatch.Draw(pixel, loadbutton, Color.Orange);
             spriteBatch.DrawString(font, "A*Star", new Vector2(astarbutton.X + 10, astarbutton.Y - 5), Color.Black);
             spriteBatch.DrawString(font, "Play", new Vector2(playbutton.X + 20, playbutton.Y - 6), Color.Black);
+            spriteBatch.DrawString(font, "Save", new Vector2(savebutton.X + 20, savebutton.Y - 6), Color.Black);
+            spriteBatch.DrawString(font, "Load", new Vector2(loadbutton.X + 20, loadbutton.Y - 6), Color.Black);
 
             drawSelectHighlight(spriteBatch);
         }
@@ -135,6 +150,22 @@ namespace AStarGame
                 ret = GameState.RUNNING;
             }
 
+            if ((mousex >= savebutton.X && mousex <= (savebutton.X + savebutton.Width)) &&
+                (mousey >= savebutton.Y && mousey <= (savebutton.Y + savebutton.Height)) &&
+                (mouseState.LeftButton == ButtonState.Pressed))
+            {
+                updateSelected(savebutton.X, savebutton.Y, savebutton.Width, savebutton.Height);
+                ret = GameState.SAVEMAP;
+            }
+
+            if ((mousex >= loadbutton.X && mousex <= (loadbutton.X + loadbutton.Width)) &&
+                (mousey >= loadbutton.Y && mousey <= (loadbutton.Y + loadbutton.Height)) &&
+                (mouseState.LeftButton == ButtonState.Pressed))
+            {
+                updateSelected(loadbutton.X, loadbutton.Y, loadbutton.Width, loadbutton.Height);
+                ret = GameState.LOADMAP;
+            }
+
             if (ret != current)
                 Console.WriteLine("Game state set to " + ret);
 
@@ -171,6 +202,16 @@ namespace AStarGame
         public Tile getSelected()
         {
             return selected;
+        }
+
+        public Tool getTool(String type)
+        {
+            Tool ret = null;
+            TileType cur = (TileType)Enum.Parse(typeof(TileType), type, true);
+            if(cur != null)
+                ret = this.toolmap[cur];
+
+            return ret;
         }
     }
 }
