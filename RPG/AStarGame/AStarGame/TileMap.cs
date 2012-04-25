@@ -103,7 +103,7 @@ namespace RPG
                     map[i][j].Draw(spriteBatch, displaytiles[ia][ja]);
 
             if (selectedtile != null)
-            spriteBatch.DrawString(font, "X: " + selectedtile.getMapX() + ", Y: " + selectedtile.getMapY(), new Vector2(600 + 10, 200), Color.Black);
+                spriteBatch.DrawString(font, "X: " + selectedtile.getMapX() + ", Y: " + selectedtile.getMapY(), new Vector2(600 + 10, 200), Color.Black);
 
             if (playertile != null)
                 playertile.Draw(spriteBatch, displaytiles[center-1][center-1]);
@@ -121,7 +121,30 @@ namespace RPG
             for(int i = 0; i < map.Length; i++)
                 for (int j = 0; j < map[i].Length; j++)
                 {
-                    file.WriteLine("<TILE x=\"" + i + "\" y=\"" + j + "\" type=\"" + map[i][j].getType() + "\" />");
+                    file.Write("<TILE x=\"" + i + "\" y=\"" + j + "\" type=\"" + map[i][j].getType() + "\" ");
+                    Event[] ev = map[i][j].getEvents();
+                    if (ev.Length == 0)
+                        file.WriteLine("/>");
+                    else
+                    {
+                        file.WriteLine(">");
+                        for (int x = 0; x < ev.Length; x++)
+                        {
+                            file.WriteLine("<EVENT type=\"" + ev[x].getEventType() + "\">");
+                            file.WriteLine("<DATA>");
+                            String[] propkeys = ev[x].getKeys();
+                            for (int r = 0; r < propkeys.Length; r++)
+                            {
+                                file.WriteLine("<" + propkeys[r] + ">" + ev[x].getProperty(propkeys[r]) + "</" + propkeys[r] + ">");
+                            }
+                            file.WriteLine("</DATA>");
+                            file.WriteLine("</EVENT>");
+
+                        }
+                            
+
+                        file.WriteLine("</TILE>");
+                    }
                 }
             file.WriteLine("</TILES>");
             file.WriteLine("</MAP>");
@@ -160,6 +183,10 @@ namespace RPG
                 map[i] = new Tile[y];
             
             file.BaseStream.Position = 0;
+            int tilex = 0;
+            int tiley = 0;
+            bool inEvent = false;
+            Event current = new Event();
             using (XmlReader reader = XmlReader.Create(file))
             {
                 while (reader.Read())
@@ -169,12 +196,44 @@ namespace RPG
                         case XmlNodeType.Element:
                             if (reader.Name == "TILE")
                             {
-                                int tilex = Convert.ToInt32(reader["x"]);
-                                int tiley = Convert.ToInt32(reader["y"]);
+                                tilex = Convert.ToInt32(reader["x"]);
+                                tiley = Convert.ToInt32(reader["y"]);
 
                                 String type = reader["type"];
                                 Tool tiletool = toolmap.getTool(type);
                                 map[tilex][tiley] = new Tile(tilex, tiley, tilex, tiley, 0, tiletool);
+                            }
+                            else if (reader.Name == "EVENT")
+                            {
+                                String eventtype = reader["type"];
+                                current.setEventType((EventType)Enum.Parse(typeof(EventType), eventtype));
+                                inEvent = true;
+                            }
+                            else if (reader.Name == "DATA")
+                            {
+                                if (inEvent)
+                                {
+                                    XmlReader tempreader = reader.ReadSubtree();
+                                    String propname = "";
+                                    while(tempreader.Read())
+                                        switch (tempreader.NodeType)
+                                        {
+                                            case XmlNodeType.Element:
+                                                propname = tempreader.Name;
+                                                break;
+                                            case XmlNodeType.Text:
+                                                current.addProperty(propname, tempreader.Value);
+                                                break;
+                                        }
+                                }
+                            }
+                            break;
+                        case XmlNodeType.EndElement:
+                            if (reader.Name == "EVENT")
+                            {
+                                map[tilex][tiley].addEvent(current);
+                                inEvent = false;
+                                current = new Event();
                             }
                             break;
                     }
@@ -245,9 +304,17 @@ namespace RPG
                     else
                     {
                         if (selectedTool.getType() == WorldTile.SELECT)
-                            selectedtile = map[curxtilemin + tilex][curytilemin + tiley];
+                        {
+                            //if (selectedtile != null && selectedtile != map[curxtilemin + tilex][curytilemin + tiley])
+                            //    selectedtile.setColor(Color.White);
 
-                        map[curxtilemin + tilex][curytilemin + tiley].applyTool(selectedTool, toolmap);
+                            toolmap.setSelectedTile(map[curxtilemin + tilex][curytilemin + tiley]);
+                            //selectedtile.setColor(Color.DarkGray);
+                        }
+                        else
+                        {
+                            map[curxtilemin + tilex][curytilemin + tiley].applyTool(selectedTool, toolmap);
+                        }
                     }
 
                 }
@@ -261,13 +328,46 @@ namespace RPG
 
         }
 
+        public void processEvents(Tile cur)
+        {
+            Event[] ce = cur.getEvents();
+            {
+                for(int i = 0; i < ce.Length; i++)
+                {
+                    Event e = ce[i];
+                    if(e.getEventType() == EventType.MAP_TRANSITION)
+                    {
+                        String mapfile = e.getProperty("mapfile");
+                        int x = Convert.ToInt32(e.getProperty("x"));
+                        int y = Convert.ToInt32(e.getProperty("y"));
+
+                        FileStream fileStream = new FileStream(@mapfile, FileMode.Open);
+                        StreamReader reader = new StreamReader(fileStream);
+                        LoadMap(reader, toolmap);
+                        setPlayerLocation(map[x][y]);
+
+                        reader.Close();
+                        fileStream.Close();
+                    }
+                }
+            }
+        }
+
         public void shiftDown(int numtiles, bool noclip)
         {
             int newcurytilemin = curytilemin + numtiles;
             if (newcurytilemin < (ytiles-size))
             {
-                curytilemin = newcurytilemin;
-                toolmap.unSelect();
+                if (noclip || (playertile != null && map[playertile.getMapX()][playertile.getMapY() + numtiles].getType() != WorldTile.WALL))
+                {
+                    if (playertile != null)
+                    {
+                        setPlayerLocation(map[playertile.getMapX()][playertile.getMapY() + numtiles]);
+                        processEvents(map[playertile.getMapX()][playertile.getMapY() + numtiles]);
+                    }
+
+                    curytilemin = newcurytilemin;
+                }
             }
         }
 
@@ -276,8 +376,16 @@ namespace RPG
             int newcurytilemin = curytilemin - numtiles;
             if (newcurytilemin >= 0)
             {
-                curytilemin = newcurytilemin;
-                toolmap.unSelect();
+                if (noclip || (playertile != null && map[playertile.getMapX()][playertile.getMapY() - numtiles].getType() != WorldTile.WALL))
+                {
+                    if (playertile != null)
+                    {
+                        setPlayerLocation(map[playertile.getMapX()][playertile.getMapY() - numtiles]);
+                        processEvents(map[playertile.getMapX()][playertile.getMapY() - numtiles]);
+                    }
+
+                    curytilemin = newcurytilemin;
+                }
             }
         }
 
@@ -286,8 +394,16 @@ namespace RPG
             int newcurxtilemin = curxtilemin - numtiles;
             if (newcurxtilemin >= 0)
             {
-                curxtilemin = newcurxtilemin;
-                toolmap.unSelect();
+                if (noclip || (playertile != null && map[playertile.getMapX() - numtiles][playertile.getMapY()].getType() != WorldTile.WALL))
+                {
+                    if (playertile != null)
+                    {
+                        setPlayerLocation(map[playertile.getMapX() - numtiles][playertile.getMapY()]);
+                        processEvents(map[playertile.getMapX() - numtiles][playertile.getMapY()]);
+                    }
+
+                    curxtilemin = newcurxtilemin;
+                }
             }
         }
 
@@ -296,8 +412,16 @@ namespace RPG
             int newcurxtilemin = curxtilemin + numtiles;
             if (newcurxtilemin < (xtiles - size))
             {
-                curxtilemin = newcurxtilemin;
-                toolmap.unSelect();
+                if (noclip || (playertile != null && map[playertile.getMapX() + numtiles][playertile.getMapY()].getType() != WorldTile.WALL))
+                {
+                    if (playertile != null)
+                    {
+                        setPlayerLocation(map[playertile.getMapX() + numtiles][playertile.getMapY()]);
+                        processEvents(map[playertile.getMapX() + numtiles][playertile.getMapY()]);
+                    }
+
+                    curxtilemin = newcurxtilemin;
+                }
             }
         }
 
@@ -366,6 +490,11 @@ namespace RPG
                     map[i][j].resetCost();
                     map[i][j].resetPrev();
                 }
+        }
+
+        public Tile getSelectedTile()
+        {
+            return selectedtile;
         }
 
         public void resetPlayers()
