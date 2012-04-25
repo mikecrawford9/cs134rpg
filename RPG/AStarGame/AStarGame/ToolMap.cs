@@ -18,7 +18,8 @@ namespace AStarGame
     {
         Tile[][] tools;
         Dictionary<TileType, Tool> toolmap;
-        Tile selected;
+        Dictionary<String, Texture2D> texmap;
+        Tool selected;
         Texture2D pixel;
         SpriteFont font;
         Rectangle selectedtop;
@@ -37,8 +38,19 @@ namespace AStarGame
         Rectangle savebutton;
         Rectangle loadbutton;
 
-        public ToolMap(int x, int y, Texture2D pixel, Tool[][] tooltextures, SpriteFont font)
+        WorldTile curtool;
+
+        System.Windows.Forms.ComboBox combobox;
+
+        public ToolMap(int x, int y, Texture2D pixel, Dictionary<String,Texture2D> texmap, WorldTile[] tiles, SpriteFont font, IntPtr handle)
         {
+            combobox = new System.Windows.Forms.ComboBox();
+            combobox.Location = new System.Drawing.Point(542, 50);
+            combobox.Size = new System.Drawing.Size(200, 25);
+            combobox.BackColor = System.Drawing.Color.Orange;
+            combobox.ForeColor = System.Drawing.Color.Black;
+            System.Windows.Forms.Control.FromHandle(handle).Controls.Add(combobox);
+            this.texmap = texmap;
             this.pixel = pixel;
             this.font = font;
             /*Color[] colors = new Color[]{Color.White, Color.Red, Color.Goldenrod, 
@@ -57,12 +69,13 @@ namespace AStarGame
             yrowheight = (ymax - ymin) / 4;
 
             toolmap = new Dictionary<TileType, Tool>();
-            for (int i = 0; i < tooltextures.Length; i++)
-                for (int j = 0; j < tooltextures[i].Length; j++)
-                    toolmap.Add(tooltextures[i][j].getType(), tooltextures[i][j]);
+            for(int i = 0; i < tiles.Length; i++)
+                toolmap.Add(tiles[i].GetTileType(),new Tool(tiles[i].GetTileType(), texmap[tiles[i].GetTexture()], tiles[i].isObstacle(), tiles[i].GetCost()));
+            
+            for (int i = 0; i < tiles.Length; i++)
+                combobox.Items.Add(tiles[i]);
 
-
-            tools = new Tile[2][];
+            /*tools = new Tile[2][];
             for(int j = 0; j < col.Length; j++)
             {
                 tools[j] = new Tile[4];
@@ -71,26 +84,28 @@ namespace AStarGame
                     tools[j][i] = new Tile(j, i, col[j] + 1, 1 + y + yinterval * i, 32, tooltextures[j][i]);
                 }
 
-            }
-            selected = tools[0][0];
+            }*/
+            selected = null;
             selectedtop = new Rectangle(-40,-40,36,2);
             selectedbottom = new Rectangle(-40,-40,36,2);
             selectedleft = new Rectangle(-40,-40,2,36);
             selectedright = new Rectangle(-40,-40,2,36);
-            updateSelected(selected.getX(), selected.getY(), selected.getLength(), selected.getLength());
+            //updateSelected(selected.getX(), selected.getY(), selected.getLength(), selected.getLength());
 
             astarbutton = new Rectangle(xmin, ymax + 40, 122, 30);
             playbutton = new Rectangle(xmin, ymax + 90, 122, 30);
             savebutton = new Rectangle(xmin, ymax + 140, 122, 30);
             loadbutton = new Rectangle(xmin, ymax + 190, 122, 30);
+
+            
         }
 
         public void Draw(SpriteBatch spriteBatch, GameState current)
         {
-            for (int i = 0; i < 2; i++)
+            /*for (int i = 0; i < 2; i++)
                 for (int j = 0; j < 4; j++)
                     tools[i][j].Draw(spriteBatch, tools[i][j].sq);
-
+            */
             spriteBatch.Draw(pixel, astarbutton, Color.LightGray);
             spriteBatch.Draw(pixel, playbutton, Color.Green);
             spriteBatch.Draw(pixel, savebutton, Color.Blue);
@@ -110,7 +125,7 @@ namespace AStarGame
             int mousex = mouseState.X;
             int mousey = mouseState.Y;
 
-            if ((mousex >= xmin && mousex <= xmax) && (mousey >= ymin && mousey <= ymax))
+            /*if ((mousex >= xmin && mousex <= xmax) && (mousey >= ymin && mousey <= ymax))
             {
                 if (mouseState.LeftButton == ButtonState.Pressed)
                 {
@@ -132,6 +147,13 @@ namespace AStarGame
                         }
                     }
                 }
+            }*/
+            Object selectedobj = combobox.SelectedItem;
+            if (selectedobj != null)
+            {
+                WorldTile select = (WorldTile)selectedobj;
+                Texture2D seltex = texmap[select.GetTexture()];
+                selected = new Tool(select.GetTileType(), seltex, select.isObstacle(), select.GetCost());
             }
 
             if ((mousex >= astarbutton.X && mousex <= (astarbutton.X + astarbutton.Width)) &&
@@ -199,9 +221,15 @@ namespace AStarGame
             spriteBatch.Draw(pixel, selectedright, Color.Yellow);
         }
 
-        public Tile getSelected()
+        public Tool getSelected()
         {
             return selected;
+        }
+
+        public Tool getDefaultTool()
+        {
+           // return toolmap[TileType.GRASS];
+            return toolmap[TileType.GRASS];
         }
 
         public Tool getTool(String type)

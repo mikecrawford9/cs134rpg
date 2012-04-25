@@ -62,8 +62,8 @@ C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGa
 C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\SwampToGrassTop.xnb
 C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\SwampToGrassTopLeft.xnb
 C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\TransitionTilesDemo.xnb
-C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\Mountain Range.xnb
 C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\images.xnb
 C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\Mountain Range Bottom.xnb
 C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\Mountain Range Left.xnb
 C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\Mountain to Grass Demo 2.xnb
+C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\MountainRange.xnb

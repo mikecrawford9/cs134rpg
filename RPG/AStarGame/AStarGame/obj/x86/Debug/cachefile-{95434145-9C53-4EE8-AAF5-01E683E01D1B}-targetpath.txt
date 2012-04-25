@@ -17,9 +17,9 @@ Content\Tiles\SwampToGrassRight.xnb
 Content\Tiles\SwampToGrassTop.xnb
 Content\Tiles\SwampToGrassTopLeft.xnb
 Content\Tiles\TransitionTilesDemo.xnb
-Content\Tiles\Mountain Range.xnb
 Content\Tiles\images.xnb
 Content\Tiles\Mountain Range Bottom.xnb
 Content\Tiles\Mountain Range Left.xnb
 Content\Tiles\Mountain to Grass Demo 2.xnb
 Content\gameFont.xnb
+Content\Tiles\MountainRange.xnb

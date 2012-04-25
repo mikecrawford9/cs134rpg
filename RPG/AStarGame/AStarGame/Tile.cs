@@ -214,11 +214,11 @@ namespace AStarGame
             return cost;
         }
 
-        public void applyTool(Tile tool)
+        public void applyTool(Tool tool)
         {
             this.pixel = tool.getTexture();
             this.type = tool.getType();
-            this.cost = tool.getTileCost();
+            this.cost = tool.getCost();
         }
 
         public bool Equals(Tile other)

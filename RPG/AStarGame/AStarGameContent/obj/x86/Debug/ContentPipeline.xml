@@ -173,15 +173,6 @@
       <Time>2012-04-22T21:45:18.5309072-07:00</Time>
     </Item>
     <Item>
-      <Source>Tiles\Mountain Range.png</Source>
-      <Name>Tiles\Mountain Range</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\Mountain Range.xnb</Output>
-      <Time>2012-04-22T21:45:18.5079059-07:00</Time>
-    </Item>
-    <Item>
       <Source>Tiles\images.jpg</Source>
       <Name>Tiles\images</Name>
       <Importer>TextureImporter</Importer>
@@ -225,6 +216,15 @@
       <Options>None</Options>
       <Output>C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\gameFont.xnb</Output>
       <Time>2011-04-01T10:42:38-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Tiles\Mountain Range.png</Source>
+      <Name>Tiles\MountainRange</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\MountainRange.xnb</Output>
+      <Time>2012-04-22T21:45:18.5079059-07:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>

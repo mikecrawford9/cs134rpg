@@ -159,7 +159,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Tiles\Mountain Range.png">
-      <Name>Mountain Range</Name>
+      <Name>MountainRange</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>

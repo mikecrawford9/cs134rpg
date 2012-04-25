@@ -38,10 +38,15 @@ namespace AStarGame
         SpriteBatch spriteBatch;
         SpriteFont font;
 
+
+
         TileMap map;
         ToolMap toolmap;
         Texture2D whitepixel;
         Texture2D astarwaypoint;
+
+        WorldTile[] worldtiles;
+        Dictionary<String, Texture2D> texmap;
 
         Tool[][] tools;
 
@@ -56,6 +61,7 @@ namespace AStarGame
         bool maploaded = false;
 
         GameState state;
+        System.Windows.Forms.ComboBox combobox;
 
         public Game1()
         {
@@ -80,6 +86,7 @@ namespace AStarGame
         {
             // TODO: Add your initialization logic here
             state = GameState.EDIT;
+            texmap = new Dictionary<String, Texture2D>();
             lastmonstermove = 0;
             lastplayermove = 0;
             base.Initialize();
@@ -102,9 +109,11 @@ namespace AStarGame
             
             font = Content.Load<SpriteFont>("gameFont");
 
-            tools = new Tool[2][];
+            /*tools = new Tool[2][];
             tools[0] = new Tool[4];
             tools[1] = new Tool[4];
+
+            
 
             tools[0][0] = new Tool(TileType.GRASS, Content.Load<Texture2D>("Tiles/Grass"), false, 1);
             tools[0][1] = new Tool(TileType.TREES, Content.Load<Texture2D>("Tiles/Trees"), false, 2);
@@ -114,7 +123,31 @@ namespace AStarGame
             tools[1][1] = new Tool(TileType.ROCKS, Content.Load<Texture2D>("Tiles/LavaRocks"), false, 8);
             tools[1][2] = new Tool(TileType.WALL, Content.Load<Texture2D>("Tiles/Wall"), true, 0);
             tools[1][3] = new Tool(TileType.MONSTER, Content.Load<Texture2D>("Tiles/Monster"), false, 0);
+            */
+
             
+            System.Collections.ArrayList tiles = new System.Collections.ArrayList();
+            foreach (WorldTile t in Enum.GetValues(typeof(WorldTile)))
+            {
+                tiles.Add(t);
+                Console.WriteLine(t.GetInformation());
+
+                try
+                {
+                    Texture2D cur = Content.Load<Texture2D>(t.GetTexture());
+                    if (cur != null)
+                        texmap.Add(t.GetTexture(), cur);
+                }
+                catch (Microsoft.Xna.Framework.Content.ContentLoadException e)
+                {
+                }
+                
+            }
+            worldtiles = tiles.ToArray(typeof(WorldTile)) as WorldTile[];
+
+            Console.WriteLine(worldtiles.Length);
+
+
             //Testing Enumerator access
             /* 
             foreach (WorldTile t in Enum.GetValues(typeof(WorldTile)))
@@ -124,8 +157,8 @@ namespace AStarGame
              */
 
             //map = new TileMap(10, 10, 17, 512, 512, whitepixel, tools[0][0]);
-            map = new TileMap(10, 10, 17, NUM_X_TILES, NUM_Y_TILES, whitepixel, tools);
-            toolmap = new ToolMap(578, 100, whitepixel, tools, font);
+            toolmap = new ToolMap(578, 100, whitepixel, texmap, worldtiles, font, Window.Handle);
+            map = new TileMap(10, 10, 17, NUM_X_TILES, NUM_Y_TILES, whitepixel, toolmap.getDefaultTool());
             // TODO: use this.Content to load your game content here
         }
 
@@ -242,19 +275,45 @@ namespace AStarGame
 
         public void SaveMap()
         {
-            String output = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetEntryAssembly().Location) + "/map1.xml"; 
-            using (System.IO.StreamWriter file = new System.IO.StreamWriter(@output))
+            System.Windows.Forms.SaveFileDialog openFileDialog1 = new System.Windows.Forms.SaveFileDialog();
+            openFileDialog1.Filter = "RPG Map Files (.rpgmf)|*.rpgmf";
+            System.Windows.Forms.DialogResult userClickedOK = openFileDialog1.ShowDialog();
+
+            if (userClickedOK == System.Windows.Forms.DialogResult.OK)
             {
-                map.SaveMap(file);
+                // Open the selected file to read.
+                System.IO.Stream fileStream = openFileDialog1.OpenFile();
+
+                using (System.IO.StreamWriter writer = new System.IO.StreamWriter(fileStream))
+                {
+                    // Read the first line from the file and write it the textbox.
+                    map.SaveMap(writer);
+                }
+                fileStream.Close();
             }
         }
 
         public void LoadMap()
         {
-            String output = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetEntryAssembly().Location) + "/map1.xml";
-            using (System.IO.StreamReader file = new System.IO.StreamReader(@output))
+            System.Windows.Forms.OpenFileDialog openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            openFileDialog1.Filter = "RPG Map Files (.rpgmf)|*.rpgmf";
+            openFileDialog1.FilterIndex = 1;
+            openFileDialog1.Multiselect = false;
+
+
+            System.Windows.Forms.DialogResult userClickedOK = openFileDialog1.ShowDialog();
+
+            if (userClickedOK == System.Windows.Forms.DialogResult.OK)
             {
-                map.LoadMap(file, toolmap);
+                // Open the selected file to read.
+                System.IO.Stream fileStream = openFileDialog1.OpenFile();
+
+                using (System.IO.StreamReader reader = new System.IO.StreamReader(fileStream))
+                {
+                    // Read the first line from the file and write it the textbox.
+                    map.LoadMap(reader, toolmap);
+                }
+                fileStream.Close();
             }
         }
 
