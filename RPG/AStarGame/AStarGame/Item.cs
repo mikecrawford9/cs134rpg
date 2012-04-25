@@ -21,10 +21,11 @@ using System.Collections;
 
 namespace AStarGame
 {
-    public enum ItemType {ARMOR, ROBE, CLOTHING, SWORD, MACE, STAFF, RECOVERY_POTION, STAT_POTION, QUEST};
-    public enum ItemEffectType {AGL, ATK, DEF, MAG_ATK, HP, MP}
-    public enum ItemTargetType { SELF, SINGLE, ALL }
-    public enum ItemUsageType { TEMP, PERM, REGEN }
+    public enum ItemType {NULL, ARMOR, ROBE, CLOTHING, SWORD, MACE, STAFF, RECOVERY_POTION, STAT_POTION, QUEST};
+    public enum ItemEffectType {AGL, ATK, DEF, MAG_ATK, HP, MP, REVIVE}
+    public enum ItemTargetType {NULL, SELF, SINGLE, ALL }
+    public enum ItemUsageType {NULL, TEMP, PERM, REGEN }
+    public enum Status {NONE, DEAD}
 
     public class ItemEffect
     {
@@ -54,6 +55,14 @@ namespace AStarGame
             this.name = name;
             this.description = description;
         }
+        public Item()
+        {
+            this.type = ItemType.NULL;
+            this.effects = null;
+            this.cost = -1;
+            this.name = "";
+            this.description = "";
+        }
         public ItemType type { get; private set; }
         public ItemEffect[] effects {get; private set;}
         public int cost { get; private set; }
@@ -61,6 +70,7 @@ namespace AStarGame
         public String name { get; private set; }
 
         #region DEFAULT
+        public static Item BLANK = new Item();
         #endregion
 
         #region QUEST
@@ -75,6 +85,9 @@ namespace AStarGame
         public static Item MP_POTION_100 = new Item(ItemType.RECOVERY_POTION, new ItemEffect[] { (new ItemEffect(ItemEffectType.MP, ItemTargetType.SINGLE, ItemUsageType.TEMP, false, 100)) }, 20, "Low Mana Potion", "Heals 100 MP");
         public static Item MP_POTION_250 = new Item(ItemType.RECOVERY_POTION, new ItemEffect[] { (new ItemEffect(ItemEffectType.MP, ItemTargetType.SINGLE, ItemUsageType.TEMP, false, 250)) }, 110, "Medium Mana Potion", "Heals 250 MP");
         public static Item MP_POTION_500 = new Item(ItemType.RECOVERY_POTION, new ItemEffect[] { (new ItemEffect(ItemEffectType.HP, ItemTargetType.SINGLE, ItemUsageType.TEMP, false, 500)) }, 20, "High Mana Potion", "Heals 500 MP");
+        public static Item REVIVE_100 = new Item(ItemType.RECOVERY_POTION, new ItemEffect[] {new ItemEffect(ItemEffectType.REVIVE, ItemTargetType.SINGLE, ItemUsageType.TEMP, false, (int) Status.NONE), new ItemEffect(ItemEffectType.HP, ItemTargetType.SINGLE, ItemUsageType.TEMP, false, 100)}, 1000, "Low Revive", "Revives one player to 100 HP.");
+        public static Item REVIVE_250 = new Item(ItemType.RECOVERY_POTION, new ItemEffect[] {new ItemEffect(ItemEffectType.REVIVE, ItemTargetType.SINGLE, ItemUsageType.TEMP, false, (int) Status.NONE), new ItemEffect(ItemEffectType.HP, ItemTargetType.SINGLE, ItemUsageType.TEMP, false, 250)}, 2500, "Low Revive", "Revives one player to 250 HP.");
+        public static Item REVIVE_500 = new Item(ItemType.RECOVERY_POTION, new ItemEffect[] {new ItemEffect(ItemEffectType.REVIVE, ItemTargetType.SINGLE, ItemUsageType.TEMP, false, (int) Status.NONE), new ItemEffect(ItemEffectType.HP, ItemTargetType.SINGLE, ItemUsageType.TEMP, false, 500)}, 5000, "Low Revive", "Revives one player to 500 HP.");
         #endregion
 
         #region STAT POTION
@@ -168,6 +181,7 @@ namespace AStarGame
         public static Item[] QUEST_ITEMS = {DUNGEON_KEY, DRAGON_SKULL};
         public static Item[] HP_RECOVERY_POTIONS = {HP_POTION_100, HP_POTION_250, HP_POTION_500};
         public static Item[] MP_RECOVERY_POTIONS = {MP_POTION_100, MP_POTION_250, MP_POTION_500};
+        public static Item[] REVIVE_POTIONS = {REVIVE_100,REVIVE_250, REVIVE_500};
         public static Item[] CLOTHING = {CLOTHING_1, CLOTHING_2, CLOTHING_3, CLOTHING_4, CLOTHING_5, CLOTHING_6, CLOTHING_7, CLOTHING_8, CLOTHING_9, CLOTHING_10, CLOTHING_11, CLOTHING_12};
         public static Item[] ROBES = {ROBE_1, ROBE_2, ROBE_3, ROBE_4, ROBE_5, ROBE_6, ROBE_7, ROBE_8, ROBE_9, ROBE_10, ROBE_11, ROBE_12, ROBE_13, ROBE_14};
         public static Item[] ARMOR = {ARMOR_1, ARMOR_2, ARMOR_3, ARMOR_4, ARMOR_5, ARMOR_6, ARMOR_7, ARMOR_8, ARMOR_9, ARMOR_10, ARMOR_11, ARMOR_12};
@@ -177,7 +191,7 @@ namespace AStarGame
         #endregion
 
         #region ACCESS STORAGE BY SHOP
-        public static Item[][] SHOP_ITEMS = {HP_RECOVERY_POTIONS, MP_RECOVERY_POTIONS, CLOTHING, ROBES, ARMOR, SWORDS, MACES, STAFF};
+        public static Item[][] SHOP_ITEMS = {HP_RECOVERY_POTIONS, MP_RECOVERY_POTIONS, REVIVE_POTIONS, CLOTHING, ROBES, ARMOR, SWORDS, MACES, STAFF};
         #endregion
         
         #region ACCESSORS
@@ -213,5 +227,46 @@ namespace AStarGame
             return output.ToArray(typeof(Item)) as Item[];
         }
         #endregion
+    }
+
+    public class Inventory
+    {   
+        public readonly int INVENTORY_MAX_SIZE = 20;
+        public Item[] inventory;
+        public Inventory(Item[] inventory, int maxSize = 20)
+        {
+            this.INVENTORY_MAX_SIZE = maxSize;
+            inventory = new Item[this.INVENTORY_MAX_SIZE];
+            for (int i = 0; i < inventory.Length || i < INVENTORY_MAX_SIZE; i++)
+            {
+                this.inventory[i] = inventory[i];
+            }
+            for (int i = inventory.Length; i < INVENTORY_MAX_SIZE; i++)
+            {
+                this.inventory[i] = Item.BLANK;
+            }
+        }
+
+        public Item GetItem(int index)
+        {
+            if(index >= INVENTORY_MAX_SIZE || index < 0)
+            {
+                return null;
+            }
+            return inventory[index];
+        }
+
+        public bool AddItem(Item item)
+        {
+            for (int i = 0; i < inventory.Length; i++)
+            {
+                if(inventory[i] == Item.BLANK)
+                {
+                   inventory[i] = item;
+                }
+            }
+            ki
+            
+        }
     }
 }
