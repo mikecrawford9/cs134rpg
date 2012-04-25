@@ -52,8 +52,6 @@ C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGa
 C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\Trees.xnb
 C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\Wall.xnb
 C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\Water.xnb
-C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\Pixel_Mountain_by_Captincroc.xnb
-C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\Pixel_Mountain_by_Captincroc_32.xnb
 C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\SwampToGrassBottom.xnb
 C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\SwampToGrassBottomLeft.xnb
 C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\SwampToGrassLeft.xnb
@@ -63,12 +61,7 @@ C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGa
 C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\Mountain Range Bottom.xnb
 C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\Mountain Range Left.xnb
 C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\dragonwarrior3.xnb
-C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\Guard.xnb
-C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\InnKeep.xnb
-C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\king.xnb
 C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\Mountain.xnb
-C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\Player2.xnb
-C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\Shop Keep.xnb
 C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\Zelda Tilesa.xnb
 C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\FenceAll.xnb
 C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\FenceBottom.xnb
@@ -100,6 +93,7 @@ C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGa
 C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\TentBrown.xnb
 C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\TentPurple.xnb
 C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\Underground Stairs.xnb
+<<<<<<< HEAD
 F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\CS 134 RPG\cs134rpg\cs134rpg\cs134rpg\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\dragonwarrior3.xnb
 F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\CS 134 RPG\cs134rpg\cs134rpg\cs134rpg\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\FenceAll.xnb
 F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\CS 134 RPG\cs134rpg\cs134rpg\cs134rpg\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\FenceBottom.xnb
@@ -145,3 +139,9 @@ F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\CS 134 RPG\cs134rp
 F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\CS 134 RPG\cs134rpg\cs134rpg\cs134rpg\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\Pillow.xnb
 F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\CS 134 RPG\cs134rpg\cs134rpg\cs134rpg\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\PillowDirt.xnb
 F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\CS 134 RPG\cs134rpg\cs134rpg\cs134rpg\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\ShopKeep.xnb
+=======
+C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\dirt.xnb
+C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\Pillow.xnb
+C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\PillowDirt.xnb
+C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\ShopKeep.xnb
+>>>>>>> 111699a223f79554c9250a10d0d49f208babe3e9

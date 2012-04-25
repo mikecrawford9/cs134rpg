@@ -65,6 +65,7 @@
       <Time>2012-04-24T19:22:10.6461551-07:00</Time>
     </Item>
     <Item>
+<<<<<<< HEAD
       <Source>Tiles\FenceLowerRight.png</Source>
       <Name>Tiles\FenceLowerRight</Name>
       <Importer>TextureImporter</Importer>
@@ -85,6 +86,10 @@
     <Item>
       <Source>Tiles\FenceNoLeft.png</Source>
       <Name>Tiles\FenceNoLeft</Name>
+=======
+      <Source>Tiles\SwampToGrassBottom.png</Source>
+      <Name>Tiles\SwampToGrassBottom</Name>
+>>>>>>> 111699a223f79554c9250a10d0d49f208babe3e9
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
@@ -164,6 +169,7 @@
       <Time>2012-04-24T19:19:42.9697085-07:00</Time>
     </Item>
     <Item>
+<<<<<<< HEAD
       <Source>Tiles\Grass.png</Source>
       <Name>Tiles\Grass</Name>
       <Importer>TextureImporter</Importer>
@@ -193,6 +199,10 @@
     <Item>
       <Source>Tiles\HeroFront.png</Source>
       <Name>Tiles\HeroFront</Name>
+=======
+      <Source>Tiles\Mountain.png</Source>
+      <Name>Tiles\Mountain</Name>
+>>>>>>> 111699a223f79554c9250a10d0d49f208babe3e9
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
@@ -200,6 +210,7 @@
       <Time>2012-04-24T20:26:24.1535631-07:00</Time>
     </Item>
     <Item>
+<<<<<<< HEAD
       <Source>Tiles\HeroLeftFace.png</Source>
       <Name>Tiles\HeroLeftFace</Name>
       <Importer>TextureImporter</Importer>
@@ -220,6 +231,10 @@
     <Item>
       <Source>Tiles\LavaRocks.png</Source>
       <Name>Tiles\LavaRocks</Name>
+=======
+      <Source>Tiles\Zelda Tilesa.png</Source>
+      <Name>Tiles\Zelda Tilesa</Name>
+>>>>>>> 111699a223f79554c9250a10d0d49f208babe3e9
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
@@ -394,8 +409,13 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
+<<<<<<< HEAD
       <Output>F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\CS 134 RPG\cs134rpg\cs134rpg\cs134rpg\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\TentBrown.xnb</Output>
       <Time>2012-04-24T19:14:35.7851385-07:00</Time>
+=======
+      <Output>C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\HeroFront.xnb</Output>
+      <Time>2012-04-24T20:40:15.0580954-07:00</Time>
+>>>>>>> 111699a223f79554c9250a10d0d49f208babe3e9
     </Item>
     <Item>
       <Source>Tiles\TentPurple.png</Source>
@@ -412,8 +432,13 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
+<<<<<<< HEAD
       <Output>F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\CS 134 RPG\cs134rpg\cs134rpg\cs134rpg\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\Trees.xnb</Output>
       <Time>2012-04-22T11:01:30.6440968-07:00</Time>
+=======
+      <Output>C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\HeroRightFace.xnb</Output>
+      <Time>2012-04-24T20:40:15.0580954-07:00</Time>
+>>>>>>> 111699a223f79554c9250a10d0d49f208babe3e9
     </Item>
     <Item>
       <Source>Tiles\Underground Stairs.png</Source>
@@ -430,8 +455,13 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
+<<<<<<< HEAD
       <Output>F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\CS 134 RPG\cs134rpg\cs134rpg\cs134rpg\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\Wall.xnb</Output>
       <Time>2012-04-22T11:01:30.6440968-07:00</Time>
+=======
+      <Output>C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\OldMan.xnb</Output>
+      <Time>2012-04-24T20:40:15.0580954-07:00</Time>
+>>>>>>> 111699a223f79554c9250a10d0d49f208babe3e9
     </Item>
     <Item>
       <Source>Tiles\Water.png</Source>
@@ -495,6 +525,42 @@
       <Options>None</Options>
       <Output>F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\CS 134 RPG\cs134rpg\cs134rpg\cs134rpg\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\ShopKeep.xnb</Output>
       <Time>2012-04-24T20:25:20.2759095-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Tiles\dirt.png</Source>
+      <Name>Tiles\dirt</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\dirt.xnb</Output>
+      <Time>2012-04-24T20:40:15.0736954-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Tiles\Pillow.png</Source>
+      <Name>Tiles\Pillow</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\Pillow.xnb</Output>
+      <Time>2012-04-24T20:40:15.0580954-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Tiles\PillowDirt.png</Source>
+      <Name>Tiles\PillowDirt</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\PillowDirt.xnb</Output>
+      <Time>2012-04-24T20:40:15.0736954-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Tiles\ShopKeep.png</Source>
+      <Name>Tiles\ShopKeep</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\ShopKeep.xnb</Output>
+      <Time>2012-04-24T20:40:15.0736954-07:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
