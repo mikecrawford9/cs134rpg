@@ -131,9 +131,10 @@
     <Content Include="Requirements.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\AStarGameContent\AStarGameContent.contentproj">
-      <Name>AStarGameContent</Name>
+    <ProjectReference Include="..\AStarGameContent\RPGGameContent.contentproj">
+      <Name>RPGGameContent %28Content%29</Name>
       <XnaReferenceType>Content</XnaReferenceType>
+      <Project>{95434145-9C53-4EE8-AAF5-01E683E01D1B}</Project>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

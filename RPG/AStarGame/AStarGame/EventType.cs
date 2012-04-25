@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace AStarGame
+namespace RPG
 {
     enum EventType { MAP_TRANSITION=1, BATTLE, NPCQUEST, NPCMERCH};
 }

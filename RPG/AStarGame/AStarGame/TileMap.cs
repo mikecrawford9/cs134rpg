@@ -13,7 +13,7 @@ using Microsoft.Xna.Framework.Input;
 using System.IO;
 using System.Xml;
 
-namespace AStarGame
+namespace RPG
 {
     class TileMap
     {

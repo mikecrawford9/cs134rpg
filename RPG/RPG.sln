@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AStarGame", "AStarGame\AStarGame\AStarGame.csproj", "{F3528330-01A8-43EB-B61D-D583B50FA079}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RPG", "AStarGame\AStarGame\RPG.csproj", "{F3528330-01A8-43EB-B61D-D583B50FA079}"
 EndProject
-Project("{96E2B04D-8817-42C6-938A-82C39BA4D311}") = "AStarGameContent", "AStarGame\AStarGameContent\AStarGameContent.contentproj", "{95434145-9C53-4EE8-AAF5-01E683E01D1B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RPGGameContent", "AStarGame\AStarGameContent\RPGGameContent.contentproj", "{95434145-9C53-4EE8-AAF5-01E683E01D1B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

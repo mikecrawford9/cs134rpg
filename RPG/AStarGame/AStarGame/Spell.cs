@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace AStarGame
+namespace RPG
 {
     public enum SpellType {MAGIC, PHYSICAL}
     public enum SpellTargetType {SINGLE, ALL, SELF}

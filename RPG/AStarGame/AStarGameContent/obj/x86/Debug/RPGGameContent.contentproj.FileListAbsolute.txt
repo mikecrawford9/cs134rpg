@@ -1,0 +1,1 @@
+C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGameContent\obj\x86\Debug\ResolveAssemblyReference.cache

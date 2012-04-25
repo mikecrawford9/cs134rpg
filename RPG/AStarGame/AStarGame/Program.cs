@@ -1,6 +1,6 @@
 using System;
 
-namespace AStarGame
+namespace RPG
 {
 #if WINDOWS || XBOX
     static class Program

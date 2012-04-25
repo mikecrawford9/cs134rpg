@@ -11,7 +11,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace AStarGame
+namespace RPG
 {
     public enum GameState { EDIT = 1, ASTAR, RUNNING, GAMEOVER, SAVEMAP, LOADMAP};
 }

@@ -10,7 +10,7 @@ using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace AStarGame
+namespace RPG
 {
     class Tile: IComparable<Tile>, IEquatable<Tile>
     {

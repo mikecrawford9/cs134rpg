@@ -20,7 +20,7 @@ using Microsoft.Xna.Framework.Media;
 using System.Collections;
 #endregion
 
-namespace AStarGame
+namespace RPG
 {
     public enum ItemType {NULL, ARMOR, ROBE, CLOTHING, SWORD, MACE, STAFF, RECOVERY_POTION, STAT_POTION, QUEST};
     public enum ItemEffectType {AGL, ATK, DEF, MAG_ATK, HP, MP, REVIVE}

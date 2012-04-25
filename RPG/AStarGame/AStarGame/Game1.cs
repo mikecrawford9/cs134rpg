@@ -19,7 +19,7 @@ using Microsoft.Xna.Framework.Media;
 using System.IO;
 
 
-namespace AStarGame
+namespace RPG
 {
     /// <summary>
     /// This is the main type for your game
