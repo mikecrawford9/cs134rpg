@@ -145,5 +145,19 @@ namespace RPG
         TENT_PURPLE,
         [WorldTileAttribute(TileType.FENCE, "Tiles/TentBrown", true, 0)]
         TENT_BROWN,
+        [WorldTileAttribute(TileType.FENCE, "Tiles/Castle", true, 1)]
+        CASTLE,
+        [WorldTileAttribute(TileType.FENCE, "Tiles/Black", true, 0)]
+        BLACK,
+        [WorldTileAttribute(TileType.FENCE, "Tiles/OldMan", true, 0)]
+        OLD_MAN,
+        [WorldTileAttribute(TileType.FENCE, "Tiles/ShopKeep", true, 0)]
+        SHOP_KEEP,
+        [WorldTileAttribute(TileType.FENCE, "Tiles/dirt", true, 0)]
+        DIRT,
+        [WorldTileAttribute(TileType.FENCE, "Tiles/PillowDirt", true, 0)]
+        PILLOW_DIRT,
+        [WorldTileAttribute(TileType.FENCE, "Tiles/RockWall", true, 0)]
+        ROCK_WALL
     }
 }
