@@ -34,7 +34,9 @@ namespace RPG
         int center;
 
         Tile[][] map;
+        Tile selectedtile;
         Rectangle[][] displaytiles;
+        SpriteFont font;
 
         Tile highlighted;
 
@@ -47,11 +49,12 @@ namespace RPG
         int monsterx;
         int monstery;
 
-        public TileMap(int x, int y, int size, int xtiles, int ytiles, Texture2D pixel, Tool deftool)
+        public TileMap(int x, int y, int size, int xtiles, int ytiles, Texture2D pixel, Tool deftool, SpriteFont font)
         {
             this.size = size;
             this.xtiles = xtiles;
             this.ytiles = ytiles;
+            this.font = font;
             double tss = VIEW_HEIGHT / size;
             int tilesidesize = (int)Math.Floor(tss);
             totalmapsize = tilesidesize * size;
@@ -97,7 +100,8 @@ namespace RPG
                 for (ja = 0, j = curytilemin; j < (size + curytilemin) && j < ytiles && ja < size; j++, ja++)
                     map[i][j].Draw(spriteBatch, displaytiles[ia][ja]);
 
-
+            if (selectedtile != null)
+            spriteBatch.DrawString(font, "X: " + selectedtile.getMapX() + ", Y: " + selectedtile.getMapY(), new Vector2(600 + 10, 200), Color.Black);
 
             if (playertile != null)
                 playertile.Draw(spriteBatch, displaytiles[center-1][center-1]);
@@ -180,8 +184,9 @@ namespace RPG
             return success;
         }
 
-        public void Update(Tool selectedTool)
+        public void Update(ToolMap toolmap)
         {
+            Tool selectedTool = toolmap.getSelected();
             MouseState mouseState = Mouse.GetState();
             int mousex = mouseState.X;
             int mousey = mouseState.Y;
@@ -237,7 +242,10 @@ namespace RPG
                     }
                     else
                     {
-                        map[curxtilemin + tilex][curytilemin + tiley].applyTool(selectedTool);
+                        if (selectedTool.getType() == WorldTile.SELECT)
+                            selectedtile = map[curxtilemin + tilex][curytilemin + tiley];
+
+                        map[curxtilemin + tilex][curytilemin + tiley].applyTool(selectedTool, toolmap);
                     }
 
                 }

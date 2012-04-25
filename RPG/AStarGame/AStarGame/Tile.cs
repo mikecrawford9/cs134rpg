@@ -215,11 +215,18 @@ namespace RPG
             return cost;
         }
 
-        public void applyTool(Tool tool)
+        public void applyTool(Tool tool, ToolMap map)
         {
-            this.pixel = tool.getTexture();
-            this.type = tool.getType();
-            this.cost = tool.getCost();
+            if (tool.getType() == WorldTile.SELECT)
+            {
+                map.updateSelected(sq.X, sq.Y, sq.Width, sq.Height);
+            }
+            else
+            {
+                this.pixel = tool.getTexture();
+                this.type = tool.getType();
+                this.cost = tool.getCost();
+            }
         }
 
         public bool Equals(Tile other)

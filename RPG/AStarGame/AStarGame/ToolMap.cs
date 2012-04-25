@@ -74,8 +74,15 @@ namespace RPG
             toolmap = new Dictionary<WorldTile, Tool>();
             for (int i = 0; i < tiles.Length; i++)
             {
-                if(tiles[i] != WorldTile.SELECT)
-                    toolmap.Add(tiles[i], new Tool(tiles[i], texmap[tiles[i].GetTexture()]));
+                if (tiles[i] != WorldTile.SELECT)
+                {
+                    try
+                    {
+                        toolmap.Add(tiles[i], new Tool(tiles[i], texmap[tiles[i].GetTexture()]));
+                    }
+                    catch (KeyNotFoundException e)
+                    { }
+                }
             }
             
             for (int i = 0; i < tiles.Length; i++)
@@ -166,11 +173,13 @@ namespace RPG
             if (selectedobj != null)
             {
                 WorldTile select = (WorldTile)selectedobj;
-                if(select != WorldTile.SELECT)
+                if (select != WorldTile.SELECT)
                 {
                     Texture2D seltex = texmap[select.GetTexture()];
                     selected = new Tool(select, seltex);
                 }
+                else
+                    selected = new Tool(select, null);
             }
 
             if ((mousex >= astarbutton.X && mousex <= (astarbutton.X + astarbutton.Width)) &&

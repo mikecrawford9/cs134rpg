@@ -135,7 +135,7 @@ namespace RPG
         FENCE_POLE,
         [WorldTileAttribute(TileType.FENCE, "Tiles/FenceHorizontal", true, 0)]
         FENCE_HORIZONTAL,
-        [WorldTileAttribute(TileType.FENCE, "Tiles/FenceVertical", true, 0)]
+        [WorldTileAttribute(TileType.FENCE, "Tiles/FenceVertcal", true, 0)]
         FENCE_VERTICAL,
         [WorldTileAttribute(TileType.FENCE, "Tiles/GrassStairs", true, 1)]
         GRASS_STAIRS,
