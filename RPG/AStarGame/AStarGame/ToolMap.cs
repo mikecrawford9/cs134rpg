@@ -166,11 +166,13 @@ namespace RPG
             if (selectedobj != null)
             {
                 WorldTile select = (WorldTile)selectedobj;
-                if(select != WorldTile.SELECT)
+                if (select != WorldTile.SELECT)
                 {
                     Texture2D seltex = texmap[select.GetTexture()];
                     selected = new Tool(select, seltex);
                 }
+                else
+                    selected = new Tool(select, null);
             }
 
             if ((mousex >= astarbutton.X && mousex <= (astarbutton.X + astarbutton.Width)) &&
