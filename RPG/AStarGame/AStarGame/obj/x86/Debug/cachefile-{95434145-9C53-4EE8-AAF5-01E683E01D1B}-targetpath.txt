@@ -17,9 +17,18 @@ Content\Tiles\SwampToGrassRight.xnb
 Content\Tiles\SwampToGrassTop.xnb
 Content\Tiles\SwampToGrassTopLeft.xnb
 Content\Tiles\TransitionTilesDemo.xnb
+Content\Tiles\MountainRange.xnb
 Content\Tiles\images.xnb
 Content\Tiles\Mountain Range Bottom.xnb
 Content\Tiles\Mountain Range Left.xnb
 Content\Tiles\Mountain to Grass Demo 2.xnb
+Content\Tiles\dragonwarrior3.xnb
+Content\Tiles\Guard.xnb
+Content\Tiles\InnKeep.xnb
+Content\Tiles\king.xnb
+Content\Tiles\Mountain.xnb
+Content\Tiles\Player2.xnb
+Content\Tiles\Shop Keep.xnb
+Content\Tiles\Zelda Tilesa.xnb
+Content\Tiles\Zelda Tilesb.xnb
 Content\gameFont.xnb
-Content\Tiles\MountainRange.xnb

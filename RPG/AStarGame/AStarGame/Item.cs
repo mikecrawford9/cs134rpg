@@ -150,7 +150,7 @@ namespace AStarGame
         public static Item SWORD_6 = new Item(ItemType.SWORD, new ItemEffect[] { (new ItemEffect(ItemEffectType.ATK, ItemTargetType.SELF, ItemUsageType.PERM, true, 55)) }, 6000, "Elven Rapier", "Only elves can produce something of this much detail.");
         public static Item SWORD_7 = new Item(ItemType.SWORD, new ItemEffect[] { (new ItemEffect(ItemEffectType.ATK, ItemTargetType.SELF, ItemUsageType.PERM, true, 62)) }, 7500, "Battle Rapier", "Always be battle ready.");
         public static Item SWORD_8 = new Item(ItemType.SWORD, new ItemEffect[] { (new ItemEffect(ItemEffectType.ATK, ItemTargetType.SELF, ItemUsageType.PERM, true, 70)) }, 9000, "Claymore", "The sword only a giant can love.");
-        public static Item SWORD_9 = new Item(ItemType.SWORD, new ItemEffect[] { (new ItemEffect(ItemEffectType.ATK, ItemTargetType.SELF, ItemUsageType.PERM, true, 90)) }, 12000, "Great Sword", "Whats so great about it, its oversided and weights a ton.")
+        public static Item SWORD_9 = new Item(ItemType.SWORD, new ItemEffect[] { (new ItemEffect(ItemEffectType.ATK, ItemTargetType.SELF, ItemUsageType.PERM, true, 90)) }, 12000, "Great Sword", "Whats so great about it, its oversided and weights a ton.");
         public static Item SWORD_10 = new Item(ItemType.SWORD, new ItemEffect[] { (new ItemEffect(ItemEffectType.ATK, ItemTargetType.SELF, ItemUsageType.PERM, true, 100)), (new ItemEffect(ItemEffectType.HP, ItemTargetType.SELF, ItemUsageType.REGEN, true, 10)) }, 15000, "Soul Blade", "It feels like my soul is attached to this sword.");
         #endregion
 
@@ -265,8 +265,8 @@ namespace AStarGame
                    inventory[i] = item;
                 }
             }
-            ki
             
+            return false;
         }
     }
 }
