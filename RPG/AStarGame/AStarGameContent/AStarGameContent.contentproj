@@ -106,11 +106,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Tiles\Mountain to Grass Demo.png">
-      <Name>Mountain to Grass Demo</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
     <Compile Include="Tiles\Pixel_Mountain_by_Captincroc.png">
       <Name>Pixel_Mountain_by_Captincroc</Name>
       <Importer>TextureImporter</Importer>
