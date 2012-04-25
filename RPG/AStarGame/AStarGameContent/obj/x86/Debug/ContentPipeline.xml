@@ -83,15 +83,6 @@
       <Time>2012-03-04T19:12:34.9090618-08:00</Time>
     </Item>
     <Item>
-      <Source>Tiles\Mountain to Grass Demo.png</Source>
-      <Name>Tiles\Mountain to Grass Demo</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\Mountain to Grass Demo.xnb</Output>
-      <Time>2012-04-22T21:45:18.5139062-07:00</Time>
-    </Item>
-    <Item>
       <Source>Tiles\Pixel_Mountain_by_Captincroc.png</Source>
       <Name>Tiles\Pixel_Mountain_by_Captincroc</Name>
       <Importer>TextureImporter</Importer>
@@ -164,33 +155,6 @@
       <Time>2012-04-22T21:45:18.5299071-07:00</Time>
     </Item>
     <Item>
-      <Source>Tiles\TransitionTilesDemo.png</Source>
-      <Name>Tiles\TransitionTilesDemo</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\TransitionTilesDemo.xnb</Output>
-      <Time>2012-04-22T21:45:18.5309072-07:00</Time>
-    </Item>
-    <Item>
-      <Source>Tiles\Mountain Range.png</Source>
-      <Name>Tiles\MountainRange</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\MountainRange.xnb</Output>
-      <Time>2012-04-22T21:45:18.5079059-07:00</Time>
-    </Item>
-    <Item>
-      <Source>Tiles\images.jpg</Source>
-      <Name>Tiles\images</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\images.xnb</Output>
-      <Time>2012-04-22T21:45:18.5519084-07:00</Time>
-    </Item>
-    <Item>
       <Source>Tiles\Mountain Range Bottom.png</Source>
       <Name>Tiles\Mountain Range Bottom</Name>
       <Importer>TextureImporter</Importer>
@@ -207,15 +171,6 @@
       <Options>None</Options>
       <Output>C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\Mountain Range Left.xnb</Output>
       <Time>2012-04-22T21:45:18.5039057-07:00</Time>
-    </Item>
-    <Item>
-      <Source>Tiles\Mountain to Grass Demo 2.png</Source>
-      <Name>Tiles\Mountain to Grass Demo 2</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\Mountain to Grass Demo 2.xnb</Output>
-      <Time>2012-04-22T21:45:18.5129062-07:00</Time>
     </Item>
     <Item>
       <Source>Tiles\dragonwarrior3.png</Source>
@@ -290,15 +245,6 @@
       <Time>2012-04-22T21:45:18.5439079-07:00</Time>
     </Item>
     <Item>
-      <Source>Tiles\Zelda Tilesb.jpg</Source>
-      <Name>Tiles\Zelda Tilesb</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\Zelda Tilesb.xnb</Output>
-      <Time>2012-04-22T21:45:18.5489082-07:00</Time>
-    </Item>
-    <Item>
       <Source>gameFont.spritefont</Source>
       <Name>gameFont</Name>
       <Importer>FontDescriptionImporter</Importer>
@@ -306,6 +252,276 @@
       <Options>None</Options>
       <Output>C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\gameFont.xnb</Output>
       <Time>2011-04-01T10:42:38-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Tiles\FenceAll.png</Source>
+      <Name>Tiles\FenceAll</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\FenceAll.xnb</Output>
+      <Time>2012-04-24T20:02:56.1627038-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Tiles\FenceBottom.png</Source>
+      <Name>Tiles\FenceBottom</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\FenceBottom.xnb</Output>
+      <Time>2012-04-24T20:02:56.1627038-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Tiles\FenceHorizontal.png</Source>
+      <Name>Tiles\FenceHorizontal</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\FenceHorizontal.xnb</Output>
+      <Time>2012-04-24T20:02:56.1627038-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Tiles\FenceLeft.png</Source>
+      <Name>Tiles\FenceLeft</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\FenceLeft.xnb</Output>
+      <Time>2012-04-24T20:02:56.1627038-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Tiles\FenceLowerLeft.png</Source>
+      <Name>Tiles\FenceLowerLeft</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\FenceLowerLeft.xnb</Output>
+      <Time>2012-04-24T20:02:56.1627038-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Tiles\FenceLowerRight.png</Source>
+      <Name>Tiles\FenceLowerRight</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\FenceLowerRight.xnb</Output>
+      <Time>2012-04-24T20:02:56.1627038-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Tiles\FenceNoBottom.png</Source>
+      <Name>Tiles\FenceNoBottom</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\FenceNoBottom.xnb</Output>
+      <Time>2012-04-24T20:02:56.1627038-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Tiles\FenceNoLeft.png</Source>
+      <Name>Tiles\FenceNoLeft</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\FenceNoLeft.xnb</Output>
+      <Time>2012-04-24T20:02:56.1627038-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Tiles\FenceNoRight.png</Source>
+      <Name>Tiles\FenceNoRight</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\FenceNoRight.xnb</Output>
+      <Time>2012-04-24T20:02:56.1627038-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Tiles\FenceNoTop.png</Source>
+      <Name>Tiles\FenceNoTop</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\FenceNoTop.xnb</Output>
+      <Time>2012-04-24T20:02:56.1627038-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Tiles\FencePole.png</Source>
+      <Name>Tiles\FencePole</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\FencePole.xnb</Output>
+      <Time>2012-04-24T20:02:56.1627038-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Tiles\FenceRight.png</Source>
+      <Name>Tiles\FenceRight</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\FenceRight.xnb</Output>
+      <Time>2012-04-24T20:02:56.1627038-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Tiles\FenceTop.png</Source>
+      <Name>Tiles\FenceTop</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\FenceTop.xnb</Output>
+      <Time>2012-04-24T20:02:56.1783038-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Tiles\FenceUpperLeft.png</Source>
+      <Name>Tiles\FenceUpperLeft</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\FenceUpperLeft.xnb</Output>
+      <Time>2012-04-24T20:02:56.1783038-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Tiles\FenceUpperRight.png</Source>
+      <Name>Tiles\FenceUpperRight</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\FenceUpperRight.xnb</Output>
+      <Time>2012-04-24T20:02:56.1783038-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Tiles\FenceVertcal.png</Source>
+      <Name>Tiles\FenceVertcal</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\FenceVertcal.xnb</Output>
+      <Time>2012-04-24T20:02:56.1783038-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Tiles\GrassStairs.png</Source>
+      <Name>Tiles\GrassStairs</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\GrassStairs.xnb</Output>
+      <Time>2012-04-24T20:02:56.2251039-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Tiles\HeroBack.png</Source>
+      <Name>Tiles\HeroBack</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\HeroBack.xnb</Output>
+      <Time>2012-04-24T20:02:56.1783038-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Tiles\HeroFront.png</Source>
+      <Name>Tiles\HeroFront</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\HeroFront.xnb</Output>
+      <Time>2012-04-24T20:02:56.1783038-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Tiles\HeroLeftFace.png</Source>
+      <Name>Tiles\HeroLeftFace</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\HeroLeftFace.xnb</Output>
+      <Time>2012-04-24T20:02:56.1783038-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Tiles\HeroRightFace.png</Source>
+      <Name>Tiles\HeroRightFace</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\HeroRightFace.xnb</Output>
+      <Time>2012-04-24T20:02:56.1783038-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Tiles\Mountain Range.png</Source>
+      <Name>Tiles\Mountain Range</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\Mountain Range.xnb</Output>
+      <Time>2012-04-22T21:45:18.5079059-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Tiles\OldMan.png</Source>
+      <Name>Tiles\OldMan</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\OldMan.xnb</Output>
+      <Time>2012-04-24T20:02:56.1783038-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Tiles\Tent Source 2.png</Source>
+      <Name>Tiles\Tent Source 2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\Tent Source 2.xnb</Output>
+      <Time>2012-04-24T20:02:56.1783038-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Tiles\Tent Source 3.png</Source>
+      <Name>Tiles\Tent Source 3</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\Tent Source 3.xnb</Output>
+      <Time>2012-04-24T20:02:56.1939038-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Tiles\Tent Source.png</Source>
+      <Name>Tiles\Tent Source</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\Tent Source.xnb</Output>
+      <Time>2012-04-24T20:02:56.1939038-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Tiles\Tent.png</Source>
+      <Name>Tiles\Tent</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\Tent.xnb</Output>
+      <Time>2012-04-24T20:02:56.1939038-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Tiles\TentBrown.png</Source>
+      <Name>Tiles\TentBrown</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\TentBrown.xnb</Output>
+      <Time>2012-04-24T20:02:56.1939038-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Tiles\TentPurple.png</Source>
+      <Name>Tiles\TentPurple</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\TentPurple.xnb</Output>
+      <Time>2012-04-24T20:02:56.1939038-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Tiles\Underground Stairs.png</Source>
+      <Name>Tiles\Underground Stairs</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\Underground Stairs.xnb</Output>
+      <Time>2012-04-24T19:00:21.483732-07:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
