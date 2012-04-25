@@ -5,7 +5,7 @@ Instructor: Dr. Teoh
 Term: Spring 2012
 Assignment: Project 2
 */
-#region IMPORTS
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,7 +18,6 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 using System.Collections;
-#endregion
 
 namespace AStarGame
 {
@@ -64,11 +63,11 @@ namespace AStarGame
             this.name = "";
             this.description = "";
         }
-        public ItemType type;
-        public ItemEffect[] effects;
-        public int cost;
-        public String description;
-        public String name;
+        public ItemType type { get; private set; }
+        public ItemEffect[] effects {get; private set;}
+        public int cost { get; private set; }
+        public String description {get; private set;}
+        public String name { get; private set; }
 
         #region DEFAULT
         public static Item BLANK = new Item();
@@ -267,6 +266,10 @@ namespace AStarGame
                     return true;
                 }
             }
+<<<<<<< HEAD
+            return false;
+=======
+>>>>>>> 08a00011fe2a710a879a653abf96cb2ddfe9e98e
             
             return false;
         }

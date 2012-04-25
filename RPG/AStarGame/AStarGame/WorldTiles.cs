@@ -24,11 +24,10 @@ namespace AStarGame
 
     class WorldTileAttribute : Attribute
     {
-        
         internal WorldTileAttribute(TileType type, String texturePath, bool isObstacle, byte cost)
         {
             this.tileType = type;
-            this.texture = texture;
+            this.texture = texturePath;
             this.isObstacle = isObstacle;
             this.cost = cost;
             this.info = "WorldTile [TileType: \"" + type + "\", Texture Path: \""
@@ -75,6 +74,11 @@ namespace AStarGame
         public static String GetInformation(this WorldTile t)
         {
             return GetAttribute(t).info;
+        }
+
+        public static String toString(this WorldTile t)
+        {
+            return t.GetType().ToString();
         }
     }
 

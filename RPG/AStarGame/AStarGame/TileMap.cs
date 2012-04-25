@@ -47,7 +47,7 @@ namespace AStarGame
         int monsterx;
         int monstery;
 
-        public TileMap(int x, int y, int size, int xtiles, int ytiles, Texture2D pixel, Tool[][] tools)
+        public TileMap(int x, int y, int size, int xtiles, int ytiles, Texture2D pixel, Tool deftool)
         {
             this.size = size;
             this.xtiles = xtiles;
@@ -58,8 +58,8 @@ namespace AStarGame
             curxtilemin = 0;
             curytilemin = 0;
 
-            int curtoolx = tools.Length-1;
-            int curtooly = tools[0].Length-1;
+            //int curtoolx = tools.Length-1;
+            //int curtooly = tools[0].Length-1;
 
             pixelsperside = tilesidesize;
             center = (int)Math.Ceiling(size / 2.0);
@@ -84,7 +84,7 @@ namespace AStarGame
                 {
                     //int currandx = randval.Next(0, 2);
                     //int currandy = randval.Next(0, 3);
-                    map[i][j] = new Tile(i, j, (x + i * tilesidesize), (y + j * tilesidesize), tilesidesize, tools[0][0]);
+                    map[i][j] = new Tile(i, j, (x + i * tilesidesize), (y + j * tilesidesize), tilesidesize, deftool);
                 }
             }
 
@@ -180,7 +180,7 @@ namespace AStarGame
             return success;
         }
 
-        public void Update(Tile selectedTool)
+        public void Update(Tool selectedTool)
         {
             MouseState mouseState = Mouse.GetState();
             int mousex = mouseState.X;
@@ -205,7 +205,7 @@ namespace AStarGame
                         if (cur.getType() != TileType.WALL)
                         {
                             if (playertile == null)
-                                playertile = new Tile(tilex, tiley, cur.getX(), cur.getY(), cur.getLength(), selectedTool.getTexture(), selectedTool.getColor());
+                                playertile = new Tile(tilex, tiley, cur.getX(), cur.getY(), cur.getLength(), selectedTool.getTexture(), Color.White);
                             else
                             {
                                 playerx = tilex;
@@ -224,7 +224,7 @@ namespace AStarGame
                         if (cur.getType() != TileType.WALL)
                         {
                             if (monstertile == null)
-                                monstertile = new Tile(tilex, tiley, cur.getX(), cur.getY(), cur.getLength(), selectedTool.getTexture(), selectedTool.getColor());
+                                monstertile = new Tile(tilex, tiley, cur.getX(), cur.getY(), cur.getLength(), selectedTool.getTexture(), Color.White);
                             else
                             {
                                 monsterx = tilex;
