@@ -38,8 +38,6 @@ namespace AStarGame
         SpriteBatch spriteBatch;
         SpriteFont font;
 
-
-
         TileMap map;
         ToolMap toolmap;
         Texture2D whitepixel;

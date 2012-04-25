@@ -18,6 +18,7 @@ namespace AStarGame
         public Rectangle sq;
         Color curcolor;
         TileType type;
+        Event[] events;
         int arrx;
         int arry;
         int cost;
