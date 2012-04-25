@@ -87,12 +87,12 @@ namespace AStarGame
         [WorldTileAttribute(TileType.GRASS, "Tiles/Grass", false, 1)] GRASS,
         [WorldTileAttribute(TileType.TREES, "Tiles/Trees", false, 2)] TREES,
         [WorldTileAttribute(TileType.SWAMP, "Tiles/Swamp", false, 4)] SWAMP,
-        [WorldTileAttribute(TileType.MOUNTAIN, "Tiles/MountainRange", false, 0)] MOUNTAIN,
-        [WorldTileAttribute(TileType.PLAYER, "Tiles/Player", false, 0)] PLAYER,
-        [WorldTileAttribute(TileType.WATER, "Tiles/Water", false, 6)] WATER,
+        [WorldTileAttribute(TileType.MOUNTAIN, "Tiles/Mountain", true, 0)] MOUNTAIN,
+        [WorldTileAttribute(TileType.PLAYER, "Tiles/Player", true, 0)] PLAYER,
+        [WorldTileAttribute(TileType.WATER, "Tiles/Water", true, 6)] WATER,
         [WorldTileAttribute(TileType.ROCKS, "Tiles/LavaRocks", false, 8)] ROCKS,
-        [WorldTileAttribute(TileType.WALL, "Tiles/Wall", false, 0)] WALL,
-        [WorldTileAttribute(TileType.MONSTER, "Tiles/Monster", false, 0)] MONSTER,
+        [WorldTileAttribute(TileType.WALL, "Tiles/Wall", true, 0)] WALL,
+        [WorldTileAttribute(TileType.MONSTER, "Tiles/Monster", true, 0)] MONSTER,
 
     }
 }

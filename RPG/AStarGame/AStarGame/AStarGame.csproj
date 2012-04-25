@@ -110,6 +110,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="GameState.cs" />
+    <Compile Include="Item.cs" />
+    <Compile Include="Player.cs" />
+    <Compile Include="Spell.cs" />
     <Compile Include="WorldTiles.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Program.cs" />
@@ -123,6 +126,7 @@
     <Content Include="Game.ico" />
     <Content Include="GameThumbnail.png" />
     <Content Include="Sprite Resources.txt" />
+    <Content Include="Requirements.txt" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\AStarGameContent\AStarGameContent.contentproj">
