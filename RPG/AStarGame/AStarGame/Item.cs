@@ -263,9 +263,10 @@ namespace AStarGame
                 if(inventory[i] == Item.BLANK)
                 {
                    inventory[i] = item;
+                    return true;
                 }
             }
-            ki
+            return false;
             
         }
     }

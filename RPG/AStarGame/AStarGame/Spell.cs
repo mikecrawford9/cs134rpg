@@ -5,7 +5,14 @@ using System.Text;
 
 namespace RPG
 {
-    class Spell
+    public enum SpellType {MAGIC, PHYSICAL}
+    public enum SpellTargetType {SINGLE, ALL, SELF}
+    public enum SpellElement{PHYSICAL, HOLY, FIRE, ICE, LIGHTNING}
+    public enum SpellEffect {AGL, ATK, DEF, MAG_ATK, HP, MP, REVIVE}
+
+    public class Spell (SpellType type, SpellTargetType target, SpellElement element, SpellEffect[] effects)
     {
+        
     }
+    public 
 }
