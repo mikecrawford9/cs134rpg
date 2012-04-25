@@ -20,7 +20,7 @@ using Microsoft.Xna.Framework.Media;
 
 namespace RPG
 {
-    public enum TileType { MONSTER = 1, PLAYER, GRASS, TREES, WALL, WATER, SWAMP, ROCKS, MOUNTAIN, SELECT};
+    public enum TileType { MONSTER = 1, PLAYER, GRASS, TREES, WALL, WATER, SWAMP, ROCKS, MOUNTAIN, SELECT, FENCE, TENT, NPC};
 
     class WorldTileAttribute : Attribute
     {
@@ -84,15 +84,66 @@ namespace RPG
 
     public enum WorldTile
     {
-        [WorldTileAttribute(TileType.GRASS, "Tiles/Grass", false, 1)] GRASS,
-        [WorldTileAttribute(TileType.TREES, "Tiles/Trees", false, 2)] TREES,
-        [WorldTileAttribute(TileType.SWAMP, "Tiles/Swamp", false, 4)] SWAMP,
-        [WorldTileAttribute(TileType.MOUNTAIN, "Tiles/Mountain", true, 0)] MOUNTAIN,
-        [WorldTileAttribute(TileType.PLAYER, "Tiles/Player", true, 0)] PLAYER,
-        [WorldTileAttribute(TileType.WATER, "Tiles/Water", true, 6)] WATER,
-        [WorldTileAttribute(TileType.ROCKS, "Tiles/LavaRocks", false, 8)] ROCKS,
-        [WorldTileAttribute(TileType.WALL, "Tiles/Wall", true, 0)] WALL,
-        [WorldTileAttribute(TileType.MONSTER, "Tiles/Monster", true, 0)] MONSTER,
-        [WorldTileAttribute(TileType.SELECT, "SELECT", true, 0)] SELECT
+
+        [WorldTileAttribute(TileType.SELECT, "SELECT", true, 0)]
+        SELECT,
+        [WorldTileAttribute(TileType.GRASS, "Tiles/Grass", false, 1)] 
+        GRASS,
+        [WorldTileAttribute(TileType.TREES, "Tiles/Trees", false, 2)] 
+        TREES,
+        [WorldTileAttribute(TileType.SWAMP, "Tiles/Swamp", false, 4)] 
+        SWAMP,
+        [WorldTileAttribute(TileType.MOUNTAIN, "Tiles/Mountain", true, 0)] 
+        MOUNTAIN,
+        [WorldTileAttribute(TileType.PLAYER, "Tiles/HeroFront", true, 0)] 
+        PLAYER,
+        [WorldTileAttribute(TileType.WATER, "Tiles/Water", true, 6)] 
+        WATER,
+        [WorldTileAttribute(TileType.ROCKS, "Tiles/LavaRocks", false, 8)] 
+        ROCKS,
+        [WorldTileAttribute(TileType.WALL, "Tiles/Wall", true, 0)] 
+        WALL,
+        [WorldTileAttribute(TileType.MONSTER, "Tiles/Monster", true, 0)] 
+        MONSTER,
+        [WorldTileAttribute(TileType.FENCE, "Tiles/FenceLeft", true, 0)] 
+        FENCE_LEFT,
+        [WorldTileAttribute(TileType.FENCE, "Tiles/FenceRight", true, 0)]
+        FENCE_RIGHT,
+        [WorldTileAttribute(TileType.FENCE, "Tiles/FenceTop", true, 0)]
+        FENCE_TOP,
+        [WorldTileAttribute(TileType.FENCE, "Tiles/FenceBottom", true, 0)]
+        FENCE_BOTTOM,
+        [WorldTileAttribute(TileType.FENCE, "Tiles/FenceAll", true, 0)]
+        FENCE_ALL,
+        [WorldTileAttribute(TileType.FENCE, "Tiles/FenceUpperLeft", true, 0)]
+        FENCE_UPPER_LEFT,
+        [WorldTileAttribute(TileType.FENCE, "Tiles/FenceUpperRight", true, 0)]
+        FENCE_UPPER_RIGHT,
+        [WorldTileAttribute(TileType.FENCE, "Tiles/FenceLowerLeft", true, 0)]
+        FENCE_LOWER_LEFT,
+        [WorldTileAttribute(TileType.FENCE, "Tiles/FenceLowerRight", true, 0)]
+        FENCE_LOWER_RIGHT,
+        [WorldTileAttribute(TileType.FENCE, "Tiles/FenceNoBottom", true, 0)]
+        FENCE_NO_BOTTOM,
+        [WorldTileAttribute(TileType.FENCE, "Tiles/FenceNoLeft", true, 0)]
+        FENCE_NO_LEFT,
+        [WorldTileAttribute(TileType.FENCE, "Tiles/FenceNoRight", true, 0)]
+        FENCE_NO_RIGHT,
+        [WorldTileAttribute(TileType.FENCE, "Tiles/FenceNoTop", true, 0)]
+        FENCE_NO_TOP,
+        [WorldTileAttribute(TileType.FENCE, "Tiles/FencePole", true, 0)]
+        FENCE_POLE,
+        [WorldTileAttribute(TileType.FENCE, "Tiles/FenceHorizontal", true, 0)]
+        FENCE_HORIZONTAL,
+        [WorldTileAttribute(TileType.FENCE, "Tiles/FenceVertical", true, 0)]
+        FENCE_VERTICAL,
+        [WorldTileAttribute(TileType.FENCE, "Tiles/GrassStairs", true, 1)]
+        GRASS_STAIRS,
+        [WorldTileAttribute(TileType.FENCE, "Tiles/Tent", true, 0)]
+        TENT,
+        [WorldTileAttribute(TileType.FENCE, "Tiles/TentPurple", true, 0)]
+        TENT_PURPLE,
+        [WorldTileAttribute(TileType.FENCE, "Tiles/TentBrown", true, 0)]
+        TENT_BROWN,
     }
 }
