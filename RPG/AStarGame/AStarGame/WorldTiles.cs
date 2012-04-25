@@ -20,7 +20,7 @@ using Microsoft.Xna.Framework.Media;
 
 namespace RPG
 {
-    public enum TileType { MONSTER = 1, PLAYER, GRASS, TREES, WALL, WATER, SWAMP, ROCKS, MOUNTAIN};
+    public enum TileType { MONSTER = 1, PLAYER, GRASS, TREES, WALL, WATER, SWAMP, ROCKS, MOUNTAIN, SELECT};
 
     class WorldTileAttribute : Attribute
     {
@@ -93,6 +93,6 @@ namespace RPG
         [WorldTileAttribute(TileType.ROCKS, "Tiles/LavaRocks", false, 8)] ROCKS,
         [WorldTileAttribute(TileType.WALL, "Tiles/Wall", true, 0)] WALL,
         [WorldTileAttribute(TileType.MONSTER, "Tiles/Monster", true, 0)] MONSTER,
-
+        [WorldTileAttribute(TileType.SELECT, "SELECT", true, 0)] SELECT
     }
 }

@@ -111,6 +111,7 @@
   <ItemGroup>
     <Compile Include="Event.cs" />
     <Compile Include="EventType.cs" />
+    <Compile Include="EventTypeProperties\MapTransition.cs" />
     <Compile Include="GameState.cs" />
     <Compile Include="Item.cs" />
     <Compile Include="Player.cs" />

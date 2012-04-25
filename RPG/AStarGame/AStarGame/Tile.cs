@@ -17,7 +17,7 @@ namespace RPG
         Texture2D pixel;
         public Rectangle sq;
         Color curcolor;
-        TileType type;
+        WorldTile type;
         Event[] events;
         int arrx;
         int arry;
@@ -121,7 +121,7 @@ namespace RPG
             return pixel;
         }
 
-        public TileType getType()
+        public WorldTile getType()
         {
             return type;
         }

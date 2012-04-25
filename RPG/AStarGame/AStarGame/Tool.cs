@@ -15,20 +15,20 @@ namespace RPG
 {
     class Tool
     {
-        TileType type;
+        WorldTile type;
         Texture2D texture;
         bool isObstacle;
         int cost;
 
-        public Tool(TileType type, Texture2D texture, bool isObstacle, int cost)
+        public Tool(WorldTile type, Texture2D texture)
         {
             this.type = type;
             this.texture = texture;
-            this.isObstacle = isObstacle;
-            this.cost = cost;
+            this.isObstacle = type.isObstacle();
+            this.cost = type.GetCost();
         }
 
-        public TileType getType()
+        public WorldTile getType()
         {
             return type;
         }

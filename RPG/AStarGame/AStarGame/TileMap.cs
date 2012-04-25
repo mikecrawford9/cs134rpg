@@ -196,13 +196,13 @@ namespace RPG
                 double tempy = (mousey - 10) / pixelsperside;
                 int tiley = (int)Math.Floor(tempy);
 
-                if (mouseState.LeftButton == ButtonState.Pressed)
+                if (mouseState.LeftButton == ButtonState.Pressed && selectedTool != null)
                 {
-                    TileType selectedType = selectedTool.getType();
-                    if (selectedType == TileType.PLAYER)
+                    WorldTile selectedType = selectedTool.getType();
+                    if (selectedType == WorldTile.PLAYER)
                     {
                         Tile cur = map[tilex][tiley];
-                        if (cur.getType() != TileType.WALL)
+                        if (cur.getType() != WorldTile.WALL)
                         {
                             if (playertile == null)
                                 playertile = new Tile(tilex, tiley, cur.getX(), cur.getY(), cur.getLength(), selectedTool.getTexture(), Color.White);
@@ -211,17 +211,15 @@ namespace RPG
                                 playerx = tilex;
                                 playery = tiley;
 
-                                //playertile.setX(cur.getX());
-                                //playertile.setY(cur.getY());
                                 playertile.setMapX(tilex);
                                 playertile.setMapY(tiley);
                             }
                         }
                     }
-                    else if (selectedType == TileType.MONSTER)
+                    else if (selectedType == WorldTile.MONSTER)
                     {
                         Tile cur = map[tilex][tiley];
-                        if (cur.getType() != TileType.WALL)
+                        if (cur.getType() != WorldTile.WALL)
                         {
                             if (monstertile == null)
                                 monstertile = new Tile(tilex, tiley, cur.getX(), cur.getY(), cur.getLength(), selectedTool.getTexture(), Color.White);

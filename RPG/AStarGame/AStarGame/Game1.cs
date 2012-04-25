@@ -391,7 +391,7 @@ namespace RPG
                 if (kb.IsKeyDown(Keys.Up))
                 {
                     Tile up = map.getTileAt(player.getMapX(), player.getMapY() - 1);
-                    if (up != null && up.getType() != TileType.WALL)
+                    if (up != null && up.getType() != WorldTile.WALL)
                     {
                         map.setPlayerLocation(up);
                         lastplayermove = currenttime;
@@ -400,7 +400,7 @@ namespace RPG
                 else if (kb.IsKeyDown(Keys.Down))
                 {
                     Tile down = map.getTileAt(player.getMapX(), player.getMapY() + 1);
-                    if (down != null && down.getType() != TileType.WALL)
+                    if (down != null && down.getType() != WorldTile.WALL)
                     {
                         map.setPlayerLocation(down);
                         lastplayermove = currenttime;
@@ -409,7 +409,7 @@ namespace RPG
                 else if (kb.IsKeyDown(Keys.Left))
                 {
                     Tile left = map.getTileAt(player.getMapX() - 1, player.getMapY());
-                    if (left != null && left.getType() != TileType.WALL)
+                    if (left != null && left.getType() != WorldTile.WALL)
                     {
                         map.setPlayerLocation(left);
                         lastplayermove = currenttime;
@@ -418,7 +418,7 @@ namespace RPG
                 else if (kb.IsKeyDown(Keys.Right))
                 {
                     Tile right = map.getTileAt(player.getMapX() + 1, player.getMapY());
-                    if (right != null && right.getType() != TileType.WALL)
+                    if (right != null && right.getType() != WorldTile.WALL)
                     {
                         map.setPlayerLocation(right);
                         lastplayermove = currenttime;
@@ -511,7 +511,7 @@ namespace RPG
 
         private bool canAdd(Tile toadd, List<Tile> open, List<Tile> closed)
         {
-            if (toadd != null && toadd.getType() != TileType.WALL && !closed.Contains(toadd) && !open.Contains(toadd))
+            if (toadd != null && toadd.getType() != WorldTile.WALL && !closed.Contains(toadd) && !open.Contains(toadd))
                 return true;
             else
                 return false;

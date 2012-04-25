@@ -17,7 +17,7 @@ namespace RPG
     class ToolMap
     {
         Tile[][] tools;
-        Dictionary<TileType, Tool> toolmap;
+        Dictionary<WorldTile, Tool> toolmap;
         Dictionary<String, Texture2D> texmap;
         Tool selected;
         Texture2D pixel;
@@ -49,6 +49,9 @@ namespace RPG
             combobox.Size = new System.Drawing.Size(200, 25);
             combobox.BackColor = System.Drawing.Color.Orange;
             combobox.ForeColor = System.Drawing.Color.Black;
+            combobox.SelectedIndexChanged +=
+            new System.EventHandler(ComboBox1_SelectedIndexChanged);
+
             System.Windows.Forms.Control.FromHandle(handle).Controls.Add(combobox);
             this.texmap = texmap;
             this.pixel = pixel;
@@ -68,9 +71,12 @@ namespace RPG
             xcolwidth = (xmax - xmin) / 2;
             yrowheight = (ymax - ymin) / 4;
 
-            toolmap = new Dictionary<TileType, Tool>();
-            for(int i = 0; i < tiles.Length; i++)
-                toolmap.Add(tiles[i].GetTileType(),new Tool(tiles[i].GetTileType(), texmap[tiles[i].GetTexture()], tiles[i].isObstacle(), tiles[i].GetCost()));
+            toolmap = new Dictionary<WorldTile, Tool>();
+            for (int i = 0; i < tiles.Length; i++)
+            {
+                if(tiles[i] != WorldTile.SELECT)
+                    toolmap.Add(tiles[i], new Tool(tiles[i], texmap[tiles[i].GetTexture()]));
+            }
             
             for (int i = 0; i < tiles.Length; i++)
                 combobox.Items.Add(tiles[i]);
@@ -98,6 +104,14 @@ namespace RPG
             loadbutton = new Rectangle(xmin, ymax + 190, 122, 30);
 
             
+        }
+
+        private void ComboBox1_SelectedIndexChanged(object sender,
+        System.EventArgs e)
+        {
+            System.Windows.Forms.ComboBox comboBox = (System.Windows.Forms.ComboBox)sender;
+            comboBox.FindForm().ActiveControl = null;
+
         }
 
         public void Draw(SpriteBatch spriteBatch, GameState current)
@@ -152,8 +166,11 @@ namespace RPG
             if (selectedobj != null)
             {
                 WorldTile select = (WorldTile)selectedobj;
-                Texture2D seltex = texmap[select.GetTexture()];
-                selected = new Tool(select.GetTileType(), seltex, select.isObstacle(), select.GetCost());
+                if(select != WorldTile.SELECT)
+                {
+                    Texture2D seltex = texmap[select.GetTexture()];
+                    selected = new Tool(select, seltex);
+                }
             }
 
             if ((mousex >= astarbutton.X && mousex <= (astarbutton.X + astarbutton.Width)) &&
@@ -229,13 +246,13 @@ namespace RPG
         public Tool getDefaultTool()
         {
            // return toolmap[TileType.GRASS];
-            return toolmap[TileType.GRASS];
+            return toolmap[WorldTile.GRASS];
         }
 
         public Tool getTool(String type)
         {
             Tool ret = null;
-            TileType cur = (TileType)Enum.Parse(typeof(TileType), type, true);
+            WorldTile cur = (WorldTile)Enum.Parse(typeof(WorldTile), type, true);
             if(cur != null)
                 ret = this.toolmap[cur];
 
