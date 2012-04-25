@@ -156,7 +156,7 @@ namespace RPG
 
             //map = new TileMap(10, 10, 17, 512, 512, whitepixel, tools[0][0]);
             toolmap = new ToolMap(578, 100, whitepixel, texmap, worldtiles, font, Window.Handle);
-            map = new TileMap(10, 10, 17, NUM_X_TILES, NUM_Y_TILES, whitepixel, toolmap.getDefaultTool(), font);
+            map = new TileMap(10, 10, 17, NUM_X_TILES, NUM_Y_TILES, whitepixel, toolmap, font);
             // TODO: use this.Content to load your game content here
         }
 

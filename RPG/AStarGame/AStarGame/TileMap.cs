@@ -33,6 +33,7 @@ namespace RPG
 
         int center;
 
+        ToolMap toolmap;
         Tile[][] map;
         Tile selectedtile;
         Rectangle[][] displaytiles;
@@ -49,8 +50,9 @@ namespace RPG
         int monsterx;
         int monstery;
 
-        public TileMap(int x, int y, int size, int xtiles, int ytiles, Texture2D pixel, Tool deftool, SpriteFont font)
+        public TileMap(int x, int y, int size, int xtiles, int ytiles, Texture2D pixel, ToolMap tools, SpriteFont font)
         {
+            this.toolmap = tools;
             this.size = size;
             this.xtiles = xtiles;
             this.ytiles = ytiles;
@@ -87,7 +89,7 @@ namespace RPG
                 {
                     //int currandx = randval.Next(0, 2);
                     //int currandy = randval.Next(0, 3);
-                    map[i][j] = new Tile(i, j, (x + i * tilesidesize), (y + j * tilesidesize), tilesidesize, deftool);
+                    map[i][j] = new Tile(i, j, (x + i * tilesidesize), (y + j * tilesidesize), tilesidesize, toolmap.getDefaultTool());
                 }
             }
 
@@ -265,6 +267,7 @@ namespace RPG
             if (newcurytilemin < (ytiles-size))
             {
                 curytilemin = newcurytilemin;
+                toolmap.unSelect();
             }
         }
 
@@ -272,21 +275,30 @@ namespace RPG
         {
             int newcurytilemin = curytilemin - numtiles;
             if (newcurytilemin >= 0)
+            {
                 curytilemin = newcurytilemin;
+                toolmap.unSelect();
+            }
         }
 
         public void shiftLeft(int numtiles, bool noclip)
         {
             int newcurxtilemin = curxtilemin - numtiles;
             if (newcurxtilemin >= 0)
+            {
                 curxtilemin = newcurxtilemin;
+                toolmap.unSelect();
+            }
         }
 
         public void shiftRight(int numtiles, bool noclip)
         {
             int newcurxtilemin = curxtilemin + numtiles;
-            if (newcurxtilemin < (xtiles-size))
+            if (newcurxtilemin < (xtiles - size))
+            {
                 curxtilemin = newcurxtilemin;
+                toolmap.unSelect();
+            }
         }
 
         public Tile getTileAt(int x, int y)

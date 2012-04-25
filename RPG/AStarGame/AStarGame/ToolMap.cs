@@ -239,6 +239,12 @@ namespace RPG
             selectedright.Height = height + 4;
         }
 
+        public void unSelect()
+        {
+            selectedbottom.X = selectedbottom.Y = selectedleft.X = 
+                selectedleft.Y = selectedright.X = selectedright.Y = selectedtop.X = selectedtop.Y = -1000;
+        }
+
         public void drawSelectHighlight(SpriteBatch spriteBatch)
         {
             spriteBatch.Draw(pixel, selectedtop, Color.Yellow);
