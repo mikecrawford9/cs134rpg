@@ -83,24 +83,6 @@
       <Time>2012-03-04T19:12:34.9090618-08:00</Time>
     </Item>
     <Item>
-      <Source>Tiles\Pixel_Mountain_by_Captincroc.png</Source>
-      <Name>Tiles\Pixel_Mountain_by_Captincroc</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\Pixel_Mountain_by_Captincroc.xnb</Output>
-      <Time>2012-04-22T21:45:18.5149063-07:00</Time>
-    </Item>
-    <Item>
-      <Source>Tiles\Pixel_Mountain_by_Captincroc_32.png</Source>
-      <Name>Tiles\Pixel_Mountain_by_Captincroc_32</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\Pixel_Mountain_by_Captincroc_32.xnb</Output>
-      <Time>2012-04-22T21:45:18.5159063-07:00</Time>
-    </Item>
-    <Item>
       <Source>Tiles\SwampToGrassBottom.png</Source>
       <Name>Tiles\SwampToGrassBottom</Name>
       <Importer>TextureImporter</Importer>
@@ -182,57 +164,12 @@
       <Time>2012-04-24T18:18:28.1694877-07:00</Time>
     </Item>
     <Item>
-      <Source>Tiles\Guard.png</Source>
-      <Name>Tiles\Guard</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\Guard.xnb</Output>
-      <Time>2012-04-24T18:18:28.1538876-07:00</Time>
-    </Item>
-    <Item>
-      <Source>Tiles\InnKeep.png</Source>
-      <Name>Tiles\InnKeep</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\InnKeep.xnb</Output>
-      <Time>2012-04-24T18:18:28.1538876-07:00</Time>
-    </Item>
-    <Item>
-      <Source>Tiles\king.png</Source>
-      <Name>Tiles\king</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\king.xnb</Output>
-      <Time>2012-04-24T18:18:28.1694877-07:00</Time>
-    </Item>
-    <Item>
       <Source>Tiles\Mountain.png</Source>
       <Name>Tiles\Mountain</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\Mountain.xnb</Output>
-      <Time>2012-04-24T18:18:28.1538876-07:00</Time>
-    </Item>
-    <Item>
-      <Source>Tiles\Player2.png</Source>
-      <Name>Tiles\Player2</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\Player2.xnb</Output>
-      <Time>2012-04-24T18:18:28.1538876-07:00</Time>
-    </Item>
-    <Item>
-      <Source>Tiles\Shop Keep.png</Source>
-      <Name>Tiles\Shop Keep</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\Shop Keep.xnb</Output>
       <Time>2012-04-24T18:18:28.1538876-07:00</Time>
     </Item>
     <Item>
@@ -422,7 +359,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\HeroFront.xnb</Output>
-      <Time>2012-04-24T20:02:56.1783038-07:00</Time>
+      <Time>2012-04-24T20:40:15.0580954-07:00</Time>
     </Item>
     <Item>
       <Source>Tiles\HeroLeftFace.png</Source>
@@ -440,7 +377,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\HeroRightFace.xnb</Output>
-      <Time>2012-04-24T20:02:56.1783038-07:00</Time>
+      <Time>2012-04-24T20:40:15.0580954-07:00</Time>
     </Item>
     <Item>
       <Source>Tiles\Mountain Range.png</Source>
@@ -458,7 +395,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\OldMan.xnb</Output>
-      <Time>2012-04-24T20:02:56.1783038-07:00</Time>
+      <Time>2012-04-24T20:40:15.0580954-07:00</Time>
     </Item>
     <Item>
       <Source>Tiles\Tent Source 2.png</Source>
@@ -522,6 +459,42 @@
       <Options>None</Options>
       <Output>C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\Underground Stairs.xnb</Output>
       <Time>2012-04-24T19:00:21.483732-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Tiles\dirt.png</Source>
+      <Name>Tiles\dirt</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\dirt.xnb</Output>
+      <Time>2012-04-24T20:40:15.0736954-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Tiles\Pillow.png</Source>
+      <Name>Tiles\Pillow</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\Pillow.xnb</Output>
+      <Time>2012-04-24T20:40:15.0580954-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Tiles\PillowDirt.png</Source>
+      <Name>Tiles\PillowDirt</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\PillowDirt.xnb</Output>
+      <Time>2012-04-24T20:40:15.0736954-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Tiles\ShopKeep.png</Source>
+      <Name>Tiles\ShopKeep</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\ShopKeep.xnb</Output>
+      <Time>2012-04-24T20:40:15.0736954-07:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
