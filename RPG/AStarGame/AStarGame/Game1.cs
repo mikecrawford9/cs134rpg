@@ -8,6 +8,7 @@ Assignment: Project 2
 
 using System;
 using System.Collections.Generic;
+using System.Collections;
 using System.Linq;
 using System.Runtime.InteropServices;
 using Microsoft.Xna.Framework;
@@ -50,6 +51,7 @@ namespace RPG
 
         Tile astartile;
         bool edited;
+        bool inaddevent;
         const bool DEBUG = false;
 
         int lastmonstermove;
@@ -59,7 +61,7 @@ namespace RPG
         bool maploaded = false;
 
         GameState state;
-        System.Windows.Forms.ComboBox combobox;
+        //System.Windows.Forms.ComboBox combobox;
 
         public Game1()
         {
@@ -87,6 +89,7 @@ namespace RPG
             texmap = new Dictionary<String, Texture2D>();
             lastmonstermove = 0;
             lastplayermove = 0;
+            inaddevent = false;
             base.Initialize();
         }
 
@@ -187,7 +190,7 @@ namespace RPG
                 case GameState.EDIT:
                     edited = true;
                     mapsaved = maploaded = false;
-                    catchInput(gameTime, false);
+                    catchInput(gameTime, true);
                     map.resetPlayers();
                     map.refreshTiles();
                     map.Update(toolmap);
@@ -230,12 +233,40 @@ namespace RPG
                         state = GameState.EDIT;
                     }
                     break;
+                case GameState.ADDEVENT:
+                    if (!inaddevent)
+                    {
+                        inaddevent = true;
+                        Tile seltile = toolmap.getSelectedTile();
+                        if(seltile != null)
+                            processAddEvent(seltile);
+                        inaddevent = false;
+                    }
+                    state = GameState.EDIT;
+                    break;
 
                 default:
                     break;
             }
 
             base.Update(gameTime);
+        }
+
+        private void processAddEvent(Tile thetile)
+        {
+            Event e = new Event();
+            Form1 form = new Form1(e);
+            form.ShowDialog();
+
+            /*
+            String map = e.getProperty("mapfile");
+            String x = e.getProperty("x");
+            String y = e.getProperty("y");
+            */
+
+            thetile.addEvent(e);
+
+            //Console.WriteLine("map=>" + map + "<, x=>" + x + "<, y=>" + y + "<");
         }
 
         /*private Tile createAStarHighlight(Tile best)
@@ -321,7 +352,12 @@ namespace RPG
             if (currenttime - lastplayermove > PLAYER_MOVE_DELAY)
             {
                 KeyboardState kb = Keyboard.GetState();
-                if (kb.IsKeyDown(Keys.Up))
+                if (kb.IsKeyDown(Keys.Escape))
+                {
+                    state = GameState.EDIT;
+                    return;
+                }
+                else if (kb.IsKeyDown(Keys.Up))
                 {
                     map.shiftUp(1, noclip);
                 }
@@ -332,6 +368,10 @@ namespace RPG
                 else if (kb.IsKeyDown(Keys.Left))
                 {
                     map.shiftLeft(1, noclip);
+                }
+                else if (kb.IsKeyDown(Keys.Right))
+                {
+                    map.shiftRight(1, noclip);
                 }
                 else if (kb.IsKeyDown(Keys.Right))
                 {
@@ -362,6 +402,76 @@ namespace RPG
         }
 
         private void playGame(GameTime gameTime)
+        {
+            Tile playertile = map.getPlayerTile();
+
+            int currenttime = (int)gameTime.TotalGameTime.TotalMilliseconds;
+
+            if ((currenttime - lastplayermove) > PLAYER_MOVE_DELAY)
+            {
+                catchInput(gameTime, false);
+
+                /*Tile player = map.getPlayerTile();
+                KeyboardState kb = Keyboard.GetState();
+                if (kb.IsKeyDown(Keys.Up))
+                {
+                    Tile up = map.getTileAt(player.getMapX(), player.getMapY() - 1);
+                    if (up != null && up.getType() != WorldTile.WALL)
+                    {
+                        map.setPlayerLocation(up);
+                        lastplayermove = currenttime;
+                        //checkEvents(up);
+                    }
+                }
+                else if (kb.IsKeyDown(Keys.Down))
+                {
+                    Tile down = map.getTileAt(player.getMapX(), player.getMapY() + 1);
+                    if (down != null && down.getType() != WorldTile.WALL)
+                    {
+                        map.setPlayerLocation(down);
+                        lastplayermove = currenttime;
+                    }
+                }
+                else if (kb.IsKeyDown(Keys.Left))
+                {
+                    Tile left = map.getTileAt(player.getMapX() - 1, player.getMapY());
+                    if (left != null && left.getType() != WorldTile.WALL)
+                    {
+                        map.setPlayerLocation(left);
+                        lastplayermove = currenttime;
+                    }
+                }
+                else if (kb.IsKeyDown(Keys.Right))
+                {
+                    Tile right = map.getTileAt(player.getMapX() + 1, player.getMapY());
+                    if (right != null && right.getType() != WorldTile.WALL)
+                    {
+                        map.setPlayerLocation(right);
+                        lastplayermove = currenttime;
+                    }
+                }*/
+            }
+            /*if (playertile != null && monstertile != null)
+            {
+                if (playertile.getMapX() == monstertile.getMapX() && playertile.getMapY() == monstertile.getMapY())
+                {
+                    state = GameState.GAMEOVER;
+                    map.resetPlayers();
+                    Console.WriteLine("Game state set to " + state);
+                }
+            }*/
+        }
+
+        private void checkEvents(Tile cur)
+        {
+            Event[] ev = cur.getEvents();
+            for (int i = 0; i < ev.Length; i++)
+            {
+
+            }
+        }
+
+        private void playGameOld(GameTime gameTime)
         {
             Tile playertile = map.getPlayerTile();
             Tile monstertile = map.getMonsterTile();
@@ -592,7 +702,7 @@ namespace RPG
             //if(state == GameState.ASTAR)
            //     drawAStarTiles(spriteBatch);
 
-            drawErrors(spriteBatch);
+            //drawErrors(spriteBatch);
             spriteBatch.End();
             
             base.Draw(gameTime);

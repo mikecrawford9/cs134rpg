@@ -969,7 +969,15 @@
 <TILE x="15" y="5" type="GRASS" />
 <TILE x="15" y="6" type="GRASS" />
 <TILE x="15" y="7" type="GRASS" />
-<TILE x="15" y="8" type="GRASS" />
+<TILE x="15" y="8" type="TENT" >
+<EVENT type="MAP_TRANSITION">
+<DATA>
+<mapfile>test2.rpgmf</mapfile>
+<x>9</x>
+<y>11</y>
+</DATA>
+</EVENT>
+</TILE>
 <TILE x="15" y="9" type="GRASS" />
 <TILE x="15" y="10" type="ROCKS" />
 <TILE x="15" y="11" type="ROCKS" />

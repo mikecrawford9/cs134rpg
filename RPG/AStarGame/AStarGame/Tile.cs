@@ -9,6 +9,8 @@ Assignment: Project 2
 using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using System.Collections;
+using System.Collections.Generic;
 
 namespace RPG
 {
@@ -18,7 +20,7 @@ namespace RPG
         public Rectangle sq;
         Color curcolor;
         WorldTile type;
-        Event[] events;
+        List<Event> events;
         int arrx;
         int arry;
         int cost;
@@ -30,6 +32,7 @@ namespace RPG
 
         public Tile(int arrx, int arry, int x, int y, int sidelength, Texture2D pixel)
         {
+            events = new List<Event>();
             this.arrx = arrx;
             this.arry = arry;
             curcolor = Color.White;
@@ -39,6 +42,7 @@ namespace RPG
 
         public Tile(int arrx, int arry, int x, int y, int sidelength, Texture2D pixel, Color color)
         {
+            events = new List<Event>();
             this.arrx = arrx;
             this.arry = arry;
             curcolor = Color.White;
@@ -49,6 +53,7 @@ namespace RPG
 
         public Tile(int arrx, int arry, int x, int y, int sidelength, Tool tool)
         {
+            events = new List<Event>();
             this.arrx = arrx;
             this.arry = arry;
             curcolor = Color.White;
@@ -103,7 +108,7 @@ namespace RPG
 
         public void setColor(Color color)
         {
-            curcolor = color;
+            this.curcolor = color;
         }
 
         public Color getColor()
@@ -219,7 +224,7 @@ namespace RPG
         {
             if (tool.getType() == WorldTile.SELECT)
             {
-                map.updateSelected(sq.X, sq.Y, sq.Width, sq.Height);
+                //map.updateSelected(sq.X, sq.Y, sq.Width, sq.Height);
             }
             else
             {
@@ -235,6 +240,17 @@ namespace RPG
                 return true;
             else
                 return false;
+        }
+
+        public void addEvent(Event e)
+        {
+            if (events != null)
+                events.Add(e);
+        }
+
+        public Event[] getEvents()
+        {
+            return (events.ToArray() as Event[]);
         }
     }
 }

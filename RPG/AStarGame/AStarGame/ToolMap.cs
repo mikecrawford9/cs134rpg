@@ -20,6 +20,7 @@ namespace RPG
         Dictionary<WorldTile, Tool> toolmap;
         Dictionary<String, Texture2D> texmap;
         Tool selected;
+        Tile selectedtile;
         Texture2D pixel;
         SpriteFont font;
         Rectangle selectedtop;
@@ -37,6 +38,7 @@ namespace RPG
         Rectangle playbutton;
         Rectangle savebutton;
         Rectangle loadbutton;
+        Rectangle addeventbutton;
 
         WorldTile curtool;
 
@@ -105,6 +107,9 @@ namespace RPG
             selectedright = new Rectangle(-40,-40,2,36);
             //updateSelected(selected.getX(), selected.getY(), selected.getLength(), selected.getLength());
 
+
+
+            addeventbutton = new Rectangle(xmin, ymax, 122, 30);
             astarbutton = new Rectangle(xmin, ymax + 40, 122, 30);
             playbutton = new Rectangle(xmin, ymax + 90, 122, 30);
             savebutton = new Rectangle(xmin, ymax + 140, 122, 30);
@@ -131,6 +136,11 @@ namespace RPG
             spriteBatch.Draw(pixel, playbutton, Color.Green);
             spriteBatch.Draw(pixel, savebutton, Color.Blue);
             spriteBatch.Draw(pixel, loadbutton, Color.Orange);
+            if (selectedtile != null)
+            {
+                spriteBatch.Draw(pixel, addeventbutton, Color.LightGray);
+                spriteBatch.DrawString(font, "Add Event", new Vector2(addeventbutton.X + 10, addeventbutton.Y - 5), Color.Black);
+            }
             spriteBatch.DrawString(font, "A*Star", new Vector2(astarbutton.X + 10, astarbutton.Y - 5), Color.Black);
             spriteBatch.DrawString(font, "Play", new Vector2(playbutton.X + 20, playbutton.Y - 6), Color.Black);
             spriteBatch.DrawString(font, "Save", new Vector2(savebutton.X + 20, savebutton.Y - 6), Color.Black);
@@ -146,29 +156,6 @@ namespace RPG
             int mousex = mouseState.X;
             int mousey = mouseState.Y;
 
-            /*if ((mousex >= xmin && mousex <= xmax) && (mousey >= ymin && mousey <= ymax))
-            {
-                if (mouseState.LeftButton == ButtonState.Pressed)
-                {
-                    ret = GameState.EDIT;
-                    int xinbox = mousex - xmin;
-                    int yinbox = mousey - ymin;
-
-                    int col = (int)Math.Floor(xinbox / xcolwidth);
-                    int row = (int)Math.Floor(yinbox / yrowheight);
-
-                    if (col >= 0 && col <= 1 && row >= 0 && row <= 3)
-                    {
-                        Tile cur = tools[col][row];
-
-                        if (cur != selected || current != GameState.EDIT)
-                        {
-                            selected = cur;
-                            updateSelected(cur.getX(), cur.getY(), cur.getLength(), cur.getLength());
-                        }
-                    }
-                }
-            }*/
             Object selectedobj = combobox.SelectedItem;
             if (selectedobj != null)
             {
@@ -180,6 +167,14 @@ namespace RPG
                 }
                 else
                     selected = new Tool(select, null);
+            }
+
+            if (selectedtile != null && (mousex >= addeventbutton.X && mousex <= (addeventbutton.X + addeventbutton.Width)) &&
+                (mousey >= addeventbutton.Y && mousey <= (addeventbutton.Y + addeventbutton.Height)) &&
+                (mouseState.LeftButton == ButtonState.Pressed))
+            {
+                updateSelected(addeventbutton.X, addeventbutton.Y, addeventbutton.Width, addeventbutton.Height);
+                ret = GameState.ADDEVENT;
             }
 
             if ((mousex >= astarbutton.X && mousex <= (astarbutton.X + astarbutton.Width)) &&
@@ -242,7 +237,7 @@ namespace RPG
         public void unSelect()
         {
             selectedbottom.X = selectedbottom.Y = selectedleft.X = 
-                selectedleft.Y = selectedright.X = selectedright.Y = selectedtop.X = selectedtop.Y = -1000;
+                selectedleft.Y = selectedright.X = selectedright.Y = selectedtop.X = selectedtop.Y = 2000;
         }
 
         public void drawSelectHighlight(SpriteBatch spriteBatch)
@@ -272,6 +267,16 @@ namespace RPG
                 ret = this.toolmap[cur];
 
             return ret;
+        }
+
+        public void setSelectedTile(Tile selected)
+        {
+            this.selectedtile = selected;
+        }
+
+        public Tile getSelectedTile()
+        {
+            return this.selectedtile;
         }
     }
 }
