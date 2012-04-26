@@ -140,6 +140,7 @@ namespace RPG
             {
                 spriteBatch.Draw(pixel, addeventbutton, Color.LightGray);
                 spriteBatch.DrawString(font, "Add Event", new Vector2(addeventbutton.X + 10, addeventbutton.Y - 5), Color.Black);
+                spriteBatch.DrawString(font, "(" + selectedtile.getMapX() + "," + selectedtile.getMapY() + ")", new Vector2(addeventbutton.X + 10, addeventbutton.Y - 30), Color.Black);
             }
             spriteBatch.DrawString(font, "A*Star", new Vector2(astarbutton.X + 10, astarbutton.Y - 5), Color.Black);
             spriteBatch.DrawString(font, "Play", new Vector2(playbutton.X + 20, playbutton.Y - 6), Color.Black);

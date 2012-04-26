@@ -973,8 +973,8 @@
 <EVENT type="MAP_TRANSITION">
 <DATA>
 <mapfile>test2.rpgmf</mapfile>
-<x>9</x>
-<y>11</y>
+<x>10</x>
+<y>12</y>
 </DATA>
 </EVENT>
 </TILE>

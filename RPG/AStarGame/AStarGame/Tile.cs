@@ -69,6 +69,8 @@ namespace RPG
         public void Draw(SpriteBatch spriteBatch, Rectangle sq)
         {
             spriteBatch.Draw(pixel, sq, curcolor);
+            if(events.Count > 0)
+                spriteBatch.Draw(Game1.evindicator, sq, curcolor);
         }
 
         public void highlight()
@@ -246,6 +248,8 @@ namespace RPG
         {
             if (events != null)
                 events.Add(e);
+            else
+                Console.WriteLine("events is null!");
         }
 
         public Event[] getEvents()

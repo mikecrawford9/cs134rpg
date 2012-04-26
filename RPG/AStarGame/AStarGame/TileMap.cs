@@ -20,8 +20,6 @@ namespace RPG
         public const int VIEW_HEIGHT = 512;
         public const int VIEW_WIDTH = 512;
 
-        private int x;
-        private int y;
         private int size;
         private int pixelsperside;
         private int totalmapsize;
@@ -100,16 +98,12 @@ namespace RPG
             int i, ia, j, ja;
             for (ia = 0, i = curxtilemin; i < (size + curxtilemin) && i < xtiles && ia < size; i++, ia++)
                 for (ja = 0, j = curytilemin; j < (size + curytilemin) && j < ytiles && ja < size; j++, ja++)
+                {
                     map[i][j].Draw(spriteBatch, displaytiles[ia][ja]);
+                    if(playertile != null && i == playertile.getMapX() && j == playertile.getMapY())
+                        playertile.Draw(spriteBatch, displaytiles[ia][ja]);
 
-            if (selectedtile != null)
-                spriteBatch.DrawString(font, "X: " + selectedtile.getMapX() + ", Y: " + selectedtile.getMapY(), new Vector2(600 + 10, 200), Color.Black);
-
-            if (playertile != null)
-                playertile.Draw(spriteBatch, displaytiles[center-1][center-1]);
-
-            //if (monstertile != null)
-            //    monstertile.Draw(spriteBatch);
+                }
         }
 
         public bool SaveMap(StreamWriter file)
@@ -177,7 +171,10 @@ namespace RPG
                     }
                 }
             }
-            
+
+            xtiles = x;
+            ytiles = y;
+
             map = new Tile[x][];
             for(int i = 0; i < x; i++)
                 map[i] = new Tile[y];
@@ -231,6 +228,7 @@ namespace RPG
                         case XmlNodeType.EndElement:
                             if (reader.Name == "EVENT")
                             {
+                                Console.WriteLine("Adding event!");
                                 map[tilex][tiley].addEvent(current);
                                 inEvent = false;
                                 current = new Event();
@@ -330,8 +328,10 @@ namespace RPG
 
         public void processEvents(Tile cur)
         {
+            Console.WriteLine("Processing Events!");
             Event[] ce = cur.getEvents();
-            {
+
+            Console.WriteLine("Found " + ce.Length + " events!");
                 for(int i = 0; i < ce.Length; i++)
                 {
                     Event e = ce[i];
@@ -340,6 +340,8 @@ namespace RPG
                         String mapfile = e.getProperty("mapfile");
                         int x = Convert.ToInt32(e.getProperty("x"));
                         int y = Convert.ToInt32(e.getProperty("y"));
+
+                        Console.WriteLine("Processing Map Transition Event for " + mapfile + " x=" + x + ",y=" + y);
 
                         FileStream fileStream = new FileStream(@mapfile, FileMode.Open);
                         StreamReader reader = new StreamReader(fileStream);
@@ -350,23 +352,24 @@ namespace RPG
                         fileStream.Close();
                     }
                 }
-            }
         }
 
         public void shiftDown(int numtiles, bool noclip)
         {
             int newcurytilemin = curytilemin + numtiles;
-            if (newcurytilemin < (ytiles-size))
+            if (newcurytilemin <= (ytiles-size))
             {
                 if (noclip || (playertile != null && map[playertile.getMapX()][playertile.getMapY() + numtiles].getType() != WorldTile.WALL))
                 {
-                    if (playertile != null)
+                    if (!noclip && playertile != null)
                     {
                         setPlayerLocation(map[playertile.getMapX()][playertile.getMapY() + numtiles]);
-                        processEvents(map[playertile.getMapX()][playertile.getMapY() + numtiles]);
+                        processEvents(map[playertile.getMapX()][playertile.getMapY()]);
                     }
-
-                    curytilemin = newcurytilemin;
+                    else
+                    {
+                        curytilemin = newcurytilemin;
+                    }
                 }
             }
         }
@@ -378,13 +381,15 @@ namespace RPG
             {
                 if (noclip || (playertile != null && map[playertile.getMapX()][playertile.getMapY() - numtiles].getType() != WorldTile.WALL))
                 {
-                    if (playertile != null)
+                    if (!noclip && playertile != null)
                     {
                         setPlayerLocation(map[playertile.getMapX()][playertile.getMapY() - numtiles]);
-                        processEvents(map[playertile.getMapX()][playertile.getMapY() - numtiles]);
+                        processEvents(map[playertile.getMapX()][playertile.getMapY()]);
                     }
-
-                    curytilemin = newcurytilemin;
+                    else
+                    {
+                        curytilemin = newcurytilemin;
+                    }
                 }
             }
         }
@@ -396,13 +401,15 @@ namespace RPG
             {
                 if (noclip || (playertile != null && map[playertile.getMapX() - numtiles][playertile.getMapY()].getType() != WorldTile.WALL))
                 {
-                    if (playertile != null)
+                    if (!noclip && playertile != null)
                     {
                         setPlayerLocation(map[playertile.getMapX() - numtiles][playertile.getMapY()]);
-                        processEvents(map[playertile.getMapX() - numtiles][playertile.getMapY()]);
+                        processEvents(map[playertile.getMapX()][playertile.getMapY()]);
                     }
-
-                    curxtilemin = newcurxtilemin;
+                    else
+                    {
+                        curxtilemin = newcurxtilemin;
+                    }
                 }
             }
         }
@@ -410,17 +417,19 @@ namespace RPG
         public void shiftRight(int numtiles, bool noclip)
         {
             int newcurxtilemin = curxtilemin + numtiles;
-            if (newcurxtilemin < (xtiles - size))
+            if (newcurxtilemin <= (xtiles - size))
             {
                 if (noclip || (playertile != null && map[playertile.getMapX() + numtiles][playertile.getMapY()].getType() != WorldTile.WALL))
                 {
-                    if (playertile != null)
+                    if (!noclip && playertile != null)
                     {
                         setPlayerLocation(map[playertile.getMapX() + numtiles][playertile.getMapY()]);
-                        processEvents(map[playertile.getMapX() + numtiles][playertile.getMapY()]);
+                        processEvents(map[playertile.getMapX()][playertile.getMapY()]);
                     }
-
-                    curxtilemin = newcurxtilemin;
+                    else
+                    {
+                        curxtilemin = newcurxtilemin;
+                    }
                 }
             }
         }
@@ -456,8 +465,6 @@ namespace RPG
             {
                 monstertile.setMapX(newloc.getMapX());
                 monstertile.setMapY(newloc.getMapY());
-                //monstertile.setX(newloc.getX());
-                //monstertile.setY(newloc.getY());
             }
             else
                 Console.WriteLine("Monster is null!!");
@@ -469,8 +476,10 @@ namespace RPG
             {
                 playertile.setMapX(newloc.getMapX());
                 playertile.setMapY(newloc.getMapY());
-                //playertile.setX(newloc.getX());
-                //playertile.setY(newloc.getY());
+                playerx = playertile.getMapX();
+                playery = playertile.getMapY();
+                curxtilemin = playerx - 8;
+                curytilemin = playery - 8;
             }
             else
                 Console.WriteLine("Player is null!!");
@@ -502,16 +511,12 @@ namespace RPG
             Tile p = map[playerx][playery];
             if (playertile != null)
             {
-                //playertile.setX(p.getX());
-                //playertile.setY(p.getY());
                 playertile.setMapX(playerx);
                 playertile.setMapY(playery);
             }
             Tile m = map[monsterx][monstery];
             if (monstertile != null)
             {
-                //monstertile.setX(m.getX());
-                //monstertile.setY(m.getY());
                 monstertile.setMapX(monsterx);
                 monstertile.setMapY(monstery);
             }

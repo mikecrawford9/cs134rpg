@@ -29,11 +29,12 @@ namespace RPG
     {
         [DllImport("user32.dll", CharSet = CharSet.Auto)]
         public static extern uint MessageBox(IntPtr hWnd, String text, String caption, uint type);
+        public static Texture2D evindicator;
         const int MONSTER_MOVE_DELAY = 1000;
         const int PLAYER_MOVE_DELAY = 100;
 
-        const int NUM_X_TILES = 64;
-        const int NUM_Y_TILES = 64;
+        const int DEFAULT_X_TILES = 20;
+        const int DEFAULT_Y_TILES = 20;
 
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
@@ -52,6 +53,7 @@ namespace RPG
         Tile astartile;
         bool edited;
         bool inaddevent;
+        bool inprogress;
         const bool DEBUG = false;
 
         int lastmonstermove;
@@ -110,6 +112,8 @@ namespace RPG
             
             font = Content.Load<SpriteFont>("gameFont");
 
+            evindicator = Content.Load<Texture2D>("AStarWayPoint");
+
             /*tools = new Tool[2][];
             tools[0] = new Tool[4];
             tools[1] = new Tool[4];
@@ -159,7 +163,7 @@ namespace RPG
 
             //map = new TileMap(10, 10, 17, 512, 512, whitepixel, tools[0][0]);
             toolmap = new ToolMap(578, 100, whitepixel, texmap, worldtiles, font, Window.Handle);
-            map = new TileMap(10, 10, 17, NUM_X_TILES, NUM_Y_TILES, whitepixel, toolmap, font);
+            map = new TileMap(10, 10, 17, DEFAULT_X_TILES, DEFAULT_Y_TILES, whitepixel, toolmap, font);
             // TODO: use this.Content to load your game content here
         }
 
@@ -191,7 +195,7 @@ namespace RPG
                     edited = true;
                     mapsaved = maploaded = false;
                     catchInput(gameTime, true);
-                    map.resetPlayers();
+                    //map.resetPlayers();
                     map.refreshTiles();
                     map.Update(toolmap);
                     astartile = null;
@@ -348,37 +352,41 @@ namespace RPG
 
         public void catchInput(GameTime gameTime, bool noclip)
         {
-            int currenttime = (int)gameTime.TotalGameTime.TotalMilliseconds;
-            if (currenttime - lastplayermove > PLAYER_MOVE_DELAY)
+            if (!inprogress && (inprogress = true))
             {
-                KeyboardState kb = Keyboard.GetState();
-                if (kb.IsKeyDown(Keys.Escape))
+                int currenttime = (int)gameTime.TotalGameTime.TotalMilliseconds;
+                if (currenttime - lastplayermove > PLAYER_MOVE_DELAY)
                 {
-                    state = GameState.EDIT;
-                    return;
-                }
-                else if (kb.IsKeyDown(Keys.Up))
-                {
-                    map.shiftUp(1, noclip);
-                }
-                else if (kb.IsKeyDown(Keys.Down))
-                {
-                    map.shiftDown(1, noclip);
-                }
-                else if (kb.IsKeyDown(Keys.Left))
-                {
-                    map.shiftLeft(1, noclip);
-                }
-                else if (kb.IsKeyDown(Keys.Right))
-                {
-                    map.shiftRight(1, noclip);
-                }
-                else if (kb.IsKeyDown(Keys.Right))
-                {
-                    map.shiftRight(1, noclip);
-                }
+                    KeyboardState kb = Keyboard.GetState();
+                    if (kb.IsKeyDown(Keys.Escape))
+                    {
+                        state = GameState.EDIT;
+                        return;
+                    }
+                    else if (kb.IsKeyDown(Keys.Up))
+                    {
+                        map.shiftUp(1, noclip);
+                    }
+                    else if (kb.IsKeyDown(Keys.Down))
+                    {
+                        map.shiftDown(1, noclip);
+                    }
+                    else if (kb.IsKeyDown(Keys.Left))
+                    {
+                        map.shiftLeft(1, noclip);
+                    }
+                    else if (kb.IsKeyDown(Keys.Right))
+                    {
+                        map.shiftRight(1, noclip);
+                    }
+                    else if (kb.IsKeyDown(Keys.Right))
+                    {
+                        map.shiftRight(1, noclip);
+                    }
 
-                lastplayermove = currenttime;
+                    lastplayermove = currenttime;
+                }
+                inprogress = false;
             }
         }
 
@@ -403,63 +411,7 @@ namespace RPG
 
         private void playGame(GameTime gameTime)
         {
-            Tile playertile = map.getPlayerTile();
-
-            int currenttime = (int)gameTime.TotalGameTime.TotalMilliseconds;
-
-            if ((currenttime - lastplayermove) > PLAYER_MOVE_DELAY)
-            {
-                catchInput(gameTime, false);
-
-                /*Tile player = map.getPlayerTile();
-                KeyboardState kb = Keyboard.GetState();
-                if (kb.IsKeyDown(Keys.Up))
-                {
-                    Tile up = map.getTileAt(player.getMapX(), player.getMapY() - 1);
-                    if (up != null && up.getType() != WorldTile.WALL)
-                    {
-                        map.setPlayerLocation(up);
-                        lastplayermove = currenttime;
-                        //checkEvents(up);
-                    }
-                }
-                else if (kb.IsKeyDown(Keys.Down))
-                {
-                    Tile down = map.getTileAt(player.getMapX(), player.getMapY() + 1);
-                    if (down != null && down.getType() != WorldTile.WALL)
-                    {
-                        map.setPlayerLocation(down);
-                        lastplayermove = currenttime;
-                    }
-                }
-                else if (kb.IsKeyDown(Keys.Left))
-                {
-                    Tile left = map.getTileAt(player.getMapX() - 1, player.getMapY());
-                    if (left != null && left.getType() != WorldTile.WALL)
-                    {
-                        map.setPlayerLocation(left);
-                        lastplayermove = currenttime;
-                    }
-                }
-                else if (kb.IsKeyDown(Keys.Right))
-                {
-                    Tile right = map.getTileAt(player.getMapX() + 1, player.getMapY());
-                    if (right != null && right.getType() != WorldTile.WALL)
-                    {
-                        map.setPlayerLocation(right);
-                        lastplayermove = currenttime;
-                    }
-                }*/
-            }
-            /*if (playertile != null && monstertile != null)
-            {
-                if (playertile.getMapX() == monstertile.getMapX() && playertile.getMapY() == monstertile.getMapY())
-                {
-                    state = GameState.GAMEOVER;
-                    map.resetPlayers();
-                    Console.WriteLine("Game state set to " + state);
-                }
-            }*/
+            catchInput(gameTime, false);
         }
 
         private void checkEvents(Tile cur)
