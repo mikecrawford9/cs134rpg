@@ -62,7 +62,7 @@ namespace RPG
         bool mapsaved = false;
         bool maploaded = false;
 
-        GameState state;
+        public static GameState state;
         //System.Windows.Forms.ComboBox combobox;
 
         public Game1()

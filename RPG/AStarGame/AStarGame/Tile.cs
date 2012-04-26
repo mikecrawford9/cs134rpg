@@ -69,7 +69,7 @@ namespace RPG
         public void Draw(SpriteBatch spriteBatch, Rectangle sq)
         {
             spriteBatch.Draw(pixel, sq, curcolor);
-            if(events.Count > 0)
+            if(Game1.state == GameState.EDIT && events.Count > 0)
                 spriteBatch.Draw(Game1.evindicator, sq, curcolor);
         }
 
