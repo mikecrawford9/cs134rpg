@@ -139,11 +139,11 @@ namespace RPG
         FENCE_VERTICAL,
         [WorldTileAttribute(TileType.FENCE, "Tiles/GrassStairs", true, 1)]
         GRASS_STAIRS,
-        [WorldTileAttribute(TileType.FENCE, "Tiles/Tent", true, 0)]
+        [WorldTileAttribute(TileType.FENCE, "Tiles/Tent", false, 0)]
         TENT,
-        [WorldTileAttribute(TileType.FENCE, "Tiles/TentPurple", true, 0)]
+        [WorldTileAttribute(TileType.FENCE, "Tiles/TentPurple", false, 0)]
         TENT_PURPLE,
-        [WorldTileAttribute(TileType.FENCE, "Tiles/TentBrown", true, 0)]
+        [WorldTileAttribute(TileType.FENCE, "Tiles/TentBrown", false, 0)]
         TENT_BROWN,
         [WorldTileAttribute(TileType.FENCE, "Tiles/Castle", true, 1)]
         CASTLE,

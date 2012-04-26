@@ -11,6 +11,33 @@
       <Time>2011-04-01T10:42:38-07:00</Time>
     </Item>
     <Item>
+      <Source>Tiles\Black.png</Source>
+      <Name>Tiles\Black</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\Black.xnb</Output>
+      <Time>2012-04-25T01:27:48.1376382-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Tiles\Castle.png</Source>
+      <Name>Tiles\Castle</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\Castle.xnb</Output>
+      <Time>2012-04-25T01:27:48.1416384-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Tiles\dirt.png</Source>
+      <Name>Tiles\dirt</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\dirt.xnb</Output>
+      <Time>2012-04-24T20:40:15.0736954-07:00</Time>
+    </Item>
+    <Item>
       <Source>Tiles\dragonwarrior3.png</Source>
       <Name>Tiles\dragonwarrior3</Name>
       <Importer>TextureImporter</Importer>
@@ -281,13 +308,40 @@
       <Time>2012-04-24T20:40:15.0580954-07:00</Time>
     </Item>
     <Item>
-      <Source>Tiles\Player.png</Source>
-      <Name>Tiles\Player</Name>
+      <Source>Tiles\Pillow.png</Source>
+      <Name>Tiles\Pillow</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\Player.xnb</Output>
-      <Time>2012-04-22T21:45:18.6599146-07:00</Time>
+      <Output>C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\Pillow.xnb</Output>
+      <Time>2012-04-24T20:40:15.0580954-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Tiles\PillowDirt.png</Source>
+      <Name>Tiles\PillowDirt</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\PillowDirt.xnb</Output>
+      <Time>2012-04-24T20:40:15.0736954-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Tiles\RockWall.png</Source>
+      <Name>Tiles\RockWall</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\RockWall.xnb</Output>
+      <Time>2012-04-25T01:27:48.1456386-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Tiles\ShopKeep.png</Source>
+      <Name>Tiles\ShopKeep</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\ShopKeep.xnb</Output>
+      <Time>2012-04-24T20:40:15.0736954-07:00</Time>
     </Item>
     <Item>
       <Source>Tiles\Swamp.png</Source>
@@ -394,13 +448,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-<<<<<<< HEAD
-      <Output>F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\CS 134 RPG\cs134rpg\cs134rpg\cs134rpg\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\TentBrown.xnb</Output>
-      <Time>2012-04-24T19:14:35.7851385-07:00</Time>
-=======
       <Output>C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\TentBrown.xnb</Output>
       <Time>2012-04-24T20:02:56.1939038-07:00</Time>
->>>>>>> e97752b718086fbe003f6eaace82592ad77b8c00
     </Item>
     <Item>
       <Source>Tiles\TentPurple.png</Source>
@@ -417,13 +466,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-<<<<<<< HEAD
-      <Output>F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\CS 134 RPG\cs134rpg\cs134rpg\cs134rpg\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\Trees.xnb</Output>
-      <Time>2012-04-22T11:01:30.6440968-07:00</Time>
-=======
       <Output>C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\Trees.xnb</Output>
       <Time>2012-04-22T21:45:18.6559144-07:00</Time>
->>>>>>> e97752b718086fbe003f6eaace82592ad77b8c00
     </Item>
     <Item>
       <Source>Tiles\Underground Stairs.png</Source>
@@ -440,13 +484,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-<<<<<<< HEAD
-      <Output>F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\CS 134 RPG\cs134rpg\cs134rpg\cs134rpg\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\Wall.xnb</Output>
-      <Time>2012-04-22T11:01:30.6440968-07:00</Time>
-=======
       <Output>C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\Wall.xnb</Output>
       <Time>2012-04-22T21:45:18.6539142-07:00</Time>
->>>>>>> e97752b718086fbe003f6eaace82592ad77b8c00
     </Item>
     <Item>
       <Source>Tiles\Water.png</Source>
@@ -474,99 +513,6 @@
       <Options>None</Options>
       <Output>C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\AStarWayPoint.xnb</Output>
       <Time>2012-03-04T19:12:34.9090618-08:00</Time>
-    </Item>
-    <Item>
-      <Source>Tiles\dirt.png</Source>
-      <Name>Tiles\dirt</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\dirt.xnb</Output>
-      <Time>2012-04-24T20:40:15.0736954-07:00</Time>
-    </Item>
-    <Item>
-      <Source>Tiles\Pillow.png</Source>
-      <Name>Tiles\Pillow</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\Pillow.xnb</Output>
-      <Time>2012-04-24T20:40:15.0580954-07:00</Time>
-    </Item>
-    <Item>
-      <Source>Tiles\PillowDirt.png</Source>
-      <Name>Tiles\PillowDirt</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\PillowDirt.xnb</Output>
-      <Time>2012-04-24T20:40:15.0736954-07:00</Time>
-    </Item>
-    <Item>
-      <Source>Tiles\ShopKeep.png</Source>
-      <Name>Tiles\ShopKeep</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-<<<<<<< HEAD
-      <Output>F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\CS 134 RPG\cs134rpg\cs134rpg\cs134rpg\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\ShopKeep.xnb</Output>
-      <Time>2012-04-24T20:25:20.2759095-07:00</Time>
-    </Item>
-    <Item>
-      <Source>Tiles\Black.png</Source>
-      <Name>Tiles\Black</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\CS 134 RPG\cs134rpg\cs134rpg\cs134rpg\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\Black.xnb</Output>
-      <Time>2012-04-24T20:39:32.0296271-07:00</Time>
-    </Item>
-    <Item>
-      <Source>Tiles\Castle.png</Source>
-      <Name>Tiles\Castle</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\CS 134 RPG\cs134rpg\cs134rpg\cs134rpg\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\Castle.xnb</Output>
-      <Time>2012-04-24T20:38:21.7336063-07:00</Time>
-    </Item>
-    <Item>
-=======
-      <Output>C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\ShopKeep.xnb</Output>
-      <Time>2012-04-24T20:40:15.0736954-07:00</Time>
-    </Item>
-    <Item>
-      <Source>Tiles\Black.png</Source>
-      <Name>Tiles\Black</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\Black.xnb</Output>
-      <Time>2012-04-25T01:27:48.1376382-07:00</Time>
-    </Item>
-    <Item>
-      <Source>Tiles\Castle.png</Source>
-      <Name>Tiles\Castle</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\Castle.xnb</Output>
-      <Time>2012-04-25T01:27:48.1416384-07:00</Time>
-    </Item>
-    <Item>
->>>>>>> e97752b718086fbe003f6eaace82592ad77b8c00
-      <Source>Tiles\RockWall.png</Source>
-      <Name>Tiles\RockWall</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-<<<<<<< HEAD
-      <Output>F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\CS 134 RPG\cs134rpg\cs134rpg\cs134rpg\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\RockWall.xnb</Output>
-      <Time>2012-04-24T21:23:21.182006-07:00</Time>
-=======
-      <Output>C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\RockWall.xnb</Output>
-      <Time>2012-04-25T01:27:48.1456386-07:00</Time>
->>>>>>> e97752b718086fbe003f6eaace82592ad77b8c00
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>

@@ -1,4 +1,7 @@
 Content\gameFont.xnb
+Content\Tiles\Black.xnb
+Content\Tiles\Castle.xnb
+Content\Tiles\dirt.xnb
 Content\Tiles\dragonwarrior3.xnb
 Content\Tiles\FenceAll.xnb
 Content\Tiles\FenceBottom.xnb
@@ -29,7 +32,10 @@ Content\Tiles\Mountain Range Left.xnb
 Content\Tiles\Mountain Range.xnb
 Content\Tiles\Mountain.xnb
 Content\Tiles\OldMan.xnb
-Content\Tiles\Player.xnb
+Content\Tiles\Pillow.xnb
+Content\Tiles\PillowDirt.xnb
+Content\Tiles\RockWall.xnb
+Content\Tiles\ShopKeep.xnb
 Content\Tiles\Swamp.xnb
 Content\Tiles\SwampToGrassBottom.xnb
 Content\Tiles\SwampToGrassBottomLeft.xnb
@@ -49,10 +55,3 @@ Content\Tiles\Wall.xnb
 Content\Tiles\Water.xnb
 Content\Tiles\Zelda Tilesa.xnb
 Content\AStarWayPoint.xnb
-Content\Tiles\dirt.xnb
-Content\Tiles\Pillow.xnb
-Content\Tiles\PillowDirt.xnb
-Content\Tiles\ShopKeep.xnb
-Content\Tiles\Black.xnb
-Content\Tiles\Castle.xnb
-Content\Tiles\RockWall.xnb

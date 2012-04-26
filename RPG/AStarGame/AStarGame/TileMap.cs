@@ -280,7 +280,7 @@ namespace RPG
                             }
                         }
                     }
-                    else if (selectedType == WorldTile.MONSTER)
+                    /*else if (selectedType == WorldTile.MONSTER)
                     {
                         Tile cur = map[tilex][tiley];
                         if (cur.getType() != WorldTile.WALL)
@@ -292,13 +292,11 @@ namespace RPG
                                 monsterx = tilex;
                                 monstery = tiley;
 
-                                //monstertile.setX(cur.getX());
-                                //monstertile.setY(cur.getY());
                                 monstertile.setMapX(tilex);
                                 monstertile.setMapY(tiley);
                             }
                         }
-                    }
+                    }*/
                     else
                     {
                         if (selectedTool.getType() == WorldTile.SELECT)
@@ -359,7 +357,7 @@ namespace RPG
             int newcurytilemin = curytilemin + numtiles;
             if (newcurytilemin <= (ytiles-size))
             {
-                if (noclip || (playertile != null && map[playertile.getMapX()][playertile.getMapY() + numtiles].getType() != WorldTile.WALL))
+                if (noclip || (playertile != null && !map[playertile.getMapX()][playertile.getMapY() + numtiles].isObstacle()))
                 {
                     if (!noclip && playertile != null)
                     {
@@ -372,6 +370,13 @@ namespace RPG
                     }
                 }
             }
+            else if (!noclip && playertile != null &&
+                ((playertile.getMapY() + numtiles) < ytiles) &&
+                !map[playertile.getMapX()][playertile.getMapY() + numtiles].isObstacle())
+            {
+                setPlayerLocation(map[playertile.getMapX()][playertile.getMapY() + numtiles]);
+                processEvents(map[playertile.getMapX()][playertile.getMapY()]);
+            }
         }
 
         public void shiftUp(int numtiles, bool noclip)
@@ -379,7 +384,8 @@ namespace RPG
             int newcurytilemin = curytilemin - numtiles;
             if (newcurytilemin >= 0)
             {
-                if (noclip || (playertile != null && map[playertile.getMapX()][playertile.getMapY() - numtiles].getType() != WorldTile.WALL))
+                if (noclip || (playertile != null 
+                    && !map[playertile.getMapX()][playertile.getMapY() - numtiles].isObstacle()))
                 {
                     if (!noclip && playertile != null)
                     {
@@ -392,6 +398,14 @@ namespace RPG
                     }
                 }
             }
+            else if (!noclip 
+                && playertile != null 
+                && ((playertile.getMapY() - numtiles) >= 0)
+                && !map[playertile.getMapX()][playertile.getMapY() - numtiles].isObstacle())
+            {
+                setPlayerLocation(map[playertile.getMapX()][playertile.getMapY() - numtiles]);
+                processEvents(map[playertile.getMapX()][playertile.getMapY()]);
+            }
         }
 
         public void shiftLeft(int numtiles, bool noclip)
@@ -399,7 +413,7 @@ namespace RPG
             int newcurxtilemin = curxtilemin - numtiles;
             if (newcurxtilemin >= 0)
             {
-                if (noclip || (playertile != null && map[playertile.getMapX() - numtiles][playertile.getMapY()].getType() != WorldTile.WALL))
+                if (noclip || (playertile != null && !map[playertile.getMapX() - numtiles][playertile.getMapY()].isObstacle()))
                 {
                     if (!noclip && playertile != null)
                     {
@@ -412,6 +426,14 @@ namespace RPG
                     }
                 }
             }
+            else if (!noclip 
+                && playertile != null 
+                && ((playertile.getMapX() - numtiles) >= 0)
+                && !map[playertile.getMapX() - numtiles][playertile.getMapY()].isObstacle())
+            {
+                setPlayerLocation(map[playertile.getMapX() - numtiles][playertile.getMapY()]);
+                processEvents(map[playertile.getMapX()][playertile.getMapY()]);
+            }
         }
 
         public void shiftRight(int numtiles, bool noclip)
@@ -419,7 +441,7 @@ namespace RPG
             int newcurxtilemin = curxtilemin + numtiles;
             if (newcurxtilemin <= (xtiles - size))
             {
-                if (noclip || (playertile != null && map[playertile.getMapX() + numtiles][playertile.getMapY()].getType() != WorldTile.WALL))
+                if (noclip || (playertile != null && !map[playertile.getMapX() + numtiles][playertile.getMapY()].isObstacle()))
                 {
                     if (!noclip && playertile != null)
                     {
@@ -431,6 +453,13 @@ namespace RPG
                         curxtilemin = newcurxtilemin;
                     }
                 }
+            }
+            else if (!noclip && playertile != null 
+                && ((playertile.getMapX() + numtiles) < xtiles)
+                && !map[playertile.getMapX() + numtiles][playertile.getMapY()].isObstacle())
+            {
+                setPlayerLocation(map[playertile.getMapX() + numtiles][playertile.getMapY()]);
+                processEvents(map[playertile.getMapX()][playertile.getMapY()]);
             }
         }
 
@@ -478,8 +507,8 @@ namespace RPG
                 playertile.setMapY(newloc.getMapY());
                 playerx = playertile.getMapX();
                 playery = playertile.getMapY();
-                curxtilemin = playerx - 8;
-                curytilemin = playery - 8;
+                curxtilemin = Math.Max(Math.Min(playerx - 8,xtiles - 17), 0);
+                curytilemin = Math.Max(Math.Min(playery - 8,ytiles - 17), 0);
             }
             else
                 Console.WriteLine("Player is null!!");

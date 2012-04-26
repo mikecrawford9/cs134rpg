@@ -908,9 +908,9 @@
 <TILE x="14" y="8" type="GRASS" />
 <TILE x="14" y="9" type="GRASS" />
 <TILE x="14" y="10" type="GRASS" />
-<TILE x="14" y="11" type="GRASS" />
+<TILE x="14" y="11" type="WATER" />
 <TILE x="14" y="12" type="GRASS" />
-<TILE x="14" y="13" type="GRASS" />
+<TILE x="14" y="13" type="WATER" />
 <TILE x="14" y="14" type="GRASS" />
 <TILE x="14" y="15" type="GRASS" />
 <TILE x="14" y="16" type="GRASS" />
@@ -972,8 +972,8 @@
 <TILE x="15" y="8" type="GRASS" />
 <TILE x="15" y="9" type="GRASS" />
 <TILE x="15" y="10" type="GRASS" />
-<TILE x="15" y="11" type="GRASS" />
-<TILE x="15" y="12" type="WATER" >
+<TILE x="15" y="11" type="WATER" />
+<TILE x="15" y="12" type="GRASS" >
 <EVENT type="MAP_TRANSITION">
 <DATA>
 <mapfile>world.rpgmf</mapfile>
@@ -982,7 +982,7 @@
 </DATA>
 </EVENT>
 </TILE>
-<TILE x="15" y="13" type="GRASS" />
+<TILE x="15" y="13" type="WATER" />
 <TILE x="15" y="14" type="GRASS" />
 <TILE x="15" y="15" type="GRASS" />
 <TILE x="15" y="16" type="GRASS" />
@@ -1044,9 +1044,9 @@
 <TILE x="16" y="8" type="GRASS" />
 <TILE x="16" y="9" type="GRASS" />
 <TILE x="16" y="10" type="GRASS" />
-<TILE x="16" y="11" type="GRASS" />
-<TILE x="16" y="12" type="GRASS" />
-<TILE x="16" y="13" type="GRASS" />
+<TILE x="16" y="11" type="WATER" />
+<TILE x="16" y="12" type="WATER" />
+<TILE x="16" y="13" type="WATER" />
 <TILE x="16" y="14" type="GRASS" />
 <TILE x="16" y="15" type="GRASS" />
 <TILE x="16" y="16" type="GRASS" />
