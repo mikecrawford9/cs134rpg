@@ -140,7 +140,7 @@ namespace RPG
                 try
                 {
                     Texture2D cur = Content.Load<Texture2D>(t.GetTexture());
-                    if (cur != null)
+                    if (cur != null && !texmap.ContainsKey(t.GetTexture()))
                         texmap.Add(t.GetTexture(), cur);
                 }
                 catch (Microsoft.Xna.Framework.Content.ContentLoadException e)

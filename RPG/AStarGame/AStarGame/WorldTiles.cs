@@ -97,6 +97,14 @@ namespace RPG
         MOUNTAIN,
         [WorldTileAttribute(TileType.PLAYER, "Tiles/HeroFront", true, 0)] 
         PLAYER,
+        [WorldTileAttribute(TileType.PLAYER, "Tiles/HeroFront", true, 0)]
+        PLAYER_FRONT,
+        [WorldTileAttribute(TileType.PLAYER, "Tiles/HeroBack", true, 0)]
+        PLAYER_BACK,
+        [WorldTileAttribute(TileType.PLAYER, "Tiles/HeroLeftFace", true, 0)]
+        PLAYER_LEFT,
+        [WorldTileAttribute(TileType.PLAYER, "Tiles/HeroRightFace", true, 0)]
+        PLAYER_RIGHT,
         [WorldTileAttribute(TileType.WATER, "Tiles/Water", true, 6)] 
         WATER,
         [WorldTileAttribute(TileType.ROCKS, "Tiles/LavaRocks", false, 8)] 
