@@ -332,23 +332,7 @@ namespace RPG
             Console.WriteLine("Found " + ce.Length + " events!");
                 for(int i = 0; i < ce.Length; i++)
                 {
-                    Event e = ce[i];
-                    if(e.getEventType() == EventType.MAP_TRANSITION)
-                    {
-                        String mapfile = e.getProperty("mapfile");
-                        int x = Convert.ToInt32(e.getProperty("x"));
-                        int y = Convert.ToInt32(e.getProperty("y"));
-
-                        Console.WriteLine("Processing Map Transition Event for " + mapfile + " x=" + x + ",y=" + y);
-
-                        FileStream fileStream = new FileStream(@mapfile, FileMode.Open);
-                        StreamReader reader = new StreamReader(fileStream);
-                        LoadMap(reader, toolmap);
-                        setPlayerLocation(map[x][y]);
-
-                        reader.Close();
-                        fileStream.Close();
-                    }
+                    Game1.addToEventQueue(ce[i]);
                 }
         }
 

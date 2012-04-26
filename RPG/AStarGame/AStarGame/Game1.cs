@@ -63,7 +63,15 @@ namespace RPG
         bool maploaded = false;
 
         public static GameState state;
+        static Queue<Event> eventqueue;
+
         //System.Windows.Forms.ComboBox combobox;
+
+        public static void addToEventQueue(Event e)
+        {
+            if (eventqueue != null)
+                eventqueue.Enqueue(e);
+        }
 
         public Game1()
         {
@@ -88,6 +96,7 @@ namespace RPG
         {
             // TODO: Add your initialization logic here
             state = GameState.EDIT;
+            eventqueue = new Queue<Event>();
             texmap = new Dictionary<String, Texture2D>();
             lastmonstermove = 0;
             lastplayermove = 0;
@@ -195,7 +204,7 @@ namespace RPG
                     edited = true;
                     mapsaved = maploaded = false;
                     catchInput(gameTime, true);
-                    //map.resetPlayers();
+                    map.resetPlayers();
                     map.refreshTiles();
                     map.Update(toolmap);
                     astartile = null;
@@ -218,6 +227,7 @@ namespace RPG
                     //start game here...
                     map.unhighlight();
                     playGame(gameTime);
+                    processEvents();
                     break;
                 case GameState.SAVEMAP:
                     if (!mapsaved)
@@ -414,12 +424,27 @@ namespace RPG
             catchInput(gameTime, false);
         }
 
-        private void checkEvents(Tile cur)
+        private void processEvents()
         {
-            Event[] ev = cur.getEvents();
-            for (int i = 0; i < ev.Length; i++)
+            while (eventqueue.Count > 0)
             {
+                Event e = eventqueue.Dequeue();
+                if (e.getEventType() == EventType.MAP_TRANSITION)
+                {
+                    String mapfile = e.getProperty("mapfile");
+                    int x = Convert.ToInt32(e.getProperty("x"));
+                    int y = Convert.ToInt32(e.getProperty("y"));
 
+                    Console.WriteLine("Processing Map Transition Event for " + mapfile + " x=" + x + ",y=" + y);
+
+                    FileStream fileStream = new FileStream(@mapfile, FileMode.Open);
+                    StreamReader reader = new StreamReader(fileStream);
+                    map.LoadMap(reader, toolmap);
+                    map.setPlayerLocation(map.getTileAt(x,y));
+
+                    reader.Close();
+                    fileStream.Close();
+                }
             }
         }
 
