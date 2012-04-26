@@ -1,1 +1,2 @@
 C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGameContent\obj\x86\Debug\ResolveAssemblyReference.cache
+F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGameContent\obj\x86\Debug\ResolveAssemblyReference.cache

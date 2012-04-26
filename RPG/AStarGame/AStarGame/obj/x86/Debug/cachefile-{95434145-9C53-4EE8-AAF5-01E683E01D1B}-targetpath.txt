@@ -1,57 +1,21 @@
-Content\gameFont.xnb
-Content\Tiles\Black.xnb
-Content\Tiles\Castle.xnb
-Content\Tiles\dirt.xnb
-Content\Tiles\dragonwarrior3.xnb
-Content\Tiles\FenceAll.xnb
-Content\Tiles\FenceBottom.xnb
-Content\Tiles\FenceHorizontal.xnb
-Content\Tiles\FenceLeft.xnb
-Content\Tiles\FenceLowerLeft.xnb
-Content\Tiles\FenceLowerRight.xnb
-Content\Tiles\FenceNoBottom.xnb
-Content\Tiles\FenceNoLeft.xnb
-Content\Tiles\FenceNoRight.xnb
-Content\Tiles\FenceNoTop.xnb
-Content\Tiles\FencePole.xnb
-Content\Tiles\FenceRight.xnb
-Content\Tiles\FenceTop.xnb
-Content\Tiles\FenceUpperLeft.xnb
-Content\Tiles\FenceUpperRight.xnb
-Content\Tiles\FenceVertcal.xnb
 Content\Tiles\Grass.xnb
-Content\Tiles\GrassStairs.xnb
-Content\Tiles\HeroBack.xnb
-Content\Tiles\HeroFront.xnb
-Content\Tiles\HeroLeftFace.xnb
-Content\Tiles\HeroRightFace.xnb
 Content\Tiles\LavaRocks.xnb
 Content\Tiles\Monster.xnb
-Content\Tiles\Mountain Range Bottom.xnb
-Content\Tiles\Mountain Range Left.xnb
-Content\Tiles\Mountain Range.xnb
-Content\Tiles\Mountain.xnb
-Content\Tiles\OldMan.xnb
-Content\Tiles\Pillow.xnb
-Content\Tiles\PillowDirt.xnb
-Content\Tiles\RockWall.xnb
-Content\Tiles\ShopKeep.xnb
 Content\Tiles\Swamp.xnb
+Content\Tiles\Trees.xnb
+Content\Tiles\Wall.xnb
+Content\Tiles\Water.xnb
+Content\AStarWayPoint.xnb
 Content\Tiles\SwampToGrassBottom.xnb
 Content\Tiles\SwampToGrassBottomLeft.xnb
 Content\Tiles\SwampToGrassLeft.xnb
 Content\Tiles\SwampToGrassRight.xnb
 Content\Tiles\SwampToGrassTop.xnb
 Content\Tiles\SwampToGrassTopLeft.xnb
-Content\Tiles\Tent Source 2.xnb
-Content\Tiles\Tent Source 3.xnb
-Content\Tiles\Tent Source.xnb
-Content\Tiles\Tent.xnb
-Content\Tiles\TentBrown.xnb
-Content\Tiles\TentPurple.xnb
-Content\Tiles\Trees.xnb
-Content\Tiles\Underground Stairs.xnb
-Content\Tiles\Wall.xnb
-Content\Tiles\Water.xnb
+Content\Tiles\MountainRange.xnb
+Content\Tiles\Mountain Range Bottom.xnb
+Content\Tiles\Mountain Range Left.xnb
+Content\Tiles\dragonwarrior3.xnb
+Content\Tiles\Mountain.xnb
 Content\Tiles\Zelda Tilesa.xnb
-Content\AStarWayPoint.xnb
+Content\gameFont.xnb
