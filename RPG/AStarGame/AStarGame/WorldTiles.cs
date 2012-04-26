@@ -20,7 +20,7 @@ using Microsoft.Xna.Framework.Media;
 
 namespace RPG
 {
-    public enum TileType { MONSTER = 1, PLAYER, GRASS, TREES, WALL, WATER, SWAMP, ROCKS, MOUNTAIN, SELECT, FENCE, TENT, NPC};
+    public enum TileType { MONSTER, PLAYER, NPC, GRASS, TREES, WALL, WATER, SWAMP, ROCKS, MOUNTAIN, SELECT, FENCE, TENT };
 
     class WorldTileAttribute : Attribute
     {
@@ -153,7 +153,7 @@ namespace RPG
         TENT_PURPLE,
         [WorldTileAttribute(TileType.FENCE, "Tiles/TentBrown", false, 0)]
         TENT_BROWN,
-        [WorldTileAttribute(TileType.FENCE, "Tiles/Castle", true, 1)]
+        [WorldTileAttribute(TileType.FENCE, "Tiles/Castle", false, 1)]
         CASTLE,
         [WorldTileAttribute(TileType.FENCE, "Tiles/Black", true, 0)]
         BLACK,
@@ -161,9 +161,9 @@ namespace RPG
         OLD_MAN,
         [WorldTileAttribute(TileType.FENCE, "Tiles/ShopKeep", true, 0)]
         SHOP_KEEP,
-        [WorldTileAttribute(TileType.FENCE, "Tiles/dirt", true, 0)]
+        [WorldTileAttribute(TileType.FENCE, "Tiles/dirt", false, 0)]
         DIRT,
-        [WorldTileAttribute(TileType.FENCE, "Tiles/PillowDirt", true, 0)]
+        [WorldTileAttribute(TileType.FENCE, "Tiles/PillowDirt", false, 0)]
         PILLOW_DIRT,
         [WorldTileAttribute(TileType.FENCE, "Tiles/RockWall", true, 0)]
         ROCK_WALL
