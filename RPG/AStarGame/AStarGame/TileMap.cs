@@ -332,28 +332,15 @@ namespace RPG
             Console.WriteLine("Found " + ce.Length + " events!");
                 for(int i = 0; i < ce.Length; i++)
                 {
-                    Event e = ce[i];
-                    if(e.getEventType() == EventType.MAP_TRANSITION)
-                    {
-                        String mapfile = e.getProperty("mapfile");
-                        int x = Convert.ToInt32(e.getProperty("x"));
-                        int y = Convert.ToInt32(e.getProperty("y"));
-
-                        Console.WriteLine("Processing Map Transition Event for " + mapfile + " x=" + x + ",y=" + y);
-
-                        FileStream fileStream = new FileStream(@mapfile, FileMode.Open);
-                        StreamReader reader = new StreamReader(fileStream);
-                        LoadMap(reader, toolmap);
-                        setPlayerLocation(map[x][y]);
-
-                        reader.Close();
-                        fileStream.Close();
-                    }
+                    Game1.addToEventQueue(ce[i]);
                 }
         }
 
         public void shiftDown(int numtiles, bool noclip)
         {
+            if (playertile != null)
+                playertile.setTexture(toolmap.getTexture(WorldTile.PLAYER_FRONT));
+
             int newcurytilemin = curytilemin + numtiles;
             if (newcurytilemin <= (ytiles-size))
             {
@@ -381,6 +368,9 @@ namespace RPG
 
         public void shiftUp(int numtiles, bool noclip)
         {
+            if (playertile != null)
+                playertile.setTexture(toolmap.getTexture(WorldTile.PLAYER_BACK));
+
             int newcurytilemin = curytilemin - numtiles;
             if (newcurytilemin >= 0)
             {
@@ -410,6 +400,9 @@ namespace RPG
 
         public void shiftLeft(int numtiles, bool noclip)
         {
+            if (playertile != null)
+                playertile.setTexture(toolmap.getTexture(WorldTile.PLAYER_LEFT));
+
             int newcurxtilemin = curxtilemin - numtiles;
             if (newcurxtilemin >= 0)
             {
@@ -438,6 +431,9 @@ namespace RPG
 
         public void shiftRight(int numtiles, bool noclip)
         {
+            if (playertile != null)
+                playertile.setTexture(toolmap.getTexture(WorldTile.PLAYER_RIGHT));
+
             int newcurxtilemin = curxtilemin + numtiles;
             if (newcurxtilemin <= (xtiles - size))
             {

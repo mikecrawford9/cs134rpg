@@ -279,5 +279,10 @@ namespace RPG
         {
             return this.selectedtile;
         }
+
+        public Texture2D getTexture(WorldTile type)
+        {
+            return this.texmap[type.GetTexture()];
+        }
     }
 }
