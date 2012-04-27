@@ -252,19 +252,19 @@ namespace RPG
         {
             return typeof(Map).GetField(Enum.GetName(typeof(Map), p));
         }
-        private static MapType GetMapType(this Map p)
+        public static MapType GetMapType(this Map p)
         {
             return GetAttribute(p).mapType;
         }
-        private static String GetFilePath(this Map p)
+        public static String GetFilePath(this Map p)
         {
             return GetAttribute(p).filePath;
         }
-        private static int GetX(this Map p)
+        public static int GetX(this Map p)
         {
             return GetAttribute(p).x;
         }
-        private static int GetY(this Map p)
+        public static int GetY(this Map p)
         {
             return GetAttribute(p).y;
         }
@@ -273,33 +273,33 @@ namespace RPG
     public enum Map
     {
         #region BATTLE MAPS
-        [MapAttribute(MapType.BATTLE, "battlegrass", 8, 8)]
+        [MapAttribute(MapType.BATTLE, "battlegrass.rpgmf", 8, 8)]
         BATTLE_GRASS,
-        [MapAttribute(MapType.BATTLE, "battlerock", 8, 8)]
+        [MapAttribute(MapType.BATTLE, "battlerock.rpgmf", 8, 8)]
         BATTLE_ROCK,
-        [MapAttribute(MapType.BATTLE, "battlecave", 8, 8)]
+        [MapAttribute(MapType.BATTLE, "battlecave.rpgmf", 8, 8)]
         BATTLE_CAVE,
-        [MapAttribute(MapType.BATTLE, "battleswamp", 8, 8)]
+        [MapAttribute(MapType.BATTLE, "battleswamp.rpgmf", 8, 8)]
         BATTLE_SWAMP,
-        [MapAttribute(MapType.BATTLE, "battlegeneric", 8, 8)]
+        [MapAttribute(MapType.BATTLE, "battlegeneric.rpgmf", 8, 8)]
         BATTLE_GENERIC,
         #endregion
         #region OVERWORLD MAPS
-        [MapAttribute(MapType.WORLD, "world2", 8, 8)]
+        [MapAttribute(MapType.WORLD, "world3.rpgmf", 8, 8)]
         OVERWORLD,
-        [MapAttribute(MapType.WORLD, "inn", 8, 8)]
+        [MapAttribute(MapType.WORLD, "inn.rpgmf", 8, 8)]
         INN,
-        [MapAttribute(MapType.WORLD, "shop", 8, 8)]
+        [MapAttribute(MapType.WORLD, "shop.rpgmf", 8, 8)]
         SHOP,
-        [MapAttribute(MapType.WORLD, "oldmanhouse", 8, 8)]
+        [MapAttribute(MapType.WORLD, "oldmanhouse.rpgmf", 8, 8)]
         OLD_MAN_HOUSE,
-        [MapAttribute(MapType.WORLD, "town", 8, 8)]
+        [MapAttribute(MapType.WORLD, "town.rpgmf", 8, 8)]
         TOWN,
         #endregion
         #region DUNGEON
-        [MapAttribute(MapType.WORLD, "dragoncave", 8, 8)]
+        [MapAttribute(MapType.WORLD, "dragoncave.rpgmf", 8, 8)]
         DRAGON_CAVE,
-        [MapAttribute(MapType.WORLD, "dragoncave2", 8, 8)]
+        [MapAttribute(MapType.WORLD, "dragoncave2.rpgmf", 8, 8)]
         DRAGON_CAVE_2,
         #endregion
 

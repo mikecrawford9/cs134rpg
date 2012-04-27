@@ -23,11 +23,6 @@ namespace RPG
 
         private void button1_Click(object sender, EventArgs e)
         {
-
-            String newmap = this.textBox1.Text;
-            String x = this.textBox2.Text;
-            String y = this.textBox3.Text;
-
             String s = (String)this.comboBox1.SelectedItem;
             if (s == "Map Transition")
             {
@@ -64,7 +59,6 @@ namespace RPG
             {
                 processBattleTileLayout();
             }
-            //Console.WriteLine("Selected >" + s + "<");
         }
 
         public void processMapTransitionLayout()

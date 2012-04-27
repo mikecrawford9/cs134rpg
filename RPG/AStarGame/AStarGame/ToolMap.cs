@@ -16,6 +16,7 @@ namespace RPG
 {
     class ToolMap
     {
+        bool enabled;
         Tile[][] tools;
         Dictionary<WorldTile, Tool> toolmap;
         Dictionary<String, Texture2D> texmap;
@@ -40,12 +41,14 @@ namespace RPG
         Rectangle loadbutton;
         Rectangle addeventbutton;
 
+        IntPtr handle;
         WorldTile curtool;
 
         System.Windows.Forms.ComboBox combobox;
 
         public ToolMap(int x, int y, Texture2D pixel, Dictionary<String,Texture2D> texmap, WorldTile[] tiles, SpriteFont font, IntPtr handle)
         {
+            this.handle = handle;
             combobox = new System.Windows.Forms.ComboBox();
             combobox.Location = new System.Drawing.Point(542, 50);
             combobox.Size = new System.Drawing.Size(200, 25);
@@ -54,7 +57,6 @@ namespace RPG
             combobox.SelectedIndexChanged +=
             new System.EventHandler(ComboBox1_SelectedIndexChanged);
 
-            System.Windows.Forms.Control.FromHandle(handle).Controls.Add(combobox);
             this.texmap = texmap;
             this.pixel = pixel;
             this.font = font;
@@ -109,7 +111,7 @@ namespace RPG
 
 
 
-            addeventbutton = new Rectangle(xmin, ymax, 122, 30);
+            addeventbutton = new Rectangle(xmin, ymax, 142, 30);
             astarbutton = new Rectangle(xmin, ymax + 40, 122, 30);
             playbutton = new Rectangle(xmin, ymax + 90, 122, 30);
             savebutton = new Rectangle(xmin, ymax + 140, 122, 30);
@@ -121,99 +123,124 @@ namespace RPG
         private void ComboBox1_SelectedIndexChanged(object sender,
         System.EventArgs e)
         {
-            System.Windows.Forms.ComboBox comboBox = (System.Windows.Forms.ComboBox)sender;
-            comboBox.FindForm().ActiveControl = null;
+            if (enabled)
+            {
+                System.Windows.Forms.ComboBox comboBox = (System.Windows.Forms.ComboBox)sender;
+                comboBox.FindForm().ActiveControl = null;
+            }
+        }
 
+        public void selectEdit()
+        {
+            updateSelected(astarbutton.X, astarbutton.Y, astarbutton.Width, astarbutton.Height);
         }
 
         public void Draw(SpriteBatch spriteBatch, GameState current)
         {
-            /*for (int i = 0; i < 2; i++)
-                for (int j = 0; j < 4; j++)
-                    tools[i][j].Draw(spriteBatch, tools[i][j].sq);
-            */
-            spriteBatch.Draw(pixel, astarbutton, Color.LightGray);
-            spriteBatch.Draw(pixel, playbutton, Color.Green);
-            spriteBatch.Draw(pixel, savebutton, Color.Blue);
-            spriteBatch.Draw(pixel, loadbutton, Color.Orange);
-            if (selectedtile != null)
+            if (enabled)
             {
-                spriteBatch.Draw(pixel, addeventbutton, Color.LightGray);
-                spriteBatch.DrawString(font, "Add Event", new Vector2(addeventbutton.X + 10, addeventbutton.Y - 5), Color.Black);
-                spriteBatch.DrawString(font, "(" + selectedtile.getMapX() + "," + selectedtile.getMapY() + ")", new Vector2(addeventbutton.X + 10, addeventbutton.Y - 30), Color.Black);
-            }
-            spriteBatch.DrawString(font, "Edit", new Vector2(astarbutton.X + 20, astarbutton.Y - 6), Color.Black);
-            spriteBatch.DrawString(font, "Play", new Vector2(playbutton.X + 20, playbutton.Y - 6), Color.Black);
-            spriteBatch.DrawString(font, "Save", new Vector2(savebutton.X + 20, savebutton.Y - 6), Color.Black);
-            spriteBatch.DrawString(font, "Load", new Vector2(loadbutton.X + 20, loadbutton.Y - 6), Color.Black);
 
-            drawSelectHighlight(spriteBatch);
+                spriteBatch.Draw(pixel, astarbutton, Color.LightGray);
+                spriteBatch.Draw(pixel, playbutton, Color.Green);
+                spriteBatch.Draw(pixel, savebutton, Color.Blue);
+                spriteBatch.Draw(pixel, loadbutton, Color.Orange);
+                if (selectedtile != null)
+                {
+                    spriteBatch.Draw(pixel, addeventbutton, Color.LightGray);
+                    spriteBatch.DrawString(font, "Add Event", new Vector2(addeventbutton.X + 10, addeventbutton.Y - 5), Color.Black);
+                    spriteBatch.DrawString(font, "(" + selectedtile.getMapX() + "," + selectedtile.getMapY() + ")", new Vector2(addeventbutton.X + 10, addeventbutton.Y - 35), Color.Black);
+                }
+                spriteBatch.DrawString(font, "Edit", new Vector2(astarbutton.X + 20, astarbutton.Y - 6), Color.Black);
+                spriteBatch.DrawString(font, "Play", new Vector2(playbutton.X + 20, playbutton.Y - 6), Color.Black);
+                spriteBatch.DrawString(font, "Save", new Vector2(savebutton.X + 20, savebutton.Y - 6), Color.Black);
+                spriteBatch.DrawString(font, "Load", new Vector2(loadbutton.X + 20, loadbutton.Y - 6), Color.Black);
+
+                drawSelectHighlight(spriteBatch);
+            }
+        }
+
+        public void enable()
+        {
+            enabled = true;
+            System.Windows.Forms.Control.FromHandle(handle).Controls.Add(combobox);
+        }
+
+        public void disable()
+        {
+            enabled = false;
+            combobox.FindForm().ActiveControl = null;
+            System.Windows.Forms.Control.FromHandle(handle).Controls.Remove(combobox);
         }
 
         public GameState Update(GameState current)
         {
             GameState ret = current;
-            MouseState mouseState = Mouse.GetState();
-            int mousex = mouseState.X;
-            int mousey = mouseState.Y;
-
-            Object selectedobj = combobox.SelectedItem;
-            if (selectedobj != null)
+            if (enabled)
             {
-                WorldTile select = (WorldTile)selectedobj;
-                if (select != WorldTile.SELECT)
+                MouseState mouseState = Mouse.GetState();
+                int mousex = mouseState.X;
+                int mousey = mouseState.Y;
+
+                Object selectedobj = combobox.SelectedItem;
+                if (selectedobj != null)
                 {
-                    Texture2D seltex = texmap[select.GetTexture()];
-                    selected = new Tool(select, seltex);
+                    WorldTile select = (WorldTile)selectedobj;
+                    if (select != WorldTile.SELECT)
+                    {
+                        Texture2D seltex = texmap[select.GetTexture()];
+                        selected = new Tool(select, seltex);
+                    }
+                    else
+                        selected = new Tool(select, null);
                 }
-                else
-                    selected = new Tool(select, null);
+
+                if (selectedtile != null && (mousex >= addeventbutton.X && mousex <= (addeventbutton.X + addeventbutton.Width)) &&
+                    (mousey >= addeventbutton.Y && mousey <= (addeventbutton.Y + addeventbutton.Height)) &&
+                    (mouseState.LeftButton == ButtonState.Pressed))
+                {
+                    updateSelected(addeventbutton.X, addeventbutton.Y, addeventbutton.Width, addeventbutton.Height);
+                    ret = GameState.ADDEVENT;
+                }
+
+                if ((mousex >= astarbutton.X && mousex <= (astarbutton.X + astarbutton.Width)) &&
+                    (mousey >= astarbutton.Y && mousey <= (astarbutton.Y + astarbutton.Height)) &&
+                    (mouseState.LeftButton == ButtonState.Pressed))
+                {
+                    updateSelected(astarbutton.X, astarbutton.Y, astarbutton.Width, astarbutton.Height);
+                    ret = GameState.EDIT;
+                    //ret = GameState.ASTAR;
+                }
+
+                if ((mousex >= playbutton.X && mousex <= (playbutton.X + playbutton.Width)) &&
+                    (mousey >= playbutton.Y && mousey <= (playbutton.Y + playbutton.Height)) &&
+                    (mouseState.LeftButton == ButtonState.Pressed))
+                {
+                    updateSelected(playbutton.X, playbutton.Y, playbutton.Width, playbutton.Height);
+                    disable();
+                    Game1.playstate = PlayState.WORLD;
+                    ret = GameState.RUNNING;
+                }
+
+                if ((mousex >= savebutton.X && mousex <= (savebutton.X + savebutton.Width)) &&
+                    (mousey >= savebutton.Y && mousey <= (savebutton.Y + savebutton.Height)) &&
+                    (mouseState.LeftButton == ButtonState.Pressed))
+                {
+                    updateSelected(savebutton.X, savebutton.Y, savebutton.Width, savebutton.Height);
+                    ret = GameState.SAVEMAP;
+                }
+
+                if ((mousex >= loadbutton.X && mousex <= (loadbutton.X + loadbutton.Width)) &&
+                    (mousey >= loadbutton.Y && mousey <= (loadbutton.Y + loadbutton.Height)) &&
+                    (mouseState.LeftButton == ButtonState.Pressed))
+                {
+                    updateSelected(loadbutton.X, loadbutton.Y, loadbutton.Width, loadbutton.Height);
+                    ret = GameState.LOADMAP;
+                }
+
+                if (ret != current)
+                    Console.WriteLine("Game state set to " + ret);
+
             }
-
-            if (selectedtile != null && (mousex >= addeventbutton.X && mousex <= (addeventbutton.X + addeventbutton.Width)) &&
-                (mousey >= addeventbutton.Y && mousey <= (addeventbutton.Y + addeventbutton.Height)) &&
-                (mouseState.LeftButton == ButtonState.Pressed))
-            {
-                updateSelected(addeventbutton.X, addeventbutton.Y, addeventbutton.Width, addeventbutton.Height);
-                ret = GameState.ADDEVENT;
-            }
-
-            if ((mousex >= astarbutton.X && mousex <= (astarbutton.X + astarbutton.Width)) &&
-                (mousey >= astarbutton.Y && mousey <= (astarbutton.Y + astarbutton.Height)) && 
-                (mouseState.LeftButton == ButtonState.Pressed))
-            {
-                updateSelected(astarbutton.X, astarbutton.Y, astarbutton.Width, astarbutton.Height);
-                ret = GameState.EDIT;
-                //ret = GameState.ASTAR;
-            }
-
-            if ((mousex >= playbutton.X && mousex <= (playbutton.X + playbutton.Width)) &&
-                (mousey >= playbutton.Y && mousey <= (playbutton.Y + playbutton.Height)) &&
-                (mouseState.LeftButton == ButtonState.Pressed))
-            {
-                updateSelected(playbutton.X, playbutton.Y, playbutton.Width, playbutton.Height);
-                ret = GameState.RUNNING;
-            }
-
-            if ((mousex >= savebutton.X && mousex <= (savebutton.X + savebutton.Width)) &&
-                (mousey >= savebutton.Y && mousey <= (savebutton.Y + savebutton.Height)) &&
-                (mouseState.LeftButton == ButtonState.Pressed))
-            {
-                updateSelected(savebutton.X, savebutton.Y, savebutton.Width, savebutton.Height);
-                ret = GameState.SAVEMAP;
-            }
-
-            if ((mousex >= loadbutton.X && mousex <= (loadbutton.X + loadbutton.Width)) &&
-                (mousey >= loadbutton.Y && mousey <= (loadbutton.Y + loadbutton.Height)) &&
-                (mouseState.LeftButton == ButtonState.Pressed))
-            {
-                updateSelected(loadbutton.X, loadbutton.Y, loadbutton.Width, loadbutton.Height);
-                ret = GameState.LOADMAP;
-            }
-
-            if (ret != current)
-                Console.WriteLine("Game state set to " + ret);
-
             return ret;
         }
 
@@ -272,6 +299,11 @@ namespace RPG
         public void setSelectedTile(Tile selected)
         {
             this.selectedtile = selected;
+        }
+
+        public Tile getPlayerTile()
+        {
+            return new Tile(0, 0, 0, 0, 0, getTool("HERO_FRONT"));
         }
 
         public Tile getSelectedTile()
