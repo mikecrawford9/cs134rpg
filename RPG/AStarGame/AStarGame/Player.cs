@@ -120,7 +120,7 @@ namespace RPG
     {
 
         
-        public Player(PlayerBase pb, String name = "Player", int level = 1, int currentExp = 0)
+        public Player(PlayerBase pb, CombatSprite cs, String name = "Player", int level = 1, int currentExp = 0)
         {
             this.name = name;
             this.playerBase = pb;
@@ -132,10 +132,12 @@ namespace RPG
             this.mpLoss = 0;
             this.isDead = false;
             this.currentExp = currentExp;
-
+            this.currMaxMP = this.GetMAXMP();
+            this.currMaxHP = this.GetMAXHP();
         }
 
         public readonly String name;
+        public readonly CombatSprite combatSprite;
         public PlayerBase playerBase;
         public int level;
         public int hpLoss;
@@ -145,6 +147,15 @@ namespace RPG
         public Inventory inventory;
         public bool isDead;
         public int currentExp;
+        public int currMaxMP;
+        public int currMaxHP;
+        public int currATK;
+        public int currDEF;
+        public int currAGL;
+        public int currMAGATK;
+        public int currHPREGEN;
+        public int currMPREGEN;
+
 
         #region STAT CALCULATORS
         public bool UpdateLevel()
@@ -292,6 +303,26 @@ namespace RPG
         {
             return GetMAXMP() - mpLoss;
         }
+        public void DealDamage(int amount)
+        {
+            this.hpLoss += amount;
+            if(hpLoss >= this.GetMAXHP())
+            {
+                hpLoss = this.GetMAXHP();
+                this.isDead = true;
+            }
+
+        }
+        public void RecoverDamage(int amount)
+        {
+            this.hpLoss -= amount;
+            if (hpLoss < 0)
+            {
+                hpLoss = 0;
+            }
+
+        }
+
         #endregion
         #region ITEM EFFECTS
         public bool UseHealingItem(Item healingItem)
@@ -354,6 +385,7 @@ namespace RPG
             return output;
         }
         #endregion
+
     }
 
     public class Enemy

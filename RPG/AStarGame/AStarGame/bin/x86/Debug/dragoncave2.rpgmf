@@ -4,8 +4,24 @@
 <TILE x="0" y="0" type="ROCK_WALL" />
 <TILE x="0" y="1" type="ROCK_WALL" />
 <TILE x="0" y="2" type="ROCK_WALL" />
-<TILE x="0" y="3" type="DIRT" />
-<TILE x="0" y="4" type="DIRT" />
+<TILE x="0" y="3" type="DIRT" >
+<EVENT type="MAP_TRANSITION">
+<DATA>
+<mapfile>dragoncave</mapfile>
+<x>37</x>
+<y>10</y>
+</DATA>
+</EVENT>
+</TILE>
+<TILE x="0" y="4" type="DIRT" >
+<EVENT type="MAP_TRANSITION">
+<DATA>
+<mapfile>dragoncave</mapfile>
+<x>37</x>
+<y>10</y>
+</DATA>
+</EVENT>
+</TILE>
 <TILE x="0" y="5" type="ROCK_WALL" />
 <TILE x="0" y="6" type="ROCK_WALL" />
 <TILE x="0" y="7" type="ROCK_WALL" />

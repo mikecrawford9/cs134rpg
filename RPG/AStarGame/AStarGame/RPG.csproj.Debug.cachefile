@@ -18,7 +18,6 @@ Content\Tiles\Mountain Range Left.xnb
 Content\Tiles\dragonwarrior3.xnb
 Content\Tiles\Mountain.xnb
 Content\Tiles\Zelda Tilesa.xnb
-Content\gameFont.xnb
 Content\Tiles\Black.xnb
 Content\Tiles\Castle.xnb
 Content\Tiles\DarkHeroBack.xnb
@@ -29,7 +28,6 @@ Content\Tiles\DarkHeroLeftFace.xnb
 Content\Tiles\DarkHeroLeftFaceHit.xnb
 Content\Tiles\DarkHeroRightFace.xnb
 Content\Tiles\DarkHeroRightFaceHit.xnb
-Content\Tiles\dirt.xnb
 Content\Tiles\Enemy1LeftFace.xnb
 Content\Tiles\Enemy1LeftFaceHit.xnb
 Content\Tiles\Enemy1RightFace.xnb
@@ -112,4 +110,12 @@ Content\Tiles\TextBoxTop.xnb
 Content\Tiles\TextBoxUpperLeft.xnb
 Content\Tiles\TextBoxUpperRight.xnb
 Content\Tiles\Underground Stairs.xnb
-Content\Tiles\irt.xnb
+Content\Tiles\Dirt.xnb
+Content\Tiles\dragonwarrior3transparent.xnb
+Content\Tiles\InnKeeper.xnb
+Content\Tiles\Princess.xnb
+Content\Tiles\SkeletonBackFace.xnb
+Content\Tiles\SkeletonFrontFace.xnb
+Content\Tiles\SkeletonLeftFace.xnb
+Content\Tiles\SkeletonRightFace.xnb
+Content\gameFont.xnb
