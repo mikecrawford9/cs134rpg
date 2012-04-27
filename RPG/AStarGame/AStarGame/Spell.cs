@@ -5,7 +5,7 @@ using System.Text;
 
 namespace RPG
 {
-    public enum SpellType {MAGIC, PHYSICAL}
+    public enum SpellType {MAGIC, SUPPORT, PHYSICAL}
     public enum SpellTargetType {SINGLE, ALL, SELF}
     public enum SpellElement{PHYSICAL, HOLY, FIRE, ICE, LIGHTNING}
     public enum SpellEffectType {AGL, ATK, DEF, MAG_ATK, HP, MP, REVIVE}
@@ -23,7 +23,9 @@ namespace RPG
         public SpellEffect[] effects;
 
         #region DEFAULT
-        //public static Spell ATTACK = new Spell(SpellType.PHYSICAL, SpellElement.PHYSICAL, new SpellEffect[] {new SpellEffect(SpellEffectType.HP, SpellTargetType.SINGLE, 0)}, "Attack", 
+        public static Spell ATTACK = new Spell(SpellType.PHYSICAL, SpellElement.PHYSICAL, new SpellEffect[] { new SpellEffect(SpellEffectType.HP, SpellTargetType.SINGLE, -1) }, "Attack", "A melee attack");
+        public static Spell FIRE = new Spell(SpellType.MAGIC, SpellElement.FIRE, new SpellEffect[] { new SpellEffect(SpellEffectType.HP, SpellTargetType.SINGLE, -10), new SpellEffect(SpellEffectType.MP, SpellTargetType.SELF, -10) }, "Fire", "Blast a fireball at an enemy.");
+        public static Spell HEAL = new Spell(SpellType.SUPPORT, SpellElement.HOLY, new SpellEffect[] { new SpellEffect(SpellEffectType.HP, SpellTargetType.SINGLE, 10), new SpellEffect(SpellEffectType.MP, SpellTargetType.SELF, -10) }, "Heal", "Heals a single ally."); 
         #endregion
     }
     public class SpellEffect
