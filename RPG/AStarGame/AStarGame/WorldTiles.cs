@@ -21,6 +21,56 @@ using Microsoft.Xna.Framework.Media;
 namespace RPG
 {
     public enum TileType { MONSTER, PLAYER, NPC, GRASS, TREES, WALL, WATER, SWAMP, ROCKS, MOUNTAIN, SELECT, FENCE, TENT };
+    public enum MapType {WORLD, BATTLE}
+
+    class MapAttribute : Attribute
+    {
+        internal MapAttribute(MapType type, String filePath, int initX, int initY)
+        {
+            this.mapType = type;
+            this.filePath = filePath;
+            this.x = initX;
+            this.y = initY;
+        }
+        public MapType mapType { get; private set; }
+        public String filePath { get; private set; }
+        public int x { get; private set; }
+        public int y { get; private set; }
+    }
+    public static class Maps
+    {
+        private static MapAttribute GetAttribute(Map p)
+        {
+            return (MapAttribute)Attribute.GetCustomAttribute(ForValue(p), typeof(MapAttribute));
+        }
+        private static MemberInfo ForValue(Map p)
+        {
+            return typeof(Map).GetField(Enum.GetName(typeof(Map), p));
+        }
+
+        private static MapType GetMapType(this Map p)
+        {
+            return GetAttribute(p).mapType;
+        }
+        private static String GetFilePath(this Map p)
+        {
+            return GetAttribute(p).filePath;
+        }
+        private static int GetX(this Map p)
+        {
+            return GetAttribute(p).x;
+        }
+        private static int GetY(this Map p)
+        {
+            return GetAttribute(p).y;
+        }
+    }
+
+    public enum Map
+    {
+
+    }
+
 
     class WorldTileAttribute : Attribute
     {

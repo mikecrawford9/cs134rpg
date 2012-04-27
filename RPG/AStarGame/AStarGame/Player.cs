@@ -17,6 +17,7 @@ namespace RPG
             int HP_GROWTH, int MP_GROWTH, int ATK_GROWTH, int MAG_ATK_GROWTH, int DEF_GROWTH, int AGL_GROWTH,
             int[] expGrowth)
         {
+            #region INITIALIZATIONS
             this.playerType = type;
             this.baseHP = HP_MAX;
             this.baseMP= MP_MAX;
@@ -38,8 +39,10 @@ namespace RPG
             this.defGrowth = DEF_GROWTH;
             this.aglGrowth = AGL_GROWTH;
             this.expGrowth = expGrowth;
+            #endregion
 
         }
+        #region VARIABLES
         public readonly PlayerType playerType;
         public readonly int baseHP;
         public readonly int baseMP;
@@ -61,6 +64,7 @@ namespace RPG
         public readonly int defGrowth;
         public readonly int aglGrowth;
         public readonly int[] expGrowth;
+        #endregion
 
         #endregion
 
@@ -103,10 +107,19 @@ namespace RPG
         public PlayerBase CLERIC = new PlayerBase(PlayerType.HUMAN, 29, 23, 6, 6, 5, 7, 0, 0, new Item[]{}, Item.CLOTHING_1, Item.MACE_1, new ItemType[] { ItemType.CLOTHING, ItemType.ROBE }, new ItemType[] { ItemType.STAFF, ItemType.MACE }, 7, 3, 2, 2, 1, 3, CLERIC_EXP_GROWTH);
         public PlayerBase MAGE = new PlayerBase(PlayerType.HUMAN, 28, 24, 0, 11, 4, 11, 0, 0, new Item[]{}, Item.ROBE_1, Item.STAFF_1, new ItemType[] { ItemType.ROBE }, new ItemType[] { ItemType.STAFF }, 6, 3, 0, 4, 1, 4, MAGE_EXP_GROWTH);
         #endregion
+
+        #region ENEMY PLAYER
+        public PlayerBase ENEMY1 = new PlayerBase(PlayerType.HUMAN, 33, 18, 11, 0, 8, 6, 0, 0, new Item[] { }, Item.ARMOR_1, Item.SWORD_1, new ItemType[] { ItemType.ARMOR, ItemType.CLOTHING }, new ItemType[] { ItemType.SWORD, ItemType.MACE }, 7, 2, 4, 0, 1, 3, WARRIOR_EXP_GROWTH);
+        public PlayerBase ENEMY2 = new PlayerBase(PlayerType.HUMAN, 29, 23, 6, 6, 5, 7, 0, 0, new Item[] { }, Item.CLOTHING_1, Item.MACE_1, new ItemType[] { ItemType.CLOTHING, ItemType.ROBE }, new ItemType[] { ItemType.STAFF, ItemType.MACE }, 7, 3, 2, 2, 1, 3, CLERIC_EXP_GROWTH);
+        public PlayerBase ENEMY3 = new PlayerBase(PlayerType.HUMAN, 28, 24, 0, 11, 4, 11, 0, 0, new Item[] { }, Item.ROBE_1, Item.STAFF_1, new ItemType[] { ItemType.ROBE }, new ItemType[] { ItemType.STAFF }, 6, 3, 0, 4, 1, 4, MAGE_EXP_GROWTH);
+        public PlayerBase ENEMYDRAGON = new PlayerBase(PlayerType.HUMAN, 35, 25, 12, 12, 5, 12, 10, 10, new Item[] { }, Item.ARMOR_3, Item.MACE_4, new ItemType[] { ItemType.ARMOR, ItemType.CLOTHING, ItemType.ROBE }, new ItemType[] { ItemType.SWORD, ItemType.MACE, ItemType.STAFF }, 10, 10, 10, 10, 10, 5, MAGE_EXP_GROWTH);
+        #endregion
     }
 
     public class Player
     {
+
+        
         public Player(PlayerBase pb, String name = "Player", int level = 1, int currentExp = 0)
         {
             this.name = name;
@@ -341,6 +354,24 @@ namespace RPG
             return output;
         }
         #endregion
+    }
+
+    public class Enemy
+    {
+        public Enemy(Player p, int expGiveBase = 20)
+        {
+            this.player = p;
+            this.expGiveBase = expGiveBase;
+        }
+
+        public Player player;
+        public int expGiveBase;
+
+        public int GetExp()
+        {
+            return expGiveBase + expGiveBase * (this.player.level - 1) * (this.player.level - 1);
+        }
+
     }
 
     

@@ -120,6 +120,7 @@
     </Compile>
     <Compile Include="GameState.cs" />
     <Compile Include="Item.cs" />
+    <Compile Include="Party.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="Spell.cs" />
     <Compile Include="WorldTiles.cs" />

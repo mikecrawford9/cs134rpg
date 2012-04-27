@@ -70,6 +70,19 @@ namespace RPG
         public String description;
         public String name;
 
+        public bool Equals(Item b)
+        {
+            if (b == null)
+            {
+                return false;
+            }
+            if (this.name == b.name)
+            {
+                return true;
+            }
+            return false;
+        }
+
         #region DEFAULT
         public static Item BLANK = new Item();
         #endregion
@@ -268,6 +281,19 @@ namespace RPG
                 }
             }
             
+            return false;
+        }
+
+        public bool Search(Item item)
+        {
+
+            foreach (Item i in this.inventory)
+            {
+                if(i.Equals(item))
+                {
+                    return true;
+                }
+            }
             return false;
         }
     }
