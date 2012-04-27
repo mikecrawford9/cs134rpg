@@ -287,7 +287,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\dirt.xnb</Output>
-      <Time>2012-04-25T23:00:46.746002-07:00</Time>
+      <Time>2012-04-24T20:14:06.3423627-07:00</Time>
     </Item>
     <Item>
       <Source>Tiles\Enemy1LeftFace.png</Source>
@@ -1026,6 +1026,15 @@
       <Options>None</Options>
       <Output>F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\Underground Stairs.xnb</Output>
       <Time>2012-04-25T23:00:46.7340013-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Tiles\irt.png</Source>
+      <Name>Tiles\irt</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\irt.xnb</Output>
+      <Time>2012-04-25T23:00:46.746002-07:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>

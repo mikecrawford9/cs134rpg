@@ -150,7 +150,6 @@ namespace RPG
         public bool LoadMap(StreamReader file, ToolMap toolmap)
         {
             bool success = false;
-            bool initmap = false;
             bool gotxandy = false;
             int x = 0;
             int y = 0;
@@ -339,7 +338,7 @@ namespace RPG
         public void shiftDown(int numtiles, bool noclip)
         {
             if (playertile != null)
-                playertile.setTexture(toolmap.getTexture(WorldTile.PLAYER_FRONT));
+                playertile.setTexture(toolmap.getTexture(WorldTile.HERO_FRONT));
 
             int newcurytilemin = curytilemin + numtiles;
             if (newcurytilemin <= (ytiles-size))
@@ -369,7 +368,7 @@ namespace RPG
         public void shiftUp(int numtiles, bool noclip)
         {
             if (playertile != null)
-                playertile.setTexture(toolmap.getTexture(WorldTile.PLAYER_BACK));
+                playertile.setTexture(toolmap.getTexture(WorldTile.HERO_BACK));
 
             int newcurytilemin = curytilemin - numtiles;
             if (newcurytilemin >= 0)
@@ -401,7 +400,7 @@ namespace RPG
         public void shiftLeft(int numtiles, bool noclip)
         {
             if (playertile != null)
-                playertile.setTexture(toolmap.getTexture(WorldTile.PLAYER_LEFT));
+                playertile.setTexture(toolmap.getTexture(WorldTile.HERO_LEFT));
 
             int newcurxtilemin = curxtilemin - numtiles;
             if (newcurxtilemin >= 0)
@@ -432,7 +431,7 @@ namespace RPG
         public void shiftRight(int numtiles, bool noclip)
         {
             if (playertile != null)
-                playertile.setTexture(toolmap.getTexture(WorldTile.PLAYER_RIGHT));
+                playertile.setTexture(toolmap.getTexture(WorldTile.HERO_RIGHT));
 
             int newcurxtilemin = curxtilemin + numtiles;
             if (newcurxtilemin <= (xtiles - size))

@@ -112,3 +112,4 @@ Content\Tiles\TextBoxTop.xnb
 Content\Tiles\TextBoxUpperLeft.xnb
 Content\Tiles\TextBoxUpperRight.xnb
 Content\Tiles\Underground Stairs.xnb
+Content\Tiles\irt.xnb

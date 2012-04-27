@@ -13,6 +13,6 @@ using System.Text;
 
 namespace RPG
 {
-    public enum GameState { EDIT = 1, ASTAR, RUNNING, GAMEOVER, SAVEMAP, LOADMAP, ADDEVENT};
+    public enum GameState { EDIT, ASTAR, RUNNING, GAMEOVER, SAVEMAP, LOADMAP, ADDEVENT, MAINMENU, COMBAT, SHOP, INN};
 }
 

@@ -158,17 +158,12 @@ namespace RPG
                 
             }
             worldtiles = tiles.ToArray(typeof(WorldTile)) as WorldTile[];
-
+            Array.Sort(worldtiles, delegate(WorldTile a, WorldTile b)
+                                    {
+                                        return a.ToString().CompareTo(b.ToString());
+                                    });
             Console.WriteLine(worldtiles.Length);
 
-
-            //Testing Enumerator access
-            /* 
-            foreach (WorldTile t in Enum.GetValues(typeof(WorldTile)))
-            {
-                MessageBox(new IntPtr(0), t.GetInformation() , t.ToString(), 0);
-            }
-             */
 
             //map = new TileMap(10, 10, 17, 512, 512, whitepixel, tools[0][0]);
             toolmap = new ToolMap(578, 100, whitepixel, texmap, worldtiles, font, Window.Handle);
@@ -200,6 +195,16 @@ namespace RPG
             state = toolmap.Update(state);
             switch(state)
             {
+                case GameState.MAINMENU:
+                    break;
+                case GameState.COMBAT:
+                    break;
+                case GameState.GAMEOVER:
+                    break;
+                case GameState.SHOP:
+                    break;
+                case GameState.INN:
+                    break;
                 case GameState.EDIT:
                     edited = true;
                     mapsaved = maploaded = false;

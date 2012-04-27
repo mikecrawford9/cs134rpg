@@ -49,7 +49,7 @@ namespace RPG
             combobox = new System.Windows.Forms.ComboBox();
             combobox.Location = new System.Drawing.Point(542, 50);
             combobox.Size = new System.Drawing.Size(200, 25);
-            combobox.BackColor = System.Drawing.Color.Orange;
+            combobox.BackColor = System.Drawing.Color.White;
             combobox.ForeColor = System.Drawing.Color.Black;
             combobox.SelectedIndexChanged +=
             new System.EventHandler(ComboBox1_SelectedIndexChanged);
@@ -86,7 +86,7 @@ namespace RPG
                     { }
                 }
             }
-            
+
             for (int i = 0; i < tiles.Length; i++)
                 combobox.Items.Add(tiles[i]);
 
@@ -263,11 +263,9 @@ namespace RPG
 
         public Tool getTool(String type)
         {
-            Tool ret = null;
+            Tool ret;
             WorldTile cur = (WorldTile)Enum.Parse(typeof(WorldTile), type, true);
-            if(cur != null)
-                ret = this.toolmap[cur];
-
+            ret = this.toolmap[cur];
             return ret;
         }
 

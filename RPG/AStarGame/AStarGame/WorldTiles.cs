@@ -84,9 +84,16 @@ namespace RPG
 
     public enum WorldTile
     {
-
+        #region SPECIAL MAP TILES
         [WorldTileAttribute(TileType.SELECT, "SELECT", true, 0)]
         SELECT,
+        [WorldTileAttribute(TileType.PLAYER, "Tiles/HeroFront", true, 0)]
+        PLAYER,
+        #endregion
+
+        #region MAPTILES
+        
+        #region WORLDMAPTILES
         [WorldTileAttribute(TileType.GRASS, "Tiles/Grass", false, 1)] 
         GRASS,
         [WorldTileAttribute(TileType.TREES, "Tiles/Trees", false, 2)] 
@@ -94,25 +101,24 @@ namespace RPG
         [WorldTileAttribute(TileType.SWAMP, "Tiles/Swamp", false, 4)] 
         SWAMP,
         [WorldTileAttribute(TileType.MOUNTAIN, "Tiles/Mountain", true, 0)] 
-        MOUNTAIN,
-        [WorldTileAttribute(TileType.PLAYER, "Tiles/HeroFront", true, 0)] 
-        PLAYER,
-        [WorldTileAttribute(TileType.PLAYER, "Tiles/HeroFront", true, 0)]
-        PLAYER_FRONT,
-        [WorldTileAttribute(TileType.PLAYER, "Tiles/HeroBack", true, 0)]
-        PLAYER_BACK,
-        [WorldTileAttribute(TileType.PLAYER, "Tiles/HeroLeftFace", true, 0)]
-        PLAYER_LEFT,
-        [WorldTileAttribute(TileType.PLAYER, "Tiles/HeroRightFace", true, 0)]
-        PLAYER_RIGHT,
+        MOUNTAIN,  
         [WorldTileAttribute(TileType.WATER, "Tiles/Water", true, 6)] 
         WATER,
         [WorldTileAttribute(TileType.ROCKS, "Tiles/LavaRocks", false, 8)] 
         ROCKS,
         [WorldTileAttribute(TileType.WALL, "Tiles/Wall", true, 0)] 
         WALL,
-        [WorldTileAttribute(TileType.MONSTER, "Tiles/Monster", true, 0)] 
-        MONSTER,
+        [WorldTileAttribute(TileType.FENCE, "Tiles/Black", true, 0)]
+        BLACK,
+        [WorldTileAttribute(TileType.FENCE, "Tiles/Dirt", false, 0)]
+        DIRT,
+        [WorldTileAttribute(TileType.FENCE, "Tiles/PillowDirt", false, 0)]
+        PILLOW_DIRT,
+        [WorldTileAttribute(TileType.FENCE, "Tiles/RockWall", true, 0)]
+        ROCK_WALL,
+        #endregion
+
+        #region FENCES
         [WorldTileAttribute(TileType.FENCE, "Tiles/FenceLeft", true, 0)] 
         FENCE_LEFT,
         [WorldTileAttribute(TileType.FENCE, "Tiles/FenceRight", true, 0)]
@@ -145,27 +151,179 @@ namespace RPG
         FENCE_HORIZONTAL,
         [WorldTileAttribute(TileType.FENCE, "Tiles/FenceVertcal", true, 0)]
         FENCE_VERTICAL,
-        [WorldTileAttribute(TileType.FENCE, "Tiles/GrassStairs", true, 1)]
+        #endregion
+
+        [WorldTileAttribute(TileType.FENCE, "Tiles/GrassStairs", false, 1)]
         GRASS_STAIRS,
-        [WorldTileAttribute(TileType.FENCE, "Tiles/Tent", false, 0)]
+
+        #region BUILDINGS 
+        [WorldTileAttribute(TileType.TENT, "Tiles/Tent", false, 0)]
         TENT,
-        [WorldTileAttribute(TileType.FENCE, "Tiles/TentPurple", false, 0)]
+        [WorldTileAttribute(TileType.TENT, "Tiles/TentPurple", false, 0)]
         TENT_PURPLE,
-        [WorldTileAttribute(TileType.FENCE, "Tiles/TentBrown", false, 0)]
+        [WorldTileAttribute(TileType.TENT, "Tiles/TentBrown", false, 0)]
         TENT_BROWN,
-        [WorldTileAttribute(TileType.FENCE, "Tiles/Castle", false, 1)]
+        [WorldTileAttribute(TileType.FENCE, "Tiles/Castle", false, 0)]
         CASTLE,
-        [WorldTileAttribute(TileType.FENCE, "Tiles/Black", true, 0)]
-        BLACK,
+        #endregion
+        #endregion
+
+        #region NPC
         [WorldTileAttribute(TileType.FENCE, "Tiles/OldMan", true, 0)]
         OLD_MAN,
         [WorldTileAttribute(TileType.FENCE, "Tiles/ShopKeep", true, 0)]
         SHOP_KEEP,
-        [WorldTileAttribute(TileType.FENCE, "Tiles/dirt", false, 0)]
-        DIRT,
-        [WorldTileAttribute(TileType.FENCE, "Tiles/PillowDirt", false, 0)]
-        PILLOW_DIRT,
-        [WorldTileAttribute(TileType.FENCE, "Tiles/RockWall", true, 0)]
-        ROCK_WALL
+        #endregion
+
+        #region ENEMY
+        [WorldTileAttribute(TileType.MONSTER, "Tiles/Monster", true, 0)]
+        MONSTER,
+        [WorldTileAttribute(TileType.MONSTER, "Tiles/Enemy1LeftFace", true, 0)]
+        ENEMY_1_LEFT_FACE,
+        [WorldTileAttribute(TileType.MONSTER, "Tiles/Enemy1RightFace", true, 0)]
+        ENEMY_1_RIGHT_FACE,
+        [WorldTileAttribute(TileType.MONSTER, "Tiles/Enemy1LeftFaceHit", true, 0)]
+        ENEMY_1_LEFT_FACE_HIT,
+        [WorldTileAttribute(TileType.MONSTER, "Tiles/Enemy1RightFaceHit", true, 0)]
+        ENEMY_1_RIGHT_FACE_HIT,
+
+        [WorldTileAttribute(TileType.MONSTER, "Tiles/Enemy2LeftFace", true, 0)]
+        ENEMY_2_LEFT_FACE,
+        [WorldTileAttribute(TileType.MONSTER, "Tiles/Enemy2RightFace", true, 0)]
+        ENEMY_2_RIGHT_FACE,
+        [WorldTileAttribute(TileType.MONSTER, "Tiles/Enemy2LeftFaceHit", true, 0)]
+        ENEMY_2_LEFT_FACE_HIT,
+        [WorldTileAttribute(TileType.MONSTER, "Tiles/Enemy2RightFaceHit", true, 0)]
+        ENEMY_2_RIGHT_FACE_HIT,
+
+        [WorldTileAttribute(TileType.MONSTER, "Tiles/Enemy3LeftFace", true, 0)]
+        ENEMY_3_LEFT_FACE,
+        [WorldTileAttribute(TileType.MONSTER, "Tiles/Enemy3RightFace", true, 0)]
+        ENEMY_3_RIGHT_FACE,
+        [WorldTileAttribute(TileType.MONSTER, "Tiles/Enemy3LeftFaceHit", true, 0)]
+        ENEMY_3_LEFT_FACE_HIT,
+        [WorldTileAttribute(TileType.MONSTER, "Tiles/Enemy3RightFaceHit", true, 0)]
+        ENEMY_3_RIGHT_FACE_HIT,
+
+        [WorldTileAttribute(TileType.MONSTER, "Tiles/EnemyDragonDark1FrontFace", true, 0)]
+        ENEMY_DRAGON_DARK_1_FRONT_FACE,
+        [WorldTileAttribute(TileType.MONSTER, "Tiles/EnemyDragonDarkDefeated1FrontFace", true, 0)]
+        ENEMY_DRAGON_DARK_1_DEFEATED_FRONT_FACE,
+        #endregion
+
+        #region PLAYER
+        [WorldTileAttribute(TileType.PLAYER, "Tiles/HeroFront", true, 0)]
+        HERO_FRONT,
+        [WorldTileAttribute(TileType.PLAYER, "Tiles/HeroBack", true, 0)]
+        HERO_BACK,
+        [WorldTileAttribute(TileType.PLAYER, "Tiles/HeroLeftFace", true, 0)]
+        HERO_LEFT,
+        [WorldTileAttribute(TileType.PLAYER, "Tiles/HeroRightFace", true, 0)]
+        HERO_RIGHT,
+        [WorldTileAttribute(TileType.PLAYER, "Tiles/HeroFrontHit", true, 0)]
+        HERO_FRONT_HIT,
+        [WorldTileAttribute(TileType.PLAYER, "Tiles/HeroBackHit", true, 0)]
+        HERO_BACK_HIT,
+        [WorldTileAttribute(TileType.PLAYER, "Tiles/HeroLeftFaceHit", true, 0)]
+        HERO_LEFT_HIT,
+        [WorldTileAttribute(TileType.PLAYER, "Tiles/HeroRightFaceHit", true, 0)]
+        HERO_RIGHT_HIT,
+
+        [WorldTileAttribute(TileType.PLAYER, "Tiles/DarkHeroFront", true, 0)]
+        DARK_HERO_FRONT,
+        [WorldTileAttribute(TileType.PLAYER, "Tiles/DarkHeroBack", true, 0)]
+        DARK_HERO_BACK,
+        [WorldTileAttribute(TileType.PLAYER, "Tiles/DarkHeroLeftFace", true, 0)]
+        DARK_HERO_LEFT,
+        [WorldTileAttribute(TileType.PLAYER, "Tiles/DarkHeroRightFace", true, 0)]
+        DARK_HERO_RIGHT,
+        [WorldTileAttribute(TileType.PLAYER, "Tiles/DarkHeroFrontHit", true, 0)]
+        DARK_HERO_FRONT_HIT,
+        [WorldTileAttribute(TileType.PLAYER, "Tiles/DarkHeroBackHit", true, 0)]
+        DARK_HERO_BACK_HIT,
+        [WorldTileAttribute(TileType.PLAYER, "Tiles/DarkHeroLeftFaceHit", true, 0)]
+        DARK_HERO_LEFT_HIT,
+        [WorldTileAttribute(TileType.PLAYER, "Tiles/DarkHeroRightFaceHit", true, 0)]
+        DARK_HERO_RIGHT_HIT,
+
+        [WorldTileAttribute(TileType.PLAYER, "Tiles/LightHeroFront", true, 0)]
+        LIGHT_HERO_FRONT,
+        [WorldTileAttribute(TileType.PLAYER, "Tiles/LightHeroBack", true, 0)]
+        LIGHT_HERO_BACK,
+        [WorldTileAttribute(TileType.PLAYER, "Tiles/LightHeroLeftFace", true, 0)]
+        LIGHT_HERO_LEFT,
+        [WorldTileAttribute(TileType.PLAYER, "Tiles/LightHeroRightFace", true, 0)]
+        LIGHT_HERO_RIGHT,
+        [WorldTileAttribute(TileType.PLAYER, "Tiles/LightHeroFrontHit", true, 0)]
+        LIGHT_HERO_FRONT_HIT,
+        [WorldTileAttribute(TileType.PLAYER, "Tiles/LightHeroBackHit", true, 0)]
+        LIGHT_HERO_BACK_HIT,
+        [WorldTileAttribute(TileType.PLAYER, "Tiles/LightHeroLeftFaceHit", true, 0)]
+        LIGHT_HERO_LEFT_HIT,
+        [WorldTileAttribute(TileType.PLAYER, "Tiles/LightHeroRightFaceHit", true, 0)]
+        LIGHT_HERO_RIGHT_HIT,
+        #endregion
+
+        #region SPELLS
+        [WorldTileAttribute(TileType.PLAYER, "Tiles/FireBall", true, 0)]
+        FIREBALL,
+        [WorldTileAttribute(TileType.PLAYER, "Tiles/HealBall", true, 0)]
+        HEAL,
+        #endregion
+
+        #region WEAPONS - MACE
+        [WorldTileAttribute(TileType.PLAYER, "Tiles/MaceAttack1", true, 0)]
+        MACE_ATTACK_1,
+        [WorldTileAttribute(TileType.PLAYER, "Tiles/MaceAttack2", true, 0)]
+        MACE_ATTACK_2,
+        [WorldTileAttribute(TileType.PLAYER, "Tiles/MaceAttack3", true, 0)]
+        MACE_ATTACK_3,
+        [WorldTileAttribute(TileType.PLAYER, "Tiles/MaceAttack4", true, 0)]
+        MACE_ATTACK_4,
+        #endregion
+
+        #region WEAPONS - SWORD
+        [WorldTileAttribute(TileType.PLAYER, "Tiles/SwordAttack1", true, 0)]
+        SWORD_ATTACK_1,
+        [WorldTileAttribute(TileType.PLAYER, "Tiles/SwordAttack2", true, 0)]
+        SWORD_ATTACK_2,
+        [WorldTileAttribute(TileType.PLAYER, "Tiles/SwordAttack3", true, 0)]
+        SWORD_ATTACK_3,
+        [WorldTileAttribute(TileType.PLAYER, "Tiles/SwordAttack4", true, 0)]
+        SWORD_ATTACK_4,
+        #endregion
+
+        #region WEAPONS - STAFF
+        [WorldTileAttribute(TileType.PLAYER, "Tiles/StaffAttack1", true, 0)]
+        STAFF_ATTACK_1,
+        [WorldTileAttribute(TileType.PLAYER, "Tiles/StaffAttack2", true, 0)]
+        STAFF_ATTACK_2,
+        [WorldTileAttribute(TileType.PLAYER, "Tiles/StaffAttack3", true, 0)]
+        STAFF_ATTACK_3,
+        [WorldTileAttribute(TileType.PLAYER, "Tiles/StaffAttack4", true, 0)]
+        STAFF_ATTACK_4,
+        #endregion
+
+        #region TEXT BOX
+        [WorldTileAttribute(TileType.PLAYER, "Tiles/TextBox", true, 0)]
+        TEXTBOX_CENTER,
+        [WorldTileAttribute(TileType.PLAYER, "Tiles/TextBoxBottom", true, 0)]
+        TEXTBOX_BOTTOM,
+        [WorldTileAttribute(TileType.PLAYER, "Tiles/TextBoxLeft", true, 0)]
+        TEXTBOX_LEFT,
+        [WorldTileAttribute(TileType.PLAYER, "Tiles/TextBoxLowerLeft", true, 0)]
+        TEXTBOX_LOWER_LEFT,
+        [WorldTileAttribute(TileType.PLAYER, "Tiles/TextBoxLowerRight", true, 0)]
+        TEXTBOX_LOWER_RIGHT,
+        [WorldTileAttribute(TileType.PLAYER, "Tiles/TextBoxRight", true, 0)]
+        TEXTBOX_RIGHT,
+        [WorldTileAttribute(TileType.PLAYER, "Tiles/TextBoxTop", true, 0)]
+        TEXTBOX_TOP,
+        [WorldTileAttribute(TileType.PLAYER, "Tiles/TextBoxUpperLeft", true, 0)]
+        TEXTBOX_UPPER_LEFT,
+        [WorldTileAttribute(TileType.PLAYER, "Tiles/TextBoxUpperRight", true, 0)]
+        TEXTBOX_UPPER_RIGHT,
+        #endregion
+
     }
 }

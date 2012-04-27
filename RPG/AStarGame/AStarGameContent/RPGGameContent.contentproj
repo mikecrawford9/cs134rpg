@@ -217,8 +217,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="Tiles\dirt.png">
-      <Name>dirt</Name>
+    <Compile Include="Tiles\irt.png">
+      <Name>irt</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
@@ -629,6 +629,13 @@
     </Compile>
     <Compile Include="Tiles\Underground Stairs.png">
       <Name>Underground Stairs</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Tiles\Dirt.png">
+      <Name>Dirt</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
