@@ -50,6 +50,7 @@ namespace RPG
 
         Tool[][] tools;
 
+        Button button;
         Tile astartile;
         bool edited;
         bool inaddevent;
@@ -113,6 +114,7 @@ namespace RPG
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
+            button = new Button(Content.Load<Texture2D>("Tiles/buttonSmall"), Content.Load<SpriteFont>("buttonFont"), spriteBatch, "Load");
             whitepixel  = new Texture2D(GraphicsDevice, 1, 1);
             whitepixel.SetData(new Color[] { Color.White });
 
@@ -191,6 +193,9 @@ namespace RPG
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
                 this.Exit();
 
+            button.Location(40, 40);
+            button.Update();
+            
             // TODO: Add your update logic here
             state = toolmap.Update(state);
             switch(state)
@@ -206,6 +211,7 @@ namespace RPG
                 case GameState.INN:
                     break;
                 case GameState.EDIT:
+                    
                     edited = true;
                     mapsaved = maploaded = false;
                     catchInput(gameTime, true);
@@ -270,6 +276,42 @@ namespace RPG
 
             base.Update(gameTime);
         }
+        /// <summary>
+        /// This is called when the game should draw itself.
+        /// </summary>
+        /// <param name="gameTime">Provides a snapshot of timing values.</param>
+        protected override void Draw(GameTime gameTime)
+        {
+            GraphicsDevice.Clear(Color.Gray);
+            
+            // TODO: Add your drawing code here
+            spriteBatch.Begin();
+            
+            map.Draw(spriteBatch);
+            toolmap.Draw(spriteBatch, state);
+
+            //if(state == GameState.ASTAR)
+           //     drawAStarTiles(spriteBatch);
+            
+            //drawErrors(spriteBatch);
+            spriteBatch.End();
+            button.Draw();
+            base.Draw(gameTime);
+        }
+
+        /*private void drawAStarTiles(SpriteBatch spriteBatch)
+        {
+            if (astartile != null)
+            {
+                Tile cur = astartile;
+                while (cur != null)
+                {
+                    cur.Draw(spriteBatch);
+                    cur = cur.getPrevious();
+                }
+            }
+        }*/
+  
 
         private void processAddEvent(Tile thetile)
         {
@@ -667,40 +709,5 @@ namespace RPG
             }
         }
 
-        /// <summary>
-        /// This is called when the game should draw itself.
-        /// </summary>
-        /// <param name="gameTime">Provides a snapshot of timing values.</param>
-        protected override void Draw(GameTime gameTime)
-        {
-            GraphicsDevice.Clear(Color.Gray);
-
-            // TODO: Add your drawing code here
-            spriteBatch.Begin();
-
-            map.Draw(spriteBatch);
-            toolmap.Draw(spriteBatch, state);
-
-            //if(state == GameState.ASTAR)
-           //     drawAStarTiles(spriteBatch);
-
-            //drawErrors(spriteBatch);
-            spriteBatch.End();
-            
-            base.Draw(gameTime);
-        }
-
-        /*private void drawAStarTiles(SpriteBatch spriteBatch)
-        {
-            if (astartile != null)
-            {
-                Tile cur = astartile;
-                while (cur != null)
-                {
-                    cur.Draw(spriteBatch);
-                    cur = cur.getPrevious();
-                }
-            }
-        }*/
     }
 }

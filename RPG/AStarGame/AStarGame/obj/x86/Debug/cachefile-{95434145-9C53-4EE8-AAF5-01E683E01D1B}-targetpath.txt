@@ -119,3 +119,6 @@ Content\Tiles\SkeletonFrontFace.xnb
 Content\Tiles\SkeletonLeftFace.xnb
 Content\Tiles\SkeletonRightFace.xnb
 Content\gameFont.xnb
+Content\Tiles\button.xnb
+Content\buttonfont.xnb
+Content\Tiles\buttonSmall.xnb

@@ -109,6 +109,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AttackButton.cs" />
+    <Compile Include="BattleSequence.cs" />
+    <Compile Include="Button.cs" />
     <Compile Include="Event.cs" />
     <Compile Include="EventType.cs" />
     <Compile Include="EventTypeProperties\MapTransition.cs" />

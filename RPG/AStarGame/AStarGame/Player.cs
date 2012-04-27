@@ -15,7 +15,7 @@ namespace RPG
             int INIT_ATK, int INIT_MAG_ATK, int INIT_DEF, int INIT_AGL, int INIT_HP_REGEN, int INIT_MP_REGEN,
             Item[] inventory, Item armor, Item weapon, ItemType[] equipableArmor, ItemType[] equipableWeapon,
             int HP_GROWTH, int MP_GROWTH, int ATK_GROWTH, int MAG_ATK_GROWTH, int DEF_GROWTH, int AGL_GROWTH,
-            int[] expGrowth)
+            int[] expGrowth, Spell[] spellList, Sprite battleSprite)
         {
             #region INITIALIZATIONS
             this.playerType = type;
@@ -39,6 +39,7 @@ namespace RPG
             this.defGrowth = DEF_GROWTH;
             this.aglGrowth = AGL_GROWTH;
             this.expGrowth = expGrowth;
+            this.spellList = spellList;
             #endregion
 
         }
@@ -64,6 +65,7 @@ namespace RPG
         public readonly int defGrowth;
         public readonly int aglGrowth;
         public readonly int[] expGrowth;
+        public readonly Spell[] spellList;
         #endregion
 
         #endregion
@@ -103,16 +105,16 @@ namespace RPG
         #endregion
 
         #region HUMAN PLAYER
-        public PlayerBase WARRIOR = new PlayerBase(PlayerType.HUMAN, 33, 18, 11, 0, 8, 6, 0, 0, new Item[]{}, Item.ARMOR_1, Item.SWORD_1, new ItemType[] { ItemType.ARMOR, ItemType.CLOTHING }, new ItemType[] { ItemType.SWORD, ItemType.MACE }, 7, 2, 4, 0, 1, 3, WARRIOR_EXP_GROWTH);
-        public PlayerBase CLERIC = new PlayerBase(PlayerType.HUMAN, 29, 23, 6, 6, 5, 7, 0, 0, new Item[]{}, Item.CLOTHING_1, Item.MACE_1, new ItemType[] { ItemType.CLOTHING, ItemType.ROBE }, new ItemType[] { ItemType.STAFF, ItemType.MACE }, 7, 3, 2, 2, 1, 3, CLERIC_EXP_GROWTH);
-        public PlayerBase MAGE = new PlayerBase(PlayerType.HUMAN, 28, 24, 0, 11, 4, 11, 0, 0, new Item[]{}, Item.ROBE_1, Item.STAFF_1, new ItemType[] { ItemType.ROBE }, new ItemType[] { ItemType.STAFF }, 6, 3, 0, 4, 1, 4, MAGE_EXP_GROWTH);
+        public PlayerBase WARRIOR = new PlayerBase(PlayerType.HUMAN, 33, 18, 11, 0, 8, 6, 0, 0, new Item[]{}, Item.ARMOR_1, Item.SWORD_1, new ItemType[] { ItemType.ARMOR, ItemType.CLOTHING }, new ItemType[] { ItemType.SWORD, ItemType.MACE }, 7, 2, 4, 0, 1, 3, WARRIOR_EXP_GROWTH, new Spell[] {Spell.ATTACK}, Sprite.WARRIOR);
+        public PlayerBase CLERIC = new PlayerBase(PlayerType.HUMAN, 29, 23, 6, 6, 5, 7, 0, 0, new Item[]{}, Item.CLOTHING_1, Item.MACE_1, new ItemType[] { ItemType.CLOTHING, ItemType.ROBE }, new ItemType[] { ItemType.STAFF, ItemType.MACE }, 7, 3, 2, 2, 1, 3, CLERIC_EXP_GROWTH, new Spell[] {Spell.ATTACK, Spell.HEAL}, Sprite.CLERIC);
+        public PlayerBase MAGE = new PlayerBase(PlayerType.HUMAN, 28, 24, 0, 11, 4, 11, 0, 0, new Item[]{}, Item.ROBE_1, Item.STAFF_1, new ItemType[] { ItemType.ROBE }, new ItemType[] { ItemType.STAFF }, 6, 3, 0, 4, 1, 4, MAGE_EXP_GROWTH, new Spell[] {Spell.ATTACK, Spell.FIRE}, Sprite.MAGE);
         #endregion
 
         #region ENEMY PLAYER
-        public PlayerBase ENEMY1 = new PlayerBase(PlayerType.HUMAN, 33, 18, 11, 0, 8, 6, 0, 0, new Item[] { }, Item.ARMOR_1, Item.SWORD_1, new ItemType[] { ItemType.ARMOR, ItemType.CLOTHING }, new ItemType[] { ItemType.SWORD, ItemType.MACE }, 7, 2, 4, 0, 1, 3, WARRIOR_EXP_GROWTH);
-        public PlayerBase ENEMY2 = new PlayerBase(PlayerType.HUMAN, 29, 23, 6, 6, 5, 7, 0, 0, new Item[] { }, Item.CLOTHING_1, Item.MACE_1, new ItemType[] { ItemType.CLOTHING, ItemType.ROBE }, new ItemType[] { ItemType.STAFF, ItemType.MACE }, 7, 3, 2, 2, 1, 3, CLERIC_EXP_GROWTH);
-        public PlayerBase ENEMY3 = new PlayerBase(PlayerType.HUMAN, 28, 24, 0, 11, 4, 11, 0, 0, new Item[] { }, Item.ROBE_1, Item.STAFF_1, new ItemType[] { ItemType.ROBE }, new ItemType[] { ItemType.STAFF }, 6, 3, 0, 4, 1, 4, MAGE_EXP_GROWTH);
-        public PlayerBase ENEMYDRAGON = new PlayerBase(PlayerType.HUMAN, 35, 25, 12, 12, 5, 12, 10, 10, new Item[] { }, Item.ARMOR_3, Item.MACE_4, new ItemType[] { ItemType.ARMOR, ItemType.CLOTHING, ItemType.ROBE }, new ItemType[] { ItemType.SWORD, ItemType.MACE, ItemType.STAFF }, 10, 10, 10, 10, 10, 5, MAGE_EXP_GROWTH);
+        public PlayerBase ENEMY1 = new PlayerBase(PlayerType.HUMAN, 33, 18, 11, 0, 8, 6, 0, 0, new Item[] { }, Item.ARMOR_1, Item.SWORD_1, new ItemType[] { ItemType.ARMOR, ItemType.CLOTHING }, new ItemType[] { ItemType.SWORD, ItemType.MACE }, 7, 2, 4, 0, 1, 3, WARRIOR_EXP_GROWTH, new Spell[] { Spell.ATTACK }, Sprite.ENEMY_1);
+        public PlayerBase ENEMY2 = new PlayerBase(PlayerType.HUMAN, 29, 23, 6, 6, 5, 7, 0, 0, new Item[] { }, Item.CLOTHING_1, Item.MACE_1, new ItemType[] { ItemType.CLOTHING, ItemType.ROBE }, new ItemType[] { ItemType.STAFF, ItemType.MACE }, 7, 3, 2, 2, 1, 3, CLERIC_EXP_GROWTH, new Spell[] { Spell.ATTACK, Spell.HEAL }, Sprite.ENEMY_2);
+        public PlayerBase ENEMY3 = new PlayerBase(PlayerType.HUMAN, 28, 24, 0, 11, 4, 11, 0, 0, new Item[] { }, Item.ROBE_1, Item.STAFF_1, new ItemType[] { ItemType.ROBE }, new ItemType[] { ItemType.STAFF }, 6, 3, 0, 4, 1, 4, MAGE_EXP_GROWTH, new Spell[] {Spell.ATTACK, Spell.FIRE}, Sprite.ENEMY_3);
+        public PlayerBase ENEMYDRAGON = new PlayerBase(PlayerType.HUMAN, 35, 25, 12, 12, 5, 12, 10, 10, new Item[] { }, Item.ARMOR_3, Item.MACE_4, new ItemType[] { ItemType.ARMOR, ItemType.CLOTHING, ItemType.ROBE }, new ItemType[] { ItemType.SWORD, ItemType.MACE, ItemType.STAFF }, 10, 10, 10, 10, 10, 5, MAGE_EXP_GROWTH, new Spell[] { Spell.ATTACK, Spell.FIRE, Spell.HEAL }, Sprite.WARRIOR);
         #endregion
     }
 
@@ -122,6 +124,7 @@ namespace RPG
         
         public Player(PlayerBase pb, CombatSprite cs, String name = "Player", int level = 1, int currentExp = 0)
         {
+            #region INITIALIZATIONS
             this.name = name;
             this.playerBase = pb;
             this.level = level;
@@ -134,8 +137,15 @@ namespace RPG
             this.currentExp = currentExp;
             this.currMaxMP = this.GetMAXMP();
             this.currMaxHP = this.GetMAXHP();
+            this.currATK = this.GetCurrentAGL();
+            this.currDEF = this.GetCurrentDEF();
+            this.currAGL = this.GetCurrentAGL();
+            this.currMAGATK = this.GetCurrentMAGATK();
+            this.currHPREGEN = this.GetCurrentHealthRegen();
+            this.currMPREGEN = this.GetCurrentManaRegen();
+            #endregion
         }
-
+        #region VARIABLES
         public readonly String name;
         public readonly CombatSprite combatSprite;
         public PlayerBase playerBase;
@@ -155,6 +165,7 @@ namespace RPG
         public int currMAGATK;
         public int currHPREGEN;
         public int currMPREGEN;
+        #endregion
 
 
         #region STAT CALCULATORS
@@ -179,6 +190,20 @@ namespace RPG
             }
             return false;
         }
+
+        public void CalculateCurrentStats()
+        {
+            this.UpdateLevel();
+            this.currMaxMP = this.GetMAXMP();
+            this.currMaxHP = this.GetMAXHP();
+            this.currATK = this.GetCurrentAGL();
+            this.currDEF = this.GetCurrentDEF();
+            this.currAGL = this.GetCurrentAGL();
+            this.currMAGATK = this.GetCurrentMAGATK();
+            this.currHPREGEN = this.GetCurrentHealthRegen();
+            this.currMPREGEN = this.GetCurrentManaRegen();
+        }
+
         public int GetCurrentATK()
         {
             int bonus = 0;
@@ -262,14 +287,14 @@ namespace RPG
             int bonus = 0;
             foreach (ItemEffect i in playerBase.weapon.effects)
             {
-                if (i.effect == ItemEffectType.HP)
+                if (i.effect == ItemEffectType.HP && i.usage == ItemUsageType.PERM)
                 {
                     bonus += i.value;
                 }
             }
-            foreach (ItemEffect i in playerBase.armor.effects)
+            foreach (ItemEffect i in playerBase.armor.effects )
             {
-                if (i.effect == ItemEffectType.HP)
+                if (i.effect == ItemEffectType.HP && i.usage == ItemUsageType.PERM)
                 {
                     bonus += i.value;
                 }
@@ -281,20 +306,61 @@ namespace RPG
             int bonus = 0;
             foreach (ItemEffect i in playerBase.weapon.effects)
             {
-                if (i.effect == ItemEffectType.MP)
+                if (i.effect == ItemEffectType.MP && i.usage == ItemUsageType.PERM)
                 {
                     bonus += i.value;
                 }
             }
             foreach (ItemEffect i in playerBase.armor.effects)
             {
-                if (i.effect == ItemEffectType.MP)
+                if (i.effect == ItemEffectType.MP && i.usage == ItemUsageType.PERM)
                 {
                     bonus += i.value;
                 }
             }
             return playerBase.baseMP + (playerBase.mpGrowth * level) + bonus;
         }
+
+        public int GetCurrentHealthRegen()
+        {
+            int bonus = 0;
+            foreach (ItemEffect i in playerBase.weapon.effects)
+            {
+                if (i.effect == ItemEffectType.HP && i.usage == ItemUsageType.REGEN)
+                {
+                    bonus += i.value;
+                }
+            }
+            foreach (ItemEffect i in playerBase.armor.effects)
+            {
+                if (i.effect == ItemEffectType.HP && i.usage == ItemUsageType.REGEN)
+                {
+                    bonus += i.value;
+                }
+            }
+            return playerBase.baseHPRegen + bonus;
+        }
+
+        public int GetCurrentManaRegen()
+        {
+            int bonus = 0;
+            foreach (ItemEffect i in playerBase.weapon.effects)
+            {
+                if (i.effect == ItemEffectType.MP && i.usage == ItemUsageType.REGEN)
+                {
+                    bonus += i.value;
+                }
+            }
+            foreach (ItemEffect i in playerBase.armor.effects )
+            {
+                if (i.effect == ItemEffectType.MP && i.usage == ItemUsageType.REGEN)
+                {
+                    bonus += i.value;
+                }
+            }
+            return playerBase.baseMPRegen + bonus;
+        }
+
         public int GetCurrentHealth()
         {
             return GetMAXHP() - hpLoss;
@@ -324,6 +390,7 @@ namespace RPG
         }
 
         #endregion
+
         #region ITEM EFFECTS
         public bool UseHealingItem(Item healingItem)
         {
@@ -354,11 +421,15 @@ namespace RPG
                             isDead = false;
                             effective = true;
                         }
-                        return false;
+                        else
+                        {
+                            return false;
+                        }
 
                     }
                 }
             }
+            
             return effective;
 
         }
@@ -371,6 +442,7 @@ namespace RPG
                 armor = i;
 
             }
+            this.CalculateCurrentStats();
             return output;
         }
         public Item equipWeapon(Item i)
@@ -382,26 +454,88 @@ namespace RPG
                 weapon = i;
 
             }
+            this.CalculateCurrentStats();
             return output;
         }
         #endregion
 
+        #region SKILL EFFECTS
+
+        public void ModifyStatSpell(SpellEffectType stat, int baseAmount)
+        {
+            switch (stat)
+            {
+                case SpellEffectType.AGL:
+                    break;
+                case SpellEffectType.ATK:
+                    break;
+                case SpellEffectType.DEF:
+                    break;
+                case SpellEffectType.HP:
+                    break;
+                case SpellEffectType.MAG_ATK:
+                    break;
+                case SpellEffectType.MP:
+                    break;
+                case SpellEffectType.REVIVE:
+                    break;
+            }
+        }
+        public void UseSpell(Player target, Spell spell)
+        {
+            switch (spell.type)
+            {
+                case SpellType.MAGIC:
+                    foreach (SpellEffect se in spell.effects)
+                    {
+                        switch (se.target)
+                        {
+                            case SpellTargetType.ALL:
+                                break; //not supported
+                            case SpellTargetType.SELF:
+                                break;
+                            case SpellTargetType.SINGLE:
+                                break;
+                            default: break;
+                        }
+                    }
+                    break;
+                case SpellType.PHYSICAL:
+                    foreach (SpellEffect se in spell.effects)
+                    {
+                    }
+                    break;
+                case SpellType.SUPPORT:
+                    foreach (SpellEffect se in spell.effects)
+                    {
+                    }
+                    break;
+                default: break;
+            }
+        }
+        #endregion
     }
 
     public class Enemy
     {
-        public Enemy(Player p, int expGiveBase = 20)
+        public Enemy(Player p, int expGiveBase = 20, int goldGiveBase = 20)
         {
             this.player = p;
             this.expGiveBase = expGiveBase;
+            this.goldGiveBase = goldGiveBase;
         }
 
         public Player player;
         public int expGiveBase;
+        public int goldGiveBase;
 
         public int GetExp()
         {
             return expGiveBase + expGiveBase * (this.player.level - 1) * (this.player.level - 1);
+        }
+        public int GetGold()
+        {
+            return goldGiveBase + goldGiveBase * (this.player.level) * (this.player.level);
         }
 
     }

@@ -1090,6 +1090,33 @@
       <Output>F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\gameFont.xnb</Output>
       <Time>2012-04-25T23:00:46.7470021-07:00</Time>
     </Item>
+    <Item>
+      <Source>Tiles\button.png</Source>
+      <Name>Tiles\button</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\button.xnb</Output>
+      <Time>2012-04-27T14:17:47.2604967-07:00</Time>
+    </Item>
+    <Item>
+      <Source>buttonfont.spritefont</Source>
+      <Name>buttonfont</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+      <Options>None</Options>
+      <Output>F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\buttonfont.xnb</Output>
+      <Time>2012-04-27T15:29:42.3372125-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Tiles\buttonSmall.png</Source>
+      <Name>Tiles\buttonSmall</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\buttonSmall.xnb</Output>
+      <Time>2012-04-27T15:28:47.2379527-07:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <TargetPlatform>Windows</TargetPlatform>
