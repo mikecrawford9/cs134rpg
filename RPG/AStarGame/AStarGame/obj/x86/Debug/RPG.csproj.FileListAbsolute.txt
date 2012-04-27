@@ -121,3 +121,10 @@ F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStar
 F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\TextBoxUpperLeft.xnb
 F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\TextBoxUpperRight.xnb
 F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\Underground Stairs.xnb
+F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\dragonwarrior3transparent.xnb
+F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\InnKeeper.xnb
+F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\Princess.xnb
+F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\SkeletonBackFace.xnb
+F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\SkeletonFrontFace.xnb
+F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\SkeletonLeftFace.xnb
+F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\SkeletonRightFace.xnb

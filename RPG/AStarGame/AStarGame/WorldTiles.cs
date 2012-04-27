@@ -5,7 +5,7 @@ Instructor: Dr. Teoh
 Term: Spring 2012
 Assignment: Project 2
 */
-
+#region IMPORTS
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,11 +17,216 @@ using Microsoft.Xna.Framework.GamerServices;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
+#endregion
 
 namespace RPG
 {
+    #region TYPE ENUMS
     public enum TileType { MONSTER, PLAYER, NPC, GRASS, TREES, WALL, WATER, SWAMP, ROCKS, MOUNTAIN, SELECT, FENCE, TENT };
     public enum MapType { WORLD, BATTLE }
+    public enum SpriteType { MONSTER, PLAYER, SKILL }
+    #endregion
+
+    #region SPRITE
+    class SpriteAttribute : Attribute
+    {
+        internal SpriteAttribute(SpriteType type, String leftFace, String rightFace, String leftFaceHit, String rightFaceHit)
+        {
+            this.leftFace = leftFace;
+            this.rightFace = rightFace;
+            this.leftFaceHit = leftFaceHit;
+            this.rightFaceHit = rightFaceHit;
+            this.type = type;
+        }
+
+        public SpriteType type { get; private set; }
+        public String leftFace { get; private set; }
+        public String rightFace { get; private set; }
+        public String leftFaceHit { get; private set; }
+        public String rightFaceHit { get; private set; }
+    }
+    public static class Sprites
+    {
+        private static SpriteAttribute GetAttribute(Sprite s)
+        {
+            return (SpriteAttribute)Attribute.GetCustomAttribute(ForValue(s), typeof(SpriteAttribute));
+        }
+        private static MemberInfo ForValue(Sprite s)
+        {
+            return typeof(SpriteAttribute).GetField(Enum.GetName(typeof(SpriteAttribute), s));
+        }
+        private static SpriteType GetSpriteType(this Sprite s)
+        {
+            return GetAttribute(s).type;
+        }
+        private static String GetLeftFaceImage(this Sprite s)
+        {
+            return GetAttribute(s).leftFace;
+        }
+        private static String GetRightFaceImage(this Sprite s)
+        {
+            return GetAttribute(s).rightFace;
+        }
+        private static String GetLeftFaceHitImage(this Sprite s)
+        {
+            return GetAttribute(s).leftFaceHit;
+        }
+        private static String GetRightFaceHitImage(this Sprite s)
+        {
+            return GetAttribute(s).rightFaceHit;
+        }
+
+    }
+
+    public enum Sprite
+    {
+        #region PLAYER SPRITES
+        [SpriteAttribute(SpriteType.PLAYER, "Tiles/HeroLeftFace", "Tiles/HeroRightFace", "Tiles/HeroLeftFaceHit", "Tiles/HeroRightFaceHit")] 
+        WARRIOR,
+        [SpriteAttribute(SpriteType.PLAYER, "Tiles/LightHeroLeftFace", "Tiles/LightHeroRightFace", "Tiles/LightHeroLeftFaceHit", "Tiles/LightHeroRightFaceHit")]
+        CLERIC,
+        [SpriteAttribute(SpriteType.PLAYER, "Tiles/DarkHeroLeftFace", "Tiles/DarkHeroRightFace", "Tiles/DarkHeroLeftFaceHit", "Tiles/DarkHeroRightFaceHit")]
+        MAGE,
+        #endregion
+
+        #region ENEMY SPRITES
+        [SpriteAttribute(SpriteType.MONSTER, "Tiles/Enemy1LeftFace", "Tiles/Enemy1RightFace", "Tiles/Enemy1LeftFaceHit", "Tiles/Enemy1RightFaceHit")]
+        ENEMY_1,
+        [SpriteAttribute(SpriteType.MONSTER, "Tiles/Enemy2LeftFace", "Tiles/Enemy2RightFace", "Tiles/Enemy2LeftFaceHit", "Tiles/Enemy2RightFaceHit")]
+        ENEMY_2,
+        [SpriteAttribute(SpriteType.MONSTER, "Tiles/Enemy3LeftFace", "Tiles/Enemy3RightFace", "Tiles/Enemy3LeftFaceHit", "Tiles/Enemy3RightFaceHit")]
+        ENEMY_3,/*
+        [SpriteAttribute(SpriteType.MONSTER, "Tiles/Enemy1LeftFace", "Tiles/Enemy1RightFace", "Tiles/Enemy1LeftFaceHit", "Tiles/Enemy1RightFaceHit")]
+        ENEMY_1,*/
+        #endregion
+    }
+    #endregion
+
+    #region OVERWORLD SPRITES
+    class OverWorldSpriteAttribute : Attribute
+    {
+        internal OverWorldSpriteAttribute(SpriteType type, String front, String back, String left, String right)
+        {
+            this.type = type;
+            this.front = front;
+            this.back = back;
+            this.left = left;
+            this.right = right;
+        }
+        public SpriteType type { get; private set; }
+        public String front { get; private set; }
+        public String back { get; private set; }
+        public String left { get; private set; }
+        public String right { get; private set; }
+
+    }
+    public static class OverWorldSprites
+    {
+        private static OverWorldSpriteAttribute GetAttribute(OverWorldSprite s)
+        {
+            return (OverWorldSpriteAttribute)Attribute.GetCustomAttribute(ForValue(s), typeof(OverWorldSpriteAttribute));
+        }
+        private static MemberInfo ForValue(OverWorldSprite s)
+        {
+            return typeof(OverWorldSpriteAttribute).GetField(Enum.GetName(typeof(OverWorldSpriteAttribute), s));
+        }
+        private static SpriteType GetSpriteType(this OverWorldSprite s)
+        {
+            return GetAttribute(s).type;
+        }
+        private static String GetFrontImage(this OverWorldSprite s)
+        {
+            return GetAttribute(s).front;
+        }
+        private static String GetBackImage(this OverWorldSprite s)
+        {
+            return GetAttribute(s).back;
+        }
+        private static String GetLeftImage(this OverWorldSprite s)
+        {
+            return GetAttribute(s).left;
+        }
+        private static String GetRightImage(this OverWorldSprite s)
+        {
+            return GetAttribute(s).right;
+        }
+    }
+    public enum OverWorldSprite
+    {
+        [OverWorldSpriteAttribute(SpriteType.PLAYER, "Tiles/HeroFront", "Tiles/HeroBack", "Tiles/HeroLeft", "Tiles/HeroRight")] 
+        HERO,
+        [OverWorldSpriteAttribute(SpriteType.MONSTER, "Tiles/SkeletonFront", "Tiles/SkeletonBack", "Tiles/SkeletonLeft", "Tiles/SkeletonRight")]
+        SKELETON,
+
+    }
+    #endregion
+    
+    #region COMBAT SPRITE
+    class CombatSpriteAttribute : Attribute
+    {
+        internal CombatSpriteAttribute(SpriteType type, String image1, String image2, String image3, String image4)
+        {
+            this.image1 = image1;
+            this.image2 = image2;
+            this.image3 = image3;
+            this.image4 = image4;
+            this.type = type;
+        }
+        public SpriteType type { get; private set; }
+        public String image1 { get; private set; }
+        public String image2 { get; private set; }
+        public String image3 { get; private set; }
+        public String image4 { get; private set; }
+
+    }
+    public static class CombatSprites
+    {
+        private static CombatSpriteAttribute GetAttribute(CombatSprite s)
+        {
+            return (CombatSpriteAttribute)Attribute.GetCustomAttribute(ForValue(s), typeof(CombatSpriteAttribute));
+        }
+        private static MemberInfo ForValue(CombatSprite s)
+        {
+            return typeof(CombatSpriteAttribute).GetField(Enum.GetName(typeof(CombatSpriteAttribute), s));
+        }
+        private static SpriteType GetSpriteType(this CombatSprite s)
+        {
+            return GetAttribute(s).type;
+        }
+        private static String GetImage1(this CombatSprite s)
+        {
+            return GetAttribute(s).image1;
+        }
+        private static String GetImage2(this CombatSprite s)
+        {
+            return GetAttribute(s).image2;
+        }
+        private static String GetImage3(this CombatSprite s)
+        {
+            return GetAttribute(s).image3;
+        }
+        private static String GetImage4(this CombatSprite s)
+        {
+            return GetAttribute(s).image4;
+        }
+    }
+    public enum CombatSprite
+    {
+        [CombatSpriteAttribute(SpriteType.SKILL, "Tiles/SwordAttack1", "Tiles/SwordAttack2", "Tiles/SwordAttack3", "Tiles/SwordAttack4")]
+        SWORD,
+        [CombatSpriteAttribute(SpriteType.SKILL, "Tiles/MaceAttack1", "Tiles/MaceAttack2", "Tiles/MaceAttack3", "Tiles/MaceAttack4")]
+        MACE,
+        [CombatSpriteAttribute(SpriteType.SKILL, "Tiles/StaffAttack1", "Tiles/StaffAttack2", "Tiles/StaffAttack3", "Tiles/StaffAttack4")]
+        STAFF,
+        [CombatSpriteAttribute(SpriteType.SKILL, "Tiles/FireBall", "Tiles/FireBall", "Tiles/FireBall", "Tiles/FireBall")]
+        FIRE,
+        [CombatSpriteAttribute(SpriteType.SKILL, "Tiles/HealBall", "Tiles/HealBall", "Tiles/HealBall", "Tiles/HealBall")]
+        HEAL,
+
+    }
+    #endregion
+
+    #region MAP FILES
 
     class MapAttribute : Attribute
     {
@@ -99,8 +304,9 @@ namespace RPG
         #endregion
 
     }
+    #endregion
 
-
+    #region WORLD TILES
     class WorldTileAttribute : Attribute
     {
         internal WorldTileAttribute(TileType type, String texturePath, bool isObstacle, byte cost)
@@ -251,6 +457,11 @@ namespace RPG
         OLD_MAN,
         [WorldTileAttribute(TileType.FENCE, "Tiles/ShopKeep", true, 0)]
         SHOP_KEEP,
+        [WorldTileAttribute(TileType.FENCE, "Tiles/Princess", true, 0)]
+        PRINCESS,
+        [WorldTileAttribute(TileType.FENCE, "Tiles/InnKeeper", true, 0)]
+        INN_KEEP,
+
         #endregion
 
         #region ENEMY
@@ -404,4 +615,5 @@ namespace RPG
         #endregion
 
     }
+    #endregion
 }
