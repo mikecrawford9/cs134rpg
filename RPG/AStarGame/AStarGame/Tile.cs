@@ -25,12 +25,11 @@ namespace RPG
         int arry;
         int cost;
         int totalcost;
-        bool obstacle;
         Tool tool;
         Tile prev;
 
 
-        public Tile(int arrx, int arry, int x, int y, int sidelength, Texture2D pixel)
+        /*public Tile(int arrx, int arry, int x, int y, int sidelength, Texture2D pixel)
         {
             events = new List<Event>();
             this.arrx = arrx;
@@ -49,7 +48,7 @@ namespace RPG
             this.pixel = pixel;
             sq = new Rectangle(x, y, sidelength, sidelength);
             curcolor = color;
-        }
+        }*/
 
         public Tile(int arrx, int arry, int x, int y, int sidelength, Tool tool)
         {
@@ -60,7 +59,6 @@ namespace RPG
             this.pixel = tool.getTexture();
             sq = new Rectangle(x, y, sidelength, sidelength);
             this.type = tool.getType();
-            this.obstacle = tool.isObstacleTile();
             this.cost = tool.getCost();
             this.totalcost = this.cost;
             this.tool = tool;
@@ -160,7 +158,7 @@ namespace RPG
 
         public bool isObstacle()
         {
-            return obstacle;
+            return type.isObstacle();
         }
 
         public void setX(int x)

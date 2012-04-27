@@ -10,6 +10,7 @@ using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using System.Collections.Generic;
 using System.IO;
 using System.Xml;
 
@@ -37,16 +38,15 @@ namespace RPG
         Rectangle[][] displaytiles;
         SpriteFont font;
 
+        Map battlemap;
+
         Tile highlighted;
 
         Tile playertile;
-        Tile monstertile;
+        List<Tile> monstertiles;
 
         int playerx;
         int playery;
-
-        int monsterx;
-        int monstery;
 
         public TileMap(int x, int y, int size, int xtiles, int ytiles, Texture2D pixel, ToolMap tools, SpriteFont font)
         {
@@ -60,6 +60,7 @@ namespace RPG
             totalmapsize = tilesidesize * size;
             curxtilemin = 0;
             curytilemin = 0;
+            battlemap = Map.BATTLE_GENERIC;
 
             //int curtoolx = tools.Length-1;
             //int curtooly = tools[0].Length-1;
@@ -67,6 +68,7 @@ namespace RPG
             pixelsperside = tilesidesize;
             center = (int)Math.Ceiling(size / 2.0);
             displaytiles = new Rectangle[size][];
+            monstertiles = new List<Tile>();
             for (int i = 0; i < size; i++)
             {
                 displaytiles[i] = new Rectangle[size];
@@ -103,6 +105,12 @@ namespace RPG
                     if(playertile != null && i == playertile.getMapX() && j == playertile.getMapY())
                         playertile.Draw(spriteBatch, displaytiles[ia][ja]);
 
+                    for (int p = 0; p < monstertiles.Count; p++)
+                    {
+                        Tile monstertile = monstertiles[p];
+                        if (monstertile != null && i == monstertile.getMapX() && j == monstertile.getMapY())
+                            monstertile.Draw(spriteBatch, displaytiles[ia][ja]);
+                    }
                 }
         }
 
@@ -110,7 +118,16 @@ namespace RPG
         {
             bool success = false;
             file.WriteLine("<?xml version=\"1.0\" encoding=\"UTF-8\" ?>");
-            file.WriteLine("<MAP x=\"" + map.Length + "\" y=\"" + map[0].Length + "\">");
+            file.Write("<MAP x=\"" + map.Length + "\" y=\"" + map[0].Length + "\" ");
+            
+            if (playertile != null)
+                file.Write("playerx=\"" + playertile.getMapX() + "\" playery=\"" + playertile.getMapY() + "\" ");
+
+            file.WriteLine(">");
+            file.WriteLine("<MONSTERS>");
+            for (int i = 0; i < monstertiles.Count; i++)
+                file.WriteLine("<MONSTER type=\"" + monstertiles[i].getType() + "\" x=\"" + monstertiles[i].getMapX() + "\" y=\"" + monstertiles[i].getMapY() + "\" />");
+            file.WriteLine("</MONSTERS>");
             file.WriteLine("<TILES>");
             for(int i = 0; i < map.Length; i++)
                 for (int j = 0; j < map[i].Length; j++)
@@ -135,7 +152,6 @@ namespace RPG
                             file.WriteLine("</EVENT>");
 
                         }
-                            
 
                         file.WriteLine("</TILE>");
                     }
@@ -153,6 +169,9 @@ namespace RPG
             bool gotxandy = false;
             int x = 0;
             int y = 0;
+            int playerx = -1;
+            int playery = -1;
+
             using (XmlReader reader = XmlReader.Create(file))
             {
                 while (reader.Read() && !gotxandy)
@@ -164,6 +183,12 @@ namespace RPG
                             {
                                 x = Convert.ToInt32(reader["x"]);
                                 y = Convert.ToInt32(reader["y"]);
+                                if(reader["playerx"] != null && reader["playery"] != null)
+                                {
+                                    playerx = Convert.ToInt32(reader["playerx"]);
+                                    playery = Convert.ToInt32(reader["playery"]);
+                                }
+
                                 gotxandy = true;
                             }
                             break;
@@ -190,6 +215,17 @@ namespace RPG
                     switch (reader.NodeType)
                     {
                         case XmlNodeType.Element:
+                            if (reader.Name == "MONSTER")
+                            {
+                                //file.WriteLine("<MONSTER type=\"" + monstertiles[i].getType() + "\" x=\"" +
+                                //    monstertiles[i].getMapX() + "\" y=\"" + monstertiles[i].getMapY() + "\" />");
+
+                                String type = reader["type"];
+                                tilex = Convert.ToInt32(reader["x"]);
+                                tiley = Convert.ToInt32(reader["y"]);
+
+                                monstertiles.Add(new Tile(tilex, tiley, 0, 0, 0, toolmap.getTool(type)));
+                            }
                             if (reader.Name == "TILE")
                             {
                                 tilex = Convert.ToInt32(reader["x"]);
@@ -237,6 +273,12 @@ namespace RPG
                 }
             }
 
+            if (playertile == null)
+                playertile = toolmap.getPlayerTile();
+
+            if (playerx > 0 && playery > 0)
+                setPlayerLocation(map[playerx][playery]);
+
             success = true;
 
             return success;
@@ -268,7 +310,7 @@ namespace RPG
                         if (cur.getType() != WorldTile.WALL)
                         {
                             if (playertile == null)
-                                playertile = new Tile(tilex, tiley, cur.getX(), cur.getY(), cur.getLength(), selectedTool.getTexture(), Color.White);
+                                playertile = new Tile(tilex, tiley, cur.getX(), cur.getY(), cur.getLength(), selectedTool);
                             else
                             {
                                 playerx = tilex;
@@ -279,23 +321,14 @@ namespace RPG
                             }
                         }
                     }
-                    /*else if (selectedType == WorldTile.MONSTER)
+                    else if (selectedType == WorldTile.MONSTER)
                     {
                         Tile cur = map[tilex][tiley];
                         if (cur.getType() != WorldTile.WALL)
                         {
-                            if (monstertile == null)
-                                monstertile = new Tile(tilex, tiley, cur.getX(), cur.getY(), cur.getLength(), selectedTool.getTexture(), Color.White);
-                            else
-                            {
-                                monsterx = tilex;
-                                monstery = tiley;
-
-                                monstertile.setMapX(tilex);
-                                monstertile.setMapY(tiley);
-                            }
+                                monstertiles.Add(new Tile(tilex, tiley, cur.getX(), cur.getY(), cur.getLength(), selectedTool));
                         }
-                    }*/
+                    }
                     else
                     {
                         if (selectedTool.getType() == WorldTile.SELECT)
@@ -333,11 +366,21 @@ namespace RPG
                 {
                     Game1.addToEventQueue(ce[i]);
                 }
+
+            for(int i = 0; i < monstertiles.Count; i++)
+                if(cur.getMapX() == monstertiles[i].getMapX() && cur.getMapY() == monstertiles[i].getMapY())
+                {
+                    Event e = new Event();
+                    e.setEventType(EventType.BATTLE_TILE);
+                    e.addProperty("battlemap", battlemap.GetFilePath());
+                    e.addProperty("enemytexture", monstertiles[i].getTexture().Name);
+                    Game1.addToEventQueue(e);
+                }
         }
 
         public void shiftDown(int numtiles, bool noclip)
         {
-            if (playertile != null)
+            if (!noclip && playertile != null)
                 playertile.setTexture(toolmap.getTexture(WorldTile.HERO_FRONT));
 
             int newcurytilemin = curytilemin + numtiles;
@@ -367,7 +410,7 @@ namespace RPG
 
         public void shiftUp(int numtiles, bool noclip)
         {
-            if (playertile != null)
+            if (!noclip && playertile != null)
                 playertile.setTexture(toolmap.getTexture(WorldTile.HERO_BACK));
 
             int newcurytilemin = curytilemin - numtiles;
@@ -399,7 +442,7 @@ namespace RPG
 
         public void shiftLeft(int numtiles, bool noclip)
         {
-            if (playertile != null)
+            if (!noclip && playertile != null)
                 playertile.setTexture(toolmap.getTexture(WorldTile.HERO_LEFT));
 
             int newcurxtilemin = curxtilemin - numtiles;
@@ -430,13 +473,16 @@ namespace RPG
 
         public void shiftRight(int numtiles, bool noclip)
         {
-            if (playertile != null)
+            if (!noclip && playertile != null)
                 playertile.setTexture(toolmap.getTexture(WorldTile.HERO_RIGHT));
 
             int newcurxtilemin = curxtilemin + numtiles;
             if (newcurxtilemin <= (xtiles - size))
             {
-                if (noclip || (playertile != null && !map[playertile.getMapX() + numtiles][playertile.getMapY()].isObstacle()))
+                Console.WriteLine("isObstacle()=" + map[playertile.getMapX() + numtiles][playertile.getMapY()].isObstacle());
+
+                if (noclip || (playertile != null && 
+                    !map[playertile.getMapX() + numtiles][playertile.getMapY()].isObstacle()))
                 {
                     if (!noclip && playertile != null)
                     {
@@ -478,12 +524,12 @@ namespace RPG
             return playertile;
         }
 
-        public Tile getMonsterTile()
+        /*public Tile getMonsterTile()
         {
             return monstertile;
-        }
+        }*/
 
-        public void setMonsterLocation(Tile newloc)
+        /*public void setMonsterLocation(Tile newloc)
         {
             if (monstertile != null)
             {
@@ -492,21 +538,19 @@ namespace RPG
             }
             else
                 Console.WriteLine("Monster is null!!");
-        }
+        }*/
 
         public void setPlayerLocation(Tile newloc)
         {
-            if (playertile != null)
-            {
-                playertile.setMapX(newloc.getMapX());
-                playertile.setMapY(newloc.getMapY());
-                playerx = playertile.getMapX();
-                playery = playertile.getMapY();
-                curxtilemin = Math.Max(Math.Min(playerx - 8,xtiles - 17), 0);
-                curytilemin = Math.Max(Math.Min(playery - 8,ytiles - 17), 0);
-            }
-            else
-                Console.WriteLine("Player is null!!");
+            if (playertile == null)
+                playertile = toolmap.getPlayerTile();
+
+            playertile.setMapX(newloc.getMapX());
+            playertile.setMapY(newloc.getMapY());
+            playerx = playertile.getMapX();
+            playery = playertile.getMapY();
+            curxtilemin = Math.Max(Math.Min(playerx - 8,xtiles - 17), 0);
+            curytilemin = Math.Max(Math.Min(playery - 8,ytiles - 17), 0);
         }
         
         public void unhighlight()
@@ -538,12 +582,12 @@ namespace RPG
                 playertile.setMapX(playerx);
                 playertile.setMapY(playery);
             }
-            Tile m = map[monsterx][monstery];
+            /*Tile m = map[monsterx][monstery];
             if (monstertile != null)
             {
                 monstertile.setMapX(monsterx);
                 monstertile.setMapY(monstery);
-            }
+            }*/
         }
     }
 }

@@ -59,7 +59,6 @@ namespace RPG
             {
                 processBattleTileLayout();
             }
-            //Console.WriteLine("Selected >" + s + "<");
         }
 
         public void processMapTransitionLayout()

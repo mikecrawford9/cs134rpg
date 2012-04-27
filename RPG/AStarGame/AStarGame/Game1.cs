@@ -33,6 +33,8 @@ namespace RPG
         const int MONSTER_MOVE_DELAY = 1000;
         const int PLAYER_MOVE_DELAY = 100;
 
+        const bool STARTPLAY = true;
+        const String FIRSTMAP = "world3.rpgmf";
         const int DEFAULT_X_TILES = 20;
         const int DEFAULT_Y_TILES = 20;
 
@@ -47,6 +49,7 @@ namespace RPG
 
         WorldTile[] worldtiles;
         Dictionary<String, Texture2D> texmap;
+        Dictionary<String, TileMap> maps;
 
         Tool[][] tools;
 
@@ -63,6 +66,8 @@ namespace RPG
         bool maploaded = false;
 
         public static GameState state;
+        public static PlayState playstate;
+
         static Queue<Event> eventqueue;
 
         //System.Windows.Forms.ComboBox combobox;
@@ -95,9 +100,18 @@ namespace RPG
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
-            state = GameState.EDIT;
+            if (STARTPLAY)
+            {
+                state = GameState.RUNNING;
+                playstate = PlayState.WORLD;
+            }
+            else
+            {
+                state = GameState.EDIT;
+            }
             eventqueue = new Queue<Event>();
             texmap = new Dictionary<String, Texture2D>();
+            maps = new Dictionary<String, TileMap>();
             lastmonstermove = 0;
             lastplayermove = 0;
             inaddevent = false;
@@ -167,7 +181,20 @@ namespace RPG
 
             //map = new TileMap(10, 10, 17, 512, 512, whitepixel, tools[0][0]);
             toolmap = new ToolMap(578, 100, whitepixel, texmap, worldtiles, font, Window.Handle);
+            if (!STARTPLAY)
+            {
+                toolmap.enable();
+            }
             map = new TileMap(10, 10, 17, DEFAULT_X_TILES, DEFAULT_Y_TILES, whitepixel, toolmap, font);
+            if (STARTPLAY)
+            {
+                 FileStream fileStream = new FileStream(@FIRSTMAP, FileMode.Open);
+                 StreamReader reader = new StreamReader(fileStream);
+                 map.LoadMap(reader, toolmap);
+                 maps.Add(FIRSTMAP, map);
+                 reader.Close();
+                 fileStream.Close();
+            }
             // TODO: use this.Content to load your game content here
         }
 
@@ -214,25 +241,21 @@ namespace RPG
                     map.Update(toolmap);
                     astartile = null;
                     break;
-                /*case GameState.ASTAR:
-                    //start a*star code here...
-                    map.unhighlight();
-                    if (edited)
-                    {
-                        Tile best = processAStar();
-                        if(best != null)
-                            astartile = createAStarHighlight(best);
-
-                        edited = false;
-                    }
-                    map.refreshTiles();
-                    break;
-                */
                 case GameState.RUNNING:
                     //start game here...
-                    map.unhighlight();
-                    playGame(gameTime);
-                    processEvents();
+                    switch(playstate)
+                    {
+                        case PlayState.WORLD:
+                        map.unhighlight();
+                        playGame(gameTime);
+                        processEvents();
+                        break;
+                        case PlayState.BATTLE:
+                            Console.WriteLine("PlayState is Battle!");
+                        break;
+                    }
+
+                    
                     break;
                 case GameState.SAVEMAP:
                     if (!mapsaved)
@@ -372,10 +395,14 @@ namespace RPG
                 int currenttime = (int)gameTime.TotalGameTime.TotalMilliseconds;
                 if (currenttime - lastplayermove > PLAYER_MOVE_DELAY)
                 {
+                    //Console.WriteLine("noclip=" + noclip);
                     KeyboardState kb = Keyboard.GetState();
-                    if (kb.IsKeyDown(Keys.Escape))
+                    if (kb.IsKeyDown(Keys.P))
                     {
                         state = GameState.EDIT;
+                        toolmap.selectEdit();
+                        toolmap.enable();
+                        inprogress = false;
                         return;
                     }
                     else if (kb.IsKeyDown(Keys.Up))
@@ -405,7 +432,7 @@ namespace RPG
             }
         }
 
-        private Tile processAStar()
+        /*private Tile processAStar()
         {
             Tile ret = null;
             Tile player = map.getPlayerTile();
@@ -422,7 +449,7 @@ namespace RPG
                 ret = iterateAStar(start, goal);
             }
             return ret;
-        }
+        }*/
 
         private void playGame(GameTime gameTime)
         {
@@ -442,18 +469,45 @@ namespace RPG
 
                     Console.WriteLine("Processing Map Transition Event for " + mapfile + " x=" + x + ",y=" + y);
 
-                    FileStream fileStream = new FileStream(@mapfile, FileMode.Open);
-                    StreamReader reader = new StreamReader(fileStream);
-                    map.LoadMap(reader, toolmap);
-                    map.setPlayerLocation(map.getTileAt(x,y));
+                    map = getMap(mapfile, x, y);
+                }
+                else if (e.getEventType() == EventType.BATTLE_TILE)
+                {
+                    playstate = PlayState.BATTLE;
 
-                    reader.Close();
-                    fileStream.Close();
+                    map = getMap(e.getProperty("battlemap"), 8, 8);
+                    /*String mapfile = e.getProperty("mapfile");
+                    int x = Convert.ToInt32(e.getProperty("x"));
+                    int y = Convert.ToInt32(e.getProperty("y"));
+                    */
                 }
             }
         }
 
-        private void playGameOld(GameTime gameTime)
+        private TileMap getMap(String mapfile, int playerx, int playery)
+        {
+            TileMap ret = null;
+            if (maps.ContainsKey(mapfile))
+            {
+                ret = maps[mapfile];
+                ret.setPlayerLocation(map.getTileAt(playerx, playery));
+            }
+            else
+            {
+                FileStream fileStream = new FileStream(@mapfile, FileMode.Open);
+                StreamReader reader = new StreamReader(fileStream);
+                ret = new TileMap(10, 10, 17, DEFAULT_X_TILES, DEFAULT_Y_TILES, whitepixel, toolmap, font);
+                ret.LoadMap(reader, toolmap);
+                ret.setPlayerLocation(map.getTileAt(playerx, playery));
+
+                maps.Add(mapfile, ret);
+                reader.Close();
+                fileStream.Close();
+            }
+            return ret;
+        }
+
+        /*private void playGameOld(GameTime gameTime)
         {
             Tile playertile = map.getPlayerTile();
             Tile monstertile = map.getMonsterTile();
@@ -526,7 +580,7 @@ namespace RPG
                     Console.WriteLine("Game state set to " + state);
                 }
             }
-        }
+        }*/
 
         private Tile getNextStep(Tile best)
         {
@@ -655,9 +709,9 @@ namespace RPG
                 if (map.getPlayerTile() == null)
                     spriteBatch.DrawString(font, "Add A Player!", new Vector2(200, 300), Color.Red);
 
-                if (map.getMonsterTile() == null)
+                /*if (map.getMonsterTile() == null)
                     spriteBatch.DrawString(font, "Add A Monster!", new Vector2(200, 330), Color.Red);
-
+                */
                 if (astartile == null)
                     spriteBatch.DrawString(font, "No Path To Player!", new Vector2(200, 360), Color.Red);
             }
@@ -679,7 +733,8 @@ namespace RPG
             spriteBatch.Begin();
 
             map.Draw(spriteBatch);
-            toolmap.Draw(spriteBatch, state);
+            if(state != GameState.RUNNING)
+                toolmap.Draw(spriteBatch, state);
 
             //if(state == GameState.ASTAR)
            //     drawAStarTiles(spriteBatch);
