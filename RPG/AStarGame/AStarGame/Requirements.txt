@@ -11,3 +11,4 @@ sound effects and background music		1
 keep score, game over, level complete		1
 
 
+5

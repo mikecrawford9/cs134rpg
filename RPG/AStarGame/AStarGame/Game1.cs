@@ -282,8 +282,8 @@ namespace RPG
             String x = e.getProperty("x");
             String y = e.getProperty("y");
             */
-
-            thetile.addEvent(e);
+            if(e.getEventType() != EventType.CANCELED)
+                thetile.addEvent(e);
 
             //Console.WriteLine("map=>" + map + "<, x=>" + x + "<, y=>" + y + "<");
         }
