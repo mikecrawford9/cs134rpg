@@ -102,7 +102,6 @@ namespace RPG
             return typeof(WorldTile).GetField(Enum.GetName(typeof(WorldTile), p));
         }
 
-
         public static TileType GetTileType(this WorldTile t)
         {
             return GetAttribute(t).tileType;
