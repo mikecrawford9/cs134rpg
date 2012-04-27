@@ -67,6 +67,36 @@ namespace RPG
 
     public enum Map
     {
+        #region BATTLE MAPS
+        [MapAttribute(MapType.BATTLE, "battlegrass", 8, 8)]
+        BATTLE_GRASS,
+        [MapAttribute(MapType.BATTLE, "battlerock", 8, 8)]
+        BATTLE_ROCK,
+        [MapAttribute(MapType.BATTLE, "battlecave", 8, 8)]
+        BATTLE_CAVE,
+        [MapAttribute(MapType.BATTLE, "battleswamp", 8, 8)]
+        BATTLE_SWAMP,
+        [MapAttribute(MapType.BATTLE, "battlegeneric", 8, 8)]
+        BATTLE_GENERIC,
+        #endregion
+        #region OVERWORLD MAPS
+        [MapAttribute(MapType.WORLD, "world2", 8, 8)]
+        OVERWORLD,
+        [MapAttribute(MapType.WORLD, "inn", 8, 8)]
+        INN,
+        [MapAttribute(MapType.WORLD, "shop", 8, 8)]
+        SHOP,
+        [MapAttribute(MapType.WORLD, "oldmanhouse", 8, 8)]
+        OLD_MAN_HOUSE,
+        [MapAttribute(MapType.WORLD, "town", 8, 8)]
+        TOWN,
+        #endregion
+        #region DUNGEON
+        [MapAttribute(MapType.WORLD, "dragoncave", 8, 8)]
+        DRAGON_CAVE,
+        [MapAttribute(MapType.WORLD, "dragoncave2", 8, 8)]
+        DRAGON_CAVE_2,
+        #endregion
 
     }
 
