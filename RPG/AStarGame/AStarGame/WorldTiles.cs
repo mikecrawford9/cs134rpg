@@ -21,7 +21,7 @@ using Microsoft.Xna.Framework.Media;
 namespace RPG
 {
     public enum TileType { MONSTER, PLAYER, NPC, GRASS, TREES, WALL, WATER, SWAMP, ROCKS, MOUNTAIN, SELECT, FENCE, TENT };
-    public enum MapType {WORLD, BATTLE}
+    public enum MapType { WORLD, BATTLE }
 
     class MapAttribute : Attribute
     {
@@ -47,7 +47,6 @@ namespace RPG
         {
             return typeof(Map).GetField(Enum.GetName(typeof(Map), p));
         }
-
         private static MapType GetMapType(this Map p)
         {
             return GetAttribute(p).mapType;
