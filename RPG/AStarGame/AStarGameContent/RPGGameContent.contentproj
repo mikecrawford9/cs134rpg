@@ -217,11 +217,6 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="Tiles\irt.png">
-      <Name>irt</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
     <Compile Include="Tiles\Enemy1LeftFace.png">
       <Name>Enemy1LeftFace</Name>
       <Importer>TextureImporter</Importer>

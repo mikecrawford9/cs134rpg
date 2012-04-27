@@ -158,10 +158,10 @@ namespace RPG
                 
             }
             worldtiles = tiles.ToArray(typeof(WorldTile)) as WorldTile[];
-            Array.Sort(worldtiles, delegate(WorldTile a, WorldTile b)
+            /*Array.Sort(worldtiles, delegate(WorldTile a, WorldTile b)
                                     {
                                         return a.ToString().CompareTo(b.ToString());
-                                    });
+                                    });*/
             Console.WriteLine(worldtiles.Length);
 
 
