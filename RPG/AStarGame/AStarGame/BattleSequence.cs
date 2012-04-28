@@ -22,10 +22,14 @@ namespace RPG
         bool continueCombat; 
         bool partyDead;
         bool enemiesDead;
+        bool isWaiting;
+        String xRet, yRet, retMap;
+
 
         AttackButton aButton;
+        Button button;
 
-        public BattleSequence(Party party, Enemy[] enemies, SpriteFont displayTextFont, TileMap battleMap)
+        public BattleSequence(Party party, Enemy[] enemies, SpriteFont displayTextFont, TileMap battleMap, int xRet, int yRet, String retMap)
         {
             this.party = party;
             this.enemies = enemies;
@@ -35,6 +39,10 @@ namespace RPG
             this.continueCombat = true; 
             this.partyDead = false;
             this.enemiesDead= false;
+            this.isWaiting = false;
+            this.xRet = Convert.ToString(xRet);
+            this.yRet = Convert.ToString(yRet);
+            this.retMap = retMap;
             
         }
 
@@ -45,9 +53,20 @@ namespace RPG
             {
                 foreach (Player p in party.partyMembers)
                 {
-                    aButton = new AttackButton(Game1.buttonImage, Game1.buttonFont, "Attack", p, null);
-                    aButton.Location(600, 100);
-                 
+                    aButton = new AttackButton(Game1.buttonImage, Game1.buttonFont, "Attack", p, new List<Event>());
+                    
+                    button = new Button(Game1.buttonImage, Game1.buttonFont, "Poop");
+
+                    Event e = new Event();
+                    
+                    e.setEventType(EventType.MAP_TRANSITION);
+                    e.addProperty("x", xRet);
+                    e.addProperty("y", yRet);
+                    e.addProperty("mapfile", retMap); 
+                    
+
+                    Game1.addToEventQueue(e);
+                    Game1.playstate = PlayState.WORLD;
                 }
                 continueCombat = false;
             }
@@ -65,9 +84,20 @@ namespace RPG
 
         public void Draw(SpriteBatch spriteBatch)
         {
+            aButton.Location(600, 100);
             aButton.Draw(spriteBatch);
+            button.Location(600, 200);
+            button.Draw(spriteBatch);
             
         }
+
+        public void Update()
+        {
+            aButton.Update();
+            button.Update();
+        }
+
+
 
 
     }

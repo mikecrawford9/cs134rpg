@@ -15,10 +15,6 @@ namespace RPG
 
         public AttackButton(Texture2D texture, SpriteFont font, String text, Player p, List<Event> events) : base(texture, font, text)
         {
-            this.image = texture;
-            this.font = font;
-            this.location = new Rectangle(0, 0, image.Width, image.Height);
-            this.Text = text;
             this.player = p;
             this.eventList = events;
         }

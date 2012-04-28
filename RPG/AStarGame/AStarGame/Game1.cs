@@ -220,12 +220,12 @@ namespace RPG
             {
                 toolmap.enable();
             }
-            map = new TileMap(10, 10, 17, DEFAULT_X_TILES, DEFAULT_Y_TILES, whitepixel, toolmap, font);
+            map = new TileMap(10, 10, 17, DEFAULT_X_TILES, DEFAULT_Y_TILES, whitepixel, toolmap, font, FIRSTMAP);
             if (STARTPLAY)
             {
                  FileStream fileStream = new FileStream(@FIRSTMAP, FileMode.Open);
                  StreamReader reader = new StreamReader(fileStream);
-                 map.LoadMap(reader, toolmap);
+                 map.LoadMap(reader, FIRSTMAP, toolmap);
                  maps.Add(FIRSTMAP, map);
                  reader.Close();
                  fileStream.Close();
@@ -298,6 +298,10 @@ namespace RPG
                         break;
                         case PlayState.BATTLE:
                             Console.WriteLine("PlayState is Battle!");
+                            if (bs != null)
+                            {
+                                bs.Update();
+                            }
                         break;
                     }
 
@@ -336,7 +340,7 @@ namespace RPG
                 default:
                     break;
             }
-
+            
             base.Update(gameTime);
         }
 
@@ -447,7 +451,7 @@ namespace RPG
                 using (System.IO.StreamReader reader = new System.IO.StreamReader(fileStream))
                 {
                     // Read the first line from the file and write it the textbox.
-                    map.LoadMap(reader, toolmap);
+                    map.LoadMap(reader, openFileDialog1.FileName, toolmap);
                 }
                 fileStream.Close();
             }
@@ -580,13 +584,17 @@ namespace RPG
                 else if (e.getEventType() == EventType.BATTLE_TILE)
                 {
                     playstate = PlayState.BATTLE;
-                    
+                    int x = map.getPlayerTile().getMapX();
+                    int y = map.getPlayerTile().getMapY();
+                    String file = map.filename;
+                    map.RemoveMonsterTile(Convert.ToInt32(e.getProperty("index")));
                     map = getMap(e.getProperty("battlemap"), 8, 8);
+                    
 
 
                     Player px = new Player();
 
-                    bs = new BattleSequence(party, new Enemy[] {new Enemy(new Player(px.getNewPlayer("WARRIOR"), Sprite.ENEMY_1, "Ninja Pu", 7))}, Content.Load<SpriteFont>("gameFont"), map);
+                    bs = new BattleSequence(party, new Enemy[] {new Enemy(new Player(px.getNewPlayer("WARRIOR"), Sprite.ENEMY_1, "Ninja Pu", 7))}, Content.Load<SpriteFont>("gameFont"),map, x,y,file);
                     bs.Start();
                     //bs = null;
                     
@@ -613,8 +621,8 @@ namespace RPG
             {
                 FileStream fileStream = new FileStream(@mapfile, FileMode.Open);
                 StreamReader reader = new StreamReader(fileStream);
-                ret = new TileMap(10, 10, 17, DEFAULT_X_TILES, DEFAULT_Y_TILES, whitepixel, toolmap, font);
-                ret.LoadMap(reader, toolmap);
+                ret = new TileMap(10, 10, 17, DEFAULT_X_TILES, DEFAULT_Y_TILES, whitepixel, toolmap, font, mapfile);
+                ret.LoadMap(reader, mapfile, toolmap);
                 ret.setPlayerLocation(ret.getTileAt(playerx, playery));
 
                 maps.Add(mapfile, ret);
@@ -816,10 +824,6 @@ namespace RPG
                     if (bs != null)
                     {
                         bs.Draw(spriteBatch);
-                    }
-                    else
-                    {
-                        Console.WriteLine("BS is NULL");
                     }
 
                 }

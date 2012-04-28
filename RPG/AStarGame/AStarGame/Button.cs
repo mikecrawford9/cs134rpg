@@ -24,7 +24,7 @@ namespace RPG
             image = texture;
             this.font = font;
             location = new Rectangle(0, 0, image.Width, image.Height);
-            Text = text;
+            this.text = text;
         }
 
         public string Text
@@ -58,7 +58,6 @@ namespace RPG
                     clicked = true;
                 }
             }
-
             Text = text;
 
             oldMouse = mouse;

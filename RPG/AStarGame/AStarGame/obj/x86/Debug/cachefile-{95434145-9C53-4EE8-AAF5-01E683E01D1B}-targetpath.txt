@@ -132,3 +132,6 @@ Content\cavemusic.xnb
 Content\cavemusic.wma
 Content\Townmusic.xnb
 Content\Townmusic.wma
+Content\gameover.xnb
+Content\victory.xnb
+Content\finishedquest.xnb

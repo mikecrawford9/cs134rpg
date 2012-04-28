@@ -26,6 +26,7 @@ namespace RPG
         private int totalmapsize;
         private int xtiles;
         private int ytiles;
+        public String filename;
 
         int curxtilemin;
         int curytilemin;
@@ -48,8 +49,9 @@ namespace RPG
         int playerx;
         int playery;
 
-        public TileMap(int x, int y, int size, int xtiles, int ytiles, Texture2D pixel, ToolMap tools, SpriteFont font)
+        public TileMap(int x, int y, int size, int xtiles, int ytiles, Texture2D pixel, ToolMap tools, SpriteFont font, String filename)
         {
+            this.filename = filename;
             this.toolmap = tools;
             this.size = size;
             this.xtiles = xtiles;
@@ -94,7 +96,10 @@ namespace RPG
             }
 
         }
-
+        public void RemoveMonsterTile(int index)
+        {
+           monstertiles.RemoveAt(index);
+        }
         public void Draw(SpriteBatch spriteBatch)
         {
             int i, ia, j, ja;
@@ -117,6 +122,7 @@ namespace RPG
         public bool SaveMap(StreamWriter file)
         {
             bool success = false;
+
             file.WriteLine("<?xml version=\"1.0\" encoding=\"UTF-8\" ?>");
             file.Write("<MAP x=\"" + map.Length + "\" y=\"" + map[0].Length + "\" ");
             
@@ -163,8 +169,9 @@ namespace RPG
             return success;
         }
 
-        public bool LoadMap(StreamReader file, ToolMap toolmap)
+        public bool LoadMap(StreamReader file, String filename, ToolMap toolmap)
         {
+            this.filename = filename;
             bool success = false;
             bool gotxandy = false;
             int x = 0;
@@ -374,6 +381,7 @@ namespace RPG
                     e.setEventType(EventType.BATTLE_TILE);
                     e.addProperty("battlemap", battlemap.GetFilePath());
                     e.addProperty("enemytexture", monstertiles[i].getTexture().Name);
+                    e.addProperty("index", Convert.ToString(i));
                     Game1.addToEventQueue(e);
                 }
         }

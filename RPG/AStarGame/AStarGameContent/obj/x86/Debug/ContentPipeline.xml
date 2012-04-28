@@ -1183,6 +1183,33 @@
       <Extra>F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Townmusic.wma</Extra>
       <Time>2012-04-27T21:23:02.2976012-07:00</Time>
     </Item>
+    <Item>
+      <Source>gameover.spritefont</Source>
+      <Name>gameover</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+      <Options>None</Options>
+      <Output>F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\gameover.xnb</Output>
+      <Time>2012-04-28T01:43:17.7837559-07:00</Time>
+    </Item>
+    <Item>
+      <Source>victory.spritefont</Source>
+      <Name>victory</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+      <Options>None</Options>
+      <Output>F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\victory.xnb</Output>
+      <Time>2012-04-28T01:44:23.3115039-07:00</Time>
+    </Item>
+    <Item>
+      <Source>finishedquest.spritefont</Source>
+      <Name>finishedquest</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+      <Options>None</Options>
+      <Output>F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\finishedquest.xnb</Output>
+      <Time>2012-04-28T01:45:46.7522764-07:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <TargetPlatform>Windows</TargetPlatform>
