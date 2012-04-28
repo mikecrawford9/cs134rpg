@@ -47,7 +47,7 @@ namespace RPG
 
             Active = true;
 
-            projectileMoveSpeed = 32;
+            projectileMoveSpeed = 6;
             this.isLeft = isLeft;
         }
 
