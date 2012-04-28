@@ -11,6 +11,7 @@ using Microsoft.Xna.Framework.Media;
 
 namespace RPG
 {
+    public enum BattleStageType { ACTION, FIGHT, WIN, LOSE, FLEE }
     class BattleSequence
     {
         Party party;
@@ -24,9 +25,11 @@ namespace RPG
         bool enemiesDead;
         bool isWaiting;
         String xRet, yRet, retMap;
+        BattleStageType state;
 
         AttackButton aButton;
-        Button button;
+        AttackButton itemButton;
+        AttackButton fleeButton;
 
         public BattleSequence(Party party, Enemy[] enemies, SpriteFont displayTextFont, TileMap battleMap, int xRet, int yRet, String retMap)
         {
@@ -42,6 +45,7 @@ namespace RPG
             this.xRet = Convert.ToString(xRet);
             this.yRet = Convert.ToString(yRet);
             this.retMap = retMap;
+            state = BattleStageType.ACTION;
             
         }
 
@@ -50,24 +54,37 @@ namespace RPG
             combatLog.Add("Enemies have appeared.");
             while (continueCombat)
             {
-                foreach (Player p in party.partyMembers)
+                switch (state)
                 {
-                    Event e = new Event();
+                    case BattleStageType.ACTION:
 
-                    e.setEventType(EventType.MAP_TRANSITION);
-                    e.addProperty("x", xRet);
-                    e.addProperty("y", yRet);
-                    e.addProperty("mapfile", retMap); 
-                    List<Event> actionList =  new List<Event>();
-                    actionList.Add(e);
-                    aButton = new AttackButton(Game1.buttonImage, Game1.buttonFont, "Attack", p, actionList);
+                        foreach (Player p in party.partyMembers)
+                        {
+                            Event e = new Event();
 
+                            e.setEventType(EventType.MAP_TRANSITION);
+                            e.addProperty("x", xRet);
+                            e.addProperty("y", yRet);
+                            e.addProperty("mapfile", retMap);
+                            List<Event> actionList = new List<Event>();
+                            actionList.Add(e);
+                            aButton = new AttackButton(Game1.buttonImage, Game1.buttonFont, "Attack", p, actionList);
+                            itemButton = new AttackButton(Game1.buttonImage, Game1.buttonFont, "Use Item", p, null);
+                            fleeButton = new AttackButton(Game1.buttonImage, Game1.buttonFont, "Flee", p, null);
 
-                    
-                    button = new Button(Game1.buttonImage, Game1.buttonFont, "Poop");
-                    
+                        }
+                        break;
+                    case BattleStageType.FIGHT:
+                        break;
+                    case BattleStageType.FLEE:
+                        break;
+                    case BattleStageType.LOSE:
+                        break;
+                    case BattleStageType.WIN:
+                        break;
+                        
                 }
-                continueCombat = false;
+                this.continueCombat = false;
             }
         }
 
@@ -83,21 +100,48 @@ namespace RPG
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            aButton.Location(600, 100);
-            aButton.Draw(spriteBatch);
-            button.Location(600, 200);
-            button.Draw(spriteBatch);
-           
             spriteBatch.Draw(Game1.enemy1RightFace, new Rectangle(111, 207, 32, 32), Color.AliceBlue);
             spriteBatch.Draw(Game1.playerLeftFace, new Rectangle(366, 207, 32, 32), Color.AliceBlue);
-            
-            
+            switch (state)
+            {
+                case BattleStageType.ACTION:
+                    aButton.Location(600, 100);
+                    aButton.Draw(spriteBatch);
+                    itemButton.Location(600, 140);
+                    itemButton.Draw(spriteBatch);
+                    fleeButton.Location(600, 180);
+                    fleeButton.Draw(spriteBatch);
+                    break;
+                case BattleStageType.FIGHT:
+                    break;
+                case BattleStageType.FLEE:
+                    break;
+                case BattleStageType.LOSE:
+                    break;
+                case BattleStageType.WIN:
+                    break;
+            }   
         }
 
         public void Update()
         {
-            aButton.Update();
-            button.Update();
+            switch (state)
+            {
+                case BattleStageType.ACTION:
+                    aButton.Update();
+                    itemButton.Update();
+                    fleeButton.Update();
+                    break;
+                case BattleStageType.FIGHT:
+                    break;
+                case BattleStageType.FLEE:
+                    break;
+                case BattleStageType.LOSE:
+                    break;
+                case BattleStageType.WIN:
+                    break;
+            }  
+            
         }
 
 
