@@ -86,6 +86,31 @@ namespace RPG
             return null;
         }
 
+        public bool hasItem(Item item)
+        {
+            foreach (Player p in partyMembers)
+            {
+                if (p.inventory.Search(item))
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
+
+        public void removeItem(Item item)
+        {
+            foreach (Player p in partyMembers)
+            {
+                if (p.inventory.Search(item))
+                {
+                    p.inventory.RemoveItem(item);
+                }
+            }
+        }
+
         public void Spend(int amount)
         {
             money -= amount;

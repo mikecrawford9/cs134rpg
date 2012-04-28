@@ -101,6 +101,11 @@ namespace RPG
 
         }
 
+        public void addTileEvent(Event e, int x, int y)
+        {
+            map[x][y].addEvent(e);
+        }
+
         public void setMessage(Message m)
         {
             this.m = m;
@@ -336,7 +341,9 @@ namespace RPG
                         case XmlNodeType.EndElement:
                             if (reader.Name == "EVENT")
                             {
+                                if(Game1.DEBUG)
                                 Console.WriteLine("Adding event!");
+
                                 map[tilex][tiley].addEvent(current);
                                 inEvent = false;
                                 current = new Event();
@@ -431,14 +438,18 @@ namespace RPG
 
         public void processEvents(Tile cur)
         {
-            Console.WriteLine("Processing Events!");
+            if(Game1.DEBUG)
+                Console.WriteLine("Processing Events!");
+
             Event[] ce = cur.getEvents();
 
+            if(Game1.DEBUG)
             Console.WriteLine("Found " + ce.Length + " events!");
-                for(int i = 0; i < ce.Length; i++)
-                {
-                    Game1.addToEventQueue(ce[i]);
-                }
+
+            for(int i = 0; i < ce.Length; i++)
+            {
+                Game1.addToEventQueue(ce[i]);
+            }
 
             for(int i = 0; i < monstertiles.Count; i++)
                 if(cur.getMapX() == monstertiles[i].getMapX() && cur.getMapY() == monstertiles[i].getMapY())
@@ -553,7 +564,8 @@ namespace RPG
             int newcurxtilemin = curxtilemin + numtiles;
             if (newcurxtilemin <= (xtiles - size))
             {
-                Console.WriteLine("isObstacle()=" + map[playertile.getMapX() + numtiles][playertile.getMapY()].isObstacle());
+                if(Game1.DEBUG)
+                    Console.WriteLine("isObstacle()=" + map[playertile.getMapX() + numtiles][playertile.getMapY()].isObstacle());
 
                 if (noclip || (playertile != null && 
                     !map[playertile.getMapX() + numtiles][playertile.getMapY()].isObstacle()))
