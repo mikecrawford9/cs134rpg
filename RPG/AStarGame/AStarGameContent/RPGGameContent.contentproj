@@ -150,18 +150,8 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Tiles\dragonwarrior3.png">
-      <Name>dragonwarrior3</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
     <Compile Include="Tiles\Mountain.png">
       <Name>Mountain</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="Tiles\Zelda Tilesa.png">
-      <Name>Zelda Tilesa</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
@@ -636,11 +626,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Tiles\dragonwarrior3transparent.png">
-      <Name>dragonwarrior3transparent</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
     <Compile Include="Tiles\InnKeeper.png">
       <Name>InnKeeper</Name>
       <Importer>TextureImporter</Importer>
