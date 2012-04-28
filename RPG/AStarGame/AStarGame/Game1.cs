@@ -36,6 +36,12 @@ namespace RPG
         Party party;
         Player p;
         BattleSequence bs;
+        public static Texture2D fire;
+        public static Texture2D heal;
+        public static Texture2D sword;
+        public static SoundEffect firesound;
+        public static SoundEffect healSound;
+        public static SoundEffect swordSound;
 
         public const bool DEBUG = false;
         const bool STARTPLAY = true;
@@ -188,6 +194,17 @@ namespace RPG
             town = Content.Load<Song>("Townmusic");
             battle = Content.Load<Song>("battlemusic");
             currSong = town;
+
+
+            fire = Content.Load<Texture2D>("Tiles/FireBall");
+            heal = Content.Load<Texture2D>("Tiles/HealBall");
+            sword = Content.Load<Texture2D>("Tiles/SwordAttack1");
+
+            firesound = Content.Load<SoundEffect>("FireballSound");
+            healSound = Content.Load<SoundEffect>("Healing");
+            swordSound = Content.Load<SoundEffect>("SwordAttack");
+
+            
             /*tools = new Tool[2][];
             tools[0] = new Tool[4];
             tools[1] = new Tool[4];
