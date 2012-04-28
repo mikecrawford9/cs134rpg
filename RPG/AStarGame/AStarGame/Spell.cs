@@ -9,7 +9,7 @@ namespace RPG
     public enum SpellTargetType {SINGLE, ALL, SELF}
     public enum SpellElement{PHYSICAL, HOLY, FIRE, ICE, LIGHTNING}
     public enum SpellEffectType {AGL, ATK, DEF, MAG_ATK, HP, MP, REVIVE}
-
+    
     public class Spell
     {
         public Spell (SpellType type, SpellElement element, SpellEffect[] effects, String name, String description)
@@ -18,6 +18,8 @@ namespace RPG
             this.element = element;
             this.effects = effects;
         }
+        public Spell()
+        { }
         public SpellType type;
         public SpellElement element;
         public SpellEffect[] effects;

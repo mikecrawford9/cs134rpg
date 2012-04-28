@@ -33,6 +33,8 @@ namespace RPG
         const int MONSTER_MOVE_DELAY = 500;
         const int PLAYER_MOVE_DELAY = 100;
         Party party;
+        Player p;
+        BattleSequence bs;
 
         const bool STARTPLAY = true;
         const String FIRSTMAP = "world3.rpgmf";
@@ -42,6 +44,9 @@ namespace RPG
         GraphicsDeviceManager graphics;
         public SpriteBatch spriteBatch;
         SpriteFont font;
+
+       public static Texture2D buttonImage;
+        public static SpriteFont buttonFont;
 
         TileMap map;
         ToolMap toolmap;
@@ -120,10 +125,11 @@ namespace RPG
             lastmonstermove = 0;
             lastplayermove = 0;
             inaddevent = false;
-            Player px = new Player();
-            PlayerBase war = px.getNewPlayer("WARRIOR");
-            Player p = new Player(war, Sprite.WARRIOR, "Wally");
-            Player[] playerList = new Player[] { p };
+            buttonFont = Content.Load<SpriteFont>("buttonFont");
+            buttonImage = Content.Load<Texture2D>("Tiles/buttonSmall");
+            //PlayerBase war = p.getNewPlayer("WARRIOR");
+          
+            Player[] playerList = new Player[] { new Player(Player.WARRIOR, Sprite.WARRIOR, "Wally") };
             party = new Party(playerList);
             base.Initialize();
         }
@@ -580,8 +586,9 @@ namespace RPG
 
                     Player px = new Player();
 
-                    BattleSequence bs = new BattleSequence(null, new Enemy[] {new Enemy(new Player(px.getNewPlayer("WARRIOR"), Sprite.ENEMY_1, "Ninja Pu", 7))}, Content.Load<SpriteFont>("gameFont"), map, this);
+                    bs = new BattleSequence(party, new Enemy[] {new Enemy(new Player(px.getNewPlayer("WARRIOR"), Sprite.ENEMY_1, "Ninja Pu", 7))}, Content.Load<SpriteFont>("gameFont"), map);
                     bs.Start();
+                    //bs = null;
                     
                      
                     
@@ -800,14 +807,32 @@ namespace RPG
             spriteBatch.Begin();
 
             map.Draw(spriteBatch);
-            if(state != GameState.RUNNING)
+            if (state != GameState.RUNNING)
                 toolmap.Draw(spriteBatch, state);
+            else
+            {
+                if (PlayState.BATTLE == playstate)
+                {
+                    if (bs != null)
+                    {
+                        bs.Draw(spriteBatch);
+                    }
+                    else
+                    {
+                        Console.WriteLine("BS is NULL");
+                    }
+
+                }
+
+                    
+            }
 
             if(state == GameState.ASTAR)
                drawAStarTiles(spriteBatch);
 
             //drawErrors(spriteBatch);
             spriteBatch.End();
+            
             
             base.Draw(gameTime);
         }

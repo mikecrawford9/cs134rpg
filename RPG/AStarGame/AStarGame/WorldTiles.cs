@@ -607,6 +607,8 @@ namespace RPG
         TEXTBOX_UPPER_RIGHT,
         #endregion
 
+        [WorldTileAttribute(TileType.MOUNTAIN, "Tiles/buttonSmall", true, 0)] 
+        BUTTON,
     }
     #endregion
 }

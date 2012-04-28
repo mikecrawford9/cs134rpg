@@ -22,9 +22,10 @@ namespace RPG
         bool continueCombat; 
         bool partyDead;
         bool enemiesDead;
-        Game1 game;
 
-        public BattleSequence(Party party, Enemy[] enemies, SpriteFont displayTextFont, TileMap battleMap, Game1 game)
+        AttackButton aButton;
+
+        public BattleSequence(Party party, Enemy[] enemies, SpriteFont displayTextFont, TileMap battleMap)
         {
             this.party = party;
             this.enemies = enemies;
@@ -34,7 +35,6 @@ namespace RPG
             this.continueCombat = true; 
             this.partyDead = false;
             this.enemiesDead= false;
-            this.game = game;
             
         }
 
@@ -45,10 +45,11 @@ namespace RPG
             {
                 foreach (Player p in party.partyMembers)
                 {
-                    AttackButton p1Attack = new AttackButton(game.Content.Load<Texture2D>("Tiles/buttonSmall"), game.Content.Load<SpriteFont>("Tiles/buttonFont"), game.spriteBatch, "Attack", p, null);
-                    p1Attack.Location(100, 100);
-                    p1Attack.Draw();
+                    aButton = new AttackButton(Game1.buttonImage, Game1.buttonFont, "Attack", p, null);
+                    aButton.Location(600, 100);
+                 
                 }
+                continueCombat = false;
             }
         }
 
@@ -62,9 +63,10 @@ namespace RPG
             }
         }
 
-        public void Draw()
+        public void Draw(SpriteBatch spriteBatch)
         {
-
+            aButton.Draw(spriteBatch);
+            
         }
 
 

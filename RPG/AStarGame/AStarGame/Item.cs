@@ -48,6 +48,9 @@ namespace RPG
 
     public class Item
     {
+        public Item()
+        {
+        }
         public Item(ItemType type, ItemEffect[] effects,  int cost, String name, String description)
         {
             this.type = type;
