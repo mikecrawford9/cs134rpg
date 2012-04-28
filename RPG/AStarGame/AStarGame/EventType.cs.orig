@@ -1,0 +1,13 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+namespace RPG
+{
+<<<<<<< HEAD
+    public enum EventType { MAP_TRANSITION=1, BATTLE, BATTLE_TILE, WAITFORNPC, NPCQUEST, MESSAGE, QUESTRETURN, PICKUPITEM, NPCMERCH, NPCHEAL, CANCELED};
+=======
+    public enum EventType { MAP_TRANSITION=1, BATTLE, BATTLE_TILE, NPCQUEST, NPCMERCH, NPCHEAL, CANCELED, END_BATTLE_FLEE, END_BATTLE_VICTORY, END_BATTLE_LOSS};
+>>>>>>> 4e02308c8688e7056dbaa9924357687333a9cbef
+}

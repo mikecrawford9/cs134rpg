@@ -75,7 +75,7 @@ namespace RPG
         bool inaddevent;
         bool inprogress;
         bool setmessage;
-        const bool DEBUG = true;
+        const bool DEBUG = false;
 
         int lastmonstermove;
         int lastplayermove;

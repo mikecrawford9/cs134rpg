@@ -1,47 +1,8 @@
-Content\Tiles\Grass.xnb
-Content\Tiles\LavaRocks.xnb
-Content\Tiles\Monster.xnb
-Content\Tiles\Swamp.xnb
-Content\Tiles\Trees.xnb
-Content\Tiles\Wall.xnb
-Content\Tiles\Water.xnb
-Content\AStarWayPoint.xnb
-Content\Tiles\SwampToGrassBottom.xnb
-Content\Tiles\SwampToGrassBottomLeft.xnb
-Content\Tiles\SwampToGrassLeft.xnb
-Content\Tiles\SwampToGrassRight.xnb
-Content\Tiles\SwampToGrassTop.xnb
-Content\Tiles\SwampToGrassTopLeft.xnb
-Content\Tiles\MountainRange.xnb
-Content\Tiles\Mountain Range Bottom.xnb
-Content\Tiles\Mountain Range Left.xnb
-Content\Tiles\dragonwarrior3.xnb
-Content\Tiles\Mountain.xnb
-Content\Tiles\Zelda Tilesa.xnb
+Content\gameFont.xnb
 Content\Tiles\Black.xnb
 Content\Tiles\Castle.xnb
-Content\Tiles\DarkHeroBack.xnb
-Content\Tiles\DarkHeroBackHit.xnb
-Content\Tiles\DarkHeroFront.xnb
-Content\Tiles\DarkHeroFrontHit.xnb
-Content\Tiles\DarkHeroLeftFace.xnb
-Content\Tiles\DarkHeroLeftFaceHit.xnb
-Content\Tiles\DarkHeroRightFace.xnb
-Content\Tiles\DarkHeroRightFaceHit.xnb
-Content\Tiles\Enemy1LeftFace.xnb
-Content\Tiles\Enemy1LeftFaceHit.xnb
-Content\Tiles\Enemy1RightFace.xnb
-Content\Tiles\Enemy1RightFaceHit.xnb
-Content\Tiles\Enemy2LeftFace.xnb
-Content\Tiles\Enemy2LeftFaceHit.xnb
-Content\Tiles\Enemy2RightFace.xnb
-Content\Tiles\Enemy2RightFaceHit.xnb
-Content\Tiles\Enemy3LeftFace.xnb
-Content\Tiles\Enemy3LeftFaceHit.xnb
-Content\Tiles\Enemy3RightFace.xnb
-Content\Tiles\Enemy3RightFaceHit.xnb
-Content\Tiles\EnemyDragonDark1FrontFace.xnb
-Content\Tiles\EnemyDragonDarkDefeated1FrontFace.xnb
+Content\Tiles\dirt.xnb
+Content\Tiles\dragonwarrior3.xnb
 Content\Tiles\FenceAll.xnb
 Content\Tiles\FenceBottom.xnb
 Content\Tiles\FenceHorizontal.xnb
@@ -58,80 +19,39 @@ Content\Tiles\FenceTop.xnb
 Content\Tiles\FenceUpperLeft.xnb
 Content\Tiles\FenceUpperRight.xnb
 Content\Tiles\FenceVertcal.xnb
-Content\Tiles\FireBall.xnb
+Content\Tiles\Grass.xnb
 Content\Tiles\GrassStairs.xnb
-Content\Tiles\HealBall.xnb
 Content\Tiles\HeroBack.xnb
-Content\Tiles\HeroBackHit.xnb
 Content\Tiles\HeroFront.xnb
-Content\Tiles\HeroFrontHit.xnb
 Content\Tiles\HeroLeftFace.xnb
-Content\Tiles\HeroLeftFaceHit.xnb
 Content\Tiles\HeroRightFace.xnb
-Content\Tiles\HeroRightFaceHit.xnb
-Content\Tiles\LightHeroBack.xnb
-Content\Tiles\LightHeroBackHit.xnb
-Content\Tiles\LightHeroFront.xnb
-Content\Tiles\LightHeroFrontHit.xnb
-Content\Tiles\LightHeroLeftFace.xnb
-Content\Tiles\LightHeroLeftFaceHit.xnb
-Content\Tiles\LightHeroRightFace.xnb
-Content\Tiles\LightHeroRightFaceHit.xnb
-Content\Tiles\MaceAttack1.xnb
-Content\Tiles\MaceAttack2.xnb
-Content\Tiles\MaceAttack3.xnb
-Content\Tiles\MaceAttack4.xnb
+Content\Tiles\LavaRocks.xnb
+Content\Tiles\Monster.xnb
+Content\Tiles\Mountain Range Bottom.xnb
+Content\Tiles\Mountain Range Left.xnb
+Content\Tiles\Mountain Range.xnb
+Content\Tiles\Mountain.xnb
 Content\Tiles\OldMan.xnb
 Content\Tiles\Pillow.xnb
 Content\Tiles\PillowDirt.xnb
 Content\Tiles\RockWall.xnb
 Content\Tiles\ShopKeep.xnb
-Content\Tiles\StaffAttack1.xnb
-Content\Tiles\StaffAttack2.xnb
-Content\Tiles\StaffAttack3.xnb
-Content\Tiles\StaffAttack4.xnb
-Content\Tiles\SwordAttack1.xnb
-Content\Tiles\SwordAttack2.xnb
-Content\Tiles\SwordAttack3.xnb
-Content\Tiles\SwordAttack4.xnb
+Content\Tiles\Swamp.xnb
+Content\Tiles\SwampToGrassBottom.xnb
+Content\Tiles\SwampToGrassBottomLeft.xnb
+Content\Tiles\SwampToGrassLeft.xnb
+Content\Tiles\SwampToGrassRight.xnb
+Content\Tiles\SwampToGrassTop.xnb
+Content\Tiles\SwampToGrassTopLeft.xnb
 Content\Tiles\Tent Source 2.xnb
 Content\Tiles\Tent Source 3.xnb
 Content\Tiles\Tent Source.xnb
 Content\Tiles\Tent.xnb
 Content\Tiles\TentBrown.xnb
 Content\Tiles\TentPurple.xnb
-Content\Tiles\TextBox.xnb
-Content\Tiles\TextBoxBottom.xnb
-Content\Tiles\TextBoxLeft.xnb
-Content\Tiles\TextBoxLowerLeft.xnb
-Content\Tiles\TextBoxLowerRight.xnb
-Content\Tiles\TextBoxRight.xnb
-Content\Tiles\TextBoxTop.xnb
-Content\Tiles\TextBoxUpperLeft.xnb
-Content\Tiles\TextBoxUpperRight.xnb
+Content\Tiles\Trees.xnb
 Content\Tiles\Underground Stairs.xnb
-Content\Tiles\Dirt.xnb
-Content\Tiles\dragonwarrior3transparent.xnb
-Content\Tiles\InnKeeper.xnb
-Content\Tiles\Princess.xnb
-Content\Tiles\SkeletonBackFace.xnb
-Content\Tiles\SkeletonFrontFace.xnb
-Content\Tiles\SkeletonLeftFace.xnb
-Content\Tiles\SkeletonRightFace.xnb
-Content\Tiles\button.xnb
-Content\Tiles\buttonSmall.xnb
-Content\gameFont.xnb
-Content\buttonfont.xnb
-Content\gameover.xnb
-Content\victory.xnb
-Content\finishedquest.xnb
-Content\Fireball Sound.xnb
-Content\Healing.xnb
-Content\SwordAttack.xnb
-Content\Wood Attack.xnb
-Content\battlemusic.xnb
-Content\battlemusic.wma
-Content\cavemusic.xnb
-Content\cavemusic.wma
-Content\Townmusic.xnb
-Content\Townmusic.wma
+Content\Tiles\Wall.xnb
+Content\Tiles\Water.xnb
+Content\Tiles\Zelda Tilesa.xnb
+Content\AStarWayPoint.xnb

@@ -100,6 +100,7 @@ namespace RPG
             }
 
         }
+<<<<<<< HEAD
 
         public void setMessage(Message m)
         {
@@ -146,12 +147,12 @@ namespace RPG
                 Console.WriteLine("NPC is null!!");
         }
 
-
+=======
         public void RemoveMonsterTile(int index)
         {
-            monstertiles.RemoveAt(index);
+           monstertiles.RemoveAt(index);
         }
-
+>>>>>>> 4e02308c8688e7056dbaa9924357687333a9cbef
         public void Draw(SpriteBatch spriteBatch)
         {
             int i, ia, j, ja;
