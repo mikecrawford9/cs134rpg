@@ -822,7 +822,7 @@ namespace RPG
                 else if (e.getEventType() == EventType.QUESTRETURN)
                 {
                     String questid = e.getProperty("questid");
-                    if (quests.ContainsKey(questid))
+                    if (!party.questCompleted(questid))
                     {
                         Quest q = quests[questid];
 
