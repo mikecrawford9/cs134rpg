@@ -53,14 +53,16 @@ namespace RPG
         ToolMap toolmap;
         Texture2D whitepixel;
         Texture2D astarwaypoint;
-        public static String enemy1LeftFaceFile;
-        public static Texture2D enemy1LeftFace;
-        public static String playerRightFaceFile;
-        public static Texture2D playerRightFace;
-        public static String enemy1LeftFaceFileHit;
-        public static Texture2D enemy1LeftFaceHit;
-        public static String playerRightFaceFileHit;
-        public static Texture2D playerRightFaceHit;
+        public static String enemy1RightFaceFile;
+        public static Texture2D enemy1RightFace;
+        
+        public static String enemy1RightFaceFileHit;
+        public static Texture2D enemy1RightFaceHit;
+        public static Projectile projectile;
+        public static String playerLeftFaceFileHit;
+        public static Texture2D playerLeftFaceHit;
+        public static String playerLeftFaceFile;
+        public static Texture2D playerLeftFace;
         Song cave, town, battle;
         Song currSong;
 
@@ -272,6 +274,13 @@ namespace RPG
 
             // TODO: Add your update logic here
             state = toolmap.Update(state);
+            if (projectile != null)
+            {
+                if (projectile.Active)
+                {
+                    projectile.Update();
+                }
+            }
             switch(state)
             {
                 case GameState.MAINMENU:
@@ -749,14 +758,14 @@ namespace RPG
 
                     Player px = new Player();
                     Enemy[] enemies = new Enemy[] { new Enemy(new Player(px.getNewPlayer("WARRIOR"), Sprite.ENEMY_1, "Ninja Pu", 7)) };
-                    enemy1LeftFaceFile = enemies[0].player.sprite.GetRightFaceImage();
-                    enemy1LeftFace = Content.Load<Texture2D>(enemy1LeftFaceFile);
-                    enemy1LeftFaceFileHit = enemies[0].player.sprite.GetLeftFaceHitImage();
-                    enemy1LeftFaceHit = Content.Load<Texture2D>(enemy1LeftFaceFileHit);
-                    playerRightFaceFile = party.partyMembers[0].sprite.GetRightFaceImage();
-                    playerRightFace = Content.Load<Texture2D>(playerRightFaceFile);
-                    playerRightFaceFileHit = party.partyMembers[0].sprite.GetRightFaceHitImage();
-                    playerRightFaceHit = Content.Load<Texture2D>(playerRightFaceFileHit);
+                    enemy1RightFaceFile = enemies[0].player.sprite.GetRightFaceImage();
+                    enemy1RightFace = Content.Load<Texture2D>(enemy1RightFaceFile);
+                    enemy1RightFaceFileHit = enemies[0].player.sprite.GetRightFaceHitImage();
+                    enemy1RightFaceHit = Content.Load<Texture2D>(enemy1RightFaceFileHit);
+                    playerLeftFaceFile = party.partyMembers[0].sprite.GetLeftFaceImage();
+                    playerLeftFace = Content.Load<Texture2D>(playerLeftFaceFile);
+                    playerLeftFaceFileHit = party.partyMembers[0].sprite.GetLeftFaceHitImage();
+                    playerLeftFaceHit = Content.Load<Texture2D>(playerLeftFaceFileHit);
 
 
                     bs = new BattleSequence(party, enemies , Content.Load<SpriteFont>("gameFont"),map, x,y,file);
@@ -766,6 +775,7 @@ namespace RPG
                      
                     
                     PlayMusic(battle);
+                    currSong = battle;
                     /*String mapfile = e.getProperty("mapfile");
                     int x = Convert.ToInt32(e.getProperty("x"));
                     int y = Convert.ToInt32(e.getProperty("y"));
@@ -993,7 +1003,13 @@ namespace RPG
 
             // TODO: Add your drawing code here
             spriteBatch.Begin();
-
+            if (projectile != null)
+            {
+                if (projectile.Active)
+                {
+                    projectile.Draw(spriteBatch);
+                }
+            }
             map.Draw(spriteBatch);
             if (state != GameState.RUNNING)
                 toolmap.Draw(spriteBatch, state);
@@ -1020,7 +1036,17 @@ namespace RPG
             
             base.Draw(gameTime);
         }
+        private bool projectileIntersects(Rectangle target)
+        {
+            Rectangle projectileR = new Rectangle((int)projectile.Position.X - (projectile.Width / 2), (int)projectile.Position.Y - (projectile.Height / 2), projectile.Width, projectile.Height);
+            if (projectileR.Intersects(target))
+            {
+                projectile.Active = false;
+                return true;
+            }
+            return false;
 
+        }
         private void drawAStarTiles(SpriteBatch spriteBatch)
         {
             if (astartiles != null)

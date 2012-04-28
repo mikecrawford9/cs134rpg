@@ -149,6 +149,7 @@ namespace RPG
 
         public void RemoveMonsterTile(int index)
         {
+            Console.Write(index);
             monstertiles.RemoveAt(index);
         }
 

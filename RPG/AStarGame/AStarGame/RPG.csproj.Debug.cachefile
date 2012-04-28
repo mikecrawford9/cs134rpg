@@ -122,6 +122,9 @@ Content\Tiles\button.xnb
 Content\Tiles\buttonSmall.xnb
 Content\gameFont.xnb
 Content\buttonfont.xnb
+Content\gameover.xnb
+Content\victory.xnb
+Content\finishedquest.xnb
 Content\Fireball Sound.xnb
 Content\Healing.xnb
 Content\SwordAttack.xnb
@@ -129,9 +132,6 @@ Content\Wood Attack.xnb
 Content\battlemusic.xnb
 Content\cavemusic.xnb
 Content\Townmusic.xnb
-Content\gameover.xnb
-Content\victory.xnb
-Content\finishedquest.xnb
 Content\battlemusic.wma
 Content\cavemusic.wma
 Content\Townmusic.wma

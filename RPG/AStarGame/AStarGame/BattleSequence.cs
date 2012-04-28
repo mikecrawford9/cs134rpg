@@ -88,7 +88,8 @@ namespace RPG
             button.Location(600, 200);
             button.Draw(spriteBatch);
            
-            spriteBatch.Draw(Game1.enemy1LeftFace, new Rectangle(50, 50, 32, 32), Color.AliceBlue);
+            spriteBatch.Draw(Game1.enemy1RightFace, new Rectangle(111, 207, 32, 32), Color.AliceBlue);
+            spriteBatch.Draw(Game1.playerLeftFace, new Rectangle(366, 207, 32, 32), Color.AliceBlue);
             
             
         }
