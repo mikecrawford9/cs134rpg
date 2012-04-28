@@ -42,10 +42,6 @@ namespace RPG
             this.xRet = Convert.ToString(xRet);
             this.yRet = Convert.ToString(yRet);
             this.retMap = retMap;
-            Game1.enemy1LeftFaceFile = enemies[0].player.sprite.GetLeftFaceImage();
-            Game1.enemy1LeftFaceFileHit = enemies[0].player.sprite.GetLeftFaceHitImage();
-            Game1.playerRightFaceFile = party.partyMembers[0].sprite.GetRightFaceImage();
-            Game1.playerRightFaceFileHit = party.partyMembers[0].sprite.GetRightFaceHitImage();
             
         }
 
@@ -91,6 +87,9 @@ namespace RPG
             aButton.Draw(spriteBatch);
             button.Location(600, 200);
             button.Draw(spriteBatch);
+           
+            spriteBatch.Draw(Game1.enemy1LeftFace, new Rectangle(50, 50, 32, 32), Color.AliceBlue);
+            
             
         }
 

@@ -46,7 +46,7 @@ namespace RPG
         }
         private static MemberInfo ForValue(Sprite s)
         {
-            return typeof(SpriteAttribute).GetField(Enum.GetName(typeof(SpriteAttribute), s));
+            return typeof(Sprite).GetField(Enum.GetName(typeof(Sprite), s));
         }
         public static SpriteType GetSpriteType(this Sprite s)
         {

@@ -602,8 +602,18 @@ namespace RPG
 
 
                     Player px = new Player();
+                    Enemy[] enemies = new Enemy[] { new Enemy(new Player(px.getNewPlayer("WARRIOR"), Sprite.ENEMY_1, "Ninja Pu", 7)) };
+                    enemy1LeftFaceFile = enemies[0].player.sprite.GetRightFaceImage();
+                    enemy1LeftFace = Content.Load<Texture2D>(enemy1LeftFaceFile);
+                    enemy1LeftFaceFileHit = enemies[0].player.sprite.GetLeftFaceHitImage();
+                    enemy1LeftFaceHit = Content.Load<Texture2D>(enemy1LeftFaceFileHit);
+                    playerRightFaceFile = party.partyMembers[0].sprite.GetRightFaceImage();
+                    playerRightFace = Content.Load<Texture2D>(playerRightFaceFile);
+                    playerRightFaceFileHit = party.partyMembers[0].sprite.GetRightFaceHitImage();
+                    playerRightFaceHit = Content.Load<Texture2D>(playerRightFaceFileHit);
 
-                    bs = new BattleSequence(party, new Enemy[] {new Enemy(new Player(px.getNewPlayer("WARRIOR"), Sprite.ENEMY_1, "Ninja Pu", 7))}, Content.Load<SpriteFont>("gameFont"),map, x,y,file);
+
+                    bs = new BattleSequence(party, enemies , Content.Load<SpriteFont>("gameFont"),map, x,y,file);
                     bs.Start();
                     //bs = null;
                     
