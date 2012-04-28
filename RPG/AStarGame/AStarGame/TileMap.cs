@@ -101,6 +101,11 @@ namespace RPG
 
         }
 
+        public void addTileEvent(Event e, int x, int y)
+        {
+            map[x][y].addEvent(e);
+        }
+
         public void setMessage(Message m)
         {
             this.m = m;

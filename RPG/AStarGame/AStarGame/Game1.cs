@@ -538,7 +538,7 @@ namespace RPG
 
         private void playGame(GameTime gameTime)
         {
-            if(playstate != PlayState.WAITFORNPC)
+            if(playstate != PlayState.WAITFORNPC && playstate != PlayState.MESSAGE)
                 catchInput(gameTime, false);
 
             Tile playertile = map.getPlayerTile();
@@ -649,6 +649,12 @@ namespace RPG
                     x.addProperty("text", q.getQuestText());
                     x.addProperty("removenpconcomplete", model);
                     addToEventQueue(x);
+
+                    TileMap returnmap = getMap(q.getReturnMap(), -1, -1);
+                    Event j = new Event();
+                    j.setEventType(EventType.QUESTRETURN);
+                    j.addProperty("questid",q.getQuestID());
+                    returnmap.addTileEvent(j, q.getReturnX(), q.getReturnY());
                 }
             }
             else if (playstate == PlayState.MESSAGE)
@@ -786,6 +792,34 @@ namespace RPG
                     currentevent = e;
                     playstate = PlayState.MESSAGE;
                 }
+                else if (e.getEventType() == EventType.QUESTRETURN)
+                {
+                    String questid = e.getProperty("questid");
+                    if (quests.ContainsKey(questid))
+                    {
+                        Quest q = quests[questid];
+
+                        if (party.hasItem(q.getQuestItem()))
+                        {
+                            party.removeItem(q.getQuestItem());
+                            party.completeQuest(q);
+
+                            Event m = new Event();
+                            m.setEventType(EventType.MESSAGE);
+                            m.addProperty("text", q.getQuestCompleteText());
+                            addToEventQueue(m);
+                        }
+                        else
+                        {
+                            Event m = new Event();
+                            m.setEventType(EventType.MESSAGE);
+                            m.addProperty("text", "You have not completed this quest yet.");
+                            addToEventQueue(m);
+                        }
+                    }
+                    else
+                        playstate = PlayState.WORLD;
+                }
             }
         }
 
@@ -795,7 +829,8 @@ namespace RPG
             if (maps.ContainsKey(mapfile))
             {
                 ret = maps[mapfile];
-                ret.setPlayerLocation(ret.getTileAt(playerx, playery));
+                if(playerx != -1 && playery != -1)
+                    ret.setPlayerLocation(ret.getTileAt(playerx, playery));
             }
             else
             {
@@ -803,6 +838,8 @@ namespace RPG
                 StreamReader reader = new StreamReader(fileStream);
                 ret = new TileMap(10, 10, 17, DEFAULT_X_TILES, DEFAULT_Y_TILES, whitepixel, toolmap, font, mapfile);
                 ret.LoadMap(reader, mapfile, toolmap);
+
+                if (playerx != -1 && playery != -1)
                 ret.setPlayerLocation(ret.getTileAt(playerx, playery));
 
                 maps.Add(mapfile, ret);

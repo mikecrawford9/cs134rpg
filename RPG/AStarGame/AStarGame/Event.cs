@@ -32,8 +32,11 @@ namespace RPG
 
         public String getProperty(String name)
         {
-            return propmap[name];
-        }
+            if (propmap.ContainsKey(name))
+                return propmap[name];
+            else
+                return null;
+        }     
 
         public String[] getKeys()
         {
