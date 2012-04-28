@@ -150,11 +150,12 @@ namespace RPG
             this.currMAGATK = this.GetCurrentMAGATK();
             this.currHPREGEN = this.GetCurrentHealthRegen();
             this.currMPREGEN = this.GetCurrentManaRegen();
+            this.sprite = cs;
             #endregion
         }
         #region VARIABLES
         public readonly String name;
-        public readonly CombatSprite combatSprite;
+        public readonly Sprite sprite;
         public PlayerBase playerBase;
         public int level;
         public int hpLoss;

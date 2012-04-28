@@ -25,7 +25,6 @@ namespace RPG
         bool isWaiting;
         String xRet, yRet, retMap;
 
-
         AttackButton aButton;
         Button button;
 
@@ -43,6 +42,10 @@ namespace RPG
             this.xRet = Convert.ToString(xRet);
             this.yRet = Convert.ToString(yRet);
             this.retMap = retMap;
+            Game1.enemy1LeftFaceFile = enemies[0].player.sprite.GetLeftFaceImage();
+            Game1.enemy1LeftFaceFileHit = enemies[0].player.sprite.GetLeftFaceHitImage();
+            Game1.playerRightFaceFile = party.partyMembers[0].sprite.GetRightFaceImage();
+            Game1.playerRightFaceFileHit = party.partyMembers[0].sprite.GetRightFaceHitImage();
             
         }
 
@@ -62,6 +65,8 @@ namespace RPG
                     List<Event> actionList =  new List<Event>();
                     actionList.Add(e);
                     aButton = new AttackButton(Game1.buttonImage, Game1.buttonFont, "Attack", p, actionList);
+
+
                     
                     button = new Button(Game1.buttonImage, Game1.buttonFont, "Poop");
                     

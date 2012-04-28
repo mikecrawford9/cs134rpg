@@ -52,6 +52,14 @@ namespace RPG
         ToolMap toolmap;
         Texture2D whitepixel;
         Texture2D astarwaypoint;
+        public static String enemy1LeftFaceFile;
+        public static Texture2D enemy1LeftFace;
+        public static String playerRightFaceFile;
+        public static Texture2D playerRightFace;
+        public static String enemy1LeftFaceFileHit;
+        public static Texture2D enemy1LeftFaceHit;
+        public static String playerRightFaceFileHit;
+        public static Texture2D playerRightFaceHit;
         Song cave, town, battle;
         Song currSong;
 
@@ -296,7 +304,7 @@ namespace RPG
                         playGame(gameTime);
                         break;
                         case PlayState.BATTLE:
-                            Console.WriteLine("PlayState is Battle!");
+                            //Console.WriteLine("PlayState is Battle!");
                             if (bs != null)
                             {
                                 bs.Update();
