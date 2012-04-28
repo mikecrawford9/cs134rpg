@@ -1,11 +1,4 @@
-﻿/*
-Name: Michael Crawford
-Class: CS134
-Instructor: Dr. Teoh
-Term: Spring 2012
-Assignment: Project 2
-*/
-#region IMPORTS
+﻿#region IMPORTS
 using System;
 using System.Collections.Generic;
 using System.Linq;

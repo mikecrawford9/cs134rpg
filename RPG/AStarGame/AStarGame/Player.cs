@@ -472,10 +472,12 @@ namespace RPG
                 case SpellEffectType.DEF:
                     break;
                 case SpellEffectType.HP:
+                    this.hpLoss -= baseAmount;
                     break;
                 case SpellEffectType.MAG_ATK:
                     break;
                 case SpellEffectType.MP:
+                    this.mpLoss -= baseAmount;
                     break;
                 case SpellEffectType.REVIVE:
                     break;
@@ -493,8 +495,11 @@ namespace RPG
                             case SpellTargetType.ALL:
                                 break; //not supported
                             case SpellTargetType.SELF:
+                                this.ModifyStatSpell(se.type, se.value);
                                 break;
                             case SpellTargetType.SINGLE:
+                                int damage = se.value + this.GetCurrentMAGATK();
+                                target.ModifyStatSpell(se.type, damage);
                                 break;
                             default: break;
                         }
@@ -503,11 +508,37 @@ namespace RPG
                 case SpellType.PHYSICAL:
                     foreach (SpellEffect se in spell.effects)
                     {
+                        switch (se.target)
+                        {
+                            case SpellTargetType.ALL:
+                                break; //not supported
+                            case SpellTargetType.SELF:
+                                this.ModifyStatSpell(se.type, se.value);
+                                break;
+                            case SpellTargetType.SINGLE:
+                                int damage = se.value + this.GetCurrentATK();
+                                target.ModifyStatSpell(se.type, damage);
+                                break;
+                            default: break;
+                        }
                     }
                     break;
                 case SpellType.SUPPORT:
                     foreach (SpellEffect se in spell.effects)
                     {
+                        switch (se.target)
+                        {
+                            case SpellTargetType.ALL:
+                                break; //not supported
+                            case SpellTargetType.SELF:
+                                this.ModifyStatSpell(se.type, se.value);
+                                break;
+                            case SpellTargetType.SINGLE:
+                                int damage = se.value + this.GetCurrentMAGATK();
+                                target.ModifyStatSpell(se.type, damage);
+                                break;
+                            default: break;
+                        }
                     }
                     break;
                 default: break;

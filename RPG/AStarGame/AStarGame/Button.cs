@@ -20,8 +20,6 @@ namespace RPG
         protected MouseState oldMouse;
         protected bool clicked = false;
 
-        
-
         public Button(Texture2D texture, SpriteFont font, SpriteBatch sBatch, String text)
         {
             image = texture;

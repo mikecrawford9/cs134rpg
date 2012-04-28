@@ -1,14 +1,11 @@
 ﻿
-player controls					1
-attack, cast spells				3
-items: potions, weapons, armor			2
+player controls								1
+attack, cast spells							3
+items: potions, weapons, armor				2
 get item from boss, get back to town		2
-last boss					1
-enemy A* to chase the player			1
+last boss									1
+enemy A* to chase the player				1
 battle sequence when they get to same tile	1
-animate characters during attack		2
-sound effects and background music		1
+animate characters during attack			2
+sound effects and background music			1
 keep score, game over, level complete		1
-
-
-5

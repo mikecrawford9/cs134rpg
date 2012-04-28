@@ -67,9 +67,14 @@ namespace RPG
         }
 
 
-        public void SellItem(Item item)
+        public bool SellItem(Player member, Item item)
         {
-
+            if(member.inventory.Search(item))
+            {
+                this.money += (item.cost / 2);
+                return member.inventory.RemoveItem(item);
+            }
+            return false;
         }
              
 

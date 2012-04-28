@@ -284,6 +284,22 @@ namespace RPG
             return false;
         }
 
+        public bool RemoveItem(Item item)
+        {
+            if (Search(item))
+            {
+                for (int i = 0;  i < INVENTORY_MAX_SIZE; i++)
+                {
+                    if (inventory[i].Equals(item))
+                    {
+                        inventory[i] = Item.BLANK;
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
+
         public bool Search(Item item)
         {
 
