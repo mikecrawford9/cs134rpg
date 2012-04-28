@@ -364,6 +364,11 @@ namespace RPG
             return success;
         }
 
+        public void removePlayer()
+        {
+            playertile = null;
+        }
+
         public void Update(ToolMap toolmap)
         {
             Tool selectedTool = toolmap.getSelected();
