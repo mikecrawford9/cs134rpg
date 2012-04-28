@@ -250,8 +250,8 @@ namespace RPG
         public Inventory(Item[] inventory, int maxSize = 20)
         {
             this.INVENTORY_MAX_SIZE = maxSize;
-            inventory = new Item[this.INVENTORY_MAX_SIZE];
-            for (int i = 0; i < inventory.Length || i < INVENTORY_MAX_SIZE; i++)
+            this.inventory = new Item[this.INVENTORY_MAX_SIZE];
+            for (int i = 0; i < inventory.Length && i < INVENTORY_MAX_SIZE; i++)
             {
                 this.inventory[i] = inventory[i];
             }
