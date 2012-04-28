@@ -529,16 +529,25 @@ namespace RPG
             return monstertile;
         }*/
 
-        /*public void setMonsterLocation(Tile newloc)
+        public void setMonsterLocation(int index, Tile newloc)
         {
+            Tile monstertile = monstertiles[index];
             if (monstertile != null)
             {
                 monstertile.setMapX(newloc.getMapX());
                 monstertile.setMapY(newloc.getMapY());
+
+                if (playertile != null && monstertile.getMapX() == playertile.getMapX() && monstertile.getMapY() == playertile.getMapY())
+                {
+                    processEvents(map[playertile.getMapX()][playertile.getMapY()]);
+                    /*Event e = new Event();
+                    e.setEventType(EventType.BATTLE_TILE);
+                    Game1.addToEventQueue();*/
+                }
             }
             else
                 Console.WriteLine("Monster is null!!");
-        }*/
+        }
 
         public Tile[] getMonsters()
         {

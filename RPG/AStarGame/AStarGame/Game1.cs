@@ -30,7 +30,7 @@ namespace RPG
         [DllImport("user32.dll", CharSet = CharSet.Auto)]
         public static extern uint MessageBox(IntPtr hWnd, String text, String caption, uint type);
         public static Texture2D evindicator;
-        const int MONSTER_MOVE_DELAY = 1000;
+        const int MONSTER_MOVE_DELAY = 500;
         const int PLAYER_MOVE_DELAY = 100;
         Party party;
 
@@ -60,7 +60,7 @@ namespace RPG
         bool edited;
         bool inaddevent;
         bool inprogress;
-        const bool DEBUG = true;
+        const bool DEBUG = false;
 
         int lastmonstermove;
         int lastplayermove;
@@ -340,8 +340,13 @@ namespace RPG
 
             for (int i = 0; i < monsters.Length; i++)
             {
+                Tile playertile = map.getPlayerTile();
+                if (DEBUG)
+                    Console.WriteLine("Player location is (" + playertile.getMapX() + "," + playertile.getMapY() + ")");
+
                 Tile cur = processAStar(map.getPlayerTile(), monsters[i]);
                 astartiles.Add(createAStarHighlight(cur));
+                map.refreshTiles();
             }
             edited = false;
         }
@@ -389,7 +394,7 @@ namespace RPG
             int len = toadd.getLength();
 
             if(DEBUG)
-            Console.WriteLine("Adding tile at (" + mapx + "," + mapy + ") to bestpath! Cost is " + toadd.getTotalCost());
+                Console.WriteLine("Adding tile at (" + mapx + "," + mapy + ") to bestpath! Cost is " + toadd.getTotalCost());
 
             Tile newadd = new Tile(mapx, mapy, x, y, len, new Tool(WorldTile.BLACK, astarwaypoint));
             newadd.setPrevious(prev);
@@ -504,6 +509,31 @@ namespace RPG
         private void playGame(GameTime gameTime)
         {
             catchInput(gameTime, false);
+
+            Tile[] monsters = map.getMonsters();
+            Tile playertile = map.getPlayerTile();
+            int currenttime = (int)gameTime.TotalGameTime.TotalMilliseconds;
+
+            if ((currenttime - lastmonstermove) > MONSTER_MOVE_DELAY)
+            {
+                for (int i = 0; i < monsters.Length && playstate == PlayState.WORLD; i++)
+                {
+                    Tile astartile = null;
+                    Tile best = processAStar(playertile, monsters[i]);
+                    if (best != null)
+                    {
+                        astartile = best;
+                        Tile next = getNextStep(best);
+                        map.setMonsterLocation(i, next);
+                        map.refreshTiles();
+                        edited = true;
+                    }
+                    else
+                        Console.WriteLine("Best is null!");
+                }
+
+                lastmonstermove = currenttime;
+            }
         }
 
         private void processEvents()
@@ -578,81 +608,6 @@ namespace RPG
             return ret;
         }
 
-        /*private void playGameOld(GameTime gameTime)
-        {
-            Tile playertile = map.getPlayerTile();
-            Tile monstertile = map.getMonsterTile();
-
-            int currenttime = (int)gameTime.TotalGameTime.TotalMilliseconds;
-            if ((currenttime - lastmonstermove) > MONSTER_MOVE_DELAY)
-            {
-                    Tile best = processAStar();
-                    if (best != null)
-                    {
-                        astartile = best;
-                        Tile next = getNextStep(best);
-                        map.setMonsterLocation(next);
-                        map.refreshTiles();
-                        edited = true;
-                    }
-                    else
-                        Console.WriteLine("Best is null!");
-
-                lastmonstermove = currenttime;
-            }
-
-            if((currenttime - lastplayermove) > PLAYER_MOVE_DELAY)
-            {
-                Tile player = map.getPlayerTile();
-                KeyboardState kb = Keyboard.GetState();
-                if (kb.IsKeyDown(Keys.Up))
-                {
-                    Tile up = map.getTileAt(player.getMapX(), player.getMapY() - 1);
-                    if (up != null && up.getType() != WorldTile.WALL)
-                    {
-                        map.setPlayerLocation(up);
-                        lastplayermove = currenttime;
-                    }
-                }
-                else if (kb.IsKeyDown(Keys.Down))
-                {
-                    Tile down = map.getTileAt(player.getMapX(), player.getMapY() + 1);
-                    if (down != null && down.getType() != WorldTile.WALL)
-                    {
-                        map.setPlayerLocation(down);
-                        lastplayermove = currenttime;
-                    }
-                }
-                else if (kb.IsKeyDown(Keys.Left))
-                {
-                    Tile left = map.getTileAt(player.getMapX() - 1, player.getMapY());
-                    if (left != null && left.getType() != WorldTile.WALL)
-                    {
-                        map.setPlayerLocation(left);
-                        lastplayermove = currenttime;
-                    }
-                }
-                else if (kb.IsKeyDown(Keys.Right))
-                {
-                    Tile right = map.getTileAt(player.getMapX() + 1, player.getMapY());
-                    if (right != null && right.getType() != WorldTile.WALL)
-                    {
-                        map.setPlayerLocation(right);
-                        lastplayermove = currenttime;
-                    }
-                }
-            }
-            if (playertile != null && monstertile != null)
-            {
-                if (playertile.getMapX() == monstertile.getMapX() && playertile.getMapY() == monstertile.getMapY())
-                {
-                    state = GameState.GAMEOVER;
-                    map.resetPlayers();
-                    Console.WriteLine("Game state set to " + state);
-                }
-            }
-        }*/
-
         private Tile getNextStep(Tile best)
         {
             Tile cur = best;
@@ -683,7 +638,7 @@ namespace RPG
                 //get the lowest cost node...
                 Tile cur = open.Min();
                 if(DEBUG)
-                    Console.WriteLine("Min retrieved a node with " + cur.getTotalCost() + " from the open list");
+                    Console.WriteLine("Min retrieved node (" + cur.getMapX() + "," + cur.getMapY() + ") with " + cur.getTotalCost() + " from the open list");
 
                 if (cur.getMapX() == goal.getMapX() && cur.getMapY() == goal.getMapY())
                 {
@@ -726,31 +681,64 @@ namespace RPG
 
         private bool canAdd(Tile toadd, List<Tile> open, List<Tile> closed)
         {
+            bool ret = false;
+            if (DEBUG)
+                Console.WriteLine("entered canAdd");
+
             if (toadd != null && !toadd.isObstacle() && !closed.Contains(toadd) && !open.Contains(toadd))
-                return true;
-            else
-                return false;
+            {
+                if(DEBUG)
+                    Console.WriteLine("Can add (" + toadd.getMapX() + "," + toadd.getMapY() + ")");
+
+                ret = true;
+            }
+
+            if (DEBUG)
+                Console.WriteLine("exiting canAdd");
+
+            return ret;
         }
 
         private void addTile(Tile toadd, Tile prev, List<Tile> open, Tile goal)
         {
+            if (DEBUG)
+            {
+                Console.WriteLine("Adding node (" + toadd.getMapX() + "," + toadd.getMapY() + "), with cost " + toadd.getTotalCost() + " to open list, open count is = " + open.Count);
+                if (prev != null)
+                    Console.WriteLine("Previous is (" + prev.getMapX() + "," + prev.getMapY() + ")");
+                else
+                    Console.WriteLine("Previous is null!");
+            }
             toadd.setPrevious(prev);
             int distance = getCumulativeCost(toadd);
+            //int distance = 0;
             toadd.addToTotalCost(distance + Math.Abs(toadd.getMapX() - goal.getMapX()) + Math.Abs(toadd.getMapY() - goal.getMapY()));
-                if(DEBUG)
-                Console.WriteLine("Adding node with cost " + toadd.getTotalCost() + " to open list");
+
             open.Add(toadd);
+            if (DEBUG)
+                Console.WriteLine("Node added.");
         }
 
         private int getCumulativeCost(Tile node)
         {
             int ret = 0;
             Tile cur = node;
-            while (cur != null)
+            if (DEBUG)
             {
-                //ret += cur.getCost();
-                ret += 1;
-                cur = cur.getPrevious();
+                while (cur != null)
+                {
+                    Console.Write("x");
+                    ret += cur.getCost();
+                    cur = cur.getPrevious();
+                }
+            }
+            else
+            {
+                while (cur != null)
+                {
+                    ret += cur.getCost();
+                    cur = cur.getPrevious();
+                }
             }
             return ret;
         }
