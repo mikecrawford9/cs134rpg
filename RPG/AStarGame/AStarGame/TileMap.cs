@@ -154,7 +154,9 @@ namespace RPG
 
         public void RemoveMonsterTile(int index)
         {
-            Console.Write(index);
+            if(Game1.DEBUG)
+                Console.Write(index);
+
             monstertiles.RemoveAt(index);
         }
 
@@ -167,7 +169,7 @@ namespace RPG
                 for (ja = 0, j = curytilemin; j < (size + curytilemin) && j < ytiles && ja < size; j++, ja++)
                 {
                     map[i][j].Draw(spriteBatch, displaytiles[ia][ja]);
-                    if(playertile != null && i == playertile.getMapX() && j == playertile.getMapY())
+                    if(playertile != null && Game1.playstate != PlayState.BATTLE && i == playertile.getMapX() && j == playertile.getMapY())
                         playertile.Draw(spriteBatch, displaytiles[ia][ja]);
 
                     for (int p = 0; p < monstertiles.Count; p++)
@@ -301,6 +303,9 @@ namespace RPG
                                 String type = reader["type"];
                                 tilex = Convert.ToInt32(reader["x"]);
                                 tiley = Convert.ToInt32(reader["y"]);
+
+                                if (Game1.DEBUG)
+                                    Console.WriteLine("Adding Monster!!, monstertiles.Count=" + monstertiles.Count);
 
                                 monstertiles.Add(new Tile(tilex, tiley, 0, 0, 0, toolmap.getTool(type)));
                             }

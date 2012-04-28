@@ -37,6 +37,18 @@ namespace RPG
             
         }
 
+        public Item[] getAllItems()
+        {
+            List<Item> itemret = new List<Item>();
+            foreach (Player p in partyMembers)
+            {
+                Item[] x = p.inventory.getItems();
+                for (int i = 0; i < x.Length; i++)
+                    itemret.Add(x[i]);
+            }
+            return itemret.ToArray();
+        }
+
         public void completeQuest(Quest q)
         {
             if(open.ContainsKey(q.getQuestID()))
