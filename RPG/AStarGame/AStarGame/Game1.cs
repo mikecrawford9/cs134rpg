@@ -75,7 +75,7 @@ namespace RPG
         bool inaddevent;
         bool inprogress;
         bool setmessage;
-        const bool DEBUG = false;
+        public const bool DEBUG = false;
 
         int lastmonstermove;
         int lastplayermove;
@@ -209,6 +209,8 @@ namespace RPG
             foreach (WorldTile t in Enum.GetValues(typeof(WorldTile)))
             {
                 tiles.Add(t);
+
+                if(DEBUG)
                 Console.WriteLine(t.GetInformation());
 
                 try
@@ -227,6 +229,7 @@ namespace RPG
                                     {
                                         return a.ToString().CompareTo(b.ToString());
                                     });
+            if(DEBUG)
             Console.WriteLine(worldtiles.Length);
 
 
@@ -245,6 +248,8 @@ namespace RPG
                  maps.Add(FIRSTMAP, map);
                  reader.Close();
                  fileStream.Close();
+
+                 state = GameState.TITLE;
             }
             PlayMusic(Content.Load<Song>("Townmusic"));
             // TODO: use this.Content to load your game content here
@@ -302,6 +307,11 @@ namespace RPG
                         doMultiAStar();
                     }
                     map.refreshTiles();
+                    break;
+                case GameState.TITLE:
+                    KeyboardState kb = Keyboard.GetState();
+                    if (kb.IsKeyDown(Keys.Space))
+                        state = GameState.RUNNING;
                     break;
                 case GameState.RUNNING:
                     //start game here...
@@ -546,7 +556,9 @@ namespace RPG
 
                 if (playstate == PlayState.WAITFORNPC)
                 {
+                    if(DEBUG)
                     Console.WriteLine("WAITING FOR NPC!");
+
                     Event e = currentevent;
 
                     String questid = e.getProperty("questid");
@@ -573,7 +585,8 @@ namespace RPG
                         {
                             if (goalxint == npc.getMapX() && goalyint == npc.getMapY())
                             {
-                                Console.WriteLine("Made it to the goal.. NPC");
+                                if(DEBUG)
+                                    Console.WriteLine("Made it to the goal.. NPC");
                                 //String questid = e.getProperty("questid");
                                 String questreturnmap = e.getProperty("questret");
                                 String questretx = e.getProperty("questretx");
@@ -718,6 +731,7 @@ namespace RPG
                     int x = Convert.ToInt32(e.getProperty("x"));
                     int y = Convert.ToInt32(e.getProperty("y"));
 
+                    if(DEBUG)
                     Console.WriteLine("Processing Map Transition Event for " + mapfile + " x=" + x + ",y=" + y);
                     
                     if(mapfile.Contains("dragon"))
@@ -739,7 +753,9 @@ namespace RPG
                         }
                     }
                     map = getMap(mapfile, x, y);
+                    if(DEBUG)
                     Console.WriteLine("Reached 2");
+
                     Game1.playstate = PlayState.WORLD;
                 }
                 else if (e.getEventType() == EventType.BATTLE_TILE)
@@ -813,7 +829,7 @@ namespace RPG
                         {
                             Event m = new Event();
                             m.setEventType(EventType.MESSAGE);
-                            m.addProperty("text", "You have not completed this quest yet.");
+                            m.addProperty("text", "You have not completed this\nquest yet.");
                             addToEventQueue(m);
                         }
                     }
@@ -1027,30 +1043,55 @@ namespace RPG
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.Gray);
-
             // TODO: Add your drawing code here
             spriteBatch.Begin();
 
-            map.Draw(spriteBatch);
-            if (state != GameState.RUNNING)
-                toolmap.Draw(spriteBatch, state);
+            if (state == GameState.TITLE)
+            {
+                Rectangle rec = new Rectangle(10, 10, TileMap.VIEW_WIDTH, TileMap.VIEW_HEIGHT);
+                spriteBatch.Draw(whitepixel, rec, Color.Black);
+                spriteBatch.DrawString(font, "SAVAGE DRAGONS", new Vector2(rec.X + 20, rec.Y + 6), Color.Yellow);
+                spriteBatch.DrawString(font, "Hit space to play!", new Vector2(rec.X + 20, rec.Y + 100), Color.Yellow);
+            }
+            else if (state == GameState.GAMEOVER)
+            {
+                if (playstate == PlayState.GAMEOVER_WIN)
+                {
+                    Rectangle rec = new Rectangle(10, 10, TileMap.VIEW_WIDTH, TileMap.VIEW_HEIGHT);
+                    spriteBatch.Draw(whitepixel, rec, Color.Black);
+                    spriteBatch.DrawString(font, "YOU WIN!!!", new Vector2(rec.X + 20, rec.Y + 6), Color.Yellow);
+                    spriteBatch.DrawString(font, "Congratulations, you are a\nSavage Dragons MASTER!!\n\n\nHit Space to Play Again!", new Vector2(rec.X + 20, rec.Y + 100), Color.Yellow);
+                }
+                else if(playstate == PlayState.GAMEOVER_LOSE)
+                {
+                    Rectangle rec = new Rectangle(10, 10, TileMap.VIEW_WIDTH, TileMap.VIEW_HEIGHT);
+                    spriteBatch.Draw(whitepixel, rec, Color.Black);
+                    spriteBatch.DrawString(font, "YOU LOSE!!", new Vector2(rec.X + 20, rec.Y + 6), Color.Yellow);
+                    spriteBatch.DrawString(font, "WOW, you REALLY suck at video games...\nBetter luck next time!\n\n\nHit Space to Play Again!", new Vector2(rec.X + 20, rec.Y + 100), Color.Yellow);
+                }
+            }
             else
             {
-                if (PlayState.BATTLE == playstate)
+                map.Draw(spriteBatch);
+                if (state != GameState.RUNNING)
+                    toolmap.Draw(spriteBatch, state);
+                else
                 {
-                    if (bs != null)
+                    if (PlayState.BATTLE == playstate)
                     {
-                        bs.Draw(spriteBatch);
+                        if (bs != null)
+                        {
+                            bs.Draw(spriteBatch);
+                        }
+
                     }
+
 
                 }
 
-                    
+                if (state == GameState.ASTAR)
+                    drawAStarTiles(spriteBatch);
             }
-
-            if(state == GameState.ASTAR)
-               drawAStarTiles(spriteBatch);
-
             //drawErrors(spriteBatch);
             spriteBatch.End();
             

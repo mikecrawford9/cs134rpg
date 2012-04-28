@@ -7,6 +7,6 @@ namespace RPG
 {
     public class Quests
     {
-        public static Quest DRAGONQUEST = new Quest("DRAGONQUEST","Please go kill the dragon! Return its skull to the castle!","You have returned the Dragon Skull!",Item.DRAGON_SKULL,11,4,"town.rpgmf");
+        public static Quest DRAGONQUEST = new Quest("DRAGONQUEST","Please go kill the dragon!\nReturn its skull to the castle!","You have returned the Dragon Skull!",Item.DRAGON_SKULL,11,4,"town.rpgmf");
     }
 }
