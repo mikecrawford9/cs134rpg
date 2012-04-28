@@ -144,7 +144,7 @@ namespace RPG
             lastplayermove = 0;
             inaddevent = false;
             buttonFont = Content.Load<SpriteFont>("buttonFont");
-            buttonImage = Content.Load<Texture2D>("Tiles/buttonSmall");
+            buttonImage = Content.Load<Texture2D>("Tiles/button");
             //PlayerBase war = p.getNewPlayer("WARRIOR");
           
             Player[] playerList = new Player[] { new Player(Player.WARRIOR, Sprite.WARRIOR, "Wally") };

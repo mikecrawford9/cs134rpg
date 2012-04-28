@@ -5,6 +5,7 @@ Content\Tiles\Swamp.xnb
 Content\Tiles\Trees.xnb
 Content\Tiles\Wall.xnb
 Content\Tiles\Water.xnb
+Content\AStarWayPoint.xnb
 Content\Tiles\SwampToGrassBottom.xnb
 Content\Tiles\SwampToGrassBottomLeft.xnb
 Content\Tiles\SwampToGrassLeft.xnb
@@ -128,10 +129,15 @@ Content\Fireball Sound.xnb
 Content\Healing.xnb
 Content\SwordAttack.xnb
 Content\Wood Attack.xnb
+Content\Tiles\Dragon Roar.xnb
+Content\Tiles\Final Battle.xnb
+Content\Tiles\Fireball Sound.xnb
+Content\Tiles\Healing.xnb
+Content\Tiles\SwordAttack.xnb
+Content\Tiles\Wood Attack.xnb
 Content\battlemusic.xnb
 Content\cavemusic.xnb
 Content\Townmusic.xnb
-Content\AStarWayPoint.xnb
 Content\battlemusic.wma
 Content\cavemusic.wma
 Content\Townmusic.wma

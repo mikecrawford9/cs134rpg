@@ -16,7 +16,7 @@ using System.Xml;
 
 namespace RPG
 {
-    class TileMap
+    public class TileMap
     {
         public const int VIEW_HEIGHT = 512;
         public const int VIEW_WIDTH = 512;

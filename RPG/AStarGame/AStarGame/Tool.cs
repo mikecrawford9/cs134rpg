@@ -13,7 +13,7 @@ using Microsoft.Xna.Framework.Input;
 
 namespace RPG
 {
-    class Tool
+    public class Tool
     {
         WorldTile type;
         Texture2D texture;

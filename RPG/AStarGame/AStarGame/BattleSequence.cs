@@ -12,24 +12,24 @@ using Microsoft.Xna.Framework.Media;
 namespace RPG
 {
     public enum BattleStageType { ACTION, FIGHT, WIN, LOSE, FLEE }
-    class BattleSequence
+     public class BattleSequence
     {
-        Party party;
-        Enemy[] enemies;
-        List<String> combatLog;
-        SpriteFont combatLogFont;
-        List<Button> visibleButtons;
-        List<BattleAction> currentActions;
-        bool continueCombat; 
-        bool partyDead;
-        bool enemiesDead;
-        bool isWaiting;
-        String xRet, yRet, retMap;
-        BattleStageType state;
+        public Party party;
+        public Enemy[] enemies;
+        public List<String> combatLog;
+        public SpriteFont combatLogFont;
+        public List<Button> visibleButtons;
+        public List<BattleAction> currentActions;
+        public bool continueCombat;
+        public bool partyDead;
+        public bool enemiesDead;
+        public bool isWaiting;
+        public String xRet, yRet, retMap;
+        public BattleStageType state;
 
-        AttackButton aButton;
-        AttackButton itemButton;
-        AttackButton fleeButton;
+        public AttackButton aButton;
+        public ItemButton itemButton;
+        public FleeButton fleeButton;
 
         public BattleSequence(Party party, Enemy[] enemies, SpriteFont displayTextFont, TileMap battleMap, int xRet, int yRet, String retMap)
         {
@@ -60,23 +60,26 @@ namespace RPG
 
                         foreach (Player p in party.partyMembers)
                         {
-                            Event e = new Event();
-
-                            e.setEventType(EventType.MAP_TRANSITION);
-                            e.addProperty("x", xRet);
-                            e.addProperty("y", yRet);
-                            e.addProperty("mapfile", retMap);
-                            List<Event> actionList = new List<Event>();
-                            actionList.Add(e);
-                            aButton = new AttackButton(Game1.buttonImage, Game1.buttonFont, "Attack", p, actionList);
-                            itemButton = new AttackButton(Game1.buttonImage, Game1.buttonFont, "Use Item", p, null);
-                            fleeButton = new AttackButton(Game1.buttonImage, Game1.buttonFont, "Flee", p, null);
-
+                            aButton = new AttackButton(Game1.buttonImage, Game1.buttonFont, "Attack", p, this, null);
+                            itemButton = new ItemButton(Game1.buttonImage, Game1.buttonFont, "Use Item", p, this, null);
+                            fleeButton = new FleeButton(Game1.buttonImage, Game1.buttonFont, "Flee", p, this, null);
                         }
                         break;
                     case BattleStageType.FIGHT:
+                        foreach (BattleAction b in this.currentActions)
+                        {
+                            b.performAction();
+                            currentActions.Remove(b);
+                        }
+                        this.state = BattleStageType.ACTION;
                         break;
                     case BattleStageType.FLEE:
+                        Event e = new Event();
+                        e.setEventType(EventType.MAP_TRANSITION);
+                        e.addProperty("x", xRet);
+                        e.addProperty("y", yRet);
+                        e.addProperty("mapfile", retMap);
+                        Game1.addToEventQueue(e);
                         break;
                     case BattleStageType.LOSE:
                         break;
@@ -88,20 +91,37 @@ namespace RPG
             }
         }
 
-        public void AttemptToFlee()
+        public bool AttemptToFlee()
         {
             switch ((new Random()).Next(0, 1))
             {
                 case 0: break;
-                case 1: this.continueCombat = false; break;
+                case 1: this.continueCombat = false; return true;
                 default: break;
             }
+            return false;
         }
 
         public void Draw(SpriteBatch spriteBatch)
         {
             spriteBatch.Draw(Game1.enemy1RightFace, new Rectangle(111, 207, 32, 32), Color.AliceBlue);
             spriteBatch.Draw(Game1.playerLeftFace, new Rectangle(366, 207, 32, 32), Color.AliceBlue);
+            switch (combatLog.ToArray().Length)
+            {
+                default:
+                case 3:
+                    spriteBatch.DrawString(Game1.buttonFont, combatLog[combatLog.ToArray().Length - 3], new Vector2(20, 300), Color.White);
+                    break;
+                case 2:
+                    spriteBatch.DrawString(Game1.buttonFont, combatLog[combatLog.ToArray().Length - 2], new Vector2(20, 320), Color.White);
+                    break;
+                case 1:
+                    spriteBatch.DrawString(Game1.buttonFont, combatLog[combatLog.ToArray().Length - 1], new Vector2(20, 340), Color.White);
+                    break;
+                case 0:
+                    break;
+
+            }
             switch (state)
             {
                 case BattleStageType.ACTION:
@@ -113,8 +133,10 @@ namespace RPG
                     fleeButton.Draw(spriteBatch);
                     break;
                 case BattleStageType.FIGHT:
+                    aButton.Draw(spriteBatch);
                     break;
                 case BattleStageType.FLEE:
+                    fleeButton.Draw(spriteBatch);
                     break;
                 case BattleStageType.LOSE:
                     break;
@@ -133,6 +155,7 @@ namespace RPG
                     fleeButton.Update();
                     break;
                 case BattleStageType.FIGHT:
+
                     break;
                 case BattleStageType.FLEE:
                     break;
@@ -150,7 +173,7 @@ namespace RPG
     }
     public enum BattleActionType {ATTACK, SPELL, ITEM, FLEE}
 
-    class BattleAction
+    public class BattleAction
     {
         public Player user;
         public Player[] target;
@@ -177,12 +200,14 @@ namespace RPG
                 case BattleActionType.ATTACK:
                     foreach(Player t in target)
                     {
+                        Console.WriteLine("Melee Attack");
                         user.UseSpell(t, spell);
                     }
                     break;
                 case BattleActionType.ITEM:
                     foreach (Player t in target)
                     {
+                        Console.WriteLine("Item");
                         t.UseHealingItem(item);
                     }
                     break;
@@ -193,7 +218,15 @@ namespace RPG
                     }
                     break;
                 case BattleActionType.FLEE:
-                    
+                    Console.WriteLine("Fleeeing...");
+                    if (battleSequence.AttemptToFlee())
+                    {
+                        battleSequence.state = BattleStageType.FLEE;
+                    }
+                    else
+                    {
+                        battleSequence.state = BattleStageType.ACTION;
+                    }
                     break;
                 default: 
                     break;

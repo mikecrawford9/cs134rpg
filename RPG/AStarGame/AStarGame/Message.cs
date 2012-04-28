@@ -8,7 +8,7 @@ using Microsoft.Xna.Framework.Input;
 
 namespace RPG
 {
-    class Message
+    public class Message
     {
         Rectangle rec;
         String text;

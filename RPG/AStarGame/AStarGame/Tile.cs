@@ -14,7 +14,7 @@ using System.Collections.Generic;
 
 namespace RPG
 {
-    class Tile: IComparable<Tile>, IEquatable<Tile>
+    public class Tile: IComparable<Tile>, IEquatable<Tile>
     {
         Texture2D pixel;
         public Rectangle sq;

@@ -14,7 +14,7 @@ using System.Collections.Generic;
 
 namespace RPG
 {
-    class ToolMap
+    public class ToolMap
     {
         bool enabled;
         Tile[][] tools;
