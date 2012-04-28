@@ -110,6 +110,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AttackButton.cs" />
+    <Compile Include="BattleSequence.cs" />
+    <Compile Include="Button.cs" />
     <Compile Include="Event.cs" />
     <Compile Include="EventType.cs" />
     <Compile Include="Form1.cs">
@@ -121,6 +124,7 @@
     <Compile Include="GameState.cs" />
     <Compile Include="Item.cs" />
     <Compile Include="MapTransition.cs" />
+    <Compile Include="Party.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="Spell.cs" />
     <Compile Include="WorldTiles.cs" />

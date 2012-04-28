@@ -120,7 +120,9 @@ namespace RPG
             lastmonstermove = 0;
             lastplayermove = 0;
             inaddevent = false;
-            Player p = new Player(Player.WARRIOR, Sprite.WARRIOR, "Wally");
+            Player px = new Player();
+            PlayerBase war = px.getNewPlayer("WARRIOR");
+            Player p = new Player(war, Sprite.WARRIOR, "Wally");
             Player[] playerList = new Player[] { p };
             party = new Party(playerList);
             base.Initialize();
@@ -574,8 +576,15 @@ namespace RPG
                     playstate = PlayState.BATTLE;
                     
                     map = getMap(e.getProperty("battlemap"), 8, 8);
-                    BattleSequence bs = new BattleSequence(null, new Enemy[] {new Enemy(new Player(Player.WARRIOR, Sprite.ENEMY_1, "Ninja Pu", 7))}, Content.Load<SpriteFont>("gameFont"), map, this);
+
+
+                    Player px = new Player();
+
+                    BattleSequence bs = new BattleSequence(null, new Enemy[] {new Enemy(new Player(px.getNewPlayer("WARRIOR"), Sprite.ENEMY_1, "Ninja Pu", 7))}, Content.Load<SpriteFont>("gameFont"), map, this);
                     bs.Start();
+                    
+                     
+                    
                     PlayMusic(battle);
                     /*String mapfile = e.getProperty("mapfile");
                     int x = Convert.ToInt32(e.getProperty("x"));
