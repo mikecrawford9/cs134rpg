@@ -1145,15 +1145,6 @@
       <Time>2012-04-28T01:45:46.7522764-07:00</Time>
     </Item>
     <Item>
-      <Source>Fireball Sound.wav</Source>
-      <Name>Fireball Sound</Name>
-      <Importer>WavImporter</Importer>
-      <Processor>SoundEffectProcessor</Processor>
-      <Options>None</Options>
-      <Output>F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Fireball Sound.xnb</Output>
-      <Time>2012-04-27T19:27:02.2695104-07:00</Time>
-    </Item>
-    <Item>
       <Source>Healing.wav</Source>
       <Name>Healing</Name>
       <Importer>WavImporter</Importer>
@@ -1190,51 +1181,6 @@
       <Time>2012-04-27T19:54:54.0261294-07:00</Time>
     </Item>
     <Item>
-      <Source>Tiles\Final Battle.wav</Source>
-      <Name>Tiles\Final Battle</Name>
-      <Importer>WavImporter</Importer>
-      <Processor>SoundEffectProcessor</Processor>
-      <Options>None</Options>
-      <Output>F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\Final Battle.xnb</Output>
-      <Time>2012-04-27T19:56:55.268064-07:00</Time>
-    </Item>
-    <Item>
-      <Source>Tiles\Fireball Sound.wav</Source>
-      <Name>Tiles\Fireball Sound</Name>
-      <Importer>WavImporter</Importer>
-      <Processor>SoundEffectProcessor</Processor>
-      <Options>None</Options>
-      <Output>F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\Fireball Sound.xnb</Output>
-      <Time>2012-04-27T19:19:40.4922422-07:00</Time>
-    </Item>
-    <Item>
-      <Source>Tiles\Healing.wav</Source>
-      <Name>Tiles\Healing</Name>
-      <Importer>WavImporter</Importer>
-      <Processor>SoundEffectProcessor</Processor>
-      <Options>None</Options>
-      <Output>F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\Healing.xnb</Output>
-      <Time>2012-04-27T19:22:06.249579-07:00</Time>
-    </Item>
-    <Item>
-      <Source>Tiles\SwordAttack.wav</Source>
-      <Name>Tiles\SwordAttack</Name>
-      <Importer>WavImporter</Importer>
-      <Processor>SoundEffectProcessor</Processor>
-      <Options>None</Options>
-      <Output>F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\SwordAttack.xnb</Output>
-      <Time>2012-04-27T19:24:22.604378-07:00</Time>
-    </Item>
-    <Item>
-      <Source>Tiles\Wood Attack.wav</Source>
-      <Name>Tiles\Wood Attack</Name>
-      <Importer>WavImporter</Importer>
-      <Processor>SoundEffectProcessor</Processor>
-      <Options>None</Options>
-      <Output>F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\Wood Attack.xnb</Output>
-      <Time>2012-04-27T19:25:43.1829869-07:00</Time>
-    </Item>
-    <Item>
       <Source>battlemusic.mp3</Source>
       <Name>battlemusic</Name>
       <Importer>Mp3Importer</Importer>
@@ -1263,6 +1209,15 @@
       <Output>F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Townmusic.xnb</Output>
       <Extra>F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Townmusic.wma</Extra>
       <Time>2012-04-27T21:23:02.2976012-07:00</Time>
+    </Item>
+    <Item>
+      <Source>FireballSound.wav</Source>
+      <Name>FireballSound</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\FireballSound.xnb</Output>
+      <Time>2012-04-27T19:27:02.2695104-07:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>

@@ -125,19 +125,14 @@ Content\buttonfont.xnb
 Content\gameover.xnb
 Content\victory.xnb
 Content\finishedquest.xnb
-Content\Fireball Sound.xnb
 Content\Healing.xnb
 Content\SwordAttack.xnb
 Content\Wood Attack.xnb
 Content\Tiles\Dragon Roar.xnb
-Content\Tiles\Final Battle.xnb
-Content\Tiles\Fireball Sound.xnb
-Content\Tiles\Healing.xnb
-Content\Tiles\SwordAttack.xnb
-Content\Tiles\Wood Attack.xnb
 Content\battlemusic.xnb
 Content\cavemusic.xnb
 Content\Townmusic.xnb
+Content\FireballSound.xnb
 Content\battlemusic.wma
 Content\cavemusic.wma
 Content\Townmusic.wma
