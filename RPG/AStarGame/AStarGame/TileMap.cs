@@ -154,6 +154,7 @@ namespace RPG
 
         public void RemoveMonsterTile(int index)
         {
+            Console.WriteLine("Calling removemonstertile with index=" + index);
             if(Game1.DEBUG)
                 Console.Write(index);
 

@@ -874,6 +874,12 @@ namespace RPG
                     state = GameState.GAMEOVER;
                     playstate = PlayState.GAMEOVER_WIN;
                 }
+                else if (e.getEventType() == EventType.LOSE_GAME)
+                {
+                    currentevent = e;
+                    state = GameState.GAMEOVER;
+                    playstate = PlayState.GAMEOVER_LOSE;
+                }
                 else if (e.getEventType() == EventType.QUESTRETURN)
                 {
                     String questid = e.getProperty("questid");
@@ -1139,8 +1145,8 @@ namespace RPG
             {
                 Rectangle rec = new Rectangle(10, 10, TileMap.VIEW_WIDTH, TileMap.VIEW_HEIGHT);
                 spriteBatch.Draw(whitepixel, rec, Color.Black);
-                spriteBatch.DrawString(font, "SAVAGE DRAGONS", new Vector2(rec.X + 20, rec.Y + 6), Color.Yellow);
-                spriteBatch.DrawString(font, "Hit space to play!", new Vector2(rec.X + 20, rec.Y + 100), Color.Yellow);
+                spriteBatch.DrawString(font, "SAVAGE DRAGONS", new Vector2(rec.X + 155, rec.Y + 120), Color.Yellow);
+                spriteBatch.DrawString(buttonFont, "Hit space to play!", new Vector2(rec.X + 190, rec.Y + 300), Color.Yellow);
             }
             else if (state == GameState.GAMEOVER)
             {
