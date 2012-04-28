@@ -380,25 +380,25 @@ namespace RPG
         #region WORLDMAPTILES
         [WorldTileAttribute(TileType.GRASS, "Tiles/Grass", false, 1)] 
         GRASS,
-        [WorldTileAttribute(TileType.TREES, "Tiles/Trees", false, 2)] 
+        [WorldTileAttribute(TileType.TREES, "Tiles/Trees", false, 1)] 
         TREES,
-        [WorldTileAttribute(TileType.SWAMP, "Tiles/Swamp", false, 4)] 
+        [WorldTileAttribute(TileType.SWAMP, "Tiles/Swamp", false, 1)] 
         SWAMP,
-        [WorldTileAttribute(TileType.MOUNTAIN, "Tiles/Mountain", true, 0)] 
+        [WorldTileAttribute(TileType.MOUNTAIN, "Tiles/Mountain", true, 1)] 
         MOUNTAIN,  
-        [WorldTileAttribute(TileType.WATER, "Tiles/Water", true, 6)] 
+        [WorldTileAttribute(TileType.WATER, "Tiles/Water", true, 1)] 
         WATER,
-        [WorldTileAttribute(TileType.ROCKS, "Tiles/LavaRocks", false, 8)] 
+        [WorldTileAttribute(TileType.ROCKS, "Tiles/LavaRocks", false, 1)] 
         ROCKS,
-        [WorldTileAttribute(TileType.WALL, "Tiles/Wall", true, 0)] 
+        [WorldTileAttribute(TileType.WALL, "Tiles/Wall", true, 1)] 
         WALL,
-        [WorldTileAttribute(TileType.FENCE, "Tiles/Black", true, 0)]
+        [WorldTileAttribute(TileType.FENCE, "Tiles/Black", true, 1)]
         BLACK,
-        [WorldTileAttribute(TileType.FENCE, "Tiles/Dirt", false, 0)]
+        [WorldTileAttribute(TileType.FENCE, "Tiles/Dirt", false, 1)]
         DIRT,
-        [WorldTileAttribute(TileType.FENCE, "Tiles/PillowDirt", false, 0)]
+        [WorldTileAttribute(TileType.FENCE, "Tiles/PillowDirt", false, 1)]
         PILLOW_DIRT,
-        [WorldTileAttribute(TileType.FENCE, "Tiles/RockWall", true, 0)]
+        [WorldTileAttribute(TileType.FENCE, "Tiles/RockWall", true, 1)]
         ROCK_WALL,
         #endregion
 
