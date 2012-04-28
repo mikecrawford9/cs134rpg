@@ -159,10 +159,7 @@ namespace RPG
                 {
                     map[i][j].Draw(spriteBatch, displaytiles[ia][ja]);
                     if(playertile != null && i == playertile.getMapX() && j == playertile.getMapY())
-                        playertile.Draw(spriteBatch, displpublic void RemoveMonsterTile(int index)
-        {
-           monstertiles.RemoveAt(index);
-        }aytiles[ia][ja]);
+                        playertile.Draw(spriteBatch, displaytiles[ia][ja]);
 
                     for (int p = 0; p < monstertiles.Count; p++)
                     {
