@@ -120,7 +120,9 @@ namespace RPG
             lastmonstermove = 0;
             lastplayermove = 0;
             inaddevent = false;
-            Player p = new Player(Player.WARRIOR, Sprite.WARRIOR, "Wally");
+            Player p = new Player(null, Sprite.WARRIOR, "Wally");
+            PlayerBase pb = Player.WARRIOR;
+            p.playerBase = pb;
             Player[] playerList = new Player[] { p };
             party = new Party(playerList);
             base.Initialize();
@@ -222,7 +224,7 @@ namespace RPG
                  reader.Close();
                  fileStream.Close();
             }
-            PlayMusic(Content.Load<Song>("Townmusic"));
+            PlayMusic(this.town);
             // TODO: use this.Content to load your game content here
         }
 
