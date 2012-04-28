@@ -47,6 +47,7 @@ namespace RPG
                     bs.combatLog.Add("Enemy attacks you.");
                 }
                 bs.state = BattleStageType.FIGHT;
+                base.clicked = false;
                 inprogress = false;
             }
         }
