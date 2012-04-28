@@ -18,6 +18,7 @@ namespace RPG
         // State of the Projectile
         public bool Active;
 
+        private int xwall;
 
         // Get the width of the projectile ship
         public int Width
@@ -40,13 +41,13 @@ namespace RPG
 
         bool isLeft;
 
-        public void Initialize( Texture2D texture, Vector2 position, bool isLeft)
+        public void Initialize( Texture2D texture, Vector2 position, bool isLeft, int xwall)
         {
             Texture = texture;
             Position = position;
 
             Active = true;
-
+            this.xwall = xwall;
             projectileMoveSpeed = 6;
             this.isLeft = isLeft;
         }
@@ -57,10 +58,14 @@ namespace RPG
             if (isLeft)
             {
                 Position.X -= projectileMoveSpeed;
+                if (Position.X < xwall)
+                    Active = false;
             }
             else
             {
                 Position.X += projectileMoveSpeed;
+                if (Position.X > xwall)
+                    Active = false;
             }
 
             // Deactivate the bullet if it goes out of screen
@@ -73,8 +78,11 @@ namespace RPG
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(Texture, Position, null, Color.White, 0f,
-            new Vector2(Width / 2, Height / 2), 1f, SpriteEffects.None, 0f);
+            if (Active)
+            {
+                spriteBatch.Draw(Texture, Position, null, Color.White, 0f,
+                new Vector2(Width / 2, Height / 2), 1f, SpriteEffects.None, 0f);
+            }
         }
     }
 }
