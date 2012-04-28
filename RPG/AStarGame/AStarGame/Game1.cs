@@ -772,10 +772,11 @@ namespace RPG
                     playstate = PlayState.BATTLE;
                     int x = map.getPlayerTile().getMapX();
                     int y = map.getPlayerTile().getMapY();
+
                     String file = map.filename;
                     map.RemoveMonsterTile(Convert.ToInt32(e.getProperty("index")));
                     map = getMap(e.getProperty("battlemap"), 8, 8);
-                    
+                    map.removePlayer();
 
 
                     Player px = new Player();

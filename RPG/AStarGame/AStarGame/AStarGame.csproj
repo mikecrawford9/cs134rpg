@@ -127,6 +127,7 @@
     <Compile Include="Message.cs" />
     <Compile Include="Party.cs" />
     <Compile Include="Player.cs" />
+    <Compile Include="Projectile.cs" />
     <Compile Include="Quest.cs" />
     <Compile Include="Quests.cs" />
     <Compile Include="Spell.cs" />
