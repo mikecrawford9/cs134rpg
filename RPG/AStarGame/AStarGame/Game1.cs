@@ -33,13 +33,13 @@ namespace RPG
         const int MONSTER_MOVE_DELAY = 1000;
         const int PLAYER_MOVE_DELAY = 100;
 
-        const bool STARTPLAY = true;
+        const bool STARTPLAY = false;
         const String FIRSTMAP = "world3.rpgmf";
         const int DEFAULT_X_TILES = 20;
         const int DEFAULT_Y_TILES = 20;
 
         GraphicsDeviceManager graphics;
-        SpriteBatch spriteBatch;
+        public SpriteBatch spriteBatch;
         SpriteFont font;
 
         TileMap map;
@@ -53,11 +53,11 @@ namespace RPG
 
         Tool[][] tools;
 
-        Tile astartile;
+        List<Tile>astartiles;
         bool edited;
         bool inaddevent;
         bool inprogress;
-        const bool DEBUG = false;
+        const bool DEBUG = true;
 
         int lastmonstermove;
         int lastplayermove;
@@ -154,6 +154,8 @@ namespace RPG
             */
 
             
+
+
             System.Collections.ArrayList tiles = new System.Collections.ArrayList();
             foreach (WorldTile t in Enum.GetValues(typeof(WorldTile)))
             {
@@ -172,10 +174,10 @@ namespace RPG
                 
             }
             worldtiles = tiles.ToArray(typeof(WorldTile)) as WorldTile[];
-            /*Array.Sort(worldtiles, delegate(WorldTile a, WorldTile b)
+            Array.Sort(worldtiles, delegate(WorldTile a, WorldTile b)
                                     {
                                         return a.ToString().CompareTo(b.ToString());
-                                    });*/
+                                    });
             Console.WriteLine(worldtiles.Length);
 
 
@@ -239,7 +241,16 @@ namespace RPG
                     map.resetPlayers();
                     map.refreshTiles();
                     map.Update(toolmap);
-                    astartile = null;
+                    astartiles = null;
+                    break;
+                case GameState.ASTAR:
+                    //start a*star code here...
+                    map.unhighlight();
+                    if (edited)
+                    {
+                        doMultiAStar();
+                    }
+                    map.refreshTiles();
                     break;
                 case GameState.RUNNING:
                     //start game here...
@@ -294,6 +305,18 @@ namespace RPG
             base.Update(gameTime);
         }
 
+        public void doMultiAStar()
+        {
+            Tile[] monsters = map.getMonsters();
+            astartiles = new List<Tile>();
+            for (int i = 0; i < monsters.Length; i++)
+            {
+                Tile cur = processAStar(map.getPlayerTile(), monsters[i]);
+                astartiles.Add(createAStarHighlight(cur));
+            }
+            edited = false;
+        }
+
         private void processAddEvent(Tile thetile)
         {
             Event e = new Event();
@@ -311,7 +334,7 @@ namespace RPG
             //Console.WriteLine("map=>" + map + "<, x=>" + x + "<, y=>" + y + "<");
         }
 
-        /*private Tile createAStarHighlight(Tile best)
+        private Tile createAStarHighlight(Tile best)
         {
             Tile start = addToAStarHighlight(best, null);
             Tile cur = best;
@@ -326,9 +349,9 @@ namespace RPG
                 cur = next;
             }
             return curhl;
-        }*/
+        }
 
-        /*private Tile addToAStarHighlight(Tile toadd, Tile prev)
+        private Tile addToAStarHighlight(Tile toadd, Tile prev)
         {
             int x = toadd.getX();
             int y = toadd.getY();
@@ -339,10 +362,10 @@ namespace RPG
             if(DEBUG)
             Console.WriteLine("Adding tile at (" + mapx + "," + mapy + ") to bestpath! Cost is " + toadd.getTotalCost());
 
-            Tile newadd = new Tile(mapx, mapy, x, y, len, astarwaypoint, Color.White);
+            Tile newadd = new Tile(mapx, mapy, x, y, len, new Tool(WorldTile.BLACK, astarwaypoint));
             newadd.setPrevious(prev);
             return newadd;
-        }*/
+        }
 
         public void SaveMap()
         {
@@ -397,7 +420,7 @@ namespace RPG
                 {
                     //Console.WriteLine("noclip=" + noclip);
                     KeyboardState kb = Keyboard.GetState();
-                    if (kb.IsKeyDown(Keys.P))
+                    if (kb.IsKeyDown(Keys.LeftControl) && kb.IsKeyDown(Keys.D))
                     {
                         state = GameState.EDIT;
                         toolmap.selectEdit();
@@ -432,11 +455,9 @@ namespace RPG
             }
         }
 
-        /*private Tile processAStar()
+        private Tile processAStar(Tile player, Tile monster)
         {
             Tile ret = null;
-            Tile player = map.getPlayerTile();
-            Tile monster = map.getMonsterTile();
 
             if (player != null && monster != null)
             {
@@ -449,7 +470,7 @@ namespace RPG
                 ret = iterateAStar(start, goal);
             }
             return ret;
-        }*/
+        }
 
         private void playGame(GameTime gameTime)
         {
@@ -490,7 +511,7 @@ namespace RPG
             if (maps.ContainsKey(mapfile))
             {
                 ret = maps[mapfile];
-                ret.setPlayerLocation(map.getTileAt(playerx, playery));
+                ret.setPlayerLocation(ret.getTileAt(playerx, playery));
             }
             else
             {
@@ -498,7 +519,7 @@ namespace RPG
                 StreamReader reader = new StreamReader(fileStream);
                 ret = new TileMap(10, 10, 17, DEFAULT_X_TILES, DEFAULT_Y_TILES, whitepixel, toolmap, font);
                 ret.LoadMap(reader, toolmap);
-                ret.setPlayerLocation(map.getTileAt(playerx, playery));
+                ret.setPlayerLocation(ret.getTileAt(playerx, playery));
 
                 maps.Add(mapfile, ret);
                 reader.Close();
@@ -624,10 +645,8 @@ namespace RPG
                 }
                 else
                 {
-                    //Tile newlast = addToBestPath(bestpath, cur, last);
                     int curx = cur.getMapX();
                     int cury = cur.getMapY();
-                    //last = newlast;
                     open.Remove(cur);
                     closed.Add(cur);
                     Tile up = map.getTileAt(curx, cury - 1);
@@ -657,7 +676,7 @@ namespace RPG
 
         private bool canAdd(Tile toadd, List<Tile> open, List<Tile> closed)
         {
-            if (toadd != null && toadd.getType() != WorldTile.WALL && !closed.Contains(toadd) && !open.Contains(toadd))
+            if (toadd != null && !toadd.isObstacle() && !closed.Contains(toadd) && !open.Contains(toadd))
                 return true;
             else
                 return false;
@@ -712,7 +731,7 @@ namespace RPG
                 /*if (map.getMonsterTile() == null)
                     spriteBatch.DrawString(font, "Add A Monster!", new Vector2(200, 330), Color.Red);
                 */
-                if (astartile == null)
+                if (astartiles == null)
                     spriteBatch.DrawString(font, "No Path To Player!", new Vector2(200, 360), Color.Red);
             }
             else if (state == GameState.GAMEOVER)
@@ -736,8 +755,8 @@ namespace RPG
             if(state != GameState.RUNNING)
                 toolmap.Draw(spriteBatch, state);
 
-            //if(state == GameState.ASTAR)
-           //     drawAStarTiles(spriteBatch);
+            if(state == GameState.ASTAR)
+               drawAStarTiles(spriteBatch);
 
             //drawErrors(spriteBatch);
             spriteBatch.End();
@@ -745,17 +764,24 @@ namespace RPG
             base.Draw(gameTime);
         }
 
-        /*private void drawAStarTiles(SpriteBatch spriteBatch)
+        private void drawAStarTiles(SpriteBatch spriteBatch)
         {
-            if (astartile != null)
+            if (astartiles != null)
             {
-                Tile cur = astartile;
-                while (cur != null)
+                for (int i = 0; i < astartiles.Count; i++)
                 {
-                    cur.Draw(spriteBatch);
-                    cur = cur.getPrevious();
+                    Tile cur = astartiles[i];
+                    while (cur != null)
+                    {
+                        Rectangle disp = map.getDisplayRectangleFor(cur);
+                        if(disp != null)
+                        {
+                        cur.Draw(spriteBatch, disp);
+                        cur = cur.getPrevious();
+                        }
+                    }
                 }
             }
-        }*/
+        }
     }
 }

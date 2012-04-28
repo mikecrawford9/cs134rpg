@@ -540,6 +540,11 @@ namespace RPG
                 Console.WriteLine("Monster is null!!");
         }*/
 
+        public Tile[] getMonsters()
+        {
+            return monstertiles.ToArray();
+        }
+
         public void setPlayerLocation(Tile newloc)
         {
             if (playertile == null)
@@ -552,7 +557,25 @@ namespace RPG
             curxtilemin = Math.Max(Math.Min(playerx - 8,xtiles - 17), 0);
             curytilemin = Math.Max(Math.Min(playery - 8,ytiles - 17), 0);
         }
-        
+
+        public Rectangle getDisplayRectangleFor(Tile cur)
+        {
+            Rectangle ret = Rectangle.Empty;
+
+            int curx = cur.getMapX();
+            int cury = cur.getMapY();
+
+            if (curx >= curxtilemin && curx <= (curxtilemin + size) && cury >= curytilemin && cury <= (curytilemin + size))
+            {
+                int dispx = curx - curxtilemin;
+                int dispy = cury - curytilemin;
+
+                ret = displaytiles[dispx][dispy];
+            }
+
+            return ret;
+        }
+
         public void unhighlight()
         {
             if (highlighted != null)

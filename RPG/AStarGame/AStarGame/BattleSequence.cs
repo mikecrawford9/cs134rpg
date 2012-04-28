@@ -22,8 +22,9 @@ namespace RPG
         bool continueCombat; 
         bool partyDead;
         bool enemiesDead;
+        Game1 game;
 
-        public BattleSequence(Party party, Enemy[] enemies, SpriteFont displayTextFont, TileMap battleMap)
+        public BattleSequence(Party party, Enemy[] enemies, SpriteFont displayTextFont, TileMap battleMap, Game1 game)
         {
             this.party = party;
             this.enemies = enemies;
@@ -33,17 +34,20 @@ namespace RPG
             this.continueCombat = true; 
             this.partyDead = false;
             this.enemiesDead= false;
+            this.game = game;
             
         }
 
-        public void Start(SpriteBatch sb)
+        public void Start()
         {
             combatLog.Add("Enemies have appeared.");
+            MediaPlayer.Stop();
+            MediaPlayer.Play(game.Content.Load<Song>("battlemusic"));
             while (continueCombat)
             {
                 foreach (Player p in party.partyMembers)
                 {
-                    AttackButton p1attack = new AttackButton(Content.Load<Texture2D>("Tiles/buttonSmall"), Content.Load<SpriteFont>("buttonFont"), sb, "Attack", p, null);
+                    AttackButton p1Attack = new AttackButton(game.Content.Load<Texture2D>("Tiles/buttonSmall"), game.Content.Load<SpriteFont>("Tiles/buttonFont"), game.spriteBatch, "Attack", p, null);
                 }
             }
         }
