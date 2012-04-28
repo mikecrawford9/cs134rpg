@@ -84,6 +84,7 @@ namespace RPG
         bool inaddevent;
         bool inprogress;
         bool setmessage;
+        bool playedendsound;
 
         int lastmonstermove;
         int lastplayermove;
@@ -143,7 +144,7 @@ namespace RPG
             eventqueue = new Queue<Event>();
             quests = new Dictionary<String, Quest>();
             quests.Add(Quests.DRAGONQUEST.getQuestID(), Quests.DRAGONQUEST);
-
+            playedendsound = false;
             texmap = new Dictionary<String, Texture2D>();
             maps = new Dictionary<String, TileMap>();
             lastmonstermove = 0;
@@ -153,7 +154,7 @@ namespace RPG
             buttonImage = Content.Load<Texture2D>("Tiles/button");
             //PlayerBase war = p.getNewPlayer("WARRIOR");
           
-            Player[] playerList = new Player[] { new Player(Player.WARRIOR, Sprite.WARRIOR, "Wally", 1) };
+            Player[] playerList = new Player[] { new Player(Player.WARRIOR, Sprite.WARRIOR, "Wally", 10) };
             party = new Party(playerList);
             base.Initialize();
         }
@@ -1156,13 +1157,18 @@ namespace RPG
                     spriteBatch.Draw(whitepixel, rec, Color.Black);
                     spriteBatch.DrawString(font, "YOU WIN!!!", new Vector2(rec.X + 20, rec.Y + 6), Color.Yellow);
                     spriteBatch.DrawString(font, "Congratulations, you are a\nSavage Dragons MASTER!!", new Vector2(rec.X + 20, rec.Y + 100), Color.Yellow);
+                    if (!playedendsound)
+                    {
+                        playedendsound = true;
+                        healSound.Play();
+                    }
                 }
                 else if (playstate == PlayState.GAMEOVER_LOSE)
                 {
                     Rectangle rec = new Rectangle(10, 10, TileMap.VIEW_WIDTH, TileMap.VIEW_HEIGHT);
                     spriteBatch.Draw(whitepixel, rec, Color.Black);
                     spriteBatch.DrawString(font, "YOU LOSE!!", new Vector2(rec.X + 20, rec.Y + 6), Color.Yellow);
-                    spriteBatch.DrawString(font, "WOW, you REALLY suck at video games...\nBetter luck next time!", new Vector2(rec.X + 20, rec.Y + 100), Color.Yellow);
+                    spriteBatch.DrawString(font, "WOW, you REALLY suck\nat video games...\n\n\nBetter luck next time!", new Vector2(rec.X + 20, rec.Y + 100), Color.Yellow);
                 }
             }
             else

@@ -2,7 +2,6 @@ Content\gameFont.xnb
 Content\Tiles\Black.xnb
 Content\Tiles\Castle.xnb
 Content\Tiles\dirt.xnb
-Content\Tiles\dragonwarrior3.xnb
 Content\Tiles\FenceAll.xnb
 Content\Tiles\FenceBottom.xnb
 Content\Tiles\FenceHorizontal.xnb
@@ -53,5 +52,4 @@ Content\Tiles\Trees.xnb
 Content\Tiles\Underground Stairs.xnb
 Content\Tiles\Wall.xnb
 Content\Tiles\Water.xnb
-Content\Tiles\Zelda Tilesa.xnb
 Content\AStarWayPoint.xnb

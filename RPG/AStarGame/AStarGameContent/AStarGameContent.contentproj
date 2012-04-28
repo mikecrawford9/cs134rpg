@@ -62,11 +62,6 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="Tiles\dragonwarrior3.png">
-      <Name>dragonwarrior3</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
     <Compile Include="Tiles\FenceAll.png">
       <Name>FenceAll</Name>
       <Importer>TextureImporter</Importer>
@@ -314,11 +309,6 @@
     </Compile>
     <Compile Include="Tiles\Water.png">
       <Name>Water</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="Tiles\Zelda Tilesa.png">
-      <Name>Zelda Tilesa</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>

@@ -20,7 +20,7 @@ namespace RPG
             this.partyMembers = partyMembers;
             this.score = score;
             this.money = money;
-            this.partyMembers[0].inventory.AddItem(Item.DRAGON_SKULL);
+            //this.partyMembers[0].inventory.AddItem(Item.DRAGON_SKULL);
         }
 
         public void CalculateScore()
