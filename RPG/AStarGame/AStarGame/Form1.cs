@@ -32,6 +32,10 @@ namespace RPG
             {
                 theEvent.setEventType(EventType.BATTLE_TILE);
             }
+            else if (s == "Wait For NPC")
+            {
+                theEvent.setEventType(EventType.WAITFORNPC);
+            }
 
             for(int i = 0; i < items.Count; i++)
                 if (items[i] is TextBox)
@@ -58,6 +62,10 @@ namespace RPG
             else if (s == "Start Battle")
             {
                 processBattleTileLayout();
+            }
+            else if (s == "Wait For NPC")
+            {
+                processWaitForNPCLayout();
             }
         }
 
@@ -198,6 +206,47 @@ namespace RPG
             items.Add(label2);
 
             addItemsToLayout();
+        }
+
+        public void processWaitForNPCLayout()
+        {
+            createBoxAndLabel("NPC Texture", "npctexture", 5, 55, 247);
+            createBoxAndLabel("Spawn X", "x", 5, 90, 50);
+            createBoxAndLabel("Spawn Y", "y", 60, 90, 50);
+            createBoxAndLabel("Goal X", "goalx", 115, 90, 50);
+            createBoxAndLabel("Spawn Y", "goaly", 170, 90, 50);
+            createBoxAndLabel("Quest to give", "questid", 5, 125, 247);
+            createBoxAndLabel("Quest Return Map", "questret", 5, 160, 247);
+            createBoxAndLabel("QR X", "questretx", 5, 195, 50);
+            createBoxAndLabel("QR Y", "questrety", 60, 195, 50);
+            
+            addItemsToLayout();
+        }
+
+        private void createBoxAndLabel(String label, String id, int x, int y, int width)
+        {
+            System.Windows.Forms.Label label5 = new System.Windows.Forms.Label();
+            System.Windows.Forms.TextBox textBox5 = new System.Windows.Forms.TextBox();
+
+            // 
+            // label3
+            // 
+            label5.AutoSize = true;
+            label5.Location = new System.Drawing.Point(x, y);
+            label5.Name = "label3";
+            label5.Size = new System.Drawing.Size(width, 13);
+            label5.TabIndex = 6;
+            label5.Text = label;
+            // 
+            // textBox2
+            // 
+            textBox5.Location = new System.Drawing.Point(x, y+13);
+            textBox5.Name = id;
+            textBox5.Size = new System.Drawing.Size(width, 20);
+            textBox5.TabIndex = 7;
+
+            items.Add(textBox5);
+            items.Add(label5);
         }
 
         private void addItemsToLayout()

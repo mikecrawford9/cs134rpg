@@ -14,6 +14,6 @@ using System.Text;
 namespace RPG
 {
     public enum GameState { EDIT, ASTAR, RUNNING, GAMEOVER, SAVEMAP, LOADMAP, ADDEVENT, MAINMENU, COMBAT, SHOP, INN};
-    public enum PlayState { TITLE, WORLD, BATTLE, GAMEOVER };
+    public enum PlayState { TITLE, WORLD, WAITFORNPC, NPCQUEST, MESSAGE, BATTLE, GAMEOVER };
 }
 

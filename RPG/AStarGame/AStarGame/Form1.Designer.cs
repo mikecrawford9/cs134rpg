@@ -49,7 +49,8 @@
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Items.AddRange(new object[] {
             "Map Transition",
-            "Start Battle"});
+            "Start Battle",
+            "Wait For NPC"});
             this.comboBox1.Location = new System.Drawing.Point(13, 30);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(121, 21);

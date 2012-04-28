@@ -10,9 +10,13 @@ namespace RPG
         public Player[] partyMembers;
         public int score;
         public int money;
+        Dictionary<String, Quest> open;
+        Dictionary<String, Quest> completed;
 
         public Party(Player[] partyMembers, int score = 0, int money = 1000)
         {
+            this.open = new Dictionary<String, Quest>();
+            this.completed = new Dictionary<String, Quest>();
             this.partyMembers = partyMembers;
             this.score = score;
             this.money = money;
@@ -30,6 +34,32 @@ namespace RPG
                 }
             }
             
+        }
+
+        public void completeQuest(Quest q)
+        {
+            if(open.ContainsKey(q.getQuestID()))
+                open.Remove(q.getQuestID());
+
+            if(!completed.ContainsKey(q.getQuestID()))
+                completed.Add(q.getQuestID(),q);
+        }
+
+        public void addQuest(Quest q)
+        {
+            if(!open.ContainsKey(q.getQuestID()))
+                open.Add(q.getQuestID(), q);
+        }
+
+        public bool questInProgressOrCompleted(String id)
+        {
+            if (open.ContainsKey(id))
+                return true;
+
+            if (completed.ContainsKey(id))
+                return true;
+
+            return false;
         }
 
         public bool CanBuyItem(Item item)

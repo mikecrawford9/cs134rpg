@@ -44,6 +44,9 @@ namespace RPG
 
         Tile playertile;
         List<Tile> monstertiles;
+        Dictionary<String, Tile> npctiles;
+
+        Message m;
 
         int playerx;
         int playery;
@@ -69,6 +72,7 @@ namespace RPG
             center = (int)Math.Ceiling(size / 2.0);
             displaytiles = new Rectangle[size][];
             monstertiles = new List<Tile>();
+            npctiles = new Dictionary<String, Tile>();
             for (int i = 0; i < size; i++)
             {
                 displaytiles[i] = new Rectangle[size];
@@ -95,9 +99,56 @@ namespace RPG
 
         }
 
+        public void setMessage(Message m)
+        {
+            this.m = m;
+        }
+
+        public void removeMessage()
+        {
+            this.m = null;
+        }
+
+        public void addNPC(String id, int x, int y, Tool tool)
+        {
+            if(!npctiles.ContainsKey(id))
+                npctiles.Add(id, new Tile(x, y, 0, 0, 0, tool));
+        }
+
+        public Tile getNPC(String id)
+        {
+            if (npctiles.ContainsKey(id))
+                return npctiles[id];
+            else
+                return null;
+        }
+
+        public void removeNPC(String id)
+        {
+            if (npctiles.ContainsKey(id))
+                npctiles.Remove(id);
+        }
+
+        public void setNPCLocation(String id, Tile newloc)
+        {
+            Tile npc = null;
+            if(npctiles.ContainsKey(id))
+                npc = npctiles[id];
+
+            if (npc != null)
+            {
+                npc.setMapX(newloc.getMapX());
+                npc.setMapY(newloc.getMapY());
+            }
+            else
+                Console.WriteLine("NPC is null!!");
+        }
+
         public void Draw(SpriteBatch spriteBatch)
         {
             int i, ia, j, ja;
+            List<Tile> npclist = new List<Tile>(npctiles.Values);
+            Tile[] npcarr = npclist.ToArray();
             for (ia = 0, i = curxtilemin; i < (size + curxtilemin) && i < xtiles && ia < size; i++, ia++)
                 for (ja = 0, j = curytilemin; j < (size + curytilemin) && j < ytiles && ja < size; j++, ja++)
                 {
@@ -111,7 +162,18 @@ namespace RPG
                         if (monstertile != null && i == monstertile.getMapX() && j == monstertile.getMapY())
                             monstertile.Draw(spriteBatch, displaytiles[ia][ja]);
                     }
+
+                    for (int p = 0; p < npcarr.Length; p++)
+                    {
+                        Tile monstertile = npcarr[p];
+                        if (monstertile != null && i == monstertile.getMapX() && j == monstertile.getMapY())
+                            monstertile.Draw(spriteBatch, displaytiles[ia][ja]);
+                    }
+
                 }
+
+            if (m != null)
+                m.Draw(spriteBatch);
         }
 
         public bool SaveMap(StreamWriter file)

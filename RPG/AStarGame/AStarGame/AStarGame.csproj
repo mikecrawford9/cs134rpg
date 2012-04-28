@@ -124,8 +124,11 @@
     <Compile Include="GameState.cs" />
     <Compile Include="Item.cs" />
     <Compile Include="MapTransition.cs" />
+    <Compile Include="Message.cs" />
     <Compile Include="Party.cs" />
     <Compile Include="Player.cs" />
+    <Compile Include="Quest.cs" />
+    <Compile Include="Quests.cs" />
     <Compile Include="Spell.cs" />
     <Compile Include="WorldTiles.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
