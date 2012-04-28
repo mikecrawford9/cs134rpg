@@ -15,9 +15,7 @@ Content\Tiles\SwampToGrassTopLeft.xnb
 Content\Tiles\MountainRange.xnb
 Content\Tiles\Mountain Range Bottom.xnb
 Content\Tiles\Mountain Range Left.xnb
-Content\Tiles\dragonwarrior3.xnb
 Content\Tiles\Mountain.xnb
-Content\Tiles\Zelda Tilesa.xnb
 Content\Tiles\Black.xnb
 Content\Tiles\Castle.xnb
 Content\Tiles\DarkHeroBack.xnb
@@ -111,7 +109,6 @@ Content\Tiles\TextBoxUpperLeft.xnb
 Content\Tiles\TextBoxUpperRight.xnb
 Content\Tiles\Underground Stairs.xnb
 Content\Tiles\Dirt.xnb
-Content\Tiles\dragonwarrior3transparent.xnb
 Content\Tiles\InnKeeper.xnb
 Content\Tiles\Princess.xnb
 Content\Tiles\SkeletonBackFace.xnb
@@ -125,6 +122,7 @@ Content\buttonfont.xnb
 Content\gameover.xnb
 Content\victory.xnb
 Content\finishedquest.xnb
+Content\FireballSound.xnb
 Content\Healing.xnb
 Content\SwordAttack.xnb
 Content\Wood Attack.xnb
@@ -132,7 +130,6 @@ Content\Tiles\Dragon Roar.xnb
 Content\battlemusic.xnb
 Content\cavemusic.xnb
 Content\Townmusic.xnb
-Content\FireballSound.xnb
 Content\battlemusic.wma
 Content\cavemusic.wma
 Content\Townmusic.wma

@@ -565,7 +565,7 @@ namespace RPG
                                 break;
                             case SpellTargetType.SINGLE:
                                 int damage = se.value + this.GetCurrentMAGATK();
-                                target.ModifyStatSpell(se.type, damage);
+                                target.ModifyStatSpell(se.type,-1 * damage);
                                 break;
                             default: break;
                         }
@@ -583,7 +583,7 @@ namespace RPG
                                 break;
                             case SpellTargetType.SINGLE:
                                 int damage = se.value + this.GetCurrentATK();
-                                target.ModifyStatSpell(se.type, damage);
+                                target.ModifyStatSpell(se.type, -1 * damage);
                                 break;
                             default: break;
                         }
@@ -616,16 +616,18 @@ namespace RPG
 
     public class Enemy
     {
-        public Enemy(Player p, int expGiveBase = 20, int goldGiveBase = 20)
+        public Enemy(Player p, Item prize, int expGiveBase = 20, int goldGiveBase = 20)
         {
             this.player = p;
             this.expGiveBase = expGiveBase;
             this.goldGiveBase = goldGiveBase;
+            this.prize = prize;
         }
 
         public Player player;
         public int expGiveBase;
         public int goldGiveBase;
+        public Item prize;
 
         public int GetExp()
         {
