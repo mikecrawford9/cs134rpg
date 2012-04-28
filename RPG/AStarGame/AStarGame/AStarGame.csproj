@@ -115,6 +115,7 @@
     <Compile Include="Button.cs" />
     <Compile Include="Event.cs" />
     <Compile Include="EventType.cs" />
+    <Compile Include="FleeButton.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -123,6 +124,7 @@
     </Compile>
     <Compile Include="GameState.cs" />
     <Compile Include="Item.cs" />
+    <Compile Include="ItemButton.cs" />
     <Compile Include="MapTransition.cs" />
     <Compile Include="Message.cs" />
     <Compile Include="Party.cs" />

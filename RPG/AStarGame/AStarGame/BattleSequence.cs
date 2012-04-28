@@ -19,7 +19,7 @@ namespace RPG
         public List<String> combatLog;
         public SpriteFont combatLogFont;
         public List<Button> visibleButtons;
-        public List<BattleAction> currentActions;
+        public Queue<BattleAction> currentActions;
         public bool continueCombat;
         public bool partyDead;
         public bool enemiesDead;
@@ -37,7 +37,7 @@ namespace RPG
             this.enemies = enemies;
             this.combatLog = new List<String>();
             this.combatLogFont = displayTextFont;
-            this.currentActions = new List<BattleAction>();
+            this.currentActions = new Queue<BattleAction>();
             this.continueCombat = true; 
             this.partyDead = false;
             this.enemiesDead= false;
@@ -52,12 +52,9 @@ namespace RPG
         public void Start()
         {
             combatLog.Add("Enemies have appeared.");
-            while (continueCombat)
+            switch (state)
             {
-                switch (state)
-                {
                     case BattleStageType.ACTION:
-
                         foreach (Player p in party.partyMembers)
                         {
                             aButton = new AttackButton(Game1.buttonImage, Game1.buttonFont, "Attack", p, this, null);
@@ -65,7 +62,7 @@ namespace RPG
                             fleeButton = new FleeButton(Game1.buttonImage, Game1.buttonFont, "Flee", p, this, null);
                         }
                         break;
-                    case BattleStageType.FIGHT:
+                    /*case BattleStageType.FIGHT:
                         foreach (BattleAction b in this.currentActions)
                         {
                             b.performAction();
@@ -80,25 +77,34 @@ namespace RPG
                         e.addProperty("y", yRet);
                         e.addProperty("mapfile", retMap);
                         Game1.addToEventQueue(e);
+                        this.continueCombat = false;
                         break;
                     case BattleStageType.LOSE:
+                        this.continueCombat = false;
                         break;
                     case BattleStageType.WIN:
+                        this.continueCombat = false;
                         break;
-                        
-                }
-                this.continueCombat = false;
+                     */
             }
         }
 
         public bool AttemptToFlee()
         {
-            switch ((new Random()).Next(0, 1))
+            int test = (new Random()).Next(0, 2);
+            //Console.WriteLine("test=" + test);
+            switch (test)
+            {
+                case 0: return false;
+                case 1: return true;
+            }
+            /*switch ((new Random()).Next(0, 1))
             {
                 case 0: break;
                 case 1: this.continueCombat = false; return true;
                 default: break;
             }
+            return false;*/
             return false;
         }
 
@@ -111,9 +117,12 @@ namespace RPG
                 default:
                 case 3:
                     spriteBatch.DrawString(Game1.buttonFont, combatLog[combatLog.ToArray().Length - 3], new Vector2(20, 300), Color.White);
+                    spriteBatch.DrawString(Game1.buttonFont, combatLog[combatLog.ToArray().Length - 2], new Vector2(20, 320), Color.White);
+                    spriteBatch.DrawString(Game1.buttonFont, combatLog[combatLog.ToArray().Length - 1], new Vector2(20, 340), Color.White);
                     break;
                 case 2:
                     spriteBatch.DrawString(Game1.buttonFont, combatLog[combatLog.ToArray().Length - 2], new Vector2(20, 320), Color.White);
+                    spriteBatch.DrawString(Game1.buttonFont, combatLog[combatLog.ToArray().Length - 1], new Vector2(20, 340), Color.White);
                     break;
                 case 1:
                     spriteBatch.DrawString(Game1.buttonFont, combatLog[combatLog.ToArray().Length - 1], new Vector2(20, 340), Color.White);
@@ -155,9 +164,22 @@ namespace RPG
                     fleeButton.Update();
                     break;
                 case BattleStageType.FIGHT:
-
+                    while (this.currentActions.Count > 0)
+                    {
+                        BattleAction a = this.currentActions.Dequeue();
+                        a.performAction();
+                    }
+                    //this.state = BattleStageType.ACTION;
                     break;
                 case BattleStageType.FLEE:
+                    Console.WriteLine("FLEE STAGE?");
+                    Event e = new Event();
+                    e.setEventType(EventType.MAP_TRANSITION);
+                    e.addProperty("x", xRet);
+                    e.addProperty("y", yRet);
+                    e.addProperty("mapfile", retMap);
+                    Game1.addToEventQueue(e);
+                    this.continueCombat = false;
                     break;
                 case BattleStageType.LOSE:
                     break;
@@ -203,6 +225,8 @@ namespace RPG
                         Console.WriteLine("Melee Attack");
                         user.UseSpell(t, spell);
                     }
+                    if(battleSequence.state != BattleStageType.FLEE)
+                        battleSequence.state = BattleStageType.ACTION;
                     break;
                 case BattleActionType.ITEM:
                     foreach (Player t in target)
@@ -218,13 +242,16 @@ namespace RPG
                     }
                     break;
                 case BattleActionType.FLEE:
-                    Console.WriteLine("Fleeeing...");
+                    Console.Write("Fleeeing...");
                     if (battleSequence.AttemptToFlee())
                     {
+                        Console.WriteLine("Success!");
+                        //continueCombat = false;
                         battleSequence.state = BattleStageType.FLEE;
                     }
                     else
                     {
+                        Console.WriteLine("Failure!");
                         battleSequence.state = BattleStageType.ACTION;
                     }
                     break;

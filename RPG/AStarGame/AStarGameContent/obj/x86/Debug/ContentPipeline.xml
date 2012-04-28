@@ -2,184 +2,13 @@
 <XnaContent xmlns:Pipeline="Microsoft.Xna.Framework.Content.Pipeline">
   <Asset Type="Pipeline:BuildItemCollection">
     <Item>
-      <Source>Tiles\Grass.png</Source>
-      <Name>Tiles\Grass</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
+      <Source>gameFont.spritefont</Source>
+      <Name>gameFont</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
       <Options>None</Options>
-      <Output>F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\Grass.xnb</Output>
-      <Time>2012-04-25T23:00:46.693999-07:00</Time>
-    </Item>
-    <Item>
-      <Source>Tiles\LavaRocks.png</Source>
-      <Name>Tiles\LavaRocks</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\LavaRocks.xnb</Output>
-      <Time>2012-04-25T23:00:46.6979993-07:00</Time>
-    </Item>
-    <Item>
-      <Source>Tiles\Monster.png</Source>
-      <Name>Tiles\Monster</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\Monster.xnb</Output>
-      <Time>2012-04-25T23:00:46.7009994-07:00</Time>
-    </Item>
-    <Item>
-      <Source>Tiles\Swamp.png</Source>
-      <Name>Tiles\Swamp</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\Swamp.xnb</Output>
-      <Time>2012-04-25T23:00:46.7069998-07:00</Time>
-    </Item>
-    <Item>
-      <Source>Tiles\Trees.png</Source>
-      <Name>Tiles\Trees</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\Trees.xnb</Output>
-      <Time>2012-04-25T23:00:46.7130001-07:00</Time>
-    </Item>
-    <Item>
-      <Source>Tiles\Wall.png</Source>
-      <Name>Tiles\Wall</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\Wall.xnb</Output>
-      <Time>2012-04-25T23:00:46.7440019-07:00</Time>
-    </Item>
-    <Item>
-      <Source>Tiles\Water.png</Source>
-      <Name>Tiles\Water</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\Water.xnb</Output>
-      <Time>2012-04-25T23:00:46.7440019-07:00</Time>
-    </Item>
-    <Item>
-      <Source>AStarWayPoint.png</Source>
-      <Name>AStarWayPoint</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\AStarWayPoint.xnb</Output>
-      <Time>2012-04-25T23:00:46.6529967-07:00</Time>
-    </Item>
-    <Item>
-      <Source>Tiles\SwampToGrassBottom.png</Source>
-      <Name>Tiles\SwampToGrassBottom</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\SwampToGrassBottom.xnb</Output>
-      <Time>2012-04-25T23:00:46.7069998-07:00</Time>
-    </Item>
-    <Item>
-      <Source>Tiles\SwampToGrassBottomLeft.png</Source>
-      <Name>Tiles\SwampToGrassBottomLeft</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\SwampToGrassBottomLeft.xnb</Output>
-      <Time>2012-04-25T23:00:46.7079998-07:00</Time>
-    </Item>
-    <Item>
-      <Source>Tiles\SwampToGrassLeft.png</Source>
-      <Name>Tiles\SwampToGrassLeft</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\SwampToGrassLeft.xnb</Output>
-      <Time>2012-04-25T23:00:46.7089999-07:00</Time>
-    </Item>
-    <Item>
-      <Source>Tiles\SwampToGrassRight.png</Source>
-      <Name>Tiles\SwampToGrassRight</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\SwampToGrassRight.xnb</Output>
-      <Time>2012-04-25T23:00:46.7089999-07:00</Time>
-    </Item>
-    <Item>
-      <Source>Tiles\SwampToGrassTop.png</Source>
-      <Name>Tiles\SwampToGrassTop</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\SwampToGrassTop.xnb</Output>
-      <Time>2012-04-25T23:00:46.71-07:00</Time>
-    </Item>
-    <Item>
-      <Source>Tiles\SwampToGrassTopLeft.png</Source>
-      <Name>Tiles\SwampToGrassTopLeft</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\SwampToGrassTopLeft.xnb</Output>
-      <Time>2012-04-25T23:00:46.71-07:00</Time>
-    </Item>
-    <Item>
-      <Source>Tiles\Mountain Range.png</Source>
-      <Name>Tiles\MountainRange</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\MountainRange.xnb</Output>
-      <Time>2012-04-25T23:00:46.7029996-07:00</Time>
-    </Item>
-    <Item>
-      <Source>Tiles\Mountain Range Bottom.png</Source>
-      <Name>Tiles\Mountain Range Bottom</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\Mountain Range Bottom.xnb</Output>
-      <Time>2012-04-25T23:00:46.7009994-07:00</Time>
-    </Item>
-    <Item>
-      <Source>Tiles\Mountain Range Left.png</Source>
-      <Name>Tiles\Mountain Range Left</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\Mountain Range Left.xnb</Output>
-      <Time>2012-04-25T23:00:46.7019995-07:00</Time>
-    </Item>
-    <Item>
-      <Source>Tiles\dragonwarrior3.png</Source>
-      <Name>Tiles\dragonwarrior3</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\dragonwarrior3.xnb</Output>
-      <Time>2012-04-25T23:00:46.7470021-07:00</Time>
-    </Item>
-    <Item>
-      <Source>Tiles\Mountain.png</Source>
-      <Name>Tiles\Mountain</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\Mountain.xnb</Output>
-      <Time>2012-04-25T23:00:46.7029996-07:00</Time>
-    </Item>
-    <Item>
-      <Source>Tiles\Zelda Tilesa.png</Source>
-      <Name>Tiles\Zelda Tilesa</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\Zelda Tilesa.xnb</Output>
-      <Time>2012-04-25T23:00:46.746002-07:00</Time>
+      <Output>C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\gameFont.xnb</Output>
+      <Time>2011-04-01T10:42:38-07:00</Time>
     </Item>
     <Item>
       <Source>Tiles\Black.png</Source>
@@ -187,8 +16,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\Black.xnb</Output>
-      <Time>2012-04-25T23:00:46.6549968-07:00</Time>
+      <Output>C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\Black.xnb</Output>
+      <Time>2012-04-25T01:27:48.1376382-07:00</Time>
     </Item>
     <Item>
       <Source>Tiles\Castle.png</Source>
@@ -196,206 +25,26 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\Castle.xnb</Output>
-      <Time>2012-04-25T23:00:46.6549968-07:00</Time>
+      <Output>C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\Castle.xnb</Output>
+      <Time>2012-04-25T01:27:48.1416384-07:00</Time>
     </Item>
     <Item>
-      <Source>Tiles\DarkHeroBack.png</Source>
-      <Name>Tiles\DarkHeroBack</Name>
+      <Source>Tiles\dirt.png</Source>
+      <Name>Tiles\dirt</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\DarkHeroBack.xnb</Output>
-      <Time>2012-04-25T23:00:46.6559969-07:00</Time>
+      <Output>C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\dirt.xnb</Output>
+      <Time>2012-04-24T20:40:15.0736954-07:00</Time>
     </Item>
     <Item>
-      <Source>Tiles\DarkHeroBackHit.png</Source>
-      <Name>Tiles\DarkHeroBackHit</Name>
+      <Source>Tiles\dragonwarrior3.png</Source>
+      <Name>Tiles\dragonwarrior3</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\DarkHeroBackHit.xnb</Output>
-      <Time>2012-04-25T21:42:36.2217194-07:00</Time>
-    </Item>
-    <Item>
-      <Source>Tiles\DarkHeroFront.png</Source>
-      <Name>Tiles\DarkHeroFront</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\DarkHeroFront.xnb</Output>
-      <Time>2012-04-25T23:00:46.6569969-07:00</Time>
-    </Item>
-    <Item>
-      <Source>Tiles\DarkHeroFrontHit.png</Source>
-      <Name>Tiles\DarkHeroFrontHit</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\DarkHeroFrontHit.xnb</Output>
-      <Time>2012-04-25T21:42:52.0756262-07:00</Time>
-    </Item>
-    <Item>
-      <Source>Tiles\DarkHeroLeftFace.png</Source>
-      <Name>Tiles\DarkHeroLeftFace</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\DarkHeroLeftFace.xnb</Output>
-      <Time>2012-04-25T23:00:46.6569969-07:00</Time>
-    </Item>
-    <Item>
-      <Source>Tiles\DarkHeroLeftFaceHit.png</Source>
-      <Name>Tiles\DarkHeroLeftFaceHit</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\DarkHeroLeftFaceHit.xnb</Output>
-      <Time>2012-04-25T21:43:03.5042799-07:00</Time>
-    </Item>
-    <Item>
-      <Source>Tiles\DarkHeroRightFace.png</Source>
-      <Name>Tiles\DarkHeroRightFace</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\DarkHeroRightFace.xnb</Output>
-      <Time>2012-04-25T23:00:46.6719978-07:00</Time>
-    </Item>
-    <Item>
-      <Source>Tiles\DarkHeroRightFaceHit.png</Source>
-      <Name>Tiles\DarkHeroRightFaceHit</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\DarkHeroRightFaceHit.xnb</Output>
-      <Time>2012-04-25T21:43:16.3830165-07:00</Time>
-    </Item>
-    <Item>
-      <Source>Tiles\Enemy1LeftFace.png</Source>
-      <Name>Tiles\Enemy1LeftFace</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\Enemy1LeftFace.xnb</Output>
-      <Time>2012-04-25T23:00:46.6819984-07:00</Time>
-    </Item>
-    <Item>
-      <Source>Tiles\Enemy1LeftFaceHit.png</Source>
-      <Name>Tiles\Enemy1LeftFaceHit</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\Enemy1LeftFaceHit.xnb</Output>
-      <Time>2012-04-25T21:47:53.6068728-07:00</Time>
-    </Item>
-    <Item>
-      <Source>Tiles\Enemy1RightFace.png</Source>
-      <Name>Tiles\Enemy1RightFace</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\Enemy1RightFace.xnb</Output>
-      <Time>2012-04-25T23:00:46.6829984-07:00</Time>
-    </Item>
-    <Item>
-      <Source>Tiles\Enemy1RightFaceHit.png</Source>
-      <Name>Tiles\Enemy1RightFaceHit</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\Enemy1RightFaceHit.xnb</Output>
-      <Time>2012-04-25T21:48:09.8388012-07:00</Time>
-    </Item>
-    <Item>
-      <Source>Tiles\Enemy2LeftFace.png</Source>
-      <Name>Tiles\Enemy2LeftFace</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\Enemy2LeftFace.xnb</Output>
-      <Time>2012-04-25T23:00:46.6829984-07:00</Time>
-    </Item>
-    <Item>
-      <Source>Tiles\Enemy2LeftFaceHit.png</Source>
-      <Name>Tiles\Enemy2LeftFaceHit</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\Enemy2LeftFaceHit.xnb</Output>
-      <Time>2012-04-25T21:46:58.4877201-07:00</Time>
-    </Item>
-    <Item>
-      <Source>Tiles\Enemy2RightFace.png</Source>
-      <Name>Tiles\Enemy2RightFace</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\Enemy2RightFace.xnb</Output>
-      <Time>2012-04-25T23:00:46.6829984-07:00</Time>
-    </Item>
-    <Item>
-      <Source>Tiles\Enemy2RightFaceHit.png</Source>
-      <Name>Tiles\Enemy2RightFaceHit</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\Enemy2RightFaceHit.xnb</Output>
-      <Time>2012-04-25T21:47:09.7533645-07:00</Time>
-    </Item>
-    <Item>
-      <Source>Tiles\Enemy3LeftFace.png</Source>
-      <Name>Tiles\Enemy3LeftFace</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\Enemy3LeftFace.xnb</Output>
-      <Time>2012-04-25T23:00:46.6839985-07:00</Time>
-    </Item>
-    <Item>
-      <Source>Tiles\Enemy3LeftFaceHit.png</Source>
-      <Name>Tiles\Enemy3LeftFaceHit</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\Enemy3LeftFaceHit.xnb</Output>
-      <Time>2012-04-25T21:47:20.1729605-07:00</Time>
-    </Item>
-    <Item>
-      <Source>Tiles\Enemy3RightFace.png</Source>
-      <Name>Tiles\Enemy3RightFace</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\Enemy3RightFace.xnb</Output>
-      <Time>2012-04-25T23:00:46.6839985-07:00</Time>
-    </Item>
-    <Item>
-      <Source>Tiles\Enemy3RightFaceHit.png</Source>
-      <Name>Tiles\Enemy3RightFaceHit</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\Enemy3RightFaceHit.xnb</Output>
-      <Time>2012-04-25T21:47:37.1009287-07:00</Time>
-    </Item>
-    <Item>
-      <Source>Tiles\EnemyDragonDark1FrontFace.png</Source>
-      <Name>Tiles\EnemyDragonDark1FrontFace</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\EnemyDragonDark1FrontFace.xnb</Output>
-      <Time>2012-04-25T23:00:46.6849985-07:00</Time>
-    </Item>
-    <Item>
-      <Source>Tiles\EnemyDragonDarkDefeated1FrontFace.png</Source>
-      <Name>Tiles\EnemyDragonDarkDefeated1FrontFace</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\EnemyDragonDarkDefeated1FrontFace.xnb</Output>
-      <Time>2012-04-25T23:00:46.6849985-07:00</Time>
+      <Output>C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\dragonwarrior3.xnb</Output>
+      <Time>2012-04-24T18:18:28.1694877-07:00</Time>
     </Item>
     <Item>
       <Source>Tiles\FenceAll.png</Source>
@@ -403,8 +52,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\FenceAll.xnb</Output>
-      <Time>2012-04-25T23:00:46.6869986-07:00</Time>
+      <Output>C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\FenceAll.xnb</Output>
+      <Time>2012-04-24T20:02:56.1627038-07:00</Time>
     </Item>
     <Item>
       <Source>Tiles\FenceBottom.png</Source>
@@ -412,8 +61,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\FenceBottom.xnb</Output>
-      <Time>2012-04-25T23:00:46.6869986-07:00</Time>
+      <Output>C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\FenceBottom.xnb</Output>
+      <Time>2012-04-24T20:02:56.1627038-07:00</Time>
     </Item>
     <Item>
       <Source>Tiles\FenceHorizontal.png</Source>
@@ -421,8 +70,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\FenceHorizontal.xnb</Output>
-      <Time>2012-04-25T23:00:46.6869986-07:00</Time>
+      <Output>C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\FenceHorizontal.xnb</Output>
+      <Time>2012-04-24T20:02:56.1627038-07:00</Time>
     </Item>
     <Item>
       <Source>Tiles\FenceLeft.png</Source>
@@ -430,8 +79,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\FenceLeft.xnb</Output>
-      <Time>2012-04-25T23:00:46.6879987-07:00</Time>
+      <Output>C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\FenceLeft.xnb</Output>
+      <Time>2012-04-24T20:02:56.1627038-07:00</Time>
     </Item>
     <Item>
       <Source>Tiles\FenceLowerLeft.png</Source>
@@ -439,8 +88,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\FenceLowerLeft.xnb</Output>
-      <Time>2012-04-25T23:00:46.6879987-07:00</Time>
+      <Output>C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\FenceLowerLeft.xnb</Output>
+      <Time>2012-04-24T20:02:56.1627038-07:00</Time>
     </Item>
     <Item>
       <Source>Tiles\FenceLowerRight.png</Source>
@@ -448,8 +97,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\FenceLowerRight.xnb</Output>
-      <Time>2012-04-25T23:00:46.6889988-07:00</Time>
+      <Output>C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\FenceLowerRight.xnb</Output>
+      <Time>2012-04-24T20:02:56.1627038-07:00</Time>
     </Item>
     <Item>
       <Source>Tiles\FenceNoBottom.png</Source>
@@ -457,8 +106,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\FenceNoBottom.xnb</Output>
-      <Time>2012-04-25T23:00:46.6889988-07:00</Time>
+      <Output>C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\FenceNoBottom.xnb</Output>
+      <Time>2012-04-24T20:02:56.1627038-07:00</Time>
     </Item>
     <Item>
       <Source>Tiles\FenceNoLeft.png</Source>
@@ -466,8 +115,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\FenceNoLeft.xnb</Output>
-      <Time>2012-04-25T23:00:46.6899988-07:00</Time>
+      <Output>C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\FenceNoLeft.xnb</Output>
+      <Time>2012-04-24T20:02:56.1627038-07:00</Time>
     </Item>
     <Item>
       <Source>Tiles\FenceNoRight.png</Source>
@@ -475,8 +124,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\FenceNoRight.xnb</Output>
-      <Time>2012-04-25T23:00:46.6899988-07:00</Time>
+      <Output>C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\FenceNoRight.xnb</Output>
+      <Time>2012-04-24T20:02:56.1627038-07:00</Time>
     </Item>
     <Item>
       <Source>Tiles\FenceNoTop.png</Source>
@@ -484,8 +133,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\FenceNoTop.xnb</Output>
-      <Time>2012-04-25T23:00:46.6909989-07:00</Time>
+      <Output>C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\FenceNoTop.xnb</Output>
+      <Time>2012-04-24T20:02:56.1627038-07:00</Time>
     </Item>
     <Item>
       <Source>Tiles\FencePole.png</Source>
@@ -493,8 +142,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\FencePole.xnb</Output>
-      <Time>2012-04-25T23:00:46.6909989-07:00</Time>
+      <Output>C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\FencePole.xnb</Output>
+      <Time>2012-04-24T20:02:56.1627038-07:00</Time>
     </Item>
     <Item>
       <Source>Tiles\FenceRight.png</Source>
@@ -502,8 +151,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\FenceRight.xnb</Output>
-      <Time>2012-04-25T23:00:46.6919989-07:00</Time>
+      <Output>C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\FenceRight.xnb</Output>
+      <Time>2012-04-24T20:02:56.1627038-07:00</Time>
     </Item>
     <Item>
       <Source>Tiles\FenceTop.png</Source>
@@ -511,8 +160,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\FenceTop.xnb</Output>
-      <Time>2012-04-25T23:00:46.6919989-07:00</Time>
+      <Output>C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\FenceTop.xnb</Output>
+      <Time>2012-04-24T20:02:56.1783038-07:00</Time>
     </Item>
     <Item>
       <Source>Tiles\FenceUpperLeft.png</Source>
@@ -520,8 +169,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\FenceUpperLeft.xnb</Output>
-      <Time>2012-04-25T23:00:46.692999-07:00</Time>
+      <Output>C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\FenceUpperLeft.xnb</Output>
+      <Time>2012-04-24T20:02:56.1783038-07:00</Time>
     </Item>
     <Item>
       <Source>Tiles\FenceUpperRight.png</Source>
@@ -529,8 +178,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\FenceUpperRight.xnb</Output>
-      <Time>2012-04-25T23:00:46.692999-07:00</Time>
+      <Output>C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\FenceUpperRight.xnb</Output>
+      <Time>2012-04-24T20:02:56.1783038-07:00</Time>
     </Item>
     <Item>
       <Source>Tiles\FenceVertcal.png</Source>
@@ -538,17 +187,17 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\FenceVertcal.xnb</Output>
-      <Time>2012-04-25T23:00:46.693999-07:00</Time>
+      <Output>C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\FenceVertcal.xnb</Output>
+      <Time>2012-04-24T20:02:56.1783038-07:00</Time>
     </Item>
     <Item>
-      <Source>Tiles\FireBall.png</Source>
-      <Name>Tiles\FireBall</Name>
+      <Source>Tiles\Grass.png</Source>
+      <Name>Tiles\Grass</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\FireBall.xnb</Output>
-      <Time>2012-04-25T21:39:26.6558768-07:00</Time>
+      <Output>C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\Grass.xnb</Output>
+      <Time>2012-04-22T21:45:18.6659149-07:00</Time>
     </Item>
     <Item>
       <Source>Tiles\GrassStairs.png</Source>
@@ -556,17 +205,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\GrassStairs.xnb</Output>
-      <Time>2012-04-25T23:00:46.693999-07:00</Time>
-    </Item>
-    <Item>
-      <Source>Tiles\HealBall.png</Source>
-      <Name>Tiles\HealBall</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\HealBall.xnb</Output>
-      <Time>2012-04-25T21:41:27.4087835-07:00</Time>
+      <Output>C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\GrassStairs.xnb</Output>
+      <Time>2012-04-24T20:02:56.2251039-07:00</Time>
     </Item>
     <Item>
       <Source>Tiles\HeroBack.png</Source>
@@ -574,17 +214,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\HeroBack.xnb</Output>
-      <Time>2012-04-25T23:00:46.6949991-07:00</Time>
-    </Item>
-    <Item>
-      <Source>Tiles\HeroBackHit.png</Source>
-      <Name>Tiles\HeroBackHit</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\HeroBackHit.xnb</Output>
-      <Time>2012-04-25T21:46:04.8326512-07:00</Time>
+      <Output>C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\HeroBack.xnb</Output>
+      <Time>2012-04-24T20:02:56.1783038-07:00</Time>
     </Item>
     <Item>
       <Source>Tiles\HeroFront.png</Source>
@@ -592,17 +223,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\HeroFront.xnb</Output>
-      <Time>2012-04-25T23:00:46.6959992-07:00</Time>
-    </Item>
-    <Item>
-      <Source>Tiles\HeroFrontHit.png</Source>
-      <Name>Tiles\HeroFrontHit</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\HeroFrontHit.xnb</Output>
-      <Time>2012-04-25T21:46:15.8692825-07:00</Time>
+      <Output>C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\HeroFront.xnb</Output>
+      <Time>2012-04-24T20:40:15.0580954-07:00</Time>
     </Item>
     <Item>
       <Source>Tiles\HeroLeftFace.png</Source>
@@ -610,17 +232,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\HeroLeftFace.xnb</Output>
-      <Time>2012-04-25T23:00:46.6959992-07:00</Time>
-    </Item>
-    <Item>
-      <Source>Tiles\HeroLeftFaceHit.png</Source>
-      <Name>Tiles\HeroLeftFaceHit</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\HeroLeftFaceHit.xnb</Output>
-      <Time>2012-04-25T21:45:42.274361-07:00</Time>
+      <Output>C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\HeroLeftFace.xnb</Output>
+      <Time>2012-04-24T20:02:56.1783038-07:00</Time>
     </Item>
     <Item>
       <Source>Tiles\HeroRightFace.png</Source>
@@ -628,125 +241,62 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\HeroRightFace.xnb</Output>
-      <Time>2012-04-25T23:00:46.6969992-07:00</Time>
+      <Output>C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\HeroRightFace.xnb</Output>
+      <Time>2012-04-24T20:40:15.0580954-07:00</Time>
     </Item>
     <Item>
-      <Source>Tiles\HeroRightFaceHit.png</Source>
-      <Name>Tiles\HeroRightFaceHit</Name>
+      <Source>Tiles\LavaRocks.png</Source>
+      <Name>Tiles\LavaRocks</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\HeroRightFaceHit.xnb</Output>
-      <Time>2012-04-25T21:45:52.92197-07:00</Time>
+      <Output>C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\LavaRocks.xnb</Output>
+      <Time>2012-04-22T21:45:18.6639148-07:00</Time>
     </Item>
     <Item>
-      <Source>Tiles\LightHeroBack.png</Source>
-      <Name>Tiles\LightHeroBack</Name>
+      <Source>Tiles\Monster.png</Source>
+      <Name>Tiles\Monster</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\LightHeroBack.xnb</Output>
-      <Time>2012-04-25T23:00:46.6979993-07:00</Time>
+      <Output>C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\Monster.xnb</Output>
+      <Time>2012-04-22T21:45:18.6619147-07:00</Time>
     </Item>
     <Item>
-      <Source>Tiles\LightHeroBackHit.png</Source>
-      <Name>Tiles\LightHeroBackHit</Name>
+      <Source>Tiles\Mountain Range Bottom.png</Source>
+      <Name>Tiles\Mountain Range Bottom</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\LightHeroBackHit.xnb</Output>
-      <Time>2012-04-25T21:45:13.2417004-07:00</Time>
+      <Output>C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\Mountain Range Bottom.xnb</Output>
+      <Time>2012-04-22T21:45:18.5019055-07:00</Time>
     </Item>
     <Item>
-      <Source>Tiles\LightHeroFront.png</Source>
-      <Name>Tiles\LightHeroFront</Name>
+      <Source>Tiles\Mountain Range Left.png</Source>
+      <Name>Tiles\Mountain Range Left</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\LightHeroFront.xnb</Output>
-      <Time>2012-04-25T23:00:46.6989993-07:00</Time>
+      <Output>C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\Mountain Range Left.xnb</Output>
+      <Time>2012-04-22T21:45:18.5039057-07:00</Time>
     </Item>
     <Item>
-      <Source>Tiles\LightHeroFrontHit.png</Source>
-      <Name>Tiles\LightHeroFrontHit</Name>
+      <Source>Tiles\Mountain Range.png</Source>
+      <Name>Tiles\Mountain Range</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\LightHeroFrontHit.xnb</Output>
-      <Time>2012-04-25T21:44:26.9090503-07:00</Time>
+      <Output>C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\Mountain Range.xnb</Output>
+      <Time>2012-04-22T21:45:18.5079059-07:00</Time>
     </Item>
     <Item>
-      <Source>Tiles\LightHeroLeftFace.png</Source>
-      <Name>Tiles\LightHeroLeftFace</Name>
+      <Source>Tiles\Mountain.png</Source>
+      <Name>Tiles\Mountain</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\LightHeroLeftFace.xnb</Output>
-      <Time>2012-04-25T23:00:46.6989993-07:00</Time>
-    </Item>
-    <Item>
-      <Source>Tiles\LightHeroLeftFaceHit.png</Source>
-      <Name>Tiles\LightHeroLeftFaceHit</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\LightHeroLeftFaceHit.xnb</Output>
-      <Time>2012-04-25T21:44:36.1505789-07:00</Time>
-    </Item>
-    <Item>
-      <Source>Tiles\LightHeroRightFace.png</Source>
-      <Name>Tiles\LightHeroRightFace</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\LightHeroRightFace.xnb</Output>
-      <Time>2012-04-25T23:00:46.6999994-07:00</Time>
-    </Item>
-    <Item>
-      <Source>Tiles\LightHeroRightFaceHit.png</Source>
-      <Name>Tiles\LightHeroRightFaceHit</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\LightHeroRightFaceHit.xnb</Output>
-      <Time>2012-04-25T21:44:52.8715353-07:00</Time>
-    </Item>
-    <Item>
-      <Source>Tiles\MaceAttack1.png</Source>
-      <Name>Tiles\MaceAttack1</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\MaceAttack1.xnb</Output>
-      <Time>2012-04-25T23:30:32.6631506-07:00</Time>
-    </Item>
-    <Item>
-      <Source>Tiles\MaceAttack2.png</Source>
-      <Name>Tiles\MaceAttack2</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\MaceAttack2.xnb</Output>
-      <Time>2012-04-25T23:30:15.5271705-07:00</Time>
-    </Item>
-    <Item>
-      <Source>Tiles\MaceAttack3.png</Source>
-      <Name>Tiles\MaceAttack3</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\MaceAttack3.xnb</Output>
-      <Time>2012-04-25T23:30:03.8065001-07:00</Time>
-    </Item>
-    <Item>
-      <Source>Tiles\MaceAttack4.png</Source>
-      <Name>Tiles\MaceAttack4</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\MaceAttack4.xnb</Output>
-      <Time>2012-04-25T23:29:49.5756862-07:00</Time>
+      <Output>C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\Mountain.xnb</Output>
+      <Time>2012-04-24T18:18:28.1538876-07:00</Time>
     </Item>
     <Item>
       <Source>Tiles\OldMan.png</Source>
@@ -754,8 +304,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\OldMan.xnb</Output>
-      <Time>2012-04-25T23:00:46.7039996-07:00</Time>
+      <Output>C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\OldMan.xnb</Output>
+      <Time>2012-04-24T20:40:15.0580954-07:00</Time>
     </Item>
     <Item>
       <Source>Tiles\Pillow.png</Source>
@@ -763,8 +313,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\Pillow.xnb</Output>
-      <Time>2012-04-25T23:00:46.7039996-07:00</Time>
+      <Output>C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\Pillow.xnb</Output>
+      <Time>2012-04-24T20:40:15.0580954-07:00</Time>
     </Item>
     <Item>
       <Source>Tiles\PillowDirt.png</Source>
@@ -772,8 +322,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\PillowDirt.xnb</Output>
-      <Time>2012-04-25T23:00:46.7049997-07:00</Time>
+      <Output>C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\PillowDirt.xnb</Output>
+      <Time>2012-04-24T20:40:15.0736954-07:00</Time>
     </Item>
     <Item>
       <Source>Tiles\RockWall.png</Source>
@@ -781,8 +331,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\RockWall.xnb</Output>
-      <Time>2012-04-25T23:00:46.7059997-07:00</Time>
+      <Output>C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\RockWall.xnb</Output>
+      <Time>2012-04-25T01:27:48.1456386-07:00</Time>
     </Item>
     <Item>
       <Source>Tiles\ShopKeep.png</Source>
@@ -790,80 +340,71 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\ShopKeep.xnb</Output>
-      <Time>2012-04-25T23:00:46.7059997-07:00</Time>
+      <Output>C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\ShopKeep.xnb</Output>
+      <Time>2012-04-24T20:40:15.0736954-07:00</Time>
     </Item>
     <Item>
-      <Source>Tiles\StaffAttack1.png</Source>
-      <Name>Tiles\StaffAttack1</Name>
+      <Source>Tiles\Swamp.png</Source>
+      <Name>Tiles\Swamp</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\StaffAttack1.xnb</Output>
-      <Time>2012-04-25T23:40:20.5777774-07:00</Time>
+      <Output>C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\Swamp.xnb</Output>
+      <Time>2012-04-22T21:45:18.6579145-07:00</Time>
     </Item>
     <Item>
-      <Source>Tiles\StaffAttack2.png</Source>
-      <Name>Tiles\StaffAttack2</Name>
+      <Source>Tiles\SwampToGrassBottom.png</Source>
+      <Name>Tiles\SwampToGrassBottom</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\StaffAttack2.xnb</Output>
-      <Time>2012-04-25T23:40:49.4054263-07:00</Time>
+      <Output>C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\SwampToGrassBottom.xnb</Output>
+      <Time>2012-04-22T21:45:18.5229067-07:00</Time>
     </Item>
     <Item>
-      <Source>Tiles\StaffAttack3.png</Source>
-      <Name>Tiles\StaffAttack3</Name>
+      <Source>Tiles\SwampToGrassBottomLeft.png</Source>
+      <Name>Tiles\SwampToGrassBottomLeft</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\StaffAttack3.xnb</Output>
-      <Time>2012-04-25T23:40:38.8668235-07:00</Time>
+      <Output>C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\SwampToGrassBottomLeft.xnb</Output>
+      <Time>2012-04-22T21:45:18.5239068-07:00</Time>
     </Item>
     <Item>
-      <Source>Tiles\StaffAttack4.png</Source>
-      <Name>Tiles\StaffAttack4</Name>
+      <Source>Tiles\SwampToGrassLeft.png</Source>
+      <Name>Tiles\SwampToGrassLeft</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\StaffAttack4.xnb</Output>
-      <Time>2012-04-25T23:40:29.6062938-07:00</Time>
+      <Output>C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\SwampToGrassLeft.xnb</Output>
+      <Time>2012-04-22T21:45:18.5259069-07:00</Time>
     </Item>
     <Item>
-      <Source>Tiles\SwordAttack1.png</Source>
-      <Name>Tiles\SwordAttack1</Name>
+      <Source>Tiles\SwampToGrassRight.png</Source>
+      <Name>Tiles\SwampToGrassRight</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\SwordAttack1.xnb</Output>
-      <Time>2012-04-25T23:36:23.0231901-07:00</Time>
+      <Output>C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\SwampToGrassRight.xnb</Output>
+      <Time>2012-04-22T21:45:18.526907-07:00</Time>
     </Item>
     <Item>
-      <Source>Tiles\SwordAttack2.png</Source>
-      <Name>Tiles\SwordAttack2</Name>
+      <Source>Tiles\SwampToGrassTop.png</Source>
+      <Name>Tiles\SwampToGrassTop</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\SwordAttack2.xnb</Output>
-      <Time>2012-04-25T23:36:09.3994109-07:00</Time>
+      <Output>C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\SwampToGrassTop.xnb</Output>
+      <Time>2012-04-22T21:45:18.527907-07:00</Time>
     </Item>
     <Item>
-      <Source>Tiles\SwordAttack3.png</Source>
-      <Name>Tiles\SwordAttack3</Name>
+      <Source>Tiles\SwampToGrassTopLeft.png</Source>
+      <Name>Tiles\SwampToGrassTopLeft</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\SwordAttack3.xnb</Output>
-      <Time>2012-04-25T23:35:58.334778-07:00</Time>
-    </Item>
-    <Item>
-      <Source>Tiles\SwordAttack4.png</Source>
-      <Name>Tiles\SwordAttack4</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\SwordAttack4.xnb</Output>
-      <Time>2012-04-25T23:35:47.8601789-07:00</Time>
+      <Output>C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\SwampToGrassTopLeft.xnb</Output>
+      <Time>2012-04-22T21:45:18.5299071-07:00</Time>
     </Item>
     <Item>
       <Source>Tiles\Tent Source 2.png</Source>
@@ -871,8 +412,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\Tent Source 2.xnb</Output>
-      <Time>2012-04-25T23:00:46.71-07:00</Time>
+      <Output>C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\Tent Source 2.xnb</Output>
+      <Time>2012-04-24T20:02:56.1783038-07:00</Time>
     </Item>
     <Item>
       <Source>Tiles\Tent Source 3.png</Source>
@@ -880,8 +421,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\Tent Source 3.xnb</Output>
-      <Time>2012-04-25T23:00:46.711-07:00</Time>
+      <Output>C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\Tent Source 3.xnb</Output>
+      <Time>2012-04-24T20:02:56.1939038-07:00</Time>
     </Item>
     <Item>
       <Source>Tiles\Tent Source.png</Source>
@@ -889,8 +430,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\Tent Source.xnb</Output>
-      <Time>2012-04-25T23:00:46.711-07:00</Time>
+      <Output>C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\Tent Source.xnb</Output>
+      <Time>2012-04-24T20:02:56.1939038-07:00</Time>
     </Item>
     <Item>
       <Source>Tiles\Tent.png</Source>
@@ -898,8 +439,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\Tent.xnb</Output>
-      <Time>2012-04-25T23:00:46.7120001-07:00</Time>
+      <Output>C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\Tent.xnb</Output>
+      <Time>2012-04-24T20:02:56.1939038-07:00</Time>
     </Item>
     <Item>
       <Source>Tiles\TentBrown.png</Source>
@@ -907,8 +448,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\TentBrown.xnb</Output>
-      <Time>2012-04-25T23:00:46.7120001-07:00</Time>
+      <Output>C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\TentBrown.xnb</Output>
+      <Time>2012-04-24T20:02:56.1939038-07:00</Time>
     </Item>
     <Item>
       <Source>Tiles\TentPurple.png</Source>
@@ -916,89 +457,17 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\TentPurple.xnb</Output>
-      <Time>2012-04-25T23:00:46.7130001-07:00</Time>
+      <Output>C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\TentPurple.xnb</Output>
+      <Time>2012-04-24T20:02:56.1939038-07:00</Time>
     </Item>
     <Item>
-      <Source>Tiles\TextBox.png</Source>
-      <Name>Tiles\TextBox</Name>
+      <Source>Tiles\Trees.png</Source>
+      <Name>Tiles\Trees</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\TextBox.xnb</Output>
-      <Time>2012-04-25T23:18:43.0025604-07:00</Time>
-    </Item>
-    <Item>
-      <Source>Tiles\TextBoxBottom.png</Source>
-      <Name>Tiles\TextBoxBottom</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\TextBoxBottom.xnb</Output>
-      <Time>2012-04-25T23:17:22.7059677-07:00</Time>
-    </Item>
-    <Item>
-      <Source>Tiles\TextBoxLeft.png</Source>
-      <Name>Tiles\TextBoxLeft</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\TextBoxLeft.xnb</Output>
-      <Time>2012-04-25T23:17:37.554817-07:00</Time>
-    </Item>
-    <Item>
-      <Source>Tiles\TextBoxLowerLeft.png</Source>
-      <Name>Tiles\TextBoxLowerLeft</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\TextBoxLowerLeft.xnb</Output>
-      <Time>2012-04-25T23:15:22.5940977-07:00</Time>
-    </Item>
-    <Item>
-      <Source>Tiles\TextBoxLowerRight.png</Source>
-      <Name>Tiles\TextBoxLowerRight</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\TextBoxLowerRight.xnb</Output>
-      <Time>2012-04-25T23:15:10.4514031-07:00</Time>
-    </Item>
-    <Item>
-      <Source>Tiles\TextBoxRight.png</Source>
-      <Name>Tiles\TextBoxRight</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\TextBoxRight.xnb</Output>
-      <Time>2012-04-25T23:18:15.9160111-07:00</Time>
-    </Item>
-    <Item>
-      <Source>Tiles\TextBoxTop.png</Source>
-      <Name>Tiles\TextBoxTop</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\TextBoxTop.xnb</Output>
-      <Time>2012-04-25T23:17:07.1960806-07:00</Time>
-    </Item>
-    <Item>
-      <Source>Tiles\TextBoxUpperLeft.png</Source>
-      <Name>Tiles\TextBoxUpperLeft</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\TextBoxUpperLeft.xnb</Output>
-      <Time>2012-04-25T23:13:52.0309178-07:00</Time>
-    </Item>
-    <Item>
-      <Source>Tiles\TextBoxUpperRight.png</Source>
-      <Name>Tiles\TextBoxUpperRight</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\TextBoxUpperRight.xnb</Output>
-      <Time>2012-04-25T23:14:24.291763-07:00</Time>
+      <Output>C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\Trees.xnb</Output>
+      <Time>2012-04-22T21:45:18.6559144-07:00</Time>
     </Item>
     <Item>
       <Source>Tiles\Underground Stairs.png</Source>
@@ -1006,263 +475,44 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\Underground Stairs.xnb</Output>
-      <Time>2012-04-25T23:00:46.7340013-07:00</Time>
+      <Output>C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\Underground Stairs.xnb</Output>
+      <Time>2012-04-24T19:00:21.483732-07:00</Time>
     </Item>
     <Item>
-      <Source>Tiles\Dirt.png</Source>
-      <Name>Tiles\Dirt</Name>
+      <Source>Tiles\Wall.png</Source>
+      <Name>Tiles\Wall</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\Dirt.xnb</Output>
-      <Time>2012-04-24T20:14:06.3423627-07:00</Time>
+      <Output>C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\Wall.xnb</Output>
+      <Time>2012-04-22T21:45:18.6539142-07:00</Time>
     </Item>
     <Item>
-      <Source>Tiles\dragonwarrior3transparent.png</Source>
-      <Name>Tiles\dragonwarrior3transparent</Name>
+      <Source>Tiles\Water.png</Source>
+      <Name>Tiles\Water</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\dragonwarrior3transparent.xnb</Output>
-      <Time>2012-04-26T23:59:12.5637389-07:00</Time>
+      <Output>C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\Water.xnb</Output>
+      <Time>2012-04-22T21:45:18.6519141-07:00</Time>
     </Item>
     <Item>
-      <Source>Tiles\InnKeeper.png</Source>
-      <Name>Tiles\InnKeeper</Name>
+      <Source>Tiles\Zelda Tilesa.png</Source>
+      <Name>Tiles\Zelda Tilesa</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\InnKeeper.xnb</Output>
-      <Time>2012-04-27T00:02:37.7794765-07:00</Time>
+      <Output>C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\Zelda Tilesa.xnb</Output>
+      <Time>2012-04-22T21:45:18.5439079-07:00</Time>
     </Item>
     <Item>
-      <Source>Tiles\Princess.png</Source>
-      <Name>Tiles\Princess</Name>
+      <Source>AStarWayPoint.png</Source>
+      <Name>AStarWayPoint</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\Princess.xnb</Output>
-      <Time>2012-04-26T23:46:36.824513-07:00</Time>
-    </Item>
-    <Item>
-      <Source>Tiles\SkeletonBackFace.png</Source>
-      <Name>Tiles\SkeletonBackFace</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\SkeletonBackFace.xnb</Output>
-      <Time>2012-04-26T23:53:11.3030759-07:00</Time>
-    </Item>
-    <Item>
-      <Source>Tiles\SkeletonFrontFace.png</Source>
-      <Name>Tiles\SkeletonFrontFace</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\SkeletonFrontFace.xnb</Output>
-      <Time>2012-04-26T23:51:05.8589009-07:00</Time>
-    </Item>
-    <Item>
-      <Source>Tiles\SkeletonLeftFace.png</Source>
-      <Name>Tiles\SkeletonLeftFace</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\SkeletonLeftFace.xnb</Output>
-      <Time>2012-04-26T23:56:19.1158182-07:00</Time>
-    </Item>
-    <Item>
-      <Source>Tiles\SkeletonRightFace.png</Source>
-      <Name>Tiles\SkeletonRightFace</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\SkeletonRightFace.xnb</Output>
-      <Time>2012-04-26T23:54:25.1252983-07:00</Time>
-    </Item>
-    <Item>
-      <Source>Tiles\button.png</Source>
-      <Name>Tiles\button</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\button.xnb</Output>
-      <Time>2012-04-27T14:17:47.2604967-07:00</Time>
-    </Item>
-    <Item>
-      <Source>Tiles\buttonSmall.png</Source>
-      <Name>Tiles\buttonSmall</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\buttonSmall.xnb</Output>
-      <Time>2012-04-28T07:20:37.3713941-07:00</Time>
-    </Item>
-    <Item>
-      <Source>gameFont.spritefont</Source>
-      <Name>gameFont</Name>
-      <Importer>FontDescriptionImporter</Importer>
-      <Processor>FontDescriptionProcessor</Processor>
-      <Options>None</Options>
-      <Output>F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\gameFont.xnb</Output>
-      <Time>2012-04-25T23:00:46.7470021-07:00</Time>
-    </Item>
-    <Item>
-      <Source>buttonfont.spritefont</Source>
-      <Name>buttonfont</Name>
-      <Importer>FontDescriptionImporter</Importer>
-      <Processor>FontDescriptionProcessor</Processor>
-      <Options>None</Options>
-      <Output>F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\buttonfont.xnb</Output>
-      <Time>2012-04-27T15:29:42.3372125-07:00</Time>
-    </Item>
-    <Item>
-      <Source>gameover.spritefont</Source>
-      <Name>gameover</Name>
-      <Importer>FontDescriptionImporter</Importer>
-      <Processor>FontDescriptionProcessor</Processor>
-      <Options>None</Options>
-      <Output>F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\gameover.xnb</Output>
-      <Time>2012-04-28T01:43:17.7837559-07:00</Time>
-    </Item>
-    <Item>
-      <Source>victory.spritefont</Source>
-      <Name>victory</Name>
-      <Importer>FontDescriptionImporter</Importer>
-      <Processor>FontDescriptionProcessor</Processor>
-      <Options>None</Options>
-      <Output>F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\victory.xnb</Output>
-      <Time>2012-04-28T01:44:23.3115039-07:00</Time>
-    </Item>
-    <Item>
-      <Source>finishedquest.spritefont</Source>
-      <Name>finishedquest</Name>
-      <Importer>FontDescriptionImporter</Importer>
-      <Processor>FontDescriptionProcessor</Processor>
-      <Options>None</Options>
-      <Output>F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\finishedquest.xnb</Output>
-      <Time>2012-04-28T01:45:46.7522764-07:00</Time>
-    </Item>
-    <Item>
-      <Source>Fireball Sound.wav</Source>
-      <Name>Fireball Sound</Name>
-      <Importer>WavImporter</Importer>
-      <Processor>SoundEffectProcessor</Processor>
-      <Options>None</Options>
-      <Output>F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Fireball Sound.xnb</Output>
-      <Time>2012-04-27T19:27:02.2695104-07:00</Time>
-    </Item>
-    <Item>
-      <Source>Healing.wav</Source>
-      <Name>Healing</Name>
-      <Importer>WavImporter</Importer>
-      <Processor>SoundEffectProcessor</Processor>
-      <Options>None</Options>
-      <Output>F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Healing.xnb</Output>
-      <Time>2012-04-27T19:27:02.2715105-07:00</Time>
-    </Item>
-    <Item>
-      <Source>SwordAttack.wav</Source>
-      <Name>SwordAttack</Name>
-      <Importer>WavImporter</Importer>
-      <Processor>SoundEffectProcessor</Processor>
-      <Options>None</Options>
-      <Output>F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\SwordAttack.xnb</Output>
-      <Time>2012-04-27T19:27:02.2735106-07:00</Time>
-    </Item>
-    <Item>
-      <Source>Wood Attack.wav</Source>
-      <Name>Wood Attack</Name>
-      <Importer>WavImporter</Importer>
-      <Processor>SoundEffectProcessor</Processor>
-      <Options>None</Options>
-      <Output>F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Wood Attack.xnb</Output>
-      <Time>2012-04-27T19:27:02.2755107-07:00</Time>
-    </Item>
-    <Item>
-      <Source>Tiles\Dragon Roar.wav</Source>
-      <Name>Tiles\Dragon Roar</Name>
-      <Importer>WavImporter</Importer>
-      <Processor>SoundEffectProcessor</Processor>
-      <Options>None</Options>
-      <Output>F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\Dragon Roar.xnb</Output>
-      <Time>2012-04-27T19:54:54.0261294-07:00</Time>
-    </Item>
-    <Item>
-      <Source>Tiles\Final Battle.wav</Source>
-      <Name>Tiles\Final Battle</Name>
-      <Importer>WavImporter</Importer>
-      <Processor>SoundEffectProcessor</Processor>
-      <Options>None</Options>
-      <Output>F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\Final Battle.xnb</Output>
-      <Time>2012-04-27T19:56:55.268064-07:00</Time>
-    </Item>
-    <Item>
-      <Source>Tiles\Fireball Sound.wav</Source>
-      <Name>Tiles\Fireball Sound</Name>
-      <Importer>WavImporter</Importer>
-      <Processor>SoundEffectProcessor</Processor>
-      <Options>None</Options>
-      <Output>F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\Fireball Sound.xnb</Output>
-      <Time>2012-04-27T19:19:40.4922422-07:00</Time>
-    </Item>
-    <Item>
-      <Source>Tiles\Healing.wav</Source>
-      <Name>Tiles\Healing</Name>
-      <Importer>WavImporter</Importer>
-      <Processor>SoundEffectProcessor</Processor>
-      <Options>None</Options>
-      <Output>F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\Healing.xnb</Output>
-      <Time>2012-04-27T19:22:06.249579-07:00</Time>
-    </Item>
-    <Item>
-      <Source>Tiles\SwordAttack.wav</Source>
-      <Name>Tiles\SwordAttack</Name>
-      <Importer>WavImporter</Importer>
-      <Processor>SoundEffectProcessor</Processor>
-      <Options>None</Options>
-      <Output>F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\SwordAttack.xnb</Output>
-      <Time>2012-04-27T19:24:22.604378-07:00</Time>
-    </Item>
-    <Item>
-      <Source>Tiles\Wood Attack.wav</Source>
-      <Name>Tiles\Wood Attack</Name>
-      <Importer>WavImporter</Importer>
-      <Processor>SoundEffectProcessor</Processor>
-      <Options>None</Options>
-      <Output>F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\Wood Attack.xnb</Output>
-      <Time>2012-04-27T19:25:43.1829869-07:00</Time>
-    </Item>
-    <Item>
-      <Source>battlemusic.mp3</Source>
-      <Name>battlemusic</Name>
-      <Importer>Mp3Importer</Importer>
-      <Processor>SongProcessor</Processor>
-      <Options>None</Options>
-      <Output>F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\battlemusic.xnb</Output>
-      <Extra>F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\battlemusic.wma</Extra>
-      <Time>2012-04-27T21:22:58.9874119-07:00</Time>
-    </Item>
-    <Item>
-      <Source>cavemusic.mp3</Source>
-      <Name>cavemusic</Name>
-      <Importer>Mp3Importer</Importer>
-      <Processor>SongProcessor</Processor>
-      <Options>None</Options>
-      <Output>F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\cavemusic.xnb</Output>
-      <Extra>F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\cavemusic.wma</Extra>
-      <Time>2012-04-27T21:23:00.8305173-07:00</Time>
-    </Item>
-    <Item>
-      <Source>Townmusic.mp3</Source>
-      <Name>Townmusic</Name>
-      <Importer>Mp3Importer</Importer>
-      <Processor>SongProcessor</Processor>
-      <Options>None</Options>
-      <Output>F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Townmusic.xnb</Output>
-      <Extra>F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Townmusic.wma</Extra>
-      <Time>2012-04-27T21:23:02.2976012-07:00</Time>
+      <Output>C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\AStarWayPoint.xnb</Output>
+      <Time>2012-04-28T06:21:48.1494602-07:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
@@ -1270,39 +520,39 @@
       <TargetProfile>HiDef</TargetProfile>
       <BuildConfiguration>Debug</BuildConfiguration>
       <CompressContent>false</CompressContent>
-      <RootDirectory>F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGameContent\</RootDirectory>
-      <LoggerRootDirectory>F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\</LoggerRootDirectory>
-      <IntermediateDirectory>F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGameContent\obj\x86\Debug\</IntermediateDirectory>
-      <OutputDirectory>F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\</OutputDirectory>
+      <RootDirectory>C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGameContent\</RootDirectory>
+      <LoggerRootDirectory>C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\</LoggerRootDirectory>
+      <IntermediateDirectory>C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGameContent\obj\x86\Debug\</IntermediateDirectory>
+      <OutputDirectory>C:\Users\element\Documents\SCHOOL\CS134\Homework3\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\</OutputDirectory>
     </Settings>
     <Assemblies>
       <Assembly>
-        <Key>F:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.XImporter.dll</Key>
-        <Value>2010-08-23T12:41:18-07:00</Value>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.XImporter.dll</Key>
+        <Value>2010-08-23T13:41:18-07:00</Value>
       </Assembly>
       <Assembly>
-        <Key>F:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.VideoImporters.dll</Key>
-        <Value>2010-08-23T12:41:18-07:00</Value>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.VideoImporters.dll</Key>
+        <Value>2010-08-23T13:41:18-07:00</Value>
       </Assembly>
       <Assembly>
-        <Key>F:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.TextureImporter.dll</Key>
-        <Value>2010-08-23T12:41:18-07:00</Value>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.TextureImporter.dll</Key>
+        <Value>2010-08-23T13:41:18-07:00</Value>
       </Assembly>
       <Assembly>
-        <Key>F:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.FBXImporter.dll</Key>
-        <Value>2010-08-23T12:41:18-07:00</Value>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.FBXImporter.dll</Key>
+        <Value>2010-08-23T13:41:18-07:00</Value>
       </Assembly>
       <Assembly>
-        <Key>F:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.EffectImporter.dll</Key>
-        <Value>2010-08-23T12:41:18-07:00</Value>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.EffectImporter.dll</Key>
+        <Value>2010-08-23T13:41:18-07:00</Value>
       </Assembly>
       <Assembly>
-        <Key>F:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.AudioImporters.dll</Key>
-        <Value>2010-08-23T12:41:18-07:00</Value>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.AudioImporters.dll</Key>
+        <Value>2010-08-23T13:41:18-07:00</Value>
       </Assembly>
       <Assembly>
-        <Key>F:\Windows\Microsoft.Net\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\v4.0_4.0.0.0__842cf8be1de50553\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
-        <Value>2012-04-19T22:38:52.5093431-07:00</Value>
+        <Key>C:\Windows\Microsoft.Net\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\v4.0_4.0.0.0__842cf8be1de50553\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
+        <Value>2012-02-02T09:16:34.0098826-08:00</Value>
       </Assembly>
     </Assemblies>
   </Asset>
