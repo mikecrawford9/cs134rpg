@@ -986,17 +986,6 @@ namespace RPG
                 Console.WriteLine("Node added.");
         }
 
-        private bool projectileIntersects(Rectangle target)
-        {
-            Rectangle projectileR = new Rectangle((int)projectile.Position.X - (projectile.Width / 2), (int)projectile.Position.Y - (projectile.Height / 2), projectile.Width, projectile.Height);
-            if (projectileR.Intersects(target))
-            {
-                projectile.Active = false;
-                return true;
-            }
-            return false;
-
-        }
         private int getCumulativeCost(Tile node)
         {
             int ret = 0;
@@ -1063,10 +1052,10 @@ namespace RPG
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Draw(GameTime gameTime)
         {
-
             GraphicsDevice.Clear(Color.Gray);
             // TODO: Add your drawing code here
             spriteBatch.Begin();
+<<<<<<< HEAD
             if (projectile != null)
             {
                 if (projectile.Active)
@@ -1074,6 +1063,11 @@ namespace RPG
                     projectile.Draw(spriteBatch);
                 }
             }
+            map.Draw(spriteBatch);
+            if (state != GameState.RUNNING)
+                toolmap.Draw(spriteBatch, state);
+=======
+
             if (state == GameState.TITLE)
             {
                 Rectangle rec = new Rectangle(10, 10, TileMap.VIEW_WIDTH, TileMap.VIEW_HEIGHT);
@@ -1090,7 +1084,7 @@ namespace RPG
                     spriteBatch.DrawString(font, "YOU WIN!!!", new Vector2(rec.X + 20, rec.Y + 6), Color.Yellow);
                     spriteBatch.DrawString(font, "Congratulations, you are a\nSavage Dragons MASTER!!\n\n\nHit Space to Play Again!", new Vector2(rec.X + 20, rec.Y + 100), Color.Yellow);
                 }
-                else if (playstate == PlayState.GAMEOVER_LOSE)
+                else if(playstate == PlayState.GAMEOVER_LOSE)
                 {
                     Rectangle rec = new Rectangle(10, 10, TileMap.VIEW_WIDTH, TileMap.VIEW_HEIGHT);
                     spriteBatch.Draw(whitepixel, rec, Color.Black);
@@ -1098,6 +1092,7 @@ namespace RPG
                     spriteBatch.DrawString(font, "WOW, you REALLY suck at video games...\nBetter luck next time!\n\n\nHit Space to Play Again!", new Vector2(rec.X + 20, rec.Y + 100), Color.Yellow);
                 }
             }
+>>>>>>> 9cdcf0bebef67fc8e3d4e2bebf357e45bc69ffd8
             else
             {
                 map.Draw(spriteBatch);
@@ -1126,7 +1121,17 @@ namespace RPG
             
             base.Draw(gameTime);
         }
-     
+        private bool projectileIntersects(Rectangle target)
+        {
+            Rectangle projectileR = new Rectangle((int)projectile.Position.X - (projectile.Width / 2), (int)projectile.Position.Y - (projectile.Height / 2), projectile.Width, projectile.Height);
+            if (projectileR.Intersects(target))
+            {
+                projectile.Active = false;
+                return true;
+            }
+            return false;
+
+        }
         private void drawAStarTiles(SpriteBatch spriteBatch)
         {
             if (astartiles != null)

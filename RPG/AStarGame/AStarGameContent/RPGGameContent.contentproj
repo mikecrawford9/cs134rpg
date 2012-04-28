@@ -92,7 +92,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Tiles\AStarWayPoint.png">
+    <Compile Include="AStarWayPoint.png">
       <Name>AStarWayPoint</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>

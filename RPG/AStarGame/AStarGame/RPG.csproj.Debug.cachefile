@@ -5,7 +5,6 @@ Content\Tiles\Swamp.xnb
 Content\Tiles\Trees.xnb
 Content\Tiles\Wall.xnb
 Content\Tiles\Water.xnb
-Content\AStarWayPoint.xnb
 Content\Tiles\SwampToGrassBottom.xnb
 Content\Tiles\SwampToGrassBottomLeft.xnb
 Content\Tiles\SwampToGrassLeft.xnb
@@ -132,6 +131,7 @@ Content\Wood Attack.xnb
 Content\battlemusic.xnb
 Content\cavemusic.xnb
 Content\Townmusic.xnb
+Content\AStarWayPoint.xnb
 Content\battlemusic.wma
 Content\cavemusic.wma
 Content\Townmusic.wma

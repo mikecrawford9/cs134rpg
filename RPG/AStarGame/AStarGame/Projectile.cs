@@ -7,7 +7,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace RPG
 {
-    class Projectile
+    public class Projectile
     {
         // Image representing the Projectile
         public Texture2D Texture;
@@ -29,6 +29,10 @@ namespace RPG
         public int Height
         {
             get { return Texture.Height; }
+        }
+
+        public Projectile()
+        {
         }
 
         // Determines how fast the projectile moves
