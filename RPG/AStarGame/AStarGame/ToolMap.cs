@@ -36,6 +36,7 @@ namespace RPG
         double yrowheight;
 
         Rectangle astarbutton;
+        Rectangle editbutton;
         Rectangle playbutton;
         Rectangle savebutton;
         Rectangle loadbutton;
@@ -112,10 +113,11 @@ namespace RPG
 
 
             addeventbutton = new Rectangle(xmin, ymax, 142, 30);
-            astarbutton = new Rectangle(xmin, ymax + 40, 122, 30);
-            playbutton = new Rectangle(xmin, ymax + 90, 122, 30);
-            savebutton = new Rectangle(xmin, ymax + 140, 122, 30);
-            loadbutton = new Rectangle(xmin, ymax + 190, 122, 30);
+            editbutton = new Rectangle(xmin, ymax + 10, 122, 30);
+            astarbutton = new Rectangle(xmin, ymax + 60, 122, 30);
+            playbutton = new Rectangle(xmin, ymax + 110, 122, 30);
+            savebutton = new Rectangle(xmin, ymax + 160, 122, 30);
+            loadbutton = new Rectangle(xmin, ymax + 210, 122, 30);
 
             
         }
@@ -139,7 +141,7 @@ namespace RPG
         {
             if (enabled)
             {
-
+                spriteBatch.Draw(pixel, editbutton, Color.Yellow);
                 spriteBatch.Draw(pixel, astarbutton, Color.LightGray);
                 spriteBatch.Draw(pixel, playbutton, Color.Green);
                 spriteBatch.Draw(pixel, savebutton, Color.Blue);
@@ -150,7 +152,8 @@ namespace RPG
                     spriteBatch.DrawString(font, "Add Event", new Vector2(addeventbutton.X + 10, addeventbutton.Y - 5), Color.Black);
                     spriteBatch.DrawString(font, "(" + selectedtile.getMapX() + "," + selectedtile.getMapY() + ")", new Vector2(addeventbutton.X + 10, addeventbutton.Y - 35), Color.Black);
                 }
-                spriteBatch.DrawString(font, "Edit", new Vector2(astarbutton.X + 20, astarbutton.Y - 6), Color.Black);
+                spriteBatch.DrawString(font, "Edit", new Vector2(editbutton.X + 20, editbutton.Y - 6), Color.Black);
+                spriteBatch.DrawString(font, "A Star", new Vector2(astarbutton.X + 20, astarbutton.Y - 6), Color.Black);
                 spriteBatch.DrawString(font, "Play", new Vector2(playbutton.X + 20, playbutton.Y - 6), Color.Black);
                 spriteBatch.DrawString(font, "Save", new Vector2(savebutton.X + 20, savebutton.Y - 6), Color.Black);
                 spriteBatch.DrawString(font, "Load", new Vector2(loadbutton.X + 20, loadbutton.Y - 6), Color.Black);
@@ -202,13 +205,20 @@ namespace RPG
                     ret = GameState.ADDEVENT;
                 }
 
+                if ((mousex >= editbutton.X && mousex <= (editbutton.X + editbutton.Width)) &&
+                    (mousey >= editbutton.Y && mousey <= (editbutton.Y + editbutton.Height)) &&
+                    (mouseState.LeftButton == ButtonState.Pressed))
+                {
+                    updateSelected(editbutton.X, editbutton.Y, editbutton.Width, editbutton.Height);
+                    ret = GameState.EDIT;
+                }
+
                 if ((mousex >= astarbutton.X && mousex <= (astarbutton.X + astarbutton.Width)) &&
                     (mousey >= astarbutton.Y && mousey <= (astarbutton.Y + astarbutton.Height)) &&
                     (mouseState.LeftButton == ButtonState.Pressed))
                 {
                     updateSelected(astarbutton.X, astarbutton.Y, astarbutton.Width, astarbutton.Height);
-                    ret = GameState.EDIT;
-                    //ret = GameState.ASTAR;
+                    ret = GameState.ASTAR;
                 }
 
                 if ((mousex >= playbutton.X && mousex <= (playbutton.X + playbutton.Width)) &&
