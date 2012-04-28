@@ -2,18 +2,7 @@
 <MAP x="20" y="20" playerx="3" playery="5" >
 <MONSTERS>
 <MONSTER type="MONSTER" x="11" y="7" />
-<MONSTER type="MONSTER" x="11" y="7" />
-<MONSTER type="MONSTER" x="11" y="7" />
-<MONSTER type="MONSTER" x="11" y="7" />
 <MONSTER type="MONSTER" x="8" y="2" />
-<MONSTER type="MONSTER" x="8" y="2" />
-<MONSTER type="MONSTER" x="8" y="2" />
-<MONSTER type="MONSTER" x="8" y="2" />
-<MONSTER type="MONSTER" x="8" y="2" />
-<MONSTER type="MONSTER" x="3" y="10" />
-<MONSTER type="MONSTER" x="3" y="10" />
-<MONSTER type="MONSTER" x="3" y="10" />
-<MONSTER type="MONSTER" x="3" y="10" />
 <MONSTER type="MONSTER" x="3" y="10" />
 </MONSTERS>
 <TILES>
