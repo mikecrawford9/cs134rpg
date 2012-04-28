@@ -7,6 +7,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace RPG
 {
+    
     public class Projectile
     {
         // Image representing the Projectile
@@ -40,16 +41,20 @@ namespace RPG
         int projectileMoveSpeed;
 
         bool isLeft;
+        bool soundplay;
+        Spell ba;
 
-        public void Initialize( Texture2D texture, Vector2 position, bool isLeft, int xwall)
+        public void Initialize( Texture2D texture, Spell action, Vector2 position, bool isLeft, int xwall)
         {
+
             Texture = texture;
             Position = position;
-
             Active = true;
             this.xwall = xwall;
             projectileMoveSpeed = 6;
             this.isLeft = isLeft;
+            soundplay = false;
+            ba = action;
         }
 
         public void Update()
@@ -59,13 +64,61 @@ namespace RPG
             {
                 Position.X -= projectileMoveSpeed;
                 if (Position.X < xwall)
+                {
+                    if (Active == true)
+                    {
+                        if (ba.element.Equals(SpellElement.FIRE))
+                        {
+                            Game1.firesound.Play();
+                        }
+                        else if (ba.element.Equals(SpellElement.HOLY))
+                        {
+                            Game1.healSound.Play();
+
+                        }
+                        else if (ba.element.Equals(SpellElement.PHYSICAL))
+                        {
+                            Game1.swordSound.Play();
+                        }
+                        else
+                        {
+                            Game1.swordSound.Play();
+                        }
+                    }
                     Active = false;
+                }
             }
             else
             {
                 Position.X += projectileMoveSpeed;
+                
                 if (Position.X > xwall)
+                {
+                    if (Active == true)
+                    {
+                        if (ba.element.Equals(SpellElement.FIRE))
+                        {
+                            Game1.firesound.Play();
+                        }
+                        else if (ba.element.Equals(SpellElement.HOLY))
+                        {
+                            Game1.healSound.Play();
+
+                        }
+                        else if (ba.element.Equals(SpellElement.PHYSICAL))
+                        {
+                            Game1.swordSound.Play();
+                        }
+                        else
+                        {
+                            Game1.swordSound.Play();
+                        }
+                    }
                     Active = false;
+
+                    
+                }
+
             }
 
             // Deactivate the bullet if it goes out of screen

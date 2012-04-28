@@ -14,7 +14,8 @@ namespace RPG
     public enum BattleStageType { ACTION, FIGHT, WIN, LOSE, FLEE }
      public class BattleSequence
     {
-         public static int PROJECTILE_TIME = 2000;
+        public static int PROJECTILE_TIME = 2000;
+        
         public Party party;
         public Enemy[] enemies;
         public List<String> combatLog;
@@ -26,6 +27,7 @@ namespace RPG
         public bool enemiesDead;
         public bool isWaiting;
         public int shotprojectileat;
+        public int drawplayerhpattime;
         public String xRet, yRet, retMap;
 
         public bool drawprojectile;
@@ -60,12 +62,13 @@ namespace RPG
             this.retMap = retMap;
             this.projectiles = new Queue<Projectile>();
             state = BattleStageType.ACTION;
+            drawplayerhpattime = Int32.MaxValue;
             
         }
 
         public void Start()
         {
-            combatLog.Add("Enemies have appeared.");
+            combatLog.Add(enemies[0].player.name + " has appeared.");
             switch (state)
             {
                     case BattleStageType.ACTION:
@@ -115,16 +118,29 @@ namespace RPG
 
             return false;
         }
-
+       
         public void Draw(SpriteBatch spriteBatch)
         {
             if (drawprojectile)
             {
                 currentprojectile.Draw(spriteBatch);
+                
+                
+                if(drawplayerhp)
+                for (int i = 0; i < playerec.Length; i++)
+                {
+                    spriteBatch.DrawString(Game1.buttonFont, party.partyMembers[i].GetCurrentHealth() + "HP", new Vector2(playerec[i].X, playerec[i].Y + playerec[i].Width + 20), Color.Black);
+                    
+                    
+                }
+                
             }
             for (int i = 0; i < playerec.Length; i++)
             {
                 spriteBatch.Draw(Game1.playerLeftFace, playerec[i], Color.AliceBlue);
+
+                spriteBatch.DrawString(Game1.buttonFont, party.partyMembers[i].GetCurrentHealth() + "HP", new Vector2(playerec[i].X, playerec[i].Y + playerec[i].Width + 20), Color.Black);
+
             }
             for (int i = 0; i < enemyrec.Length; i++)
             {
@@ -148,6 +164,8 @@ namespace RPG
                     break;
                 case 0:
                     break;
+
+
 
             }
             switch (state)
@@ -174,17 +192,26 @@ namespace RPG
                     break;
             }   
         }
-
+        public bool drawplayerhp;
         public void Update(GameTime gameTime)
         {
+            
             if (!drawprojectile && projectiles.Count > 0)
             {
                 currentprojectile = projectiles.Dequeue();
                 shotprojectileat = (int)gameTime.TotalGameTime.TotalMilliseconds;
                 drawprojectile = true;
-
+                drawplayerhpattime = shotprojectileat + 2 * PROJECTILE_TIME;
             }
-
+            if (drawplayerhpattime < gameTime.TotalGameTime.TotalMilliseconds)
+            {
+                drawplayerhp = true;
+            }
+            if (drawplayerhp && drawplayerhpattime + 1000 < gameTime.TotalGameTime.TotalMilliseconds)
+            {
+                drawplayerhp = false;
+                drawplayerhpattime = Int32.MaxValue;
+            }
             if (drawprojectile)
             {
                 currentprojectile.Update();
@@ -198,10 +225,23 @@ namespace RPG
                 switch (state)
                 {
                     case BattleStageType.ACTION:
-                        aButton.Update();
-                        itemButton.Update();
-                        fleeButton.Update();
-                        spellButton.Update();
+                        if (enemies[0].player.GetCurrentHealth() <= 0)
+                        {
+                            state = BattleStageType.WIN;
+                        }
+                        if (party.partyMembers[0].GetCurrentHealth() <= 0)
+                        {
+                           state =  BattleStageType.LOSE;
+                            
+                        }
+                        
+                        if (state == BattleStageType.ACTION)
+                        {
+                            aButton.Update();
+                            itemButton.Update();
+                            fleeButton.Update();
+                            spellButton.Update();
+                        }
                         break;
                     case BattleStageType.FIGHT:
                         while (this.currentActions.Count > 0)
@@ -222,8 +262,29 @@ namespace RPG
                         this.continueCombat = false;
                         break;
                     case BattleStageType.LOSE:
+                        Event e1 = new Event();
+                        e1.setEventType(EventType.MAP_TRANSITION);
+                        e1.addProperty("x", xRet);
+                        e1.addProperty("y", yRet);
+                        e1.addProperty("mapfile", retMap);
+                        Game1.addToEventQueue(e1);
+                        Event e2 = new Event();
+                        e2.setEventType(EventType.LOSE_GAME);
+                        Game1.addToEventQueue(e2);
                         break;
                     case BattleStageType.WIN:
+                        party.partyMembers[0].inventory.AddItem(enemies[0].prize);
+                        Event e3 = new Event();
+                        e3.setEventType(EventType.MAP_TRANSITION);
+                        e3.addProperty("x", xRet);
+                        e3.addProperty("y", yRet);
+                        e3.addProperty("mapfile", retMap);
+                        Game1.addToEventQueue(e3);
+                        Event e4 = new Event();
+                        e4.setEventType(EventType.MESSAGE);
+                        e4.addProperty("text", "You looted " + enemies[0].prize.name);
+                        Game1.addToEventQueue(e4);
+                        
                         break;
                 }
             }
@@ -266,13 +327,16 @@ namespace RPG
                         bool isenemy = (t.playerBase.playerType == PlayerType.ENEMY) ? false : true ;
                         Console.WriteLine("Melee Attack, isenemy=" + isenemy);
                         Texture2D cur = user.UseSpell(t, spell);
+                        
                         Projectile proj = new Projectile();
                         if(isenemy)
-                            proj.Initialize(cur, new Vector2(battleSequence.enemyrec[0].X, battleSequence.enemyrec[0].Y), false, battleSequence.playerec[0].X);
+                            proj.Initialize(cur, spell, new Vector2(battleSequence.enemyrec[0].X, battleSequence.enemyrec[0].Y), false, battleSequence.playerec[0].X);
                         else
-                            proj.Initialize(cur, new Vector2(battleSequence.playerec[0].X, battleSequence.playerec[0].Y), true, battleSequence.enemyrec[0].X);
+                            proj.Initialize(cur, spell,  new Vector2(battleSequence.playerec[0].X, battleSequence.playerec[0].Y), true, battleSequence.enemyrec[0].X);
                         battleSequence.projectiles.Enqueue(proj);
+                        
                     }
+                    
                     break;
                 case BattleActionType.ITEM:
                     foreach (Player t in target)
@@ -288,9 +352,9 @@ namespace RPG
                         Texture2D cur = user.UseSpell(t, spell);
                         Projectile proj = new Projectile();
                         if (isenemy)
-                            proj.Initialize(cur, new Vector2(battleSequence.enemyrec[0].X, battleSequence.enemyrec[0].Y), false, battleSequence.playerec[0].X);
+                            proj.Initialize(cur, spell, new Vector2(battleSequence.enemyrec[0].X, battleSequence.enemyrec[0].Y), false, battleSequence.playerec[0].X);
                         else
-                            proj.Initialize(cur, new Vector2(battleSequence.playerec[0].X, battleSequence.playerec[0].Y), true, battleSequence.enemyrec[0].X);
+                            proj.Initialize(cur, spell, new Vector2(battleSequence.playerec[0].X, battleSequence.playerec[0].Y), true, battleSequence.enemyrec[0].X);
                         battleSequence.projectiles.Enqueue(proj);
                         //battleSequence.drawprojectile = true;
                     }
@@ -312,6 +376,7 @@ namespace RPG
                 default: 
                     break;
             }
+            
             if (battleSequence.state != BattleStageType.FLEE)
                 battleSequence.state = BattleStageType.ACTION;
         }
