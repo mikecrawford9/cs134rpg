@@ -263,14 +263,14 @@ namespace RPG
                 case BattleActionType.ATTACK:
                     foreach(Player t in target)
                     {
-                        bool isenemy = (t.playerBase.playerType == PlayerType.ENEMY);
+                        bool isenemy = (t.playerBase.playerType == PlayerType.ENEMY) ? false : true ;
                         Console.WriteLine("Melee Attack, isenemy=" + isenemy);
                         Texture2D cur = user.UseSpell(t, spell);
                         Projectile proj = new Projectile();
                         if(isenemy)
-                            proj.Initialize(cur, new Vector2(battleSequence.enemyrec[0].X, battleSequence.enemyrec[0].Y), false);
+                            proj.Initialize(cur, new Vector2(battleSequence.enemyrec[0].X, battleSequence.enemyrec[0].Y), false, battleSequence.playerec[0].X);
                         else
-                            proj.Initialize(cur, new Vector2(battleSequence.playerec[0].X, battleSequence.playerec[0].Y), true);
+                            proj.Initialize(cur, new Vector2(battleSequence.playerec[0].X, battleSequence.playerec[0].Y), true, battleSequence.enemyrec[0].X);
                         battleSequence.projectiles.Enqueue(proj);
                     }
                     break;
@@ -284,13 +284,13 @@ namespace RPG
                 case BattleActionType.SPELL:
                     foreach (Player t in target)
                     {
-                        bool isenemy = (t.playerBase.playerType == PlayerType.ENEMY);
+                        bool isenemy = (t.playerBase.playerType == PlayerType.ENEMY)? false : true ;
                         Texture2D cur = user.UseSpell(t, spell);
                         Projectile proj = new Projectile();
                         if (isenemy)
-                            proj.Initialize(cur, new Vector2(battleSequence.enemyrec[0].X, battleSequence.enemyrec[0].Y), false);
+                            proj.Initialize(cur, new Vector2(battleSequence.enemyrec[0].X, battleSequence.enemyrec[0].Y), false, battleSequence.playerec[0].X);
                         else
-                            proj.Initialize(cur, new Vector2(battleSequence.playerec[0].X, battleSequence.playerec[0].Y), true);
+                            proj.Initialize(cur, new Vector2(battleSequence.playerec[0].X, battleSequence.playerec[0].Y), true, battleSequence.enemyrec[0].X);
                         battleSequence.projectiles.Enqueue(proj);
                         //battleSequence.drawprojectile = true;
                     }
