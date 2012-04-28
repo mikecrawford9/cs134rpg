@@ -182,6 +182,7 @@ namespace RPG
                 currentprojectile = projectiles.Dequeue();
                 shotprojectileat = (int)gameTime.TotalGameTime.TotalMilliseconds;
                 drawprojectile = true;
+
             }
 
             if (drawprojectile)
