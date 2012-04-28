@@ -1,10 +1,3 @@
-F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\obj\x86\Debug\RPG.exe
-F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\obj\x86\Debug\RPG.pdb
-F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\obj\x86\Debug\ResolveAssemblyReference.cache
-F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
-F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\obj\x86\Debug\RPG.Form1.resources
-F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\obj\x86\Debug\GenerateResource.read.1.tlog
-F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\obj\x86\Debug\GenerateResource.write.1.tlog
 F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\Grass.xnb
 F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\LavaRocks.xnb
 F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\Monster.xnb
@@ -25,9 +18,6 @@ F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStar
 F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\dragonwarrior3.xnb
 F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\Mountain.xnb
 F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\Zelda Tilesa.xnb
-F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\gameFont.xnb
-F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\RPG.exe
-F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\RPG.pdb
 F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\Black.xnb
 F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\Castle.xnb
 F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\DarkHeroBack.xnb
@@ -38,7 +28,6 @@ F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStar
 F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\DarkHeroLeftFaceHit.xnb
 F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\DarkHeroRightFace.xnb
 F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\DarkHeroRightFaceHit.xnb
-F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\dirt.xnb
 F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\Enemy1LeftFace.xnb
 F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\Enemy1LeftFaceHit.xnb
 F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\Enemy1RightFace.xnb
@@ -121,6 +110,7 @@ F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStar
 F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\TextBoxUpperLeft.xnb
 F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\TextBoxUpperRight.xnb
 F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\Underground Stairs.xnb
+F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\Dirt.xnb
 F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\dragonwarrior3transparent.xnb
 F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\InnKeeper.xnb
 F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\Princess.xnb
@@ -129,15 +119,28 @@ F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStar
 F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\SkeletonLeftFace.xnb
 F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\SkeletonRightFace.xnb
 F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\button.xnb
-F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\buttonfont.xnb
 F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Tiles\buttonSmall.xnb
+F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\gameFont.xnb
+F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\buttonfont.xnb
 F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Fireball Sound.xnb
 F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Healing.xnb
 F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\SwordAttack.xnb
 F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Wood Attack.xnb
 F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\battlemusic.xnb
-F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Townmusic.xnb
 F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\cavemusic.xnb
+F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Townmusic.xnb
 F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\battlemusic.wma
 F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\cavemusic.wma
 F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Townmusic.wma
+F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\RPG.exe
+F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\RPG.pdb
+F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\obj\x86\Debug\ResolveAssemblyReference.cache
+F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\obj\x86\Debug\RPG.Form1.resources
+F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\obj\x86\Debug\GenerateResource.read.1.tlog
+F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\obj\x86\Debug\GenerateResource.write.1.tlog
+F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\obj\x86\Debug\RPG.exe
+F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\obj\x86\Debug\RPG.pdb
+F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\gameover.xnb
+F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\victory.xnb
+F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\finishedquest.xnb

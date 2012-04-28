@@ -127,27 +127,7 @@ namespace RPG
 
             return null;
         }
-        #region HUMAN PLAYER
-
-        /*
-        public static PlayerBase WARRIOR = new PlayerBase(PlayerType.HUMAN, 33, 18, 11, 0, 8, 6, 0, 0, 
-            new Item[] { }, Item.ARMOR_1, Item.SWORD_1, new ItemType[] { ItemType.ARMOR, ItemType.CLOTHING }, 
-            new ItemType[] { ItemType.SWORD, ItemType.MACE }, 7, 2, 4, 0, 1, 3, new int[]{1,2,3}, 
-            new Spell[] { Spell.ATTACK }, Sprite.WARRIOR);
         
-        public static PlayerBase CLERIC = new PlayerBase(PlayerType.HUMAN, 29, 23, 6, 6, 5, 7, 0, 0, new Item[] { }, Item.CLOTHING_1, Item.MACE_1, new ItemType[] { ItemType.CLOTHING, ItemType.ROBE }, new ItemType[] { ItemType.STAFF, ItemType.MACE }, 7, 3, 2, 2, 1, 3, PlayerBase.CLERIC_EXP_GROWTH, new Spell[] { Spell.ATTACK, Spell.HEAL }, Sprite.CLERIC);
-        public static PlayerBase MAGE = new PlayerBase(PlayerType.HUMAN, 28, 24, 0, 11, 4, 11, 0, 0, new Item[] { }, Item.ROBE_1, Item.STAFF_1, new ItemType[] { ItemType.ROBE }, new ItemType[] { ItemType.STAFF }, 6, 3, 0, 4, 1, 4, PlayerBase.MAGE_EXP_GROWTH, new Spell[] { Spell.ATTACK, Spell.FIRE }, Sprite.MAGE);
-        */
-        #endregion
-
-        #region ENEMY PLAYER
-        /*
-        public static PlayerBase ENEMY1 = new PlayerBase(PlayerType.HUMAN, 33, 18, 11, 0, 8, 6, 0, 0, new Item[] { }, Item.ARMOR_1, Item.SWORD_1, new ItemType[] { ItemType.ARMOR, ItemType.CLOTHING }, new ItemType[] { ItemType.SWORD, ItemType.MACE }, 7, 2, 4, 0, 1, 3, PlayerBase.WARRIOR_EXP_GROWTH, new Spell[] { Spell.ATTACK }, Sprite.ENEMY_1);
-        public static PlayerBase ENEMY2 = new PlayerBase(PlayerType.HUMAN, 29, 23, 6, 6, 5, 7, 0, 0, new Item[] { }, Item.CLOTHING_1, Item.MACE_1, new ItemType[] { ItemType.CLOTHING, ItemType.ROBE }, new ItemType[] { ItemType.STAFF, ItemType.MACE }, 7, 3, 2, 2, 1, 3, PlayerBase.CLERIC_EXP_GROWTH, new Spell[] { Spell.ATTACK, Spell.HEAL }, Sprite.ENEMY_2);
-        public static PlayerBase ENEMY3 = new PlayerBase(PlayerType.HUMAN, 28, 24, 0, 11, 4, 11, 0, 0, new Item[] { }, Item.ROBE_1, Item.STAFF_1, new ItemType[] { ItemType.ROBE }, new ItemType[] { ItemType.STAFF }, 6, 3, 0, 4, 1, 4, PlayerBase.MAGE_EXP_GROWTH, new Spell[] { Spell.ATTACK, Spell.FIRE }, Sprite.ENEMY_3);
-        public static PlayerBase ENEMYDRAGON = new PlayerBase(PlayerType.HUMAN, 35, 25, 12, 12, 5, 12, 10, 10, new Item[] { }, Item.ARMOR_3, Item.MACE_4, new ItemType[] { ItemType.ARMOR, ItemType.CLOTHING, ItemType.ROBE }, new ItemType[] { ItemType.SWORD, ItemType.MACE, ItemType.STAFF }, 10, 10, 10, 10, 10, 5, PlayerBase.MAGE_EXP_GROWTH, new Spell[] { Spell.ATTACK, Spell.FIRE, Spell.HEAL }, Sprite.WARRIOR);
-        */
-        #endregion
 
         public Player(PlayerBase pb, Sprite cs, String name = "Player", int level = 1, int currentExp = 0)
         {
@@ -170,11 +150,12 @@ namespace RPG
             this.currMAGATK = this.GetCurrentMAGATK();
             this.currHPREGEN = this.GetCurrentHealthRegen();
             this.currMPREGEN = this.GetCurrentManaRegen();
+            this.sprite = cs;
             #endregion
         }
         #region VARIABLES
         public readonly String name;
-        public readonly CombatSprite combatSprite;
+        public readonly Sprite sprite;
         public PlayerBase playerBase;
         public int level;
         public int hpLoss;
@@ -192,6 +173,27 @@ namespace RPG
         public int currMAGATK;
         public int currHPREGEN;
         public int currMPREGEN;
+        #endregion
+        #region HUMAN PLAYER
+
+
+        public static PlayerBase WARRIOR = new PlayerBase(PlayerType.HUMAN, 33, 18, 11, 0, 8, 6, 0, 0,
+            new Item[] { }, Item.ARMOR_1, Item.SWORD_1, new ItemType[] { ItemType.ARMOR, ItemType.CLOTHING },
+            new ItemType[] { ItemType.SWORD, ItemType.MACE }, 7, 2, 4, 0, 1, 3, new int[] { 1, 2, 3 },
+            new Spell[] { Spell.ATTACK }, Sprite.WARRIOR);
+
+        public static PlayerBase CLERIC = new PlayerBase(PlayerType.HUMAN, 29, 23, 6, 6, 5, 7, 0, 0, new Item[] { }, Item.CLOTHING_1, Item.MACE_1, new ItemType[] { ItemType.CLOTHING, ItemType.ROBE }, new ItemType[] { ItemType.STAFF, ItemType.MACE }, 7, 3, 2, 2, 1, 3, PlayerBase.CLERIC_EXP_GROWTH, new Spell[] { Spell.ATTACK, Spell.HEAL }, Sprite.CLERIC);
+        public static PlayerBase MAGE = new PlayerBase(PlayerType.HUMAN, 28, 24, 0, 11, 4, 11, 0, 0, new Item[] { }, Item.ROBE_1, Item.STAFF_1, new ItemType[] { ItemType.ROBE }, new ItemType[] { ItemType.STAFF }, 6, 3, 0, 4, 1, 4, PlayerBase.MAGE_EXP_GROWTH, new Spell[] { Spell.ATTACK, Spell.FIRE }, Sprite.MAGE);
+
+        #endregion
+
+        #region ENEMY PLAYER
+
+        public static PlayerBase ENEMY1 = new PlayerBase(PlayerType.HUMAN, 33, 18, 11, 0, 8, 6, 0, 0, new Item[] { }, Item.ARMOR_1, Item.SWORD_1, new ItemType[] { ItemType.ARMOR, ItemType.CLOTHING }, new ItemType[] { ItemType.SWORD, ItemType.MACE }, 7, 2, 4, 0, 1, 3, PlayerBase.WARRIOR_EXP_GROWTH, new Spell[] { Spell.ATTACK }, Sprite.ENEMY_1);
+        public static PlayerBase ENEMY2 = new PlayerBase(PlayerType.HUMAN, 29, 23, 6, 6, 5, 7, 0, 0, new Item[] { }, Item.CLOTHING_1, Item.MACE_1, new ItemType[] { ItemType.CLOTHING, ItemType.ROBE }, new ItemType[] { ItemType.STAFF, ItemType.MACE }, 7, 3, 2, 2, 1, 3, PlayerBase.CLERIC_EXP_GROWTH, new Spell[] { Spell.ATTACK, Spell.HEAL }, Sprite.ENEMY_2);
+        public static PlayerBase ENEMY3 = new PlayerBase(PlayerType.HUMAN, 28, 24, 0, 11, 4, 11, 0, 0, new Item[] { }, Item.ROBE_1, Item.STAFF_1, new ItemType[] { ItemType.ROBE }, new ItemType[] { ItemType.STAFF }, 6, 3, 0, 4, 1, 4, PlayerBase.MAGE_EXP_GROWTH, new Spell[] { Spell.ATTACK, Spell.FIRE }, Sprite.ENEMY_3);
+        public static PlayerBase ENEMYDRAGON = new PlayerBase(PlayerType.HUMAN, 35, 25, 12, 12, 5, 12, 10, 10, new Item[] { }, Item.ARMOR_3, Item.MACE_4, new ItemType[] { ItemType.ARMOR, ItemType.CLOTHING, ItemType.ROBE }, new ItemType[] { ItemType.SWORD, ItemType.MACE, ItemType.STAFF }, 10, 10, 10, 10, 10, 5, PlayerBase.MAGE_EXP_GROWTH, new Spell[] { Spell.ATTACK, Spell.FIRE, Spell.HEAL }, Sprite.WARRIOR);
+
         #endregion
 
 

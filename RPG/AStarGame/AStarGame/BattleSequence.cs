@@ -22,9 +22,13 @@ namespace RPG
         bool continueCombat; 
         bool partyDead;
         bool enemiesDead;
-        Game1 game;
+        bool isWaiting;
+        String xRet, yRet, retMap;
 
-        public BattleSequence(Party party, Enemy[] enemies, SpriteFont displayTextFont, TileMap battleMap, Game1 game)
+        AttackButton aButton;
+        Button button;
+
+        public BattleSequence(Party party, Enemy[] enemies, SpriteFont displayTextFont, TileMap battleMap, int xRet, int yRet, String retMap)
         {
             this.party = party;
             this.enemies = enemies;
@@ -34,7 +38,10 @@ namespace RPG
             this.continueCombat = true; 
             this.partyDead = false;
             this.enemiesDead= false;
-            this.game = game;
+            this.isWaiting = false;
+            this.xRet = Convert.ToString(xRet);
+            this.yRet = Convert.ToString(yRet);
+            this.retMap = retMap;
             
         }
 
@@ -45,10 +52,22 @@ namespace RPG
             {
                 foreach (Player p in party.partyMembers)
                 {
-                    AttackButton p1Attack = new AttackButton(game.Content.Load<Texture2D>("Tiles/buttonSmall"), game.Content.Load<SpriteFont>("Tiles/buttonFont"), game.spriteBatch, "Attack", p, null);
-                    p1Attack.Location(100, 100);
-                    p1Attack.Draw();
+                    Event e = new Event();
+
+                    e.setEventType(EventType.MAP_TRANSITION);
+                    e.addProperty("x", xRet);
+                    e.addProperty("y", yRet);
+                    e.addProperty("mapfile", retMap); 
+                    List<Event> actionList =  new List<Event>();
+                    actionList.Add(e);
+                    aButton = new AttackButton(Game1.buttonImage, Game1.buttonFont, "Attack", p, actionList);
+
+
+                    
+                    button = new Button(Game1.buttonImage, Game1.buttonFont, "Poop");
+                    
                 }
+                continueCombat = false;
             }
         }
 
@@ -62,10 +81,25 @@ namespace RPG
             }
         }
 
-        public void Draw()
+        public void Draw(SpriteBatch spriteBatch)
         {
-
+            aButton.Location(600, 100);
+            aButton.Draw(spriteBatch);
+            button.Location(600, 200);
+            button.Draw(spriteBatch);
+           
+            spriteBatch.Draw(Game1.enemy1LeftFace, new Rectangle(50, 50, 32, 32), Color.AliceBlue);
+            
+            
         }
+
+        public void Update()
+        {
+            aButton.Update();
+            button.Update();
+        }
+
+
 
 
     }

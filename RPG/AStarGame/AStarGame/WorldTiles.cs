@@ -46,25 +46,25 @@ namespace RPG
         }
         private static MemberInfo ForValue(Sprite s)
         {
-            return typeof(SpriteAttribute).GetField(Enum.GetName(typeof(SpriteAttribute), s));
+            return typeof(Sprite).GetField(Enum.GetName(typeof(Sprite), s));
         }
-        private static SpriteType GetSpriteType(this Sprite s)
+        public static SpriteType GetSpriteType(this Sprite s)
         {
             return GetAttribute(s).type;
         }
-        private static String GetLeftFaceImage(this Sprite s)
+        public static String GetLeftFaceImage(this Sprite s)
         {
             return GetAttribute(s).leftFace;
         }
-        private static String GetRightFaceImage(this Sprite s)
+        public static String GetRightFaceImage(this Sprite s)
         {
             return GetAttribute(s).rightFace;
         }
-        private static String GetLeftFaceHitImage(this Sprite s)
+        public static String GetLeftFaceHitImage(this Sprite s)
         {
             return GetAttribute(s).leftFaceHit;
         }
-        private static String GetRightFaceHitImage(this Sprite s)
+        public static String GetRightFaceHitImage(this Sprite s)
         {
             return GetAttribute(s).rightFaceHit;
         }
@@ -182,23 +182,23 @@ namespace RPG
         {
             return typeof(CombatSpriteAttribute).GetField(Enum.GetName(typeof(CombatSpriteAttribute), s));
         }
-        private static SpriteType GetSpriteType(this CombatSprite s)
+        public static SpriteType GetSpriteType(this CombatSprite s)
         {
             return GetAttribute(s).type;
         }
-        private static String GetImage1(this CombatSprite s)
+        public static String GetImage1(this CombatSprite s)
         {
             return GetAttribute(s).image1;
         }
-        private static String GetImage2(this CombatSprite s)
+        public static String GetImage2(this CombatSprite s)
         {
             return GetAttribute(s).image2;
         }
-        private static String GetImage3(this CombatSprite s)
+        public static String GetImage3(this CombatSprite s)
         {
             return GetAttribute(s).image3;
         }
-        private static String GetImage4(this CombatSprite s)
+        public static String GetImage4(this CombatSprite s)
         {
             return GetAttribute(s).image4;
         }
@@ -607,6 +607,8 @@ namespace RPG
         TEXTBOX_UPPER_RIGHT,
         #endregion
 
+        [WorldTileAttribute(TileType.MOUNTAIN, "Tiles/buttonSmall", true, 0)] 
+        BUTTON,
     }
     #endregion
 }

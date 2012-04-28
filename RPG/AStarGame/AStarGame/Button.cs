@@ -15,18 +15,16 @@ namespace RPG
         protected Rectangle location;
         protected string text;
         protected Vector2 textLocation;
-        protected SpriteBatch spriteBatch;
         protected MouseState mouse;
         protected MouseState oldMouse;
         protected bool clicked = false;
 
-        public Button(Texture2D texture, SpriteFont font, SpriteBatch sBatch, String text)
+        public Button(Texture2D texture, SpriteFont font, String text)
         {
             image = texture;
             this.font = font;
             location = new Rectangle(0, 0, image.Width, image.Height);
-            spriteBatch = sBatch;
-            Text = text;
+            this.text = text;
         }
 
         public string Text
@@ -60,15 +58,14 @@ namespace RPG
                     clicked = true;
                 }
             }
-
             Text = text;
 
             oldMouse = mouse;
         }
 
-        public virtual void Draw()
+        public virtual void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Begin();
+            
 
             if (location.Contains(new Point(mouse.X, mouse.Y)))
             {
@@ -82,10 +79,7 @@ namespace RPG
                     location,
                     Color.White);
             }
-
-
             spriteBatch.DrawString(font, text, textLocation, Color.Black);
-            spriteBatch.End();
         }
     }
 }
