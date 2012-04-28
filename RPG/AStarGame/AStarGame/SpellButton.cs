@@ -8,14 +8,14 @@ using Microsoft.Xna.Framework.Input;
 
 namespace RPG
 {
-    public class ItemButton : Button
+    public class SpellButton : Button
     {
         public Player player;
         public List<Event> eventList;
         public BattleSequence bs;
-        bool inprogress = false;
+        Boolean inprogress = false;
 
-        public ItemButton(Texture2D texture, SpriteFont font, String text, Player p, BattleSequence bs, List<Event> events) 
+        public SpellButton(Texture2D texture, SpriteFont font, String text, Player p, BattleSequence bs, List<Event> events)
             : base(texture, font, text)
         {
             this.player = p;
@@ -40,8 +40,8 @@ namespace RPG
                 {
                     playerList.Add(e.player);
                 }
-                bs.currentActions.Enqueue(new BattleAction(bs, player, new Player[] { player }, BattleActionType.ITEM, null, Item.HP_POTION_100));
-                bs.combatLog.Add("You use a Low Potion");
+                bs.currentActions.Enqueue(new BattleAction(bs, player, playerList.ToArray(), BattleActionType.SPELL, Spell.FIRE, null));
+                bs.combatLog.Add("You use fire!.");
                 foreach (Enemy e in bs.enemies)
                 {
                     bs.currentActions.Enqueue(new BattleAction(bs, e.player, new Player[] { player }, BattleActionType.ATTACK, Spell.ATTACK, null));

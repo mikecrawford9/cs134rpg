@@ -132,6 +132,7 @@
     <Compile Include="Quest.cs" />
     <Compile Include="Quests.cs" />
     <Compile Include="Spell.cs" />
+    <Compile Include="SpellButton.cs" />
     <Compile Include="WorldTiles.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Program.cs" />

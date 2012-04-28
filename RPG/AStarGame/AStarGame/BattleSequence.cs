@@ -30,6 +30,7 @@ namespace RPG
         public AttackButton aButton;
         public ItemButton itemButton;
         public FleeButton fleeButton;
+        public SpellButton spellButton;
 
         public BattleSequence(Party party, Enemy[] enemies, SpriteFont displayTextFont, TileMap battleMap, int xRet, int yRet, String retMap)
         {
@@ -58,6 +59,7 @@ namespace RPG
                         foreach (Player p in party.partyMembers)
                         {
                             aButton = new AttackButton(Game1.buttonImage, Game1.buttonFont, "Attack", p, this, null);
+                            spellButton = new SpellButton(Game1.buttonImage, Game1.buttonFont, "Spell", p, this, null);
                             itemButton = new ItemButton(Game1.buttonImage, Game1.buttonFont, "Use Item", p, this, null);
                             fleeButton = new FleeButton(Game1.buttonImage, Game1.buttonFont, "Flee", p, this, null);
                         }
@@ -129,9 +131,11 @@ namespace RPG
                 case BattleStageType.ACTION:
                     aButton.Location(600, 100);
                     aButton.Draw(spriteBatch);
-                    itemButton.Location(600, 140);
+                    spellButton.Location(600, 140);
+                    spellButton.Draw(spriteBatch);
+                    itemButton.Location(600, 180);
                     itemButton.Draw(spriteBatch);
-                    fleeButton.Location(600, 180);
+                    fleeButton.Location(600, 220);
                     fleeButton.Draw(spriteBatch);
                     break;
                 case BattleStageType.FIGHT:
@@ -155,6 +159,7 @@ namespace RPG
                     aButton.Update();
                     itemButton.Update();
                     fleeButton.Update();
+                    spellButton.Update();
                     break;
                 case BattleStageType.FIGHT:
                     while (this.currentActions.Count > 0)
