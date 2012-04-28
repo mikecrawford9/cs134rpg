@@ -14,6 +14,7 @@ namespace RPG
     public enum BattleStageType { ACTION, FIGHT, WIN, LOSE, FLEE }
      public class BattleSequence
     {
+         public static int PROJECTILE_TIME = 2000;
         public Party party;
         public Enemy[] enemies;
         public List<String> combatLog;
@@ -24,6 +25,7 @@ namespace RPG
         public bool partyDead;
         public bool enemiesDead;
         public bool isWaiting;
+        public int shotprojectileat;
         public String xRet, yRet, retMap;
 
         public bool drawprojectile;
@@ -56,6 +58,7 @@ namespace RPG
             this.xRet = Convert.ToString(xRet);
             this.yRet = Convert.ToString(yRet);
             this.retMap = retMap;
+            this.projectiles = new Queue<Projectile>();
             state = BattleStageType.ACTION;
             
         }
@@ -172,16 +175,22 @@ namespace RPG
             }   
         }
 
-        public void Update()
+        public void Update(GameTime gameTime)
         {
             if (!drawprojectile && projectiles.Count > 0)
             {
                 currentprojectile = projectiles.Dequeue();
+                shotprojectileat = (int)gameTime.TotalGameTime.TotalMilliseconds;
                 drawprojectile = true;
             }
 
             if (drawprojectile)
+            {
                 currentprojectile.Update();
+                int curtime = (int)gameTime.TotalGameTime.TotalMilliseconds;
+                if (curtime - shotprojectileat > PROJECTILE_TIME)
+                    drawprojectile = false;
+            }
 
             if (!drawprojectile)
             {
@@ -197,7 +206,7 @@ namespace RPG
                         while (this.currentActions.Count > 0)
                         {
                             BattleAction a = this.currentActions.Dequeue();
-                            a.performAction();
+                            a.performAction(gameTime);
                         }
                         //this.state = BattleStageType.ACTION;
                         break;
@@ -246,15 +255,22 @@ namespace RPG
             this.battleSequence = bs;
         }
 
-        public void performAction()
+        public void performAction(GameTime gameTime)
         {
             switch (type)
             {
                 case BattleActionType.ATTACK:
                     foreach(Player t in target)
                     {
+                        bool isenemy = (t.playerBase.playerType == PlayerType.ENEMY);
                         Console.WriteLine("Melee Attack");
                         Texture2D cur = user.UseSpell(t, spell);
+                        Projectile proj = new Projectile();
+                        if(isenemy)
+                            proj.Initialize(cur, new Vector2(battleSequence.enemyrec[0].X, battleSequence.enemyrec[0].Y), false);
+                        else
+                            proj.Initialize(cur, new Vector2(battleSequence.playerec[0].X, battleSequence.playerec[0].Y), true);
+                        battleSequence.projectiles.Enqueue(proj);
                     }
                     break;
                 case BattleActionType.ITEM:
@@ -267,9 +283,13 @@ namespace RPG
                 case BattleActionType.SPELL:
                     foreach (Player t in target)
                     {
+                        bool isenemy = (t.playerBase.playerType == PlayerType.ENEMY);
                         Texture2D cur = user.UseSpell(t, spell);
                         Projectile proj = new Projectile();
-                        proj.Initialize(cur, new Vector2(battleSequence.playerec[0].X, battleSequence.playerec[0].Y), true);
+                        if (isenemy)
+                            proj.Initialize(cur, new Vector2(battleSequence.enemyrec[0].X, battleSequence.enemyrec[0].Y), false);
+                        else
+                            proj.Initialize(cur, new Vector2(battleSequence.playerec[0].X, battleSequence.playerec[0].Y), true);
                         battleSequence.projectiles.Enqueue(proj);
                         //battleSequence.drawprojectile = true;
                     }

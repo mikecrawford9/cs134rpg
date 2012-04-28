@@ -357,7 +357,7 @@ namespace RPG
                             //Console.WriteLine("PlayState is Battle!");
                             if (bs != null)
                             {
-                                bs.Update();
+                                bs.Update(gameTime);
                             }
                         break;
                     }
