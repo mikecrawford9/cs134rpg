@@ -41,13 +41,13 @@ namespace RPG
         public void Start()
         {
             combatLog.Add("Enemies have appeared.");
-            MediaPlayer.Stop();
-            MediaPlayer.Play(game.Content.Load<Song>("battlemusic"));
             while (continueCombat)
             {
                 foreach (Player p in party.partyMembers)
                 {
                     AttackButton p1Attack = new AttackButton(game.Content.Load<Texture2D>("Tiles/buttonSmall"), game.Content.Load<SpriteFont>("Tiles/buttonFont"), game.spriteBatch, "Attack", p, null);
+                    p1Attack.Location(100, 100);
+                    p1Attack.Draw();
                 }
             }
         }

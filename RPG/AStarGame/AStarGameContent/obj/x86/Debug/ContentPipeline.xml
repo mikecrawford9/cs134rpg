@@ -1153,6 +1153,36 @@
       <Output>F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Wood Attack.xnb</Output>
       <Time>2012-04-27T19:27:02.2755107-07:00</Time>
     </Item>
+    <Item>
+      <Source>battlemusic.mp3</Source>
+      <Name>battlemusic</Name>
+      <Importer>Mp3Importer</Importer>
+      <Processor>SongProcessor</Processor>
+      <Options>None</Options>
+      <Output>F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\battlemusic.xnb</Output>
+      <Extra>F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\battlemusic.wma</Extra>
+      <Time>2012-04-27T21:22:58.9874119-07:00</Time>
+    </Item>
+    <Item>
+      <Source>cavemusic.mp3</Source>
+      <Name>cavemusic</Name>
+      <Importer>Mp3Importer</Importer>
+      <Processor>SongProcessor</Processor>
+      <Options>None</Options>
+      <Output>F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\cavemusic.xnb</Output>
+      <Extra>F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\cavemusic.wma</Extra>
+      <Time>2012-04-27T21:23:00.8305173-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Townmusic.mp3</Source>
+      <Name>Townmusic</Name>
+      <Importer>Mp3Importer</Importer>
+      <Processor>SongProcessor</Processor>
+      <Options>None</Options>
+      <Output>F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Townmusic.xnb</Output>
+      <Extra>F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Townmusic.wma</Extra>
+      <Time>2012-04-27T21:23:02.2976012-07:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <TargetPlatform>Windows</TargetPlatform>

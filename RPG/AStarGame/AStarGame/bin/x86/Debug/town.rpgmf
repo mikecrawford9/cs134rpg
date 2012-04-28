@@ -12,7 +12,7 @@
 <TILE x="0" y="8" type="GRASS" >
 <EVENT type="MAP_TRANSITION">
 <DATA>
-<mapfile>world2.rpgmf</mapfile>
+<mapfile>world3.rpgmf</mapfile>
 <x>15</x>
 <y>8</y>
 </DATA>

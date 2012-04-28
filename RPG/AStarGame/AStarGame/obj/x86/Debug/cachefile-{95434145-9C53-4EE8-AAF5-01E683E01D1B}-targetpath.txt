@@ -126,3 +126,9 @@ Content\Fireball Sound.xnb
 Content\Healing.xnb
 Content\SwordAttack.xnb
 Content\Wood Attack.xnb
+Content\battlemusic.xnb
+Content\battlemusic.wma
+Content\cavemusic.xnb
+Content\cavemusic.wma
+Content\Townmusic.xnb
+Content\Townmusic.wma

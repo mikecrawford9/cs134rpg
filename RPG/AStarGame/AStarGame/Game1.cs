@@ -32,8 +32,9 @@ namespace RPG
         public static Texture2D evindicator;
         const int MONSTER_MOVE_DELAY = 1000;
         const int PLAYER_MOVE_DELAY = 100;
+        Party party;
 
-        const bool STARTPLAY = false;
+        const bool STARTPLAY = true;
         const String FIRSTMAP = "world3.rpgmf";
         const int DEFAULT_X_TILES = 20;
         const int DEFAULT_Y_TILES = 20;
@@ -46,6 +47,8 @@ namespace RPG
         ToolMap toolmap;
         Texture2D whitepixel;
         Texture2D astarwaypoint;
+        Song cave, town, battle;
+        Song currSong;
 
         WorldTile[] worldtiles;
         Dictionary<String, Texture2D> texmap;
@@ -89,6 +92,7 @@ namespace RPG
             // Set back buffer resolution  
             graphics.PreferredBackBufferWidth = 768;
             graphics.PreferredBackBufferHeight = 532;
+            
         }
 
         /// <summary>
@@ -100,6 +104,7 @@ namespace RPG
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
+            
             if (STARTPLAY)
             {
                 state = GameState.RUNNING;
@@ -115,9 +120,26 @@ namespace RPG
             lastmonstermove = 0;
             lastplayermove = 0;
             inaddevent = false;
+            Player p = new Player(Player.WARRIOR, Sprite.WARRIOR, "Wally");
+            Player[] playerList = new Player[] { p };
+            party = new Party(playerList);
             base.Initialize();
         }
+        private void PlayMusic(Song song)
+        {
+            // Due to the way the MediaPlayer plays music,
+            // we have to catch the exception. Music will play when the game is not tethered
+            try
+            {
+                // Play the music
+                MediaPlayer.Play(song);
 
+                // Loop the currently playing song
+                MediaPlayer.IsRepeating = true;
+            }
+            catch { }
+        }
+        
         /// <summary>
         /// LoadContent will be called once per game and is the place to load
         /// all of your content.
@@ -126,7 +148,7 @@ namespace RPG
         {
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
-
+            
             whitepixel  = new Texture2D(GraphicsDevice, 1, 1);
             whitepixel.SetData(new Color[] { Color.White });
             astartiles = new List<Tile>();
@@ -136,7 +158,10 @@ namespace RPG
             font = Content.Load<SpriteFont>("gameFont");
 
             evindicator = Content.Load<Texture2D>("AStarWayPoint");
-
+            cave = Content.Load<Song>("cavemusic");
+            town = Content.Load<Song>("Townmusic");
+            battle = Content.Load<Song>("battlemusic");
+            currSong = town;
             /*tools = new Tool[2][];
             tools[0] = new Tool[4];
             tools[1] = new Tool[4];
@@ -197,6 +222,7 @@ namespace RPG
                  reader.Close();
                  fileStream.Close();
             }
+            PlayMusic(Content.Load<Song>("Townmusic"));
             // TODO: use this.Content to load your game content here
         }
 
@@ -492,14 +518,35 @@ namespace RPG
                     int y = Convert.ToInt32(e.getProperty("y"));
 
                     Console.WriteLine("Processing Map Transition Event for " + mapfile + " x=" + x + ",y=" + y);
-
+                    
+                    if(mapfile.Contains("dragon"))
+                    {
+                        if (!currSong.Equals(cave))
+                        {
+                            MediaPlayer.Stop();
+                            PlayMusic(cave);
+                            currSong = cave;
+                        }
+                    }
+                    else
+                    {
+                        if (!currSong.Equals(town))
+                        {
+                            MediaPlayer.Stop();
+                            PlayMusic(town);
+                            currSong = town;
+                        }
+                    }
                     map = getMap(mapfile, x, y);
                 }
                 else if (e.getEventType() == EventType.BATTLE_TILE)
                 {
                     playstate = PlayState.BATTLE;
-
+                    
                     map = getMap(e.getProperty("battlemap"), 8, 8);
+                    BattleSequence bs = new BattleSequence(null, new Enemy[] {new Enemy(new Player(Player.WARRIOR, Sprite.ENEMY_1, "Ninja Pu", 7))}, Content.Load<SpriteFont>("gameFont"), map, this);
+                    bs.Start();
+                    PlayMusic(battle);
                     /*String mapfile = e.getProperty("mapfile");
                     int x = Convert.ToInt32(e.getProperty("x"));
                     int y = Convert.ToInt32(e.getProperty("y"));
