@@ -53,20 +53,18 @@ namespace RPG
             {
                 foreach (Player p in party.partyMembers)
                 {
-                    aButton = new AttackButton(Game1.buttonImage, Game1.buttonFont, "Attack", p, new List<Event>());
-                    
-                    button = new Button(Game1.buttonImage, Game1.buttonFont, "Poop");
-
                     Event e = new Event();
-                    
+
                     e.setEventType(EventType.MAP_TRANSITION);
                     e.addProperty("x", xRet);
                     e.addProperty("y", yRet);
                     e.addProperty("mapfile", retMap); 
+                    List<Event> actionList =  new List<Event>();
+                    actionList.Add(e);
+                    aButton = new AttackButton(Game1.buttonImage, Game1.buttonFont, "Attack", p, actionList);
                     
-
-                    Game1.addToEventQueue(e);
-                    Game1.playstate = PlayState.WORLD;
+                    button = new Button(Game1.buttonImage, Game1.buttonFont, "Poop");
+                    
                 }
                 continueCombat = false;
             }

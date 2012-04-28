@@ -294,7 +294,6 @@ namespace RPG
                         case PlayState.WORLD:
                         map.unhighlight();
                         playGame(gameTime);
-                        processEvents();
                         break;
                         case PlayState.BATTLE:
                             Console.WriteLine("PlayState is Battle!");
@@ -305,7 +304,7 @@ namespace RPG
                         break;
                     }
 
-                    
+                    processEvents();
                     break;
                 case GameState.SAVEMAP:
                     if (!mapsaved)
@@ -580,6 +579,8 @@ namespace RPG
                         }
                     }
                     map = getMap(mapfile, x, y);
+                    Console.WriteLine("Reached 2");
+                    Game1.playstate = PlayState.WORLD;
                 }
                 else if (e.getEventType() == EventType.BATTLE_TILE)
                 {

@@ -27,6 +27,7 @@ namespace RPG
                 foreach (Event e in eventList)
                 {
                     Game1.addToEventQueue(e);
+                    Console.WriteLine("Reached queue");
                 }
             }
 
