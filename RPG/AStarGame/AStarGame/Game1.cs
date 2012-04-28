@@ -53,7 +53,7 @@ namespace RPG
 
         Tool[][] tools;
 
-        List<Tile>astartiles;
+        List<Tile> astartiles;
         bool edited;
         bool inaddevent;
         bool inprogress;
@@ -129,7 +129,7 @@ namespace RPG
 
             whitepixel  = new Texture2D(GraphicsDevice, 1, 1);
             whitepixel.SetData(new Color[] { Color.White });
-
+            astartiles = new List<Tile>();
             astarwaypoint = Content.Load<Texture2D>("AStarWayPoint");
             edited = true;
             
@@ -241,13 +241,14 @@ namespace RPG
                     map.resetPlayers();
                     map.refreshTiles();
                     map.Update(toolmap);
-                    astartiles = null;
+                    astartiles.Clear();
                     break;
                 case GameState.ASTAR:
                     //start a*star code here...
                     map.unhighlight();
                     if (edited)
                     {
+                        edited = false;
                         doMultiAStar();
                     }
                     map.refreshTiles();
@@ -308,7 +309,9 @@ namespace RPG
         public void doMultiAStar()
         {
             Tile[] monsters = map.getMonsters();
-            astartiles = new List<Tile>();
+            if (DEBUG)
+                Console.WriteLine("Called doMultiAStar()");
+
             for (int i = 0; i < monsters.Length; i++)
             {
                 Tile cur = processAStar(map.getPlayerTile(), monsters[i]);
@@ -698,7 +701,8 @@ namespace RPG
             Tile cur = node;
             while (cur != null)
             {
-                ret += cur.getCost();
+                //ret += cur.getCost();
+                ret += 1;
                 cur = cur.getPrevious();
             }
             return ret;
