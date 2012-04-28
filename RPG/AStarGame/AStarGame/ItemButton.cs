@@ -46,7 +46,7 @@ namespace RPG
                     bs.currentActions.Enqueue(new BattleAction(bs, e.player, new Player[] { player }, BattleActionType.ATTACK, Spell.ATTACK, null));
                     bs.combatLog.Add("Enemy attacks you.");
                 }
-
+                bs.state = BattleStageType.FIGHT;
                 inprogress = false;
             }
         }

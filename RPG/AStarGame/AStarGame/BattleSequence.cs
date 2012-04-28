@@ -92,19 +92,12 @@ namespace RPG
         public bool AttemptToFlee()
         {
             int test = (new Random()).Next(0, 2);
-            //Console.WriteLine("test=" + test);
             switch (test)
             {
                 case 0: return false;
                 case 1: return true;
             }
-            /*switch ((new Random()).Next(0, 1))
-            {
-                case 0: break;
-                case 1: this.continueCombat = false; return true;
-                default: break;
-            }
-            return false;*/
+
             return false;
         }
 
@@ -225,8 +218,6 @@ namespace RPG
                         Console.WriteLine("Melee Attack");
                         user.UseSpell(t, spell);
                     }
-                    if(battleSequence.state != BattleStageType.FLEE)
-                        battleSequence.state = BattleStageType.ACTION;
                     break;
                 case BattleActionType.ITEM:
                     foreach (Player t in target)
@@ -258,6 +249,8 @@ namespace RPG
                 default: 
                     break;
             }
+            if (battleSequence.state != BattleStageType.FLEE)
+                battleSequence.state = BattleStageType.ACTION;
         }
     }
 }
