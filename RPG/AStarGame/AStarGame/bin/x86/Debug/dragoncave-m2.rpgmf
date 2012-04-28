@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<MAP x="20" y="20" playerx="3" playery="5" >
+<MAP x="20" y="20" playerx="3" playery="2" >
 <MONSTERS>
-<MONSTER type="MONSTER" x="11" y="7" />
-<MONSTER type="MONSTER" x="8" y="2" />
-<MONSTER type="MONSTER" x="3" y="10" />
+<MONSTER type="MONSTER" x="8" y="8" />
 </MONSTERS>
 <TILES>
 <TILE x="0" y="0" type="ROCK_WALL" />
@@ -39,8 +37,8 @@
 <TILE x="1" y="10" type="ROCK_WALL" />
 <TILE x="1" y="11" type="ROCK_WALL" />
 <TILE x="1" y="12" type="ROCK_WALL" />
-<TILE x="1" y="13" type="ROCK_WALL" />
-<TILE x="1" y="14" type="ROCK_WALL" />
+<TILE x="1" y="13" type="DIRT" />
+<TILE x="1" y="14" type="DIRT" />
 <TILE x="1" y="15" type="ROCK_WALL" />
 <TILE x="1" y="16" type="ROCK_WALL" />
 <TILE x="1" y="17" type="ROCK_WALL" />
@@ -53,21 +51,13 @@
 <DATA>
 <y>2</y>
 <x>2</x>
-<mapfile>dragoncave-m2.rpgmf</mapfile>
+<mapfile>dragoncave-m.rpgmf</mapfile>
 </DATA>
 </EVENT>
 </TILE>
 <TILE x="2" y="3" type="GRASS" />
 <TILE x="2" y="4" type="ROCK_WALL" />
-<TILE x="2" y="5" type="GRASS_STAIRS" >
-<EVENT type="MAP_TRANSITION">
-<DATA>
-<y>2</y>
-<x>29</x>
-<mapfile>world3.rpgmf</mapfile>
-</DATA>
-</EVENT>
-</TILE>
+<TILE x="2" y="5" type="DIRT" />
 <TILE x="2" y="6" type="ROCK_WALL" />
 <TILE x="2" y="7" type="ROCK_WALL" />
 <TILE x="2" y="8" type="DIRT" />
@@ -75,8 +65,8 @@
 <TILE x="2" y="10" type="DIRT" />
 <TILE x="2" y="11" type="DIRT" />
 <TILE x="2" y="12" type="ROCK_WALL" />
-<TILE x="2" y="13" type="ROCK_WALL" />
-<TILE x="2" y="14" type="ROCK_WALL" />
+<TILE x="2" y="13" type="DIRT" />
+<TILE x="2" y="14" type="DIRT" />
 <TILE x="2" y="15" type="ROCK_WALL" />
 <TILE x="2" y="16" type="ROCK_WALL" />
 <TILE x="2" y="17" type="ROCK_WALL" />
@@ -109,7 +99,7 @@
 <TILE x="4" y="4" type="ROCK_WALL" />
 <TILE x="4" y="5" type="ROCK_WALL" />
 <TILE x="4" y="6" type="DIRT" />
-<TILE x="4" y="7" type="ROCK_WALL" />
+<TILE x="4" y="7" type="DIRT" />
 <TILE x="4" y="8" type="DIRT" />
 <TILE x="4" y="9" type="DIRT" />
 <TILE x="4" y="10" type="DIRT" />
@@ -129,10 +119,10 @@
 <TILE x="5" y="4" type="ROCK_WALL" />
 <TILE x="5" y="5" type="ROCK_WALL" />
 <TILE x="5" y="6" type="DIRT" />
-<TILE x="5" y="7" type="ROCK_WALL" />
-<TILE x="5" y="8" type="ROCK_WALL" />
-<TILE x="5" y="9" type="ROCK_WALL" />
-<TILE x="5" y="10" type="ROCK_WALL" />
+<TILE x="5" y="7" type="DIRT" />
+<TILE x="5" y="8" type="DIRT" />
+<TILE x="5" y="9" type="DIRT" />
+<TILE x="5" y="10" type="DIRT" />
 <TILE x="5" y="11" type="ROCK_WALL" />
 <TILE x="5" y="12" type="ROCK_WALL" />
 <TILE x="5" y="13" type="ROCK_WALL" />
@@ -143,7 +133,7 @@
 <TILE x="5" y="18" type="ROCK_WALL" />
 <TILE x="5" y="19" type="ROCK_WALL" />
 <TILE x="6" y="0" type="ROCK_WALL" />
-<TILE x="6" y="1" type="ROCK_WALL" />
+<TILE x="6" y="1" type="DIRT" />
 <TILE x="6" y="2" type="DIRT" />
 <TILE x="6" y="3" type="ROCK_WALL" />
 <TILE x="6" y="4" type="ROCK_WALL" />
@@ -151,10 +141,10 @@
 <TILE x="6" y="6" type="DIRT" />
 <TILE x="6" y="7" type="DIRT" />
 <TILE x="6" y="8" type="DIRT" />
-<TILE x="6" y="9" type="ROCK_WALL" />
-<TILE x="6" y="10" type="ROCK_WALL" />
-<TILE x="6" y="11" type="ROCK_WALL" />
-<TILE x="6" y="12" type="ROCK_WALL" />
+<TILE x="6" y="9" type="DIRT" />
+<TILE x="6" y="10" type="DIRT" />
+<TILE x="6" y="11" type="DIRT" />
+<TILE x="6" y="12" type="DIRT" />
 <TILE x="6" y="13" type="ROCK_WALL" />
 <TILE x="6" y="14" type="DIRT" />
 <TILE x="6" y="15" type="ROCK_WALL" />
@@ -171,10 +161,10 @@
 <TILE x="7" y="6" type="DIRT" />
 <TILE x="7" y="7" type="DIRT" />
 <TILE x="7" y="8" type="DIRT" />
-<TILE x="7" y="9" type="ROCK_WALL" />
-<TILE x="7" y="10" type="ROCK_WALL" />
-<TILE x="7" y="11" type="ROCK_WALL" />
-<TILE x="7" y="12" type="ROCK_WALL" />
+<TILE x="7" y="9" type="DIRT" />
+<TILE x="7" y="10" type="DIRT" />
+<TILE x="7" y="11" type="DIRT" />
+<TILE x="7" y="12" type="DIRT" />
 <TILE x="7" y="13" type="ROCK_WALL" />
 <TILE x="7" y="14" type="DIRT" />
 <TILE x="7" y="15" type="ROCK_WALL" />
@@ -191,8 +181,8 @@
 <TILE x="8" y="6" type="DIRT" />
 <TILE x="8" y="7" type="DIRT" />
 <TILE x="8" y="8" type="DIRT" />
-<TILE x="8" y="9" type="ROCK_WALL" />
-<TILE x="8" y="10" type="ROCK_WALL" />
+<TILE x="8" y="9" type="DIRT" />
+<TILE x="8" y="10" type="DIRT" />
 <TILE x="8" y="11" type="ROCK_WALL" />
 <TILE x="8" y="12" type="ROCK_WALL" />
 <TILE x="8" y="13" type="ROCK_WALL" />
@@ -211,8 +201,8 @@
 <TILE x="9" y="6" type="DIRT" />
 <TILE x="9" y="7" type="DIRT" />
 <TILE x="9" y="8" type="DIRT" />
-<TILE x="9" y="9" type="ROCK_WALL" />
-<TILE x="9" y="10" type="ROCK_WALL" />
+<TILE x="9" y="9" type="DIRT" />
+<TILE x="9" y="10" type="DIRT" />
 <TILE x="9" y="11" type="ROCK_WALL" />
 <TILE x="9" y="12" type="ROCK_WALL" />
 <TILE x="9" y="13" type="ROCK_WALL" />
@@ -309,10 +299,10 @@
 <TILE x="14" y="4" type="DIRT" />
 <TILE x="14" y="5" type="DIRT" />
 <TILE x="14" y="6" type="ROCK_WALL" />
-<TILE x="14" y="7" type="ROCK_WALL" />
-<TILE x="14" y="8" type="ROCK_WALL" />
-<TILE x="14" y="9" type="ROCK_WALL" />
-<TILE x="14" y="10" type="ROCK_WALL" />
+<TILE x="14" y="7" type="DIRT" />
+<TILE x="14" y="8" type="DIRT" />
+<TILE x="14" y="9" type="DIRT" />
+<TILE x="14" y="10" type="DIRT" />
 <TILE x="14" y="11" type="ROCK_WALL" />
 <TILE x="14" y="12" type="GRASS" />
 <TILE x="14" y="13" type="GRASS_STAIRS" >
@@ -320,7 +310,7 @@
 <DATA>
 <y>13</y>
 <x>14</x>
-<mapfile>dragoncave-m2.rpgmf</mapfile>
+<mapfile>dragoncave-m.rpgmf</mapfile>
 </DATA>
 </EVENT>
 </TILE>
@@ -337,10 +327,10 @@
 <TILE x="15" y="4" type="ROCK_WALL" />
 <TILE x="15" y="5" type="ROCK_WALL" />
 <TILE x="15" y="6" type="ROCK_WALL" />
-<TILE x="15" y="7" type="ROCK_WALL" />
-<TILE x="15" y="8" type="ROCK_WALL" />
-<TILE x="15" y="9" type="ROCK_WALL" />
-<TILE x="15" y="10" type="ROCK_WALL" />
+<TILE x="15" y="7" type="DIRT" />
+<TILE x="15" y="8" type="DIRT" />
+<TILE x="15" y="9" type="DIRT" />
+<TILE x="15" y="10" type="DIRT" />
 <TILE x="15" y="11" type="ROCK_WALL" />
 <TILE x="15" y="12" type="GRASS" />
 <TILE x="15" y="13" type="GRASS" />

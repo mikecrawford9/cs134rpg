@@ -20,6 +20,7 @@ namespace RPG
             this.partyMembers = partyMembers;
             this.score = score;
             this.money = money;
+            this.partyMembers[0].inventory.AddItem(Item.DRAGON_SKULL);
         }
 
         public void CalculateScore()
@@ -36,6 +37,18 @@ namespace RPG
             
         }
 
+        public Item[] getAllItems()
+        {
+            List<Item> itemret = new List<Item>();
+            foreach (Player p in partyMembers)
+            {
+                Item[] x = p.inventory.getItems();
+                for (int i = 0; i < x.Length; i++)
+                    itemret.Add(x[i]);
+            }
+            return itemret.ToArray();
+        }
+
         public void completeQuest(Quest q)
         {
             if(open.ContainsKey(q.getQuestID()))
@@ -43,6 +56,22 @@ namespace RPG
 
             if(!completed.ContainsKey(q.getQuestID()))
                 completed.Add(q.getQuestID(),q);
+        }
+
+        public bool questInProgress(String id)
+        {
+            if (open.ContainsKey(id))
+                return true;
+            else
+                return false;
+        }
+
+        public bool questCompleted(String id)
+        {
+            if (completed.ContainsKey(id))
+                return true;
+            else
+                return false;
         }
 
         public void addQuest(Quest q)

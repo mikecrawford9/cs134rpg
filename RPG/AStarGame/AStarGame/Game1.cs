@@ -37,6 +37,7 @@ namespace RPG
         Player p;
         BattleSequence bs;
 
+        public const bool DEBUG = false;
         const bool STARTPLAY = true;
         const String FIRSTMAP = "world3.rpgmf";
         const int DEFAULT_X_TILES = 20;
@@ -77,7 +78,6 @@ namespace RPG
         bool inaddevent;
         bool inprogress;
         bool setmessage;
-        public const bool DEBUG = false;
 
         int lastmonstermove;
         int lastplayermove;
@@ -330,6 +330,9 @@ namespace RPG
                         case PlayState.WAITFORNPC:
                         case PlayState.NPCQUEST:
                         case PlayState.MESSAGE:
+                        case PlayState.INVENTORY:
+                        case PlayState.GAMEOVER_WIN:
+                        case PlayState.GAMEOVER_LOSE:
                         map.unhighlight();
                         playGame(gameTime);
                         break;
@@ -511,6 +514,12 @@ namespace RPG
                         inprogress = false;
                         return;
                     }
+                    else if (kb.IsKeyDown(Keys.I))
+                    {
+                        playstate = PlayState.INVENTORY;
+                        inprogress = false;
+                        return;
+                    }
                     else if (kb.IsKeyDown(Keys.Up))
                     {
                         map.shiftUp(1, noclip);
@@ -640,93 +649,102 @@ namespace RPG
                     {
                         playstate = PlayState.WORLD;
                     }
-            }
-            else if (playstate == PlayState.NPCQUEST)
-            {
-                if (DEBUG)
-                    Console.WriteLine("Entered PlayGame NPCQUEST Section");
-
-                Event e = currentevent;
-                String model = e.getProperty("npctexture");
-                String questid = e.getProperty("questid");
-                String questreturnmap = e.getProperty("questret");
-                String questretx = e.getProperty("questretx");
-                String questrety = e.getProperty("questrety");
-
-                if (DEBUG)
-                {
-                    Console.WriteLine("party already done quest??? -> " + party.questInProgressOrCompleted(questid));
                 }
-
-                if (quests.ContainsKey(questid) && !party.questInProgressOrCompleted(questid))
+                else if (playstate == PlayState.INVENTORY)
+                {
+                    KeyboardState kb = Keyboard.GetState();
+                    if(kb.IsKeyDown(Keys.Space))
+                    {
+                        playstate = PlayState.WORLD;
+                    }
+                }
+                else if (playstate == PlayState.NPCQUEST)
                 {
                     if (DEBUG)
-                        Console.WriteLine("Quest can proceeed!");
+                        Console.WriteLine("Entered PlayGame NPCQUEST Section");
 
-                    Quest q = quests[questid];
-                    party.addQuest(q);
+                    Event e = currentevent;
+                    String model = e.getProperty("npctexture");
+                    String questid = e.getProperty("questid");
+                    String questreturnmap = e.getProperty("questret");
+                    String questretx = e.getProperty("questretx");
+                    String questrety = e.getProperty("questrety");
 
-                    Event x = new Event();
-                    x.setEventType(EventType.MESSAGE);
-                    x.addProperty("text", q.getQuestText());
-                    x.addProperty("removenpconcomplete", model);
-                    addToEventQueue(x);
-
-                    TileMap returnmap = getMap(q.getReturnMap(), -1, -1);
-                    Event j = new Event();
-                    j.setEventType(EventType.QUESTRETURN);
-                    j.addProperty("questid",q.getQuestID());
-                    returnmap.addTileEvent(j, q.getReturnX(), q.getReturnY());
-                }
-            }
-            else if (playstate == PlayState.MESSAGE)
-            {
-                if (!setmessage)
-                {
-                    String text = currentevent.getProperty("text");
-                    Message m = new Message(text, whitepixel, font);
-                    map.setMessage(m);
-                    setmessage = true;
-                }
-
-                KeyboardState kb = Keyboard.GetState();
-                if (kb.IsKeyDown(Keys.Space))
-                {
-                    setmessage = false;
-                    playstate = PlayState.WORLD;
-                    map.removeMessage();
-
-                    String removenpcid = currentevent.getProperty("removenpconcomplete");
-                    if (removenpcid != null)
-                        map.removeNPC(removenpcid);
-                }
-
-                //Console.WriteLine("Would Be Printing: " + text);
-            }
-            else
-            {
-                Tile[] monsters = map.getMonsters();
-                if ((currenttime - lastmonstermove) > MONSTER_MOVE_DELAY)
-                {
-                    for (int i = 0; i < monsters.Length && playstate == PlayState.WORLD; i++)
+                    if (DEBUG)
                     {
-                        Tile astartile = null;
-                        Tile best = processAStar(playertile, monsters[i]);
-                        if (best != null)
-                        {
-                            astartile = best;
-                            Tile next = getNextStep(best);
-                            map.setMonsterLocation(i, next);
-                            map.refreshTiles();
-                            edited = true;
-                        }
-                        else
-                            Console.WriteLine("Best is null!");
+                        Console.WriteLine("party already done quest??? -> " + party.questInProgressOrCompleted(questid));
                     }
 
-                    lastmonstermove = currenttime;
+                    if (quests.ContainsKey(questid) && !party.questInProgressOrCompleted(questid))
+                    {
+                        if (DEBUG)
+                            Console.WriteLine("Quest can proceeed!");
+
+                        Quest q = quests[questid];
+                        party.addQuest(q);
+
+                        Event x = new Event();
+                        x.setEventType(EventType.MESSAGE);
+                        x.addProperty("text", q.getQuestText());
+                        x.addProperty("removenpconcomplete", model);
+                        addToEventQueue(x);
+
+                        TileMap returnmap = getMap(q.getReturnMap(), -1, -1);
+
+                        Event j = new Event();
+                        j.setEventType(EventType.QUESTRETURN);
+                        j.addProperty("questid", q.getQuestID());
+                        returnmap.addTileEvent(j, q.getReturnX(), q.getReturnY());
+                    }
                 }
-            }
+                else if (playstate == PlayState.MESSAGE)
+                {
+                    if (!setmessage)
+                    {
+                        String text = currentevent.getProperty("text");
+                        Message m = new Message(text, whitepixel, font);
+                        map.setMessage(m);
+                        setmessage = true;
+                    }
+
+                    KeyboardState kb = Keyboard.GetState();
+                    if (kb.IsKeyDown(Keys.Space))
+                    {
+                        setmessage = false;
+                        playstate = PlayState.WORLD;
+                        map.removeMessage();
+
+                        String removenpcid = currentevent.getProperty("removenpconcomplete");
+                        if (removenpcid != null)
+                            map.removeNPC(removenpcid);
+                    }
+
+                    //Console.WriteLine("Would Be Printing: " + text);
+                }
+                else
+                {
+                    Tile[] monsters = map.getMonsters();
+                    if ((currenttime - lastmonstermove) > MONSTER_MOVE_DELAY)
+                    {
+                        for (int i = 0; i < monsters.Length && playstate == PlayState.WORLD; i++)
+                        {
+                            Tile astartile = null;
+                            Tile best = processAStar(playertile, monsters[i]);
+                            if (best != null)
+                            {
+                                astartile = best;
+                                Tile next = getNextStep(best);
+                                map.setMonsterLocation(i, next);
+                                map.refreshTiles();
+                                edited = true;
+                            }
+                            else
+                                Console.WriteLine("Best is null!");
+                        }
+
+                        lastmonstermove = currenttime;
+                    }
+                }
         }
 
         private void processEvents()
@@ -769,14 +787,13 @@ namespace RPG
                 }
                 else if (e.getEventType() == EventType.BATTLE_TILE)
                 {
-                    playstate = PlayState.BATTLE;
                     int x = map.getPlayerTile().getMapX();
                     int y = map.getPlayerTile().getMapY();
-
+                    playstate = PlayState.BATTLE;
                     String file = map.filename;
                     map.RemoveMonsterTile(Convert.ToInt32(e.getProperty("index")));
                     map = getMap(e.getProperty("battlemap"), 8, 8);
-                    map.removePlayer();
+                    //map.removePlayer();
 
 
                     Player px = new Player();
@@ -819,10 +836,16 @@ namespace RPG
                     currentevent = e;
                     playstate = PlayState.MESSAGE;
                 }
+                else if (e.getEventType() == EventType.WIN_GAME)
+                {
+                    currentevent = e;
+                    state = GameState.GAMEOVER;
+                    playstate = PlayState.GAMEOVER_WIN;
+                }
                 else if (e.getEventType() == EventType.QUESTRETURN)
                 {
                     String questid = e.getProperty("questid");
-                    if (quests.ContainsKey(questid))
+                    if (!party.questCompleted(questid))
                     {
                         Quest q = quests[questid];
 
@@ -835,6 +858,11 @@ namespace RPG
                             m.setEventType(EventType.MESSAGE);
                             m.addProperty("text", q.getQuestCompleteText());
                             addToEventQueue(m);
+
+                            Event n = new Event();
+                            n.setEventType(EventType.WIN_GAME);
+                            addToEventQueue(n);
+                            
                         }
                         else
                         {
@@ -1089,23 +1117,25 @@ namespace RPG
                     Rectangle rec = new Rectangle(10, 10, TileMap.VIEW_WIDTH, TileMap.VIEW_HEIGHT);
                     spriteBatch.Draw(whitepixel, rec, Color.Black);
                     spriteBatch.DrawString(font, "YOU WIN!!!", new Vector2(rec.X + 20, rec.Y + 6), Color.Yellow);
-                    spriteBatch.DrawString(font, "Congratulations, you are a\nSavage Dragons MASTER!!\n\n\nHit Space to Play Again!", new Vector2(rec.X + 20, rec.Y + 100), Color.Yellow);
+                    spriteBatch.DrawString(font, "Congratulations, you are a\nSavage Dragons MASTER!!", new Vector2(rec.X + 20, rec.Y + 100), Color.Yellow);
                 }
                 else if (playstate == PlayState.GAMEOVER_LOSE)
                 {
                     Rectangle rec = new Rectangle(10, 10, TileMap.VIEW_WIDTH, TileMap.VIEW_HEIGHT);
                     spriteBatch.Draw(whitepixel, rec, Color.Black);
                     spriteBatch.DrawString(font, "YOU LOSE!!", new Vector2(rec.X + 20, rec.Y + 6), Color.Yellow);
-                    spriteBatch.DrawString(font, "WOW, you REALLY suck at video games...\nBetter luck next time!\n\n\nHit Space to Play Again!", new Vector2(rec.X + 20, rec.Y + 100), Color.Yellow);
+                    spriteBatch.DrawString(font, "WOW, you REALLY suck at video games...\nBetter luck next time!", new Vector2(rec.X + 20, rec.Y + 100), Color.Yellow);
                 }
             }
             else
             {
                 map.Draw(spriteBatch);
+
                 if (state != GameState.RUNNING)
                     toolmap.Draw(spriteBatch, state);
                 else
                 {
+
                     if (PlayState.BATTLE == playstate)
                     {
                         if (bs != null)
@@ -1114,8 +1144,15 @@ namespace RPG
                         }
 
                     }
-
-
+                    else if (playstate == PlayState.INVENTORY)
+                    {
+                        Rectangle rec = new Rectangle(10, 10, TileMap.VIEW_WIDTH, TileMap.VIEW_HEIGHT);
+                        spriteBatch.Draw(whitepixel, rec, Color.Black);
+                        spriteBatch.DrawString(font, "INVENTORY", new Vector2(rec.X + 20, rec.Y + 6), Color.Yellow);
+                        Item[] items = party.getAllItems();
+                        for(int i = 0; i < items.Length; i++)
+                            spriteBatch.DrawString(font, items[i].name, new Vector2(rec.X + 20, rec.Y + 6 + 30*(i+1)), Color.Yellow);
+                    }
                 }
 
                 if (state == GameState.ASTAR)

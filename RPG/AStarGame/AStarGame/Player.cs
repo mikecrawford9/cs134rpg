@@ -153,6 +153,7 @@ namespace RPG
             this.sprite = cs;
             #endregion
         }
+
         #region VARIABLES
         public readonly String name;
         public readonly Sprite sprite;

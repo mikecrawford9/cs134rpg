@@ -262,6 +262,11 @@ namespace RPG
             }
         }
 
+        public Item[] getItems()
+        {
+            return inventory;
+        }
+
         public Item GetItem(int index)
         {
             if(index >= INVENTORY_MAX_SIZE || index < 0)
