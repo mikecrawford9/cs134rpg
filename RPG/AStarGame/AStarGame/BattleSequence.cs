@@ -25,6 +25,14 @@ namespace RPG
         public bool enemiesDead;
         public bool isWaiting;
         public String xRet, yRet, retMap;
+
+        public bool drawprojectile;
+        public Projectile currentprojectile;
+        public Queue<Projectile> projectiles;
+
+        public Rectangle[] playerec;
+        public Rectangle[] enemyrec;
+
         public BattleStageType state;
 
         public AttackButton aButton;
@@ -34,6 +42,8 @@ namespace RPG
 
         public BattleSequence(Party party, Enemy[] enemies, SpriteFont displayTextFont, TileMap battleMap, int xRet, int yRet, String retMap)
         {
+            this.playerec = new Rectangle[] { new Rectangle(366, 207, 32, 32) };
+            this.enemyrec = new Rectangle[] { new Rectangle(111, 207, 32, 32) };
             this.party = party;
             this.enemies = enemies;
             this.combatLog = new List<String>();
@@ -105,8 +115,19 @@ namespace RPG
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(Game1.enemy1RightFace, new Rectangle(111, 207, 32, 32), Color.AliceBlue);
-            spriteBatch.Draw(Game1.playerLeftFace, new Rectangle(366, 207, 32, 32), Color.AliceBlue);
+            if (drawprojectile)
+            {
+                currentprojectile.Draw(spriteBatch);
+            }
+            for (int i = 0; i < playerec.Length; i++)
+            {
+                spriteBatch.Draw(Game1.playerLeftFace, playerec[i], Color.AliceBlue);
+            }
+            for (int i = 0; i < enemyrec.Length; i++)
+            {
+                spriteBatch.Draw(Game1.enemy1RightFace, enemyrec[i], Color.AliceBlue);
+            }
+            
             switch (combatLog.ToArray().Length)
             {
                 default:
@@ -153,37 +174,49 @@ namespace RPG
 
         public void Update()
         {
-            switch (state)
+            if (!drawprojectile && projectiles.Count > 0)
             {
-                case BattleStageType.ACTION:
-                    aButton.Update();
-                    itemButton.Update();
-                    fleeButton.Update();
-                    spellButton.Update();
-                    break;
-                case BattleStageType.FIGHT:
-                    while (this.currentActions.Count > 0)
-                    {
-                        BattleAction a = this.currentActions.Dequeue();
-                        a.performAction();
-                    }
-                    //this.state = BattleStageType.ACTION;
-                    break;
-                case BattleStageType.FLEE:
-                    Console.WriteLine("FLEE STAGE?");
-                    Event e = new Event();
-                    e.setEventType(EventType.MAP_TRANSITION);
-                    e.addProperty("x", xRet);
-                    e.addProperty("y", yRet);
-                    e.addProperty("mapfile", retMap);
-                    Game1.addToEventQueue(e);
-                    this.continueCombat = false;
-                    break;
-                case BattleStageType.LOSE:
-                    break;
-                case BattleStageType.WIN:
-                    break;
-            }  
+                currentprojectile = projectiles.Dequeue();
+                drawprojectile = true;
+            }
+
+            if (drawprojectile)
+                currentprojectile.Update();
+
+            if (!drawprojectile)
+            {
+                switch (state)
+                {
+                    case BattleStageType.ACTION:
+                        aButton.Update();
+                        itemButton.Update();
+                        fleeButton.Update();
+                        spellButton.Update();
+                        break;
+                    case BattleStageType.FIGHT:
+                        while (this.currentActions.Count > 0)
+                        {
+                            BattleAction a = this.currentActions.Dequeue();
+                            a.performAction();
+                        }
+                        //this.state = BattleStageType.ACTION;
+                        break;
+                    case BattleStageType.FLEE:
+                        Console.WriteLine("FLEE STAGE?");
+                        Event e = new Event();
+                        e.setEventType(EventType.MAP_TRANSITION);
+                        e.addProperty("x", xRet);
+                        e.addProperty("y", yRet);
+                        e.addProperty("mapfile", retMap);
+                        Game1.addToEventQueue(e);
+                        this.continueCombat = false;
+                        break;
+                    case BattleStageType.LOSE:
+                        break;
+                    case BattleStageType.WIN:
+                        break;
+                }
+            }
             
         }
 
@@ -221,7 +254,7 @@ namespace RPG
                     foreach(Player t in target)
                     {
                         Console.WriteLine("Melee Attack");
-                        user.UseSpell(t, spell);
+                        Texture2D cur = user.UseSpell(t, spell);
                     }
                     break;
                 case BattleActionType.ITEM:
@@ -234,7 +267,11 @@ namespace RPG
                 case BattleActionType.SPELL:
                     foreach (Player t in target)
                     {
-                        user.UseSpell(t, spell);
+                        Texture2D cur = user.UseSpell(t, spell);
+                        Projectile proj = new Projectile();
+                        proj.Initialize(cur, new Vector2(battleSequence.playerec[0].X, battleSequence.playerec[0].Y), true);
+                        battleSequence.projectiles.Enqueue(proj);
+                        //battleSequence.drawprojectile = true;
                     }
                     break;
                 case BattleActionType.FLEE:
