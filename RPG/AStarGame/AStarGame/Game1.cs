@@ -812,9 +812,23 @@ namespace RPG
                     map = getMap(e.getProperty("battlemap"), 8, 8);
                     //map.removePlayer();
 
-
+                    Enemy[] enemies;
                     Player px = new Player();
-                    Enemy[] enemies = new Enemy[] { new Enemy(new Player(px.getNewPlayer("WARRIOR"), Sprite.ENEMY_1, "Ninja Pu", 7)) };
+                    if(file.Contains("-m2"))
+                    {
+                        enemies = new Enemy[] { new Enemy(new Player(px.getNewEnemy("WARRIOR"), Sprite.ENEMY_1, "DragonCat!!!", 1)) };
+                        enemy1RightFaceFile = enemies[0].player.sprite.GetRightFaceImage();
+                        enemy1RightFace = Content.Load<Texture2D>(enemy1RightFaceFile);
+                        enemy1RightFaceFileHit = enemies[0].player.sprite.GetRightFaceHitImage();
+                        enemy1RightFaceHit = Content.Load<Texture2D>(enemy1RightFaceFileHit);
+                        playerLeftFaceFile = party.partyMembers[0].sprite.GetLeftFaceImage();
+                        playerLeftFace = Content.Load<Texture2D>(playerLeftFaceFile);
+                        playerLeftFaceFileHit = party.partyMembers[0].sprite.GetLeftFaceHitImage();
+                        playerLeftFaceHit = Content.Load<Texture2D>(playerLeftFaceFileHit);
+                    }
+                    else
+                    {
+                    enemies = new Enemy[] { new Enemy(new Player(px.getNewEnemy("WARRIOR"), Sprite.ENEMY_1, "Ninja Pu", 1)) };
                     enemy1RightFaceFile = enemies[0].player.sprite.GetRightFaceImage();
                     enemy1RightFace = Content.Load<Texture2D>(enemy1RightFaceFile);
                     enemy1RightFaceFileHit = enemies[0].player.sprite.GetRightFaceHitImage();
@@ -823,6 +837,7 @@ namespace RPG
                     playerLeftFace = Content.Load<Texture2D>(playerLeftFaceFile);
                     playerLeftFaceFileHit = party.partyMembers[0].sprite.GetLeftFaceHitImage();
                     playerLeftFaceHit = Content.Load<Texture2D>(playerLeftFaceFileHit);
+                    }
 
 
                     bs = new BattleSequence(party, enemies , Content.Load<SpriteFont>("gameFont"),map, x,y,file);
