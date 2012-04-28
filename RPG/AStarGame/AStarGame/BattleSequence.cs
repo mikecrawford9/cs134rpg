@@ -262,7 +262,7 @@ namespace RPG
                 case BattleActionType.ATTACK:
                     foreach(Player t in target)
                     {
-                        bool isenemy = (t.playerBase.playerType == PlayerType.ENEMY) ? true : false;
+                        bool isenemy = (t.playerBase.playerType == PlayerType.ENEMY);
                         Console.WriteLine("Melee Attack, isenemy=" + isenemy);
                         Texture2D cur = user.UseSpell(t, spell);
                         Projectile proj = new Projectile();
@@ -283,7 +283,7 @@ namespace RPG
                 case BattleActionType.SPELL:
                     foreach (Player t in target)
                     {
-                        bool isenemy = (t.playerBase.playerType == PlayerType.ENEMY) ? true: false;
+                        bool isenemy = (t.playerBase.playerType == PlayerType.ENEMY);
                         Texture2D cur = user.UseSpell(t, spell);
                         Projectile proj = new Projectile();
                         if (isenemy)
