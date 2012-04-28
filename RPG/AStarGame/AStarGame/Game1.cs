@@ -154,6 +154,8 @@ namespace RPG
             */
 
             
+
+
             System.Collections.ArrayList tiles = new System.Collections.ArrayList();
             foreach (WorldTile t in Enum.GetValues(typeof(WorldTile)))
             {
@@ -172,10 +174,10 @@ namespace RPG
                 
             }
             worldtiles = tiles.ToArray(typeof(WorldTile)) as WorldTile[];
-            /*Array.Sort(worldtiles, delegate(WorldTile a, WorldTile b)
+            Array.Sort(worldtiles, delegate(WorldTile a, WorldTile b)
                                     {
                                         return a.ToString().CompareTo(b.ToString());
-                                    });*/
+                                    });
             Console.WriteLine(worldtiles.Length);
 
 
@@ -397,7 +399,7 @@ namespace RPG
                 {
                     //Console.WriteLine("noclip=" + noclip);
                     KeyboardState kb = Keyboard.GetState();
-                    if (kb.IsKeyDown(Keys.P))
+                    if (kb.IsKeyDown(Keys.LeftControl) && kb.IsKeyDown(Keys.D))
                     {
                         state = GameState.EDIT;
                         toolmap.selectEdit();
@@ -490,7 +492,7 @@ namespace RPG
             if (maps.ContainsKey(mapfile))
             {
                 ret = maps[mapfile];
-                ret.setPlayerLocation(map.getTileAt(playerx, playery));
+                ret.setPlayerLocation(ret.getTileAt(playerx, playery));
             }
             else
             {
@@ -498,7 +500,7 @@ namespace RPG
                 StreamReader reader = new StreamReader(fileStream);
                 ret = new TileMap(10, 10, 17, DEFAULT_X_TILES, DEFAULT_Y_TILES, whitepixel, toolmap, font);
                 ret.LoadMap(reader, toolmap);
-                ret.setPlayerLocation(map.getTileAt(playerx, playery));
+                ret.setPlayerLocation(ret.getTileAt(playerx, playery));
 
                 maps.Add(mapfile, ret);
                 reader.Close();
