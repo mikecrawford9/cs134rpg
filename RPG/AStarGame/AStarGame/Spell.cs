@@ -17,12 +17,16 @@ namespace RPG
             this.type = type;
             this.element = element;
             this.effects = effects;
+            this.name = name;
+            this.description = description;
         }
         public Spell()
         { }
         public SpellType type;
         public SpellElement element;
         public SpellEffect[] effects;
+        public String name;
+        public String description;
 
         #region DEFAULT
         public static Spell ATTACK = new Spell(SpellType.PHYSICAL, SpellElement.PHYSICAL, new SpellEffect[] { new SpellEffect(SpellEffectType.HP, SpellTargetType.SINGLE, -1) }, "Attack", "A melee attack");

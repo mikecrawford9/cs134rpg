@@ -151,16 +151,16 @@ namespace RPG
             {
                 default:
                 case 3:
-                    spriteBatch.DrawString(Game1.buttonFont, combatLog[combatLog.ToArray().Length - 3], new Vector2(20, 300), Color.White);
-                    spriteBatch.DrawString(Game1.buttonFont, combatLog[combatLog.ToArray().Length - 2], new Vector2(20, 320), Color.White);
-                    spriteBatch.DrawString(Game1.buttonFont, combatLog[combatLog.ToArray().Length - 1], new Vector2(20, 340), Color.White);
+                    spriteBatch.DrawString(Game1.font, combatLog[combatLog.ToArray().Length - 3], new Vector2(40, 410), Color.White);
+                    spriteBatch.DrawString(Game1.font, combatLog[combatLog.ToArray().Length - 2], new Vector2(40, 440), Color.White);
+                    spriteBatch.DrawString(Game1.font, combatLog[combatLog.ToArray().Length - 1], new Vector2(40, 470), Color.White);
                     break;
                 case 2:
-                    spriteBatch.DrawString(Game1.buttonFont, combatLog[combatLog.ToArray().Length - 2], new Vector2(20, 320), Color.White);
-                    spriteBatch.DrawString(Game1.buttonFont, combatLog[combatLog.ToArray().Length - 1], new Vector2(20, 340), Color.White);
+                    spriteBatch.DrawString(Game1.font, combatLog[combatLog.ToArray().Length - 2], new Vector2(40, 410), Color.White);
+                    spriteBatch.DrawString(Game1.font, combatLog[combatLog.ToArray().Length - 1], new Vector2(40, 440), Color.White);
                     break;
                 case 1:
-                    spriteBatch.DrawString(Game1.buttonFont, combatLog[combatLog.ToArray().Length - 1], new Vector2(20, 340), Color.White);
+                    spriteBatch.DrawString(Game1.font, combatLog[combatLog.ToArray().Length - 1], new Vector2(40, 410), Color.White);
                     break;
                 case 0:
                     break;
@@ -326,7 +326,18 @@ namespace RPG
                     {
                         bool isenemy = (t.playerBase.playerType == PlayerType.ENEMY) ? false : true ;
                         Console.WriteLine("Melee Attack, isenemy=" + isenemy);
-                        Texture2D cur = user.UseSpell(t, spell);
+                        Texture2D cur;
+                        Console.WriteLine("Target " + t.name + " has " + t.GetCurrentHealth() + " health." );
+                        if (user.GetCurrentHealth() > 0)
+                        {
+                            int previoushealth = t.GetCurrentHealth();
+                            cur = user.UseSpell(t, spell);
+                            int newHealth = t.GetCurrentHealth();
+                            battleSequence.combatLog.Add(user.name + " has dealt " + (previoushealth - newHealth) + " to "  + t.name + ". ");
+                            
+                        }
+                        else
+                            return;
                         
                         Projectile proj = new Projectile();
                         if(isenemy)
@@ -342,7 +353,10 @@ namespace RPG
                     foreach (Player t in target)
                     {
                         Console.WriteLine("Item");
+                        int previoushealth = t.GetCurrentHealth();
                         t.UseHealingItem(item);
+                        int newHealth = t.GetCurrentHealth();
+                        battleSequence.combatLog.Add(user.name + " has healed " + (newHealth + previoushealth) + ". ");
                     }
                     break;
                 case BattleActionType.SPELL:

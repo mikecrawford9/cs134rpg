@@ -51,7 +51,8 @@ namespace RPG
 
         GraphicsDeviceManager graphics;
         public SpriteBatch spriteBatch;
-        SpriteFont font;
+        public static SpriteFont font;
+        SpriteFont helpText;
 
        public static Texture2D buttonImage;
         public static SpriteFont buttonFont;
@@ -189,6 +190,7 @@ namespace RPG
             edited = true;
             
             font = Content.Load<SpriteFont>("gameFont");
+            helpText = Content.Load<SpriteFont>("worldText");
 
             evindicator = Content.Load<Texture2D>("AStarWayPoint");
             cave = Content.Load<Song>("cavemusic");
@@ -1132,7 +1134,7 @@ namespace RPG
         protected override void Draw(GameTime gameTime)
         {
 
-            GraphicsDevice.Clear(Color.Gray);
+            GraphicsDevice.Clear(Color.Black);
             // TODO: Add your drawing code here
             spriteBatch.Begin();
             if (projectile != null)
@@ -1146,8 +1148,8 @@ namespace RPG
             {
                 Rectangle rec = new Rectangle(10, 10, TileMap.VIEW_WIDTH, TileMap.VIEW_HEIGHT);
                 spriteBatch.Draw(whitepixel, rec, Color.Black);
-                spriteBatch.DrawString(font, "SAVAGE DRAGONS", new Vector2(rec.X + 155, rec.Y + 120), Color.Yellow);
-                spriteBatch.DrawString(buttonFont, "Hit space to play!", new Vector2(rec.X + 190, rec.Y + 300), Color.Yellow);
+                spriteBatch.DrawString(font, "SAVAGE DRAGONS", new Vector2(rec.X + 270, rec.Y + 120), Color.Yellow);
+                spriteBatch.DrawString(buttonFont, "Hit space to play!", new Vector2(rec.X + 305, rec.Y + 300), Color.Yellow);
             }
             else if (state == GameState.GAMEOVER)
             {
@@ -1155,8 +1157,13 @@ namespace RPG
                 {
                     Rectangle rec = new Rectangle(10, 10, TileMap.VIEW_WIDTH, TileMap.VIEW_HEIGHT);
                     spriteBatch.Draw(whitepixel, rec, Color.Black);
-                    spriteBatch.DrawString(font, "YOU WIN!!!", new Vector2(rec.X + 20, rec.Y + 6), Color.Yellow);
-                    spriteBatch.DrawString(font, "Congratulations, you are a\nSavage Dragons MASTER!!", new Vector2(rec.X + 20, rec.Y + 100), Color.Yellow);
+                    string msg1 = "You have defeated the dragon and got the princess.";
+                    Vector2 msg1Length = font.MeasureString(msg1);
+                    Vector2 center = new Vector2(this.graphics.PreferredBackBufferWidth / 2, 100);
+                    spriteBatch.DrawString(font, msg1, center - (msg1Length / 2) + new Vector2(0, 90), Color.Red);
+                    string msg2 = "You are a SAVAGE DRAGON MASTER!";
+                    Vector2 msg2Length = font.MeasureString(msg1);
+                    spriteBatch.DrawString(font, msg2, center - (msg2Length / 2) + new Vector2(0, center.Y + msg1Length.Y + 20), Color.Red);
                     if (!playedendsound)
                     {
                         playedendsound = true;
@@ -1167,16 +1174,28 @@ namespace RPG
                 {
                     Rectangle rec = new Rectangle(10, 10, TileMap.VIEW_WIDTH, TileMap.VIEW_HEIGHT);
                     spriteBatch.Draw(whitepixel, rec, Color.Black);
-                    spriteBatch.DrawString(font, "YOU LOSE!!", new Vector2(rec.X + 20, rec.Y + 6), Color.Yellow);
-                    spriteBatch.DrawString(font, "WOW, you REALLY suck\nat video games...\n\n\nBetter luck next time!", new Vector2(rec.X + 20, rec.Y + 100), Color.Yellow);
+                    string msg1 = "You have died.";
+                    Vector2 msg1Length = font.MeasureString(msg1);
+                    string msg2 = "Wow...you REALLY suck at video games...";
+                    Vector2 msg2Length = font.MeasureString(msg2);
+                    string msg3 = "Better luck next time...";
+                    Vector2 msg3Length = font.MeasureString(msg3);
+                    Vector2 center = new Vector2(this.graphics.PreferredBackBufferWidth / 2, 100);
+                    spriteBatch.DrawString(font, msg1, center - (msg1Length / 2), Color.Red);
+                    spriteBatch.DrawString(font, msg2, center - (msg2Length / 2) + new Vector2(0, center.Y + msg1Length.Y + 10), Color.Red);
+                    spriteBatch.DrawString(font, msg3, center - (msg3Length / 2) + new Vector2(0, center.Y + msg1Length.Y + msg2Length.Y + 20), Color.Red);
+                    
                 }
             }
             else
             {
                 map.Draw(spriteBatch);
-
                 if (state != GameState.RUNNING)
+                {
                     toolmap.Draw(spriteBatch, state);
+                }
+                
+
                 else
                 {
 
@@ -1194,9 +1213,14 @@ namespace RPG
                         spriteBatch.Draw(whitepixel, rec, Color.Black);
                         spriteBatch.DrawString(font, "INVENTORY", new Vector2(rec.X + 20, rec.Y + 6), Color.Yellow);
                         Item[] items = party.getAllItems();
-                        for(int i = 0; i < items.Length; i++)
-                            spriteBatch.DrawString(font, items[i].name, new Vector2(rec.X + 20, rec.Y + 6 + 30*(i+1)), Color.Yellow);
+                        for (int i = 0; i < items.Length; i++)
+                            spriteBatch.DrawString(font, items[i].name, new Vector2(rec.X + 20, rec.Y + 6 + 30 * (i + 1)), Color.Yellow);
                     }
+                    else if (playstate == PlayState.WORLD)
+                    {
+                        spriteBatch.DrawString(helpText, "CONTROLS\nI to open inventory.", new Vector2(580, 50), Color.White);
+                    }
+
                 }
 
                 if (state == GameState.ASTAR)
