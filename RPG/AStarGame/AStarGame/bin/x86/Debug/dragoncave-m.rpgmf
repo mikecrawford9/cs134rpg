@@ -52,7 +52,7 @@
 <EVENT type="MAP_TRANSITION">
 <DATA>
 <y>2</y>
-<x>2</x>
+<x>3</x>
 <mapfile>dragoncave-m2.rpgmf</mapfile>
 </DATA>
 </EVENT>
@@ -62,7 +62,7 @@
 <TILE x="2" y="5" type="GRASS_STAIRS" >
 <EVENT type="MAP_TRANSITION">
 <DATA>
-<y>2</y>
+<y>3</y>
 <x>29</x>
 <mapfile>world3.rpgmf</mapfile>
 </DATA>
@@ -319,7 +319,7 @@
 <EVENT type="MAP_TRANSITION">
 <DATA>
 <y>13</y>
-<x>14</x>
+<x>13</x>
 <mapfile>dragoncave-m2.rpgmf</mapfile>
 </DATA>
 </EVENT>

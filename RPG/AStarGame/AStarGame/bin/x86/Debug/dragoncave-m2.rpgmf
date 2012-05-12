@@ -50,7 +50,7 @@
 <EVENT type="MAP_TRANSITION">
 <DATA>
 <y>2</y>
-<x>2</x>
+<x>3</x>
 <mapfile>dragoncave-m.rpgmf</mapfile>
 </DATA>
 </EVENT>
@@ -309,7 +309,7 @@
 <EVENT type="MAP_TRANSITION">
 <DATA>
 <y>13</y>
-<x>14</x>
+<x>13</x>
 <mapfile>dragoncave-m.rpgmf</mapfile>
 </DATA>
 </EVENT>

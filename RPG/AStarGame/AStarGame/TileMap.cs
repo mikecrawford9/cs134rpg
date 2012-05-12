@@ -20,6 +20,7 @@ namespace RPG
     {
         public const int VIEW_HEIGHT = 512;
         public const int VIEW_WIDTH = 512;
+        public const int MAX_SPAWNED_MONSTERS = 3;
 
         private int size;
         private int pixelsperside;
@@ -27,11 +28,14 @@ namespace RPG
         private int xtiles;
         private int ytiles;
         public String filename;
+        public String monstertype;
 
         int curxtilemin;
         int curytilemin;
 
         int center;
+        int lastspawnedmonster;
+        const int minspawninterval = 5000;
 
         ToolMap toolmap;
         Tile[][] map;
@@ -45,6 +49,7 @@ namespace RPG
 
         Tile playertile;
         List<Tile> monstertiles;
+        bool hasmonsters;
         Dictionary<String, Tile> npctiles;
 
         Message m;
@@ -54,6 +59,8 @@ namespace RPG
 
         public TileMap(int x, int y, int size, int xtiles, int ytiles, Texture2D pixel, ToolMap tools, SpriteFont font, String filename)
         {
+            this.hasmonsters = false;
+            this.lastspawnedmonster = 0;
             this.filename = filename;
             this.toolmap = tools;
             this.size = size;
@@ -154,11 +161,20 @@ namespace RPG
 
         public void RemoveMonsterTile(int index)
         {
-            Console.WriteLine("Calling removemonstertile with index=" + index);
+            Console.WriteLine("Calling removemonstertile with index=" + index + " count = " + monstertiles.Count);
             if(Game1.DEBUG)
                 Console.Write(index);
 
-            monstertiles.RemoveAt(index);
+            if(monstertiles.Count > index)
+                monstertiles.RemoveAt(index);
+        }
+
+        public int getMonsterTilesCount()
+        {
+            if (monstertiles != null)
+                return monstertiles.Count;
+            else
+                return 0;
         }
 
         public void Draw(SpriteBatch spriteBatch)
@@ -191,6 +207,11 @@ namespace RPG
 
             if (m != null)
                 m.Draw(spriteBatch);
+        }
+
+        public void setEnemySpawnTime(int time)
+        {
+            lastspawnedmonster = time;
         }
 
         public bool SaveMap(StreamWriter file)
@@ -300,7 +321,7 @@ namespace RPG
                             {
                                 //file.WriteLine("<MONSTER type=\"" + monstertiles[i].getType() + "\" x=\"" +
                                 //    monstertiles[i].getMapX() + "\" y=\"" + monstertiles[i].getMapY() + "\" />");
-
+                                hasmonsters = true;
                                 String type = reader["type"];
                                 tilex = Convert.ToInt32(reader["x"]);
                                 tiley = Convert.ToInt32(reader["y"]);
@@ -375,7 +396,33 @@ namespace RPG
             playertile = null;
         }
 
-        public void Update(ToolMap toolmap)
+        public void tryMonsterSpawn(int gamems)
+        {
+            if (hasmonsters && monstertiles.Count < MAX_SPAWNED_MONSTERS && (gamems - lastspawnedmonster) > minspawninterval)
+            {
+                Random rand = new Random();
+                if (rand.Next(0, 2) == 1)
+                {
+                    Console.WriteLine("Need to spawn a monster now! game time is = " + gamems);
+                    bool mademonster = false;
+                    while (!mademonster)
+                    {
+                        int x = rand.Next(0, xtiles);
+                        int y = rand.Next(0, ytiles);
+
+                        if (!map[x][y].isObstacle())
+                        {
+                            monstertiles.Add(new Tile(x, y, 0, 0, 0, toolmap.getTool("MONSTER")));
+                            mademonster = true;
+                        }
+                    }
+                    
+                }
+                lastspawnedmonster = gamems;
+            }
+        }
+
+        public void Update(ToolMap toolmap, GameTime gameTime)
         {
             Tool selectedTool = toolmap.getSelected();
             MouseState mouseState = Mouse.GetState();
@@ -457,7 +504,7 @@ namespace RPG
             if(Game1.DEBUG)
             Console.WriteLine("Found " + ce.Length + " events!");
 
-            for(int i = 0; i < ce.Length; i++)
+            for (int i = 0; i < ce.Length; i++)
             {
                 Game1.addToEventQueue(ce[i]);
             }
