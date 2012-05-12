@@ -122,9 +122,9 @@ namespace RPG
         public PlayerBase getNewPlayer(String type)
         {
             if(type == "WARRIOR")
-            return new PlayerBase(PlayerType.HUMAN, 33, 18, 11, 0, 8, 6, 0, 0, 
+            return new PlayerBase(PlayerType.HUMAN, 33, 18, 11, 5, 8, 6, 0, 0, 
             new Item[] { }, Item.ARMOR_1, Item.SWORD_1, new ItemType[] { ItemType.ARMOR, ItemType.CLOTHING }, 
-            new ItemType[] { ItemType.SWORD, ItemType.MACE }, 7, 2, 4, 0, 1, 3, PlayerBase.WARRIOR_EXP_GROWTH, 
+            new ItemType[] { ItemType.SWORD, ItemType.MACE }, 7, 2, 4, 1, 1, 3, PlayerBase.WARRIOR_EXP_GROWTH, 
             new Spell[] { Spell.ATTACK }, Sprite.WARRIOR);
             else if(type == "CLERIC")
             return new PlayerBase(PlayerType.HUMAN, 29, 23, 6, 6, 5, 7, 0, 0, new Item[] { }, Item.CLOTHING_1, Item.MACE_1, new ItemType[] { ItemType.CLOTHING, ItemType.ROBE }, new ItemType[] { ItemType.STAFF, ItemType.MACE }, 7, 3, 2, 2, 1, 3, PlayerBase.CLERIC_EXP_GROWTH, new Spell[] { Spell.ATTACK, Spell.HEAL }, Sprite.CLERIC);
@@ -198,9 +198,9 @@ namespace RPG
         #region HUMAN PLAYER
 
 
-        public static PlayerBase WARRIOR = new PlayerBase(PlayerType.HUMAN, 33, 18, 11, 0, 8, 6, 0, 0,
+        public static PlayerBase WARRIOR = new PlayerBase(PlayerType.HUMAN, 33, 18, 11, 5, 8, 6, 0, 0,
             new Item[] { }, Item.ARMOR_1, Item.SWORD_1, new ItemType[] { ItemType.ARMOR, ItemType.CLOTHING },
-            new ItemType[] { ItemType.SWORD, ItemType.MACE }, 7, 2, 4, 0, 1, 3, new int[] { 1, 2, 3 },
+            new ItemType[] { ItemType.SWORD, ItemType.MACE }, 7, 2, 4, 1, 1, 3, new int[] { 1, 2, 3 },
             new Spell[] { Spell.ATTACK }, Sprite.WARRIOR);
 
         public static PlayerBase CLERIC = new PlayerBase(PlayerType.HUMAN, 29, 23, 6, 6, 5, 7, 0, 0, new Item[] { }, Item.CLOTHING_1, Item.MACE_1, new ItemType[] { ItemType.CLOTHING, ItemType.ROBE }, new ItemType[] { ItemType.STAFF, ItemType.MACE }, 7, 3, 2, 2, 1, 3, PlayerBase.CLERIC_EXP_GROWTH, new Spell[] { Spell.ATTACK, Spell.HEAL }, Sprite.CLERIC);

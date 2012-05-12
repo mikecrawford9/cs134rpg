@@ -122,6 +122,7 @@ Content\buttonfont.xnb
 Content\gameover.xnb
 Content\victory.xnb
 Content\finishedquest.xnb
+Content\worldtext.xnb
 Content\FireballSound.xnb
 Content\Healing.xnb
 Content\SwordAttack.xnb
@@ -133,4 +134,3 @@ Content\cavemusic.xnb
 Content\cavemusic.wma
 Content\Townmusic.xnb
 Content\Townmusic.wma
-Content\worldtext.xnb

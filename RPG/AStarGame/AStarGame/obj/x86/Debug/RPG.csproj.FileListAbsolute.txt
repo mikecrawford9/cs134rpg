@@ -122,6 +122,8 @@ F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStar
 F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\gameover.xnb
 F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\victory.xnb
 F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\finishedquest.xnb
+F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\worldtext.xnb
+F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\FireballSound.xnb
 F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Healing.xnb
 F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\SwordAttack.xnb
 F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Wood Attack.xnb
@@ -141,5 +143,3 @@ F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStar
 F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\obj\x86\Debug\GenerateResource.write.1.tlog
 F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\obj\x86\Debug\RPG.exe
 F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\obj\x86\Debug\RPG.pdb
-F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\FireballSound.xnb
-F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\worldtext.xnb

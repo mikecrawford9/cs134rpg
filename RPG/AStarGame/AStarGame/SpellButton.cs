@@ -41,11 +41,10 @@ namespace RPG
                     playerList.Add(e.player);
                 }
                 bs.currentActions.Enqueue(new BattleAction(bs, player, playerList.ToArray(), BattleActionType.SPELL, Spell.FIRE, null));
-                bs.combatLog.Add("You use fire!.");
                 foreach (Enemy e in bs.enemies)
                 {
                     bs.currentActions.Enqueue(new BattleAction(bs, e.player, new Player[] { player }, BattleActionType.ATTACK, Spell.ATTACK, null));
-                    bs.combatLog.Add("Enemy attacks you.");
+                   
                 }
                 bs.state = BattleStageType.FIGHT;
                 base.clicked = false;

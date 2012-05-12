@@ -356,14 +356,25 @@ namespace RPG
                         int previoushealth = t.GetCurrentHealth();
                         t.UseHealingItem(item);
                         int newHealth = t.GetCurrentHealth();
-                        battleSequence.combatLog.Add(user.name + " has healed " + (newHealth + previoushealth) + ". ");
+                        battleSequence.combatLog.Add(user.name + " has healed " + (newHealth - previoushealth) + ". ");
                     }
                     break;
                 case BattleActionType.SPELL:
                     foreach (Player t in target)
                     {
                         bool isenemy = (t.playerBase.playerType == PlayerType.ENEMY)? false : true ;
-                        Texture2D cur = user.UseSpell(t, spell);
+
+                        Texture2D cur;
+                        if (user.GetCurrentHealth() > 0)
+                        {
+                            int previoushealth = t.GetCurrentHealth();
+                            cur = user.UseSpell(t, spell);
+                            int newHealth = t.GetCurrentHealth();
+                            battleSequence.combatLog.Add(user.name + "'s fire dealt " + (previoushealth - newHealth) + " to " + t.name + ". ");
+
+                        }
+                        else
+                            return;
                         Projectile proj = new Projectile();
                         if (isenemy)
                             proj.Initialize(cur, spell, new Vector2(battleSequence.enemyrec[0].X, battleSequence.enemyrec[0].Y), false, battleSequence.playerec[0].X);

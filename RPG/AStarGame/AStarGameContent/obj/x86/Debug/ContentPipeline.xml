@@ -1118,6 +1118,15 @@
       <Time>2012-05-11T21:44:34.8831925-07:00</Time>
     </Item>
     <Item>
+      <Source>worldtext.spritefont</Source>
+      <Name>worldtext</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+      <Options>None</Options>
+      <Output>F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\worldtext.xnb</Output>
+      <Time>2012-05-11T22:05:44.7988275-07:00</Time>
+    </Item>
+    <Item>
       <Source>FireballSound.wav</Source>
       <Name>FireballSound</Name>
       <Importer>WavImporter</Importer>
@@ -1191,15 +1200,6 @@
       <Output>F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Townmusic.xnb</Output>
       <Extra>F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\Townmusic.wma</Extra>
       <Time>2012-05-11T21:44:34.8421902-07:00</Time>
-    </Item>
-    <Item>
-      <Source>worldtext.spritefont</Source>
-      <Name>worldtext</Name>
-      <Importer>FontDescriptionImporter</Importer>
-      <Processor>FontDescriptionProcessor</Processor>
-      <Options>None</Options>
-      <Output>F:\Users\Michael Sawaya\Documents\Visual Studio 2010\Projects\cs134rpg\RPG\AStarGame\AStarGame\bin\x86\Debug\Content\worldtext.xnb</Output>
-      <Time>2012-05-11T22:05:44.7988275-07:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
