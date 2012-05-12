@@ -322,7 +322,7 @@ namespace RPG
                     catchInput(gameTime, true);
                     map.resetPlayers();
                     map.refreshTiles();
-                    map.Update(toolmap);
+                    map.Update(toolmap, gameTime);
                     astartiles.Clear();
                     break;
                 case GameState.ASTAR:
@@ -363,7 +363,7 @@ namespace RPG
                         break;
                     }
 
-                    processEvents();
+                    processEvents(gameTime);
                     break;
                 case GameState.SAVEMAP:
                     if (!mapsaved)
@@ -741,6 +741,8 @@ namespace RPG
                 }
                 else
                 {
+                    map.tryMonsterSpawn(currenttime);
+
                     Tile[] monsters = map.getMonsters();
                     if ((currenttime - lastmonstermove) > MONSTER_MOVE_DELAY)
                     {
@@ -765,7 +767,7 @@ namespace RPG
                 }
         }
 
-        private void processEvents()
+        private void processEvents(GameTime gameTime)
         {
             while (eventqueue.Count > 0)
             {
@@ -776,7 +778,7 @@ namespace RPG
                     int x = Convert.ToInt32(e.getProperty("x"));
                     int y = Convert.ToInt32(e.getProperty("y"));
 
-                    if(DEBUG)
+                    //if(DEBUG)
                     Console.WriteLine("Processing Map Transition Event for " + mapfile + " x=" + x + ",y=" + y);
                     
                     if(mapfile.Contains("dragon"))
@@ -802,6 +804,7 @@ namespace RPG
                     Console.WriteLine("Reached 2");
 
                     Game1.playstate = PlayState.WORLD;
+                    map.setEnemySpawnTime((int)gameTime.TotalGameTime.TotalMilliseconds);
                 }
                 else if (e.getEventType() == EventType.BATTLE_TILE)
                 {
@@ -809,6 +812,8 @@ namespace RPG
                     int y = map.getPlayerTile().getMapY();
                     playstate = PlayState.BATTLE;
                     String file = map.filename;
+                    int ind = Convert.ToInt32(e.getProperty("index"));
+                    Console.WriteLine("index=" + ind + " monstertiles.count = " + map.getMonsterTilesCount());
                     map.RemoveMonsterTile(Convert.ToInt32(e.getProperty("index")));
                     map = getMap(e.getProperty("battlemap"), 8, 8);
                     //map.removePlayer();

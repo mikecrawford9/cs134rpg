@@ -1871,7 +1871,7 @@
 <EVENT type="MAP_TRANSITION">
 <DATA>
 <mapfile>dragoncave-m.rpgmf</mapfile>
-<x>2</x>
+<x>3</x>
 <y>5</y>
 </DATA>
 </EVENT>
