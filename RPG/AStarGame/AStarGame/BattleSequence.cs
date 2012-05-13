@@ -15,7 +15,7 @@ namespace RPG
      public class BattleSequence
     {
         public static int PROJECTILE_TIME = 2000;
-        
+        public const int BUTTON_Y_MIN = 140;
         public Party party;
         public Enemy[] enemies;
         public List<String> combatLog;
@@ -202,13 +202,13 @@ namespace RPG
             switch (state)
             {
                 case BattleStageType.ACTION:
-                    aButton.Location(600, 100);
+                    aButton.Location(600, BUTTON_Y_MIN);
                     aButton.Draw(spriteBatch);
-                    spellButton.Location(600, 140);
+                    spellButton.Location(600, BUTTON_Y_MIN + 40);
                     spellButton.Draw(spriteBatch);
-                    itemButton.Location(600, 180);
+                    itemButton.Location(600, BUTTON_Y_MIN + 80);
                     itemButton.Draw(spriteBatch);
-                    fleeButton.Location(600, 220);
+                    fleeButton.Location(600, BUTTON_Y_MIN + 120);
                     fleeButton.Draw(spriteBatch);
                     break;
                 case BattleStageType.FIGHT:
