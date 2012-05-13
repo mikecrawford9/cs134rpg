@@ -1195,12 +1195,21 @@ namespace RPG
                     spriteBatch.DrawString(font, msg1, center - (msg1Length / 2), Color.Red);
                     spriteBatch.DrawString(font, msg2, center - (msg2Length / 2) + new Vector2(0, center.Y + msg1Length.Y + 10), Color.Red);
                     spriteBatch.DrawString(font, msg3, center - (msg3Length / 2) + new Vector2(0, center.Y + msg1Length.Y + msg2Length.Y + 20), Color.Red);
-                    
                 }
             }
             else
             {
                 map.Draw(spriteBatch);
+                if (playstate == PlayState.MESSAGE)
+                {
+                    spriteBatch.DrawString(helpText, "CONTROLS\nSpace to continue.", new Vector2(570, 50), Color.White);
+                }
+
+                if (playstate == PlayState.WAITFORNPC)
+                {
+                    spriteBatch.DrawString(helpText, "CONTROLS\nWaiting...", new Vector2(570, 50), Color.White);
+                } 
+
                 if (state != GameState.RUNNING)
                 {
                     toolmap.Draw(spriteBatch, state);
@@ -1216,22 +1225,35 @@ namespace RPG
                         {
                             bs.Draw(spriteBatch);
                         }
-
+                        spriteBatch.DrawString(helpText, "CONTROLS\nClick buttons to \nperform actions", new Vector2(570, 50), Color.White);
                     }
-                    else if (playstate == PlayState.INVENTORY)
+                    else
                     {
-                        Rectangle rec = new Rectangle(10, 10, TileMap.VIEW_WIDTH, TileMap.VIEW_HEIGHT);
-                        spriteBatch.Draw(whitepixel, rec, Color.Black);
-                        spriteBatch.DrawString(font, "INVENTORY", new Vector2(rec.X + 20, rec.Y + 6), Color.Yellow);
-                        Item[] items = party.getAllItems();
-                        for (int i = 0; i < items.Length; i++)
-                            spriteBatch.DrawString(font, items[i].name, new Vector2(rec.X + 20, rec.Y + 6 + 30 * (i + 1)), Color.Yellow);
-                    }
-                    else if (playstate == PlayState.WORLD)
-                    {
-                        spriteBatch.DrawString(helpText, "CONTROLS\nI to open inventory.", new Vector2(580, 50), Color.White);
-                    }
+                        if (playstate == PlayState.INVENTORY)
+                        {
+                            Rectangle rec = new Rectangle(10, 10, TileMap.VIEW_WIDTH, TileMap.VIEW_HEIGHT);
+                            spriteBatch.Draw(whitepixel, rec, Color.Black);
+                            spriteBatch.DrawString(font, "INVENTORY", new Vector2(rec.X + 20, rec.Y + 6), Color.Yellow);
+                            Item[] items = party.getAllItems();
+                            if (items.Length > 0)
+                            {
+                                for (int i = 0; i < items.Length; i++)
+                                    spriteBatch.DrawString(helpText, items[i].name, new Vector2(rec.X + 20, (rec.Y + 40) + 16 * (i + 1)), Color.Yellow);
+                            }
+                            else
+                                spriteBatch.DrawString(helpText, "-EMPTY-", new Vector2(rec.X + 20, rec.Y + 40), Color.Yellow);
 
+                            spriteBatch.DrawString(helpText, "CONTROLS\nSpace to close inventory.", new Vector2(570, 50), Color.White);
+                        }
+                        else if (playstate == PlayState.WORLD)
+                        {
+                            spriteBatch.DrawString(helpText, "CONTROLS\nI to open inventory.", new Vector2(570, 50), Color.White);
+                            spriteBatch.DrawString(helpText, "Use Arrows to Move.", new Vector2(570, 90), Color.White);
+                        }
+
+                        spriteBatch.DrawString(helpText, "HP: " + party.partyMembers[0].GetCurrentHealth() + "/" + party.partyMembers[0].GetMAXHP(), new Vector2(570, 400), Color.White);
+                        spriteBatch.DrawString(helpText, "MP: " + party.partyMembers[0].GetCurrentMana() + "/" + party.partyMembers[0].GetMAXMP(), new Vector2(570, 420), Color.White);
+                    }
                 }
 
                 if (state == GameState.ASTAR)

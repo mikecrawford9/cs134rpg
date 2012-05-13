@@ -264,7 +264,13 @@ namespace RPG
 
         public Item[] getItems()
         {
-            return inventory;
+            List<Item> items = new List<Item>();
+            for (int i = 0; i < inventory.Length; i++)
+            {
+                if (inventory[i] != Item.BLANK)
+                    items.Add(inventory[i]);
+            }
+            return items.ToArray();
         }
 
         public Item GetItem(int index)
