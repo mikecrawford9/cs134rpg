@@ -1,4 +1,4 @@
-/*
+﻿/*
 Name: Michael Crawford
 Class: CS134
 Instructor: Dr. Teoh
@@ -52,6 +52,7 @@ namespace RPG
         GraphicsDeviceManager graphics;
         public SpriteBatch spriteBatch;
         public static SpriteFont font;
+        public static SpriteFont titlefont;
         SpriteFont helpText;
 
        public static Texture2D buttonImage;
@@ -154,8 +155,8 @@ namespace RPG
             buttonFont = Content.Load<SpriteFont>("buttonFont");
             buttonImage = Content.Load<Texture2D>("Tiles/button");
             //PlayerBase war = p.getNewPlayer("WARRIOR");
-          
-            Player[] playerList = new Player[] { new Player(Player.WARRIOR, Sprite.WARRIOR, "Wally", 10) };
+
+            Player[] playerList = new Player[] { new Player(Player.WARRIOR, Sprite.WARRIOR, "Baethor", 10) };
             party = new Party(playerList);
             base.Initialize();
         }
@@ -190,6 +191,7 @@ namespace RPG
             edited = true;
             
             font = Content.Load<SpriteFont>("gameFont");
+            titlefont = Content.Load<SpriteFont>("titleFont");
             helpText = Content.Load<SpriteFont>("worldText");
 
             evindicator = Content.Load<Texture2D>("AStarWayPoint");
@@ -1159,8 +1161,8 @@ namespace RPG
             {
                 Rectangle rec = new Rectangle(10, 10, TileMap.VIEW_WIDTH, TileMap.VIEW_HEIGHT);
                 spriteBatch.Draw(whitepixel, rec, Color.Black);
-                spriteBatch.DrawString(font, "SAVAGE DRAGONS", new Vector2(rec.X + 270, rec.Y + 120), Color.Yellow);
-                spriteBatch.DrawString(buttonFont, "Hit space to play!", new Vector2(rec.X + 305, rec.Y + 300), Color.Yellow);
+                spriteBatch.DrawString(titlefont, "SAVAGE DRAGONS", new Vector2(rec.X + 270, rec.Y + 120), Color.White);
+                spriteBatch.DrawString(buttonFont, "Hit space to play!", new Vector2(rec.X + 305, rec.Y + 300), Color.White);
             }
             else if (state == GameState.GAMEOVER)
             {
@@ -1171,10 +1173,10 @@ namespace RPG
                     string msg1 = "You have defeated the dragon and got the princess.";
                     Vector2 msg1Length = font.MeasureString(msg1);
                     Vector2 center = new Vector2(this.graphics.PreferredBackBufferWidth / 2, 100);
-                    spriteBatch.DrawString(font, msg1, center - (msg1Length / 2) + new Vector2(0, 90), Color.Red);
-                    string msg2 = "You are a SAVAGE DRAGON MASTER!";
+                    spriteBatch.DrawString(font, msg1, center - (msg1Length / 2) + new Vector2(0, 90), Color.Green);
+                    string msg2 = "You are a SAVAGE DRAGON MASTER, " + party.partyMembers[0].name + "!";
                     Vector2 msg2Length = font.MeasureString(msg1);
-                    spriteBatch.DrawString(font, msg2, center - (msg2Length / 2) + new Vector2(0, center.Y + msg1Length.Y + 20), Color.Red);
+                    spriteBatch.DrawString(font, msg2, center - (msg2Length / 2) + new Vector2(0, center.Y + msg1Length.Y + 20), Color.Green);
                     if (!playedendsound)
                     {
                         playedendsound = true;
@@ -1250,9 +1252,11 @@ namespace RPG
                             spriteBatch.DrawString(helpText, "CONTROLS\nI to open inventory.", new Vector2(570, 50), Color.White);
                             spriteBatch.DrawString(helpText, "Use Arrows to Move.", new Vector2(570, 90), Color.White);
                         }
-
-                        spriteBatch.DrawString(helpText, "HP: " + party.partyMembers[0].GetCurrentHealth() + "/" + party.partyMembers[0].GetMAXHP(), new Vector2(570, 400), Color.White);
-                        spriteBatch.DrawString(helpText, "MP: " + party.partyMembers[0].GetCurrentMana() + "/" + party.partyMembers[0].GetMAXMP(), new Vector2(570, 420), Color.White);
+                        spriteBatch.DrawString(helpText, party.partyMembers[0].name, new Vector2(570, 300), Color.White);
+                        spriteBatch.DrawString(helpText, "HP: " + party.partyMembers[0].GetCurrentHealth() + "/" + party.partyMembers[0].GetMAXHP(), new Vector2(570, 320), Color.White);
+                        spriteBatch.DrawString(helpText, "MP: " + party.partyMembers[0].GetCurrentMana() + "/" + party.partyMembers[0].GetMAXMP(), new Vector2(570, 340), Color.White);
+                        spriteBatch.DrawString(helpText, "Weapon: " + party.partyMembers[0].weapon.name , new Vector2(570, 360), Color.White);
+                        spriteBatch.DrawString(helpText, "Armor: " + party.partyMembers[0].armor.name, new Vector2(570, 380), Color.White);
                     }
                 }
 

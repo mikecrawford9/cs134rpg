@@ -445,6 +445,11 @@ namespace RPG
         public bool UseHealingItem(Item healingItem)
         {
             bool effective = false;
+            if (!this.inventory.RemoveItem(healingItem))
+            {
+                return false;
+            }
+
             if (healingItem.type == ItemType.RECOVERY_POTION)
             {
                 foreach (ItemEffect i in healingItem.effects)
