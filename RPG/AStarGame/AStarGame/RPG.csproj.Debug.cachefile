@@ -122,6 +122,7 @@ Content\buttonfont.xnb
 Content\gameover.xnb
 Content\victory.xnb
 Content\finishedquest.xnb
+Content\worldtext.xnb
 Content\FireballSound.xnb
 Content\Healing.xnb
 Content\SwordAttack.xnb
@@ -130,7 +131,6 @@ Content\Tiles\Dragon Roar.xnb
 Content\battlemusic.xnb
 Content\cavemusic.xnb
 Content\Townmusic.xnb
-Content\worldtext.xnb
 Content\battlemusic.wma
 Content\cavemusic.wma
 Content\Townmusic.wma
