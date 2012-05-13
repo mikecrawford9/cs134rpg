@@ -824,7 +824,13 @@ namespace RPG
                     Player px = new Player();
                     if(file.Contains("-m2"))
                     {
-                        enemies = new Enemy[] { new Enemy(new Player(px.getNewEnemy("WARRIOR"), Sprite.ENEMY_1, "Dragon Cat", 1), Item.DRAGON_SKULL) };
+                        Enemy m = null;
+                        if (!party.hasItem(Item.DRAGON_SKULL))
+                            m = new Enemy(new Player(px.getNewEnemy("WARRIOR"), Sprite.ENEMY_1, "Dragon Cat", 1), Item.DRAGON_SKULL);
+                        else
+                            m = new Enemy(new Player(px.getNewEnemy("WARRIOR"), Sprite.ENEMY_1, "Ninja Pu", 1), Item.HP_POTION_100);
+
+                        enemies = new Enemy[] { m };
                         enemy1RightFaceFile = enemies[0].player.sprite.GetRightFaceImage();
                         enemy1RightFace = Content.Load<Texture2D>(enemy1RightFaceFile);
                         enemy1RightFaceFileHit = enemies[0].player.sprite.GetRightFaceHitImage();

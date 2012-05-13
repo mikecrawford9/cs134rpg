@@ -410,7 +410,9 @@ namespace RPG
                         int x = rand.Next(0, xtiles);
                         int y = rand.Next(0, ytiles);
 
-                        if (!map[x][y].isObstacle())
+                        if (!map[x][y].isObstacle() && 
+                            map[x][y].getEvents().Length == 0 && 
+                            Math.Abs(playertile.getMapX() - x) > 4 && Math.Abs(playertile.getMapY() - y) > 4)
                         {
                             monstertiles.Add(new Tile(x, y, 0, 0, 0, toolmap.getTool("MONSTER")));
                             mademonster = true;
