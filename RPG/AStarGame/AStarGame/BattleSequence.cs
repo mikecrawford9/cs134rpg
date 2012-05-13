@@ -34,8 +34,11 @@ namespace RPG
         public Projectile currentprojectile;
         public Queue<Projectile> projectiles;
 
-        public Rectangle[] playerec;
-        public Rectangle[] enemyrec;
+        public BattleEntity[] playerec;
+        public BattleEntity[] enemyrec;
+
+        //public Rectangle[] playerec;
+        //public Rectangle[] enemyrec;
 
         public BattleStageType state;
 
@@ -46,8 +49,8 @@ namespace RPG
 
         public BattleSequence(Party party, Enemy[] enemies, SpriteFont displayTextFont, TileMap battleMap, int xRet, int yRet, String retMap)
         {
-            this.playerec = new Rectangle[] { new Rectangle(366, 207, 32, 32) };
-            this.enemyrec = new Rectangle[] { new Rectangle(111, 207, 32, 32) };
+            this.playerec = new BattleEntity[] { new BattleEntity(new Rectangle(366, 207, 32, 32), Game1.playerLeftFace, Game1.playerLeftFaceHit) };
+            this.enemyrec = new BattleEntity[] { new BattleEntity(new Rectangle(111, 207, 32, 32), Game1.enemy1RightFace, Game1.enemy1RightFaceHit) };
             this.party = party;
             this.enemies = enemies;
             this.combatLog = new List<String>();
@@ -135,7 +138,7 @@ namespace RPG
                 if(drawplayerhp)
                 for (int i = 0; i < playerec.Length; i++)
                 {
-                    spriteBatch.DrawString(Game1.buttonFont, party.partyMembers[i].GetCurrentHealth() + "HP", new Vector2(playerec[i].X, playerec[i].Y + playerec[i].Width + 20), Color.Black);
+                    spriteBatch.DrawString(Game1.buttonFont, party.partyMembers[i].GetCurrentHealth() + "HP", new Vector2(playerec[i].rec.X, playerec[i].rec.Y + playerec[i].rec.Width + 20), Color.Black);
                     
                     
                 }
@@ -152,30 +155,14 @@ namespace RPG
             }
             for (int i = 0; i < playerec.Length; i++)
             {
-                if (wasPlayerHit)
-                {
-                    spriteBatch.Draw(Game1.playerLeftFaceHit, playerec[i], Color.AliceBlue);
-                    wasPlayerHit = false;
-                }
-                else
-                {
-                    spriteBatch.Draw(Game1.playerLeftFace, playerec[i], Color.AliceBlue);
-                }
+                playerec[i].Draw(spriteBatch);
 
-                spriteBatch.DrawString(Game1.buttonFont, party.partyMembers[i].GetCurrentHealth() + "/" + party.partyMembers[i].GetMAXHP() + "HP", new Vector2(playerec[i].X, playerec[i].Y + playerec[i].Width + 20), Color.Red);
-                spriteBatch.DrawString(Game1.buttonFont, party.partyMembers[i].GetCurrentMana() + "/" + party.partyMembers[i].GetMAXMP() + "MP", new Vector2(playerec[i].X, playerec[i].Y + playerec[i].Width + 32), Color.Blue);
+                spriteBatch.DrawString(Game1.buttonFont, party.partyMembers[i].GetCurrentHealth() + "/" + party.partyMembers[i].GetMAXHP() + "HP", new Vector2(playerec[i].rec.X, playerec[i].rec.Y + playerec[i].rec.Width + 20), Color.Red);
+                spriteBatch.DrawString(Game1.buttonFont, party.partyMembers[i].GetCurrentMana() + "/" + party.partyMembers[i].GetMAXMP() + "MP", new Vector2(playerec[i].rec.X, playerec[i].rec.Y + playerec[i].rec.Width + 32), Color.Blue);
             }
             for (int i = 0; i < enemyrec.Length; i++)
             {
-                if (wasEnemyHit)
-                {
-                    spriteBatch.Draw(Game1.enemy1RightFaceHit, enemyrec[i], Color.AliceBlue);
-                    wasEnemyHit = false;
-                }
-                else
-                {
-                    spriteBatch.Draw(Game1.enemy1RightFace, enemyrec[i], Color.AliceBlue);
-                }
+                enemyrec[i].Draw(spriteBatch);
             }
             
             switch (combatLog.ToArray().Length)
@@ -226,7 +213,12 @@ namespace RPG
         public bool drawplayerhp;
         public void Update(GameTime gameTime)
         {
-            
+            for (int i = 0; i < playerec.Length; i++)
+                playerec[i].Update(gameTime);
+
+            for (int i = 0; i < enemyrec.Length; i++)
+                enemyrec[i].Update(gameTime);
+
             if (!drawprojectile && projectiles.Count > 0)
             {
                 currentprojectile = projectiles.Dequeue();
@@ -245,10 +237,12 @@ namespace RPG
             }
             if (drawprojectile)
             {
-                currentprojectile.Update();
+                currentprojectile.Update(gameTime);
                 int curtime = (int)gameTime.TotalGameTime.TotalMilliseconds;
                 if (curtime - shotprojectileat > PROJECTILE_TIME)
+                {
                     drawprojectile = false;
+                }
             }
 
             if (!drawprojectile)
@@ -372,9 +366,9 @@ namespace RPG
                         
                         Projectile proj = new Projectile();
                         if(isenemy)
-                            proj.Initialize(cur, spell, new Vector2(battleSequence.enemyrec[0].X, battleSequence.enemyrec[0].Y), false, battleSequence.playerec[0].X);
+                            proj.Initialize(cur, spell, new Vector2(battleSequence.enemyrec[0].rec.X, battleSequence.enemyrec[0].rec.Y), false, battleSequence.playerec[0].rec.X, battleSequence.playerec[0]);
                         else
-                            proj.Initialize(cur, spell,  new Vector2(battleSequence.playerec[0].X, battleSequence.playerec[0].Y), true, battleSequence.enemyrec[0].X);
+                            proj.Initialize(cur, spell, new Vector2(battleSequence.playerec[0].rec.X, battleSequence.playerec[0].rec.Y), true, battleSequence.enemyrec[0].rec.X, battleSequence.enemyrec[0]);
                         battleSequence.projectiles.Enqueue(proj);
                         
                     }
@@ -417,9 +411,9 @@ namespace RPG
                             return;
                         Projectile proj = new Projectile();
                         if (isenemy)
-                            proj.Initialize(cur, spell, new Vector2(battleSequence.enemyrec[0].X, battleSequence.enemyrec[0].Y), false, battleSequence.playerec[0].X);
+                            proj.Initialize(cur, spell, new Vector2(battleSequence.enemyrec[0].rec.X, battleSequence.enemyrec[0].rec.Y), false, battleSequence.playerec[0].rec.X, battleSequence.playerec[0]);
                         else
-                            proj.Initialize(cur, spell, new Vector2(battleSequence.playerec[0].X, battleSequence.playerec[0].Y), true, battleSequence.enemyrec[0].X);
+                            proj.Initialize(cur, spell, new Vector2(battleSequence.playerec[0].rec.X, battleSequence.playerec[0].rec.Y), true, battleSequence.enemyrec[0].rec.X, battleSequence.enemyrec[0]);
                         battleSequence.projectiles.Enqueue(proj);
                         //battleSequence.drawprojectile = true;
                     }

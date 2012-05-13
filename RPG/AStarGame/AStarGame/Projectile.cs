@@ -43,8 +43,9 @@ namespace RPG
         public bool isLeft;
         bool soundplay;
         Spell ba;
+        BattleEntity ent;
 
-        public void Initialize( Texture2D texture, Spell action, Vector2 position, bool isLeft, int xwall)
+        public void Initialize( Texture2D texture, Spell action, Vector2 position, bool isLeft, int xwall, BattleEntity ent)
         {
 
             Texture = texture;
@@ -55,9 +56,10 @@ namespace RPG
             this.isLeft = isLeft;
             soundplay = false;
             ba = action;
+            this.ent = ent;
         }
 
-        public void Update()
+        public void Update(GameTime gameTime)
         {
             // Projectiles always move to the right
             
@@ -75,7 +77,6 @@ namespace RPG
                         else if (ba.element.Equals(SpellElement.HOLY))
                         {
                             Game1.healSound.Play();
-
                         }
                         else if (ba.element.Equals(SpellElement.PHYSICAL))
                         {
@@ -85,6 +86,8 @@ namespace RPG
                         {
                             Game1.swordSound.Play();
                         }
+
+                        ent.startFlashing(gameTime);
                     }
                     Active = false;
                 }
@@ -114,10 +117,10 @@ namespace RPG
                         {
                             Game1.swordSound.Play();
                         }
+
+                        ent.startFlashing(gameTime);
                     }
                     Active = false;
-
-                    
                 }
 
             }

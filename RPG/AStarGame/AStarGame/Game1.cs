@@ -303,7 +303,7 @@ namespace RPG
             {
                 if (projectile.Active)
                 {
-                    projectile.Update();
+                    projectile.Update(gameTime);
                 }
             }
             switch(state)

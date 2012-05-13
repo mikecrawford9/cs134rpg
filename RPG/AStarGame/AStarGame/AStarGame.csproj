@@ -111,6 +111,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AttackButton.cs" />
+    <Compile Include="BattleEntity.cs" />
     <Compile Include="BattleSequence.cs" />
     <Compile Include="Button.cs" />
     <Compile Include="Event.cs" />
