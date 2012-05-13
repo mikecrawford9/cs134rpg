@@ -413,11 +413,11 @@ namespace RPG
 
         public int GetCurrentHealth()
         {
-            return GetMAXHP() - hpLoss;
+            return (GetMAXHP() - hpLoss < 0) ? 0 : GetMAXHP() - hpLoss;
         }
         public int GetCurrentMana()
         {
-            return GetMAXMP() - mpLoss;
+            return (GetMAXHP() - mpLoss < 0) ? 0 : GetMAXMP() - mpLoss;
         }
         public void DealDamage(int amount)
         {
@@ -554,8 +554,29 @@ namespace RPG
             switch (spell.type)
             {
                 case SpellType.MAGIC:
+
+                    foreach(SpellEffect se in spell.effects)
+                    {
+                        if (se.target == SpellTargetType.SELF)
+                        {
+                            switch (se.type)
+                            {
+                                case SpellEffectType.MP:
+                                    if ((se.value * -1) > this.GetCurrentMana())
+                                        return null;
+                                    break;
+                                case SpellEffectType.HP:
+                                    if ((se.value * -1) > this.GetCurrentHealth())
+                                        return null;
+                                    break;
+
+                            }
+                        }
+                    }
+
                     foreach (SpellEffect se in spell.effects)
                     {
+                       
                         switch (se.target)
                         {
                             case SpellTargetType.ALL:

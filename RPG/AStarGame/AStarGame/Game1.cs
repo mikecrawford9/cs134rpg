@@ -826,7 +826,7 @@ namespace RPG
                     {
                         Enemy m = null;
                         if (!party.hasItem(Item.DRAGON_SKULL))
-                            m = new Enemy(new Player(px.getNewEnemy("WARRIOR"), Sprite.ENEMY_1, "Dragon Cat", 1), Item.DRAGON_SKULL);
+                            m = new Enemy(new Player(px.getNewEnemy("WARRIOR"), Sprite.ENEMY_2, "Dragon Cat", 7), Item.DRAGON_SKULL);
                         else
                             m = new Enemy(new Player(px.getNewEnemy("WARRIOR"), Sprite.ENEMY_1, "Ninja Pu", 1), Item.HP_POTION_100);
 
@@ -842,15 +842,15 @@ namespace RPG
                     }
                     else
                     {
-                    enemies = new Enemy[] { new Enemy(new Player(px.getNewEnemy("WARRIOR"), Sprite.ENEMY_1, "Ninja Pu", 1), Item.HP_POTION_100) };
-                    enemy1RightFaceFile = enemies[0].player.sprite.GetRightFaceImage();
-                    enemy1RightFace = Content.Load<Texture2D>(enemy1RightFaceFile);
-                    enemy1RightFaceFileHit = enemies[0].player.sprite.GetRightFaceHitImage();
-                    enemy1RightFaceHit = Content.Load<Texture2D>(enemy1RightFaceFileHit);
-                    playerLeftFaceFile = party.partyMembers[0].sprite.GetLeftFaceImage();
-                    playerLeftFace = Content.Load<Texture2D>(playerLeftFaceFile);
-                    playerLeftFaceFileHit = party.partyMembers[0].sprite.GetLeftFaceHitImage();
-                    playerLeftFaceHit = Content.Load<Texture2D>(playerLeftFaceFileHit);
+                        enemies = new Enemy[] { new Enemy(new Player(px.getNewEnemy("WARRIOR"), Sprite.ENEMY_1, "Ninja Pu", 1), Item.HP_POTION_100) };
+                        enemy1RightFaceFile = enemies[0].player.sprite.GetRightFaceImage();
+                        enemy1RightFace = Content.Load<Texture2D>(enemy1RightFaceFile);
+                        enemy1RightFaceFileHit = enemies[0].player.sprite.GetRightFaceHitImage();
+                        enemy1RightFaceHit = Content.Load<Texture2D>(enemy1RightFaceFileHit);
+                        playerLeftFaceFile = party.partyMembers[0].sprite.GetLeftFaceImage();
+                        playerLeftFace = Content.Load<Texture2D>(playerLeftFaceFile);
+                        playerLeftFaceFileHit = party.partyMembers[0].sprite.GetLeftFaceHitImage();
+                        playerLeftFaceHit = Content.Load<Texture2D>(playerLeftFaceFileHit);
                     }
 
 

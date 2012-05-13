@@ -118,13 +118,19 @@ namespace RPG
 
             return false;
         }
-       
+        bool wasPlayerHit = false;
+        bool wasEnemyHit = false;
+        bool prevProjectile = false;
+        bool isLeft = false;
         public void Draw(SpriteBatch spriteBatch)
         {
             if (drawprojectile)
             {
                 currentprojectile.Draw(spriteBatch);
-                
+
+                prevProjectile = true;
+
+                isLeft = currentprojectile.isLeft;
                 
                 if(drawplayerhp)
                 for (int i = 0; i < playerec.Length; i++)
@@ -135,16 +141,41 @@ namespace RPG
                 }
                 
             }
+            else if (prevProjectile && !drawprojectile)
+            {
+                if (isLeft)
+                    wasEnemyHit = true;
+                else
+                    wasPlayerHit = true;
+
+                prevProjectile = false;
+            }
             for (int i = 0; i < playerec.Length; i++)
             {
-                spriteBatch.Draw(Game1.playerLeftFace, playerec[i], Color.AliceBlue);
+                if (wasPlayerHit)
+                {
+                    spriteBatch.Draw(Game1.playerLeftFaceHit, playerec[i], Color.AliceBlue);
+                    wasPlayerHit = false;
+                }
+                else
+                {
+                    spriteBatch.Draw(Game1.playerLeftFace, playerec[i], Color.AliceBlue);
+                }
 
-                spriteBatch.DrawString(Game1.buttonFont, party.partyMembers[i].GetCurrentHealth() + "HP", new Vector2(playerec[i].X, playerec[i].Y + playerec[i].Width + 20), Color.Black);
-
+                spriteBatch.DrawString(Game1.buttonFont, party.partyMembers[i].GetCurrentHealth() + "/" + party.partyMembers[i].GetMAXHP() + "HP", new Vector2(playerec[i].X, playerec[i].Y + playerec[i].Width + 20), Color.Red);
+                spriteBatch.DrawString(Game1.buttonFont, party.partyMembers[i].GetCurrentMana() + "/" + party.partyMembers[i].GetMAXMP() + "MP", new Vector2(playerec[i].X, playerec[i].Y + playerec[i].Width + 32), Color.Blue);
             }
             for (int i = 0; i < enemyrec.Length; i++)
             {
-                spriteBatch.Draw(Game1.enemy1RightFace, enemyrec[i], Color.AliceBlue);
+                if (wasEnemyHit)
+                {
+                    spriteBatch.Draw(Game1.enemy1RightFaceHit, enemyrec[i], Color.AliceBlue);
+                    wasEnemyHit = false;
+                }
+                else
+                {
+                    spriteBatch.Draw(Game1.enemy1RightFace, enemyrec[i], Color.AliceBlue);
+                }
             }
             
             switch (combatLog.ToArray().Length)
@@ -369,8 +400,17 @@ namespace RPG
                         {
                             int previoushealth = t.GetCurrentHealth();
                             cur = user.UseSpell(t, spell);
+                            
                             int newHealth = t.GetCurrentHealth();
-                            battleSequence.combatLog.Add(user.name + "'s fire dealt " + (previoushealth - newHealth) + " to " + t.name + ". ");
+                            int difference = previoushealth - newHealth;
+                            if (difference == 0)
+                            {
+                                battleSequence.combatLog.Add(user.name + "'s fire failed.");
+                            }
+                            else
+                            {
+                                battleSequence.combatLog.Add(user.name + "'s fire dealt " + (previoushealth - newHealth) + " to " + t.name + ". ");
+                            }
 
                         }
                         else
