@@ -68,7 +68,7 @@ namespace RPG
                 Position.X -= projectileMoveSpeed;
                 if (Position.X < xwall)
                 {
-                    if (Active == true)
+                    if (Active == true && Texture != null)
                     {
                         if (ba.element.Equals(SpellElement.FIRE))
                         {
@@ -98,18 +98,18 @@ namespace RPG
                 
                 if (Position.X > xwall)
                 {
-                    if (Active == true)
+                    if (Active == true && Texture != null)
                     {
-                        if (ba.element.Equals(SpellElement.FIRE)  && Texture != null)
+                        if (ba.element.Equals(SpellElement.FIRE))
                         {
                             Game1.firesound.Play();
                         }
-                        else if (ba.element.Equals(SpellElement.HOLY) && Texture != null)
+                        else if (ba.element.Equals(SpellElement.HOLY))
                         {
                             Game1.healSound.Play();
 
                         }
-                        else if (ba.element.Equals(SpellElement.PHYSICAL) && Texture != null)
+                        else if (ba.element.Equals(SpellElement.PHYSICAL))
                         {
                             Game1.swordSound.Play();
                         }
@@ -117,7 +117,7 @@ namespace RPG
                         {
                             Game1.swordSound.Play();
                         }
-
+                            
                         ent.startFlashing(gameTime);
                     }
                     Active = false;
