@@ -77,7 +77,7 @@ namespace RPG
             {
                 return false;
             }
-            if (this.name == b.name)
+            if (this.name.Equals(b.name))
             {
                 return true;
             }

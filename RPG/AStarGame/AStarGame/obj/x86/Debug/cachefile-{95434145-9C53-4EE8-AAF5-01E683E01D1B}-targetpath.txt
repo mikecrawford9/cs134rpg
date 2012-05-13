@@ -134,3 +134,4 @@ Content\cavemusic.xnb
 Content\cavemusic.wma
 Content\Townmusic.xnb
 Content\Townmusic.wma
+Content\titleFont.xnb

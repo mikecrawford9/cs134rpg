@@ -359,7 +359,7 @@ namespace RPG
                         Console.WriteLine("Melee Attack, isenemy=" + isenemy);
                         Texture2D cur;
                         Console.WriteLine("Target " + t.name + " has " + t.GetCurrentHealth() + " health." );
-                        if (user.GetCurrentHealth() > 0)
+                        if (user.GetCurrentHealth() > 0 && battleSequence.state != BattleStageType.FLEE)
                         {
                             int previoushealth = t.GetCurrentHealth();
                             cur = user.UseSpell(t, spell);
@@ -387,7 +387,15 @@ namespace RPG
                         int previoushealth = t.GetCurrentHealth();
                         t.UseHealingItem(item);
                         int newHealth = t.GetCurrentHealth();
-                        battleSequence.combatLog.Add(user.name + " has healed " + (newHealth - previoushealth) + ". ");
+                        int diff = (newHealth - previoushealth);
+                        if (diff == 0)
+                        {
+                            battleSequence.combatLog.Add(user.name +  " does not have a healing item.");
+                        }
+                        else
+                        {
+                            battleSequence.combatLog.Add(user.name + " has healed " + (newHealth - previoushealth) + ". ");
+                        }
                     }
                     break;
                 case BattleActionType.SPELL:
@@ -396,7 +404,7 @@ namespace RPG
                         bool isenemy = (t.playerBase.playerType == PlayerType.ENEMY)? false : true ;
 
                         Texture2D cur;
-                        if (user.GetCurrentHealth() > 0)
+                        if (user.GetCurrentHealth() > 0 && battleSequence.state != BattleStageType.FLEE)
                         {
                             int previoushealth = t.GetCurrentHealth();
                             cur = user.UseSpell(t, spell);
@@ -430,11 +438,12 @@ namespace RPG
                     {
                         Console.WriteLine("Success!");
                         //continueCombat = false;
+                        battleSequence.combatLog.Add("You sucessfully flee.");
                         battleSequence.state = BattleStageType.FLEE;
                     }
                     else
                     {
-                        Console.WriteLine("Failure!");
+                        battleSequence.combatLog.Add("You failed to flee.");
                         battleSequence.state = BattleStageType.ACTION;
                     }
                     break;
